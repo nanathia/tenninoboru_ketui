@@ -1,0 +1,252 @@
+
+
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../css/main.css" type="text/css" />
+	<title>GMSaveBox Class</title>
+</head>
+
+<body class="class">
+
+	<p><a href="../../../index.html" target="_top">Back to TOC</a></p>
+
+	<a name="//apple_ref/cpp/cl/GMSaveBox"></a>
+	<h1>GMSaveBox Class</h1>
+	
+	<div class="class_info_box">
+		<h2>Super Class</h2>
+		<ul>
+		
+			<li><a href="../../../System/Classes/GMObject/index.html#//apple_ref/cpp/cl/GMObject">GMObject</a></li>
+		
+		</ul>
+		
+	</div>
+
+	<h2>Overview</h2>
+	<div class="overview">
+		<p>ゲームの実行状態を保存し、読み込み直すためのクラスです。
+</p>
+		<p>このクラスは、クラスメソッドだけを使って利用します。
+</p>
+	</div>
+
+	
+		<h2>Tasks</h2>
+		<div class="task">
+		
+			<h3>値が設定されていることの確認と、保存の実行</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/HasValue/bool_HasValue(const_std::string@_key)_const">HasValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/RemoveValue/void_RemoveValue(const_std::string@_key)_const">RemoveValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/Save/void_Save()">Save()</a></li>
+			
+			</ul>
+		
+			<h3>値の取得</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/GetBoolValue/bool_GetBoolValue(const_std::string@_key)_const">GetBoolValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/GetDoubleValue/double_GetDoubleValue(const_std::string@_key)_const">GetDoubleValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/GetFloatValue/float_GetFloatValue(const_std::string@_key)_const">GetFloatValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/GetIntValue/int_GetIntValue(const_std::string@_key)_const">GetIntValue(const std::string& key) const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/GetStringValue/std::string_GetStringValue(const_std::string@_key)_const">GetStringValue(const std::string& key) const</a></li>
+			
+			</ul>
+		
+			<h3>値の設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/SetBoolValue/void_SetBoolValue(const_std::string@_key,_bool_boolValue)">SetBoolValue(const std::string& key, bool boolValue)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/SetDoubleValue/void_SetDoubleValue(const_std::string@_key,_double_doubleValue)">SetDoubleValue(const std::string& key, double doubleValue)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/SetFloatValue/void_SetFloatValue(const_std::string@_key,_float_floatValue)">SetFloatValue(const std::string& key, float floatValue)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/SetIntValue/void_SetIntValue(const_std::string@_key,_int_intValue)">SetIntValue(const std::string& key, int intValue)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMSaveBox/SetStringValue/void_SetStringValue(const_std::string@_key,_const_std::string@_strValue)">SetStringValue(const std::string& key, const std::string& strValue)</a></li>
+			
+			</ul>
+		
+		</div>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+		<h2>Instant Methods</h2>
+
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/HasValue/bool_HasValue(const_std::string@_key)_const"></a>
+				<h3>HasValue</h3>
+				<div class="declare">bool    HasValue(const std::string& key) const</div>
+				
+					<div class="abstract">指定したキーに対応する値が存在することを確認します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/RemoveValue/void_RemoveValue(const_std::string@_key)_const"></a>
+				<h3>RemoveValue</h3>
+				<div class="declare">void    RemoveValue(const std::string& key) const</div>
+				
+					<div class="abstract">指定したキーに対応する値があれば取り除きます。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/Save/void_Save()"></a>
+				<h3>Save</h3>
+				<div class="declare">void    Save()</div>
+				
+					<div class="abstract">保存を実行します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						<p>値を設定したあと、この関数を呼び出すまでは、確実に設定された値が保存されることは保証されません。また、この関数が呼び出されなくても、設定された値が保存されることはあります。</p>
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/GetBoolValue/bool_GetBoolValue(const_std::string@_key)_const"></a>
+				<h3>GetBoolValue</h3>
+				<div class="declare">bool        GetBoolValue(const std::string& key) const</div>
+				
+					<div class="abstract">名前を指定して bool 値を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/GetDoubleValue/double_GetDoubleValue(const_std::string@_key)_const"></a>
+				<h3>GetDoubleValue</h3>
+				<div class="declare">double      GetDoubleValue(const std::string& key) const</div>
+				
+					<div class="abstract">名前を指定して double 値を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/GetFloatValue/float_GetFloatValue(const_std::string@_key)_const"></a>
+				<h3>GetFloatValue</h3>
+				<div class="declare">float       GetFloatValue(const std::string& key) const</div>
+				
+					<div class="abstract">名前を指定して float 値を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/GetIntValue/int_GetIntValue(const_std::string@_key)_const"></a>
+				<h3>GetIntValue</h3>
+				<div class="declare">int         GetIntValue(const std::string& key) const</div>
+				
+					<div class="abstract">名前を指定して int 値を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/GetStringValue/std::string_GetStringValue(const_std::string@_key)_const"></a>
+				<h3>GetStringValue</h3>
+				<div class="declare">std::string GetStringValue(const std::string& key) const</div>
+				
+					<div class="abstract">名前を指定して文字列を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/SetBoolValue/void_SetBoolValue(const_std::string@_key,_bool_boolValue)"></a>
+				<h3>SetBoolValue</h3>
+				<div class="declare">void        SetBoolValue(const std::string& key, bool boolValue)</div>
+				
+					<div class="abstract">名前を指定して bool 値を保存します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/SetDoubleValue/void_SetDoubleValue(const_std::string@_key,_double_doubleValue)"></a>
+				<h3>SetDoubleValue</h3>
+				<div class="declare">void        SetDoubleValue(const std::string& key, double doubleValue)</div>
+				
+					<div class="abstract">名前を指定して double 値を保存します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/SetFloatValue/void_SetFloatValue(const_std::string@_key,_float_floatValue)"></a>
+				<h3>SetFloatValue</h3>
+				<div class="declare">void        SetFloatValue(const std::string& key, float floatValue)</div>
+				
+					<div class="abstract">名前を指定して float 値を保存します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/SetIntValue/void_SetIntValue(const_std::string@_key,_int_intValue)"></a>
+				<h3>SetIntValue</h3>
+				<div class="declare">void        SetIntValue(const std::string& key, int intValue)</div>
+				
+					<div class="abstract">名前を指定して int 値を保存します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMSaveBox/SetStringValue/void_SetStringValue(const_std::string@_key,_const_std::string@_strValue)"></a>
+				<h3>SetStringValue</h3>
+				<div class="declare">void        SetStringValue(const std::string& key, const std::string& strValue)</div>
+				
+					<div class="abstract">名前を指定して文字列を保存します。
+</div>
+				
+				
+			</div>
+		
+	
+	
+	<div class="footer">
+		Copyright &copy; 2010-2012 Sazameki and Satoshi Numata Ph.D.
+	</div>
+
+</body>
+
+</html>

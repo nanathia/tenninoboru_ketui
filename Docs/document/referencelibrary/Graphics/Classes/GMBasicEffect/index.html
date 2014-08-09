@@ -1,0 +1,591 @@
+
+
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="../../../../css/main.css" type="text/css" />
+	<title>GMBasicEffect Class</title>
+</head>
+
+<body class="class">
+
+	<p><a href="../../../index.html" target="_top">Back to TOC</a></p>
+
+	<a name="//apple_ref/cpp/cl/GMBasicEffect"></a>
+	<h1>GMBasicEffect Class</h1>
+	
+	<div class="class_info_box">
+		<h2>Super Class</h2>
+		<ul>
+		
+			<li><a href="../../../Graphics/Classes/GMEffect/index.html#//apple_ref/cpp/cl/GMEffect">GMEffect</a></li>
+		
+		</ul>
+		
+	</div>
+
+	<h2>Overview</h2>
+	<div class="overview">
+		<p>行列、ライティング、テクスチャ、マテリアルを管理し、シェーダとのやり取りを行うためのクラスです。
+</p>
+		<p><p>カメラ特性などの射影変換の設定はプロジェクション行列で、カメラの向きなどの設定はビュー行列で、各モデルの位置などの設定はワールド行列で行います。</p><p>アルファブレンディングの設定は、GMDraw クラスで管理されています。また、ビューの大きさとポイントスプライトの設定は GMGraphics クラスで管理されています。</p><p>Globals.cpp の設定で、GMShaderEnabled の値が true に設定されていなければ、OpenGL（あるいは OpenGL ES）の固定シェーダが利用されます。</p>
+</p>
+	</div>
+
+	
+		<h2>Tasks</h2>
+		<div class="task">
+		
+			<h3>各種行列の管理</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getProjectionMatrix/GMMatrix_getProjectionMatrix()_const">getProjectionMatrix() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getViewMatrix/GMMatrix_getViewMatrix()_const">getViewMatrix() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getWorldMatrix/GMMatrix_getWorldMatrix()_const">getWorldMatrix() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setProjectionMatrix/void_setProjectionMatrix(const_GMMatrix@_matrix)">setProjectionMatrix(const GMMatrix& matrix)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setViewMatrix/void_setViewMatrix(const_GMMatrix@_matrix)">setViewMatrix(const GMMatrix& matrix)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setWorldMatrix/void_setWorldMatrix(const_GMMatrix@_matrix)">setWorldMatrix(const GMMatrix& matrix)</a></li>
+			
+			</ul>
+		
+			<h3>フォグ設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/enableFog/void_enableFog(bool_flag)">enableFog(bool flag)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getFogColor/GMColor_getFogColor()_const">getFogColor() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getFogDensity/double_getFogDensity()_const">getFogDensity() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setFogMode/GMFogMode_getFogMode()_const">GMFogMode   getFogMode() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getFogRangeFarZ/double_getFogRangeFarZ()_const">getFogRangeFarZ() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getFogRangeNearZ/double_getFogRangeNearZ()_const">getFogRangeNearZ() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/isFogEnabled/bool_isFogEnabled()_const">isFogEnabled() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setFogColor/void_setFogColor(const_GMColor@_color)">setFogColor(const GMColor& color)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setFogDensity/void_setFogDensity(double_density)">setFogDensity(double density)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setFogMode/void_setFogMode(GMFogMode_mode)">setFogMode(GMFogMode mode)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getFogRangeFarZ/void_setFogRange(double_nearZ,_double_farZ)">void        setFogRange(double nearZ, double farZ)</a></li>
+			
+			</ul>
+		
+			<h3>ライティング設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/enableLighting/void_enableLighting(bool_flag)">enableLighting(bool flag)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/isLightingEnabled/bool_isLightingEnabled()_const">isLightingEnabled() const</a></li>
+			
+			</ul>
+		
+			<h3>ライト設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/enableLight/void_enableLight(int_index,_bool_flag)">enableLight(int index, bool flag)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightAmbientColor/void_setLightAmbientColor(int_index,_const_GMColor@_color)">setLightAmbientColor(int index, const GMColor& color)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightAttenuation/void_setLightAttenuation(int_index,_double_constant,_double_linear,_double_quadratic)">setLightAttenuation(int index, double constant, double linear, double quadratic)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightDiffuseColor/void_setLightDiffuseColor(int_index,_const_GMColor@_color)">setLightDiffuseColor(int index, const GMColor& color)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightSpecularColor/void_setLightSpecularColor(int_index,_const_GMColor@_color)">setLightSpecularColor(int index, const GMColor& color)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsParallel/void_setLightTypeAsParallel(int_index,_const_GMVector3D@_vecDirection)">setLightTypeAsParallel(int index, const GMVector3D& vecDirection)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsPoint/void_setLightTypeAsPoint(int_index,_const_GMVector3D@_vecPosition)">setLightTypeAsPoint(int index, const GMVector3D& vecPosition)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsSpot/void_setLightTypeAsSpot(int_index,_const_GMVector3D@_vecPosition,_const_GMVector3D@_vecDirection,_double_radAngle,_double_exponent)">setLightTypeAsSpot(int index, const GMVector3D& vecPosition, const GMVector3D& vecDirection, double radAngle, double exponent)</a></li>
+			
+			</ul>
+		
+			<h3>テクスチャ設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/enableTexture/void_enableTexture(bool_flag)">enableTexture(bool flag)</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getTexture/GMTexture2D*_getTexture()_const">getTexture() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/isTextureEnabled/bool_isTextureEnabled()_const">isTextureEnabled() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setTexture/void_setTexture(GMTexture2D*_tex)">setTexture(GMTexture2D* tex)</a></li>
+			
+			</ul>
+		
+			<h3>マテリアル設定</h3>
+			<ul>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getMaterialAmbient/GMColor_getMaterialAmbient()_const">getMaterialAmbient() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getMaterialDiffuse/GMColor_getMaterialDiffuse()_const">getMaterialDiffuse() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getMaterialEmission/GMColor_getMaterialEmission()_const">getMaterialEmission() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getMaterialShininess/double_getMaterialShininess()_const">getMaterialShininess() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/getMaterialSpecular/GMColor_getMaterialSpecular()_const">getMaterialSpecular() const</a></li>
+			
+				<li><a href="#//apple_ref/cpp/instm/GMBasicEffect/setMaterial/void_setMaterial(const_GMVector3D@_diffuse_=_GMVector3D(0.8,_0.8,_0.8),_const_GMVector3D@_specular_=_GMVector3D::Zero,_const_GMVector3D@_ambient_=_GMVector3D(0.2,_0.2,_0.2),_const_GMVector3D@_emission_=_GMVector3D::Zero,_const_double_shininess_=_0.0)">setMaterial(const GMVector3D& diffuse = GMVector3D(0.8, 0.8, 0.8), const GMVector3D& specular = GMVector3D::Zero, const GMVector3D& ambient = GMVector3D(0.2, 0.2, 0.2), const GMVector3D& emission = GMVector3D::Zero, const double shininess = 0.0)</a></li>
+			
+			</ul>
+		
+		</div>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+		<h2>Instant Methods</h2>
+
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getProjectionMatrix/GMMatrix_getProjectionMatrix()_const"></a>
+				<h3>getProjectionMatrix</h3>
+				<div class="declare">GMMatrix    getProjectionMatrix() const</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getViewMatrix/GMMatrix_getViewMatrix()_const"></a>
+				<h3>getViewMatrix</h3>
+				<div class="declare">GMMatrix    getViewMatrix() const</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getWorldMatrix/GMMatrix_getWorldMatrix()_const"></a>
+				<h3>getWorldMatrix</h3>
+				<div class="declare">GMMatrix    getWorldMatrix() const</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setProjectionMatrix/void_setProjectionMatrix(const_GMMatrix@_matrix)"></a>
+				<h3>setProjectionMatrix</h3>
+				<div class="declare">void        setProjectionMatrix(const GMMatrix& matrix)</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setViewMatrix/void_setViewMatrix(const_GMMatrix@_matrix)"></a>
+				<h3>setViewMatrix</h3>
+				<div class="declare">void        setViewMatrix(const GMMatrix& matrix)</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setWorldMatrix/void_setWorldMatrix(const_GMMatrix@_matrix)"></a>
+				<h3>setWorldMatrix</h3>
+				<div class="declare">void        setWorldMatrix(const GMMatrix& matrix)</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/enableFog/void_enableFog(bool_flag)"></a>
+				<h3>enableFog</h3>
+				<div class="declare">void        enableFog(bool flag)</div>
+				
+					<div class="abstract">フォグを有効または無効にします。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getFogColor/GMColor_getFogColor()_const"></a>
+				<h3>getFogColor</h3>
+				<div class="declare">GMColor     getFogColor() const</div>
+				
+					<div class="abstract">フォグの色を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getFogDensity/double_getFogDensity()_const"></a>
+				<h3>getFogDensity</h3>
+				<div class="declare">double      getFogDensity() const</div>
+				
+					<div class="abstract">フォグをGMFogModeExpかGMFogModeExp2のいずれかのモードで使用する際の密度を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setFogMode/GMFogMode_getFogMode()_const"></a>
+				<h3>setFogMode</h3>
+				<div class="declare">GMFogMode   getFogMode() const</div>
+				
+					<div class="abstract">フォグのモードを取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getFogRangeFarZ/double_getFogRangeFarZ()_const"></a>
+				<h3>getFogRangeFarZ</h3>
+				<div class="declare">double      getFogRangeFarZ() const</div>
+				
+					<div class="abstract">フォグをGMFogModeLinearモードで使用する際の遠景位置を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getFogRangeNearZ/double_getFogRangeNearZ()_const"></a>
+				<h3>getFogRangeNearZ</h3>
+				<div class="declare">double      getFogRangeNearZ() const</div>
+				
+					<div class="abstract">フォグをGMFogModeLinearモードで使用する際の近景位置を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/isFogEnabled/bool_isFogEnabled()_const"></a>
+				<h3>isFogEnabled</h3>
+				<div class="declare">bool        isFogEnabled() const</div>
+				
+					<div class="abstract">フォグを有効にしているかどうかを取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setFogColor/void_setFogColor(const_GMColor@_color)"></a>
+				<h3>setFogColor</h3>
+				<div class="declare">void        setFogColor(const GMColor& color)</div>
+				
+					<div class="abstract">フォグの色を設定します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						デフォルトの色は (0, 0, 0, 0) です。
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setFogDensity/void_setFogDensity(double_density)"></a>
+				<h3>setFogDensity</h3>
+				<div class="declare">void        setFogDensity(double density)</div>
+				
+					<div class="abstract">フォグをGMFogModeExpかGMFogModeExp2のいずれかのモードで使用する際の密度を設定します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						デフォルトの密度は1.0です。正の値だけが有効です。
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setFogMode/void_setFogMode(GMFogMode_mode)"></a>
+				<h3>setFogMode</h3>
+				<div class="declare">void        setFogMode(GMFogMode mode)</div>
+				
+					<div class="abstract">フォグのモードを指定します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						GMFogModeExp, GMFogModeExp2, GMFogModeLinearのいずれかを指定します。デフォルトは GMFogModeExp です。
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getFogRangeFarZ/void_setFogRange(double_nearZ,_double_farZ)"></a>
+				<h3>getFogRangeFarZ</h3>
+				<div class="declare">void        setFogRange(double nearZ, double farZ)</div>
+				
+					<div class="abstract">フォグをGMFogModeLinearモードで使用する際の近景と遠景の位置を指定します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						デフォルトの近景位置は0.0、遠景位置は1.0です。
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/enableLighting/void_enableLighting(bool_flag)"></a>
+				<h3>enableLighting</h3>
+				<div class="declare">void        enableLighting(bool flag)</div>
+				
+					<div class="abstract">ライティングを有効または無効にします。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/isLightingEnabled/bool_isLightingEnabled()_const"></a>
+				<h3>isLightingEnabled</h3>
+				<div class="declare">bool        isLightingEnabled() const</div>
+				
+					<div class="abstract">ライティングを有効にしているかどうかを取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/enableLight/void_enableLight(int_index,_bool_flag)"></a>
+				<h3>enableLight</h3>
+				<div class="declare">void        enableLight(int index, bool flag)</div>
+				
+					<div class="abstract">index番目のライトを有効または無効にします。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightAmbientColor/void_setLightAmbientColor(int_index,_const_GMColor@_color)"></a>
+				<h3>setLightAmbientColor</h3>
+				<div class="declare">void        setLightAmbientColor(int index, const GMColor& color)</div>
+				
+					<div class="abstract">index番目のライトのアンビエント色（環境光の色）を設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightAttenuation/void_setLightAttenuation(int_index,_double_constant,_double_linear,_double_quadratic)"></a>
+				<h3>setLightAttenuation</h3>
+				<div class="declare">void        setLightAttenuation(int index, double constant, double linear, double quadratic)</div>
+				
+					<div class="abstract">index番目のライトの、光の減衰率を指定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightDiffuseColor/void_setLightDiffuseColor(int_index,_const_GMColor@_color)"></a>
+				<h3>setLightDiffuseColor</h3>
+				<div class="declare">void        setLightDiffuseColor(int index, const GMColor& color)</div>
+				
+					<div class="abstract">index番目のライトのディフューズ色（拡散反射光の色）を設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightSpecularColor/void_setLightSpecularColor(int_index,_const_GMColor@_color)"></a>
+				<h3>setLightSpecularColor</h3>
+				<div class="declare">void        setLightSpecularColor(int index, const GMColor& color)</div>
+				
+					<div class="abstract">index番目のライトのスペキュラ色（鏡面反射光の色）を設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsParallel/void_setLightTypeAsParallel(int_index,_const_GMVector3D@_vecDirection)"></a>
+				<h3>setLightTypeAsParallel</h3>
+				<div class="declare">void        setLightTypeAsParallel(int index, const GMVector3D& vecDirection)</div>
+				
+					<div class="abstract">index番目のライトを、方向を指定して平行光源として設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsPoint/void_setLightTypeAsPoint(int_index,_const_GMVector3D@_vecPosition)"></a>
+				<h3>setLightTypeAsPoint</h3>
+				<div class="declare">void        setLightTypeAsPoint(int index, const GMVector3D& vecPosition)</div>
+				
+					<div class="abstract">index番目のライトを、位置を指定して点光源として設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setLightTypeAsSpot/void_setLightTypeAsSpot(int_index,_const_GMVector3D@_vecPosition,_const_GMVector3D@_vecDirection,_double_radAngle,_double_exponent)"></a>
+				<h3>setLightTypeAsSpot</h3>
+				<div class="declare">void        setLightTypeAsSpot(int index, const GMVector3D& vecPosition, const GMVector3D& vecDirection, double radAngle, double exponent)</div>
+				
+					<div class="abstract">位置、方向、開き角度、拡散の度合いを指定して、スポットライトとしてライトを設定します。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						拡散の度合いを示す exponent には 0.0〜128.0 の値を指定します。
+
+					</div>
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/enableTexture/void_enableTexture(bool_flag)"></a>
+				<h3>enableTexture</h3>
+				<div class="declare">void            enableTexture(bool flag)</div>
+				
+					<div class="abstract">テクスチャを有効または無効にします。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getTexture/GMTexture2D*_getTexture()_const"></a>
+				<h3>getTexture</h3>
+				<div class="declare">GMTexture2D*    getTexture() const</div>
+				
+					<div class="abstract">現在設定されているテクスチャを取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/isTextureEnabled/bool_isTextureEnabled()_const"></a>
+				<h3>isTextureEnabled</h3>
+				<div class="declare">bool            isTextureEnabled() const</div>
+				
+					<div class="abstract">テクスチャが有効化されているかどうかを取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setTexture/void_setTexture(GMTexture2D*_tex)"></a>
+				<h3>setTexture</h3>
+				<div class="declare">void            setTexture(GMTexture2D* tex)</div>
+				
+					<div class="abstract">テクスチャを設定します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getMaterialAmbient/GMColor_getMaterialAmbient()_const"></a>
+				<h3>getMaterialAmbient</h3>
+				<div class="declare">GMColor         getMaterialAmbient() const</div>
+				
+					<div class="abstract">マテリアルのアンビエント色（環境反射の色）を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getMaterialDiffuse/GMColor_getMaterialDiffuse()_const"></a>
+				<h3>getMaterialDiffuse</h3>
+				<div class="declare">GMColor         getMaterialDiffuse() const</div>
+				
+					<div class="abstract">マテリアルのディフューズ色（拡散反射光の色）を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getMaterialEmission/GMColor_getMaterialEmission()_const"></a>
+				<h3>getMaterialEmission</h3>
+				<div class="declare">GMColor         getMaterialEmission() const</div>
+				
+					<div class="abstract">マテリアルのエミッション色（自己発光の色）を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getMaterialShininess/double_getMaterialShininess()_const"></a>
+				<h3>getMaterialShininess</h3>
+				<div class="declare">double          getMaterialShininess() const</div>
+				
+					<div class="abstract">マテリアルの輝度を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/getMaterialSpecular/GMColor_getMaterialSpecular()_const"></a>
+				<h3>getMaterialSpecular</h3>
+				<div class="declare">GMColor         getMaterialSpecular() const</div>
+				
+					<div class="abstract">マテリアルのスペキュラ色（鏡面反射光の色）を取得します。
+</div>
+				
+				
+			</div>
+		
+			<div class="one_info">
+				<a name="//apple_ref/cpp/instm/GMBasicEffect/setMaterial/void_setMaterial(const_GMVector3D@_diffuse_=_GMVector3D(0.8,_0.8,_0.8),_const_GMVector3D@_specular_=_GMVector3D::Zero,_const_GMVector3D@_ambient_=_GMVector3D(0.2,_0.2,_0.2),_const_GMVector3D@_emission_=_GMVector3D::Zero,_const_double_shininess_=_0.0)"></a>
+				<h3>setMaterial</h3>
+				<div class="declare">void            setMaterial(const GMVector3D& diffuse = GMVector3D(0.8, 0.8, 0.8), const GMVector3D& specular = GMVector3D::Zero, const GMVector3D& ambient = GMVector3D(0.2, 0.2, 0.2), const GMVector3D& emission = GMVector3D::Zero, const double shininess = 0.0)</div>
+				
+					<div class="abstract">マテリアルの設定を行います。この設定は、ライティングが有効な環境でのみ反映されます。
+</div>
+				
+				
+					<div class="discussion">
+						<h4>Discussion</h4>
+						引数なしで実行した場合、OpenGL 標準のデフォルトマテリアル設定が使用されます（ディフューズ (0.8, 0.8, 0.8)、スペキュラ (0, 0, 0)、アンビエント (0.2, 0.2, 0.2)、エミッション (0, 0, 0)、輝度 0.0）。
+
+					</div>
+				
+			</div>
+		
+	
+	
+	<div class="footer">
+		Copyright &copy; 2010-2012 Sazameki and Satoshi Numata Ph.D.
+	</div>
+
+</body>
+
+</html>

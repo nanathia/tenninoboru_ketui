@@ -1,0 +1,152 @@
+//
+//  ItemCommandInfo.h
+//  Karakuri2 Mac
+//
+//  Created by 小林　伸 on 2014/07/27.
+//  Copyright (c) 2014年 Satoshi Numata. All rights reserved.
+//
+
+#ifndef __Karakuri2_Mac__ItemCommandInfo__
+#define __Karakuri2_Mac__ItemCommandInfo__
+
+#include "Karakuri.h"
+#include <vector>
+#include <string>
+
+class SKItem;
+
+class CarsorSelectReAction{
+public:
+    virtual const char* update(GMInput* input, double deltaTime, SKItem* item) = 0;
+    virtual void draw(GMSpriteBatch* s) = 0;
+    
+    virtual ~CarsorSelectReAction();
+};
+
+class CarsorInfo{
+protected:
+    void _draw(const GMVector2D& pos, const std::string& str, GMSpriteBatch* s);
+    
+public:
+    virtual ~CarsorInfo();
+    virtual void draw(const GMVector2D& pos, GMSpriteBatch* s) = 0;
+    virtual CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) = 0;
+    
+};
+
+class SoubiCommand: public CarsorInfo{
+public:
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+
+};
+
+class YomuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class TaberuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class NakawomiruCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class SuteruCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class NageruCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class NomuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class HirouCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class KoukanCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class SetumeiCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class OkuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class KakuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+class UtuCommand: public CarsorInfo{
+public:
+    CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
+    
+};
+
+
+class CommandInfo: public CarsorSelectReAction{
+    std::vector<CarsorInfo*> m_carsors;
+    int m_carsor;
+    CarsorSelectReAction* m_child;
+    
+public:
+    const char* update(GMInput* input, double deltaTime, SKItem* item) override;
+    void draw(GMSpriteBatch* s) override;
+
+    CommandInfo();
+    ~CommandInfo();
+    std::vector<CarsorInfo*> getCarsors();
+    void addCarsor(CarsorInfo* carsor);
+    
+};
+
+class Question: public CommandInfo{
+    std::string m_questionStr;
+public:
+    void draw(GMSpriteBatch* s) override;
+    
+};
+
+#endif /* defined(__Karakuri2_Mac__ItemCommandInfo__) */
