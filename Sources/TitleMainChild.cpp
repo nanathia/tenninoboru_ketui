@@ -7,6 +7,9 @@
 //
 
 #include "TitleMainChild.h"
+#include "SKMusicManager.h"
+#include "SKSoundManager.h"
+#include "SKTitle.h"
 #include "SKSelectWindow.h"
 #include "Globals.h"
 #include "GameMain.h"
@@ -21,6 +24,7 @@ namespace titleScene{
     
     MainInter::MainInter():
     MainChild(){
+        gTitleScene->getMusicMan()->get(MusicName_Main)->play();
     }
     MainInter::~MainInter(){
     }

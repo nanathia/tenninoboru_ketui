@@ -12,6 +12,8 @@
 #include "GameMain.h"
 #include "SKDrawFont.h"
 #include "SKTitleChild.h"
+#include "SKSoundManager.h"
+#include "SKMusicManager.h"
 
 SKTitle* gTitleScene = 0;
 
@@ -33,10 +35,20 @@ void SKTitle::willAppear(GMGraphics* g){
     }
     m_BasicEffect = new GMBasicEffect();
     m_SpriteBatch = new GMSpriteBatch();
+    m_SoundMan = new SKSoundManager;
+    m_SoundMan->add(SoundName_Logo, "SKLogoSound.wav");
+    m_SoundMan->add(SoundName_Selected, "SKCommandSelectReturn.wav");
+    m_SoundMan->add(SoundName_SelectChange, "SKSelectChange.wav");
+    m_MusicMan = new SKMusicManager;
+    m_MusicMan->add(MusicName_Main, "SKTitleMainBGM.mp3");
     m_child = new titleScene::TitleLogo();
 }
 
 void SKTitle::didDisappear(){
+    delete m_MusicMan;
+    m_MusicMan = 0;
+    delete m_SoundMan;
+    m_SoundMan = 0;
     delete m_BasicEffect;
     m_BasicEffect = 0;
     delete m_SpriteBatch;
@@ -72,5 +84,12 @@ void SKTitle::drawView(GMGraphics* g){
         m_BasicEffect->end();
     }
     
+}
+
+SKSoundManager* SKTitle::getSoundMan(){
+    return m_SoundMan;
+}
+SKMusicManager* SKTitle::getMusicMan(){
+    return m_MusicMan;
 }
 

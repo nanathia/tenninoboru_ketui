@@ -9,6 +9,11 @@
 #include "SKSelectWindow.h"
 #include "SKDrawFont.h"
 #include "SaKumas_includes.h"
+#include "GameMain.h"
+#include "SKTitle.h"
+#include "SKPlayScene.h"
+#include "SKSoundManager.h"
+#include "SKMusicManager.h"
 
 namespace selectWindow{
     
@@ -141,6 +146,11 @@ namespace selectWindow{
         if(input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskReturn)){
             // 決定キーが押された。
             // 現在選択エレメントを返す。
+            if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
+                gTitleScene->getSoundMan()->get(SoundName_Selected)->play();
+            }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
+                // TODO::タイトルセレクト音再生の実装。
+            }
             return m_UnderElement;
         }
         if(input->isKeyDownTriggered(GMKeyMaskLeft | GMKeyMaskUp)){
@@ -151,8 +161,11 @@ namespace selectWindow{
                 m_UnderElement = m_Window->getElements()[m_Window->getElements().size()-1];
             }
             m_UnderElement->setCarsor(this);
-        }
-        if(input->isKeyDownTriggered(GMKeyMaskRight | GMKeyMaskDown)){
+            if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
+                gTitleScene->getSoundMan()->get(SoundName_SelectChange)->play();
+            }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
+            }
+        }else if(input->isKeyDownTriggered(GMKeyMaskRight | GMKeyMaskDown)){
             m_UnderElement->setCarsor(0);
             if(m_UnderElement->getNext()){
                 m_UnderElement = m_UnderElement->getNext();
@@ -160,6 +173,10 @@ namespace selectWindow{
                 m_UnderElement = m_Window->getElements()[0];
             }
             m_UnderElement->setCarsor(this);
+            if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
+                gTitleScene->getSoundMan()->get(SoundName_SelectChange)->play();
+            }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
+            }
         }
         return 0;
     }

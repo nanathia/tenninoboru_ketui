@@ -1,6 +1,8 @@
 
 #include "LogoChild.h"
+#include "SKSoundManager.h"
 #include "SKTitleChild.h"
+#include "SKTitle.h"
 #include "Globals.h"
 #include "SKDrawFont.h"
 #include "GameMain.h"
@@ -47,6 +49,7 @@ namespace titleScene{
     LogoInterval::LogoInterval():
     LogoChild(),
     m_interval(0){
+        gTitleScene->getSoundMan()->get(SoundName_Logo)->play();
     }
     LogoInterval::~LogoInterval(){
     }

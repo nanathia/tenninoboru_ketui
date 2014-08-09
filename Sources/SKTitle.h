@@ -11,15 +11,26 @@
 
 #include "Karakuri.h"
 
+class SKMusicManager;
+class SKSoundManager;
 namespace titleScene{
     class SceneChild;
 }
+enum TitleMusicName{
+    MusicName_Main,
+};
+enum TitleSoundName{
+    SoundName_Selected,
+    SoundName_Logo,
+    SoundName_SelectChange,
+};
 
 class SKTitle : public GMScene{
     GMBasicEffect* m_BasicEffect;
     GMSpriteBatch* m_SpriteBatch;
     titleScene::SceneChild* m_child;
-    
+    SKMusicManager* m_MusicMan;
+    SKSoundManager* m_SoundMan;
 public:
     void drawView(GMGraphics* g) override;
     void updateModel(GMInput* input, double deltaTime) override;
@@ -27,6 +38,8 @@ public:
     void didDisappear() override;
     SKTitle();
     ~SKTitle();
+    SKSoundManager* getSoundMan();
+    SKMusicManager* getMusicMan();
 };
 
 extern SKTitle* gTitleScene;

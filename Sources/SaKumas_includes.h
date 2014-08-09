@@ -13,7 +13,6 @@
 #include "SKEffectMan.h"
 #include "SKMassManager.h"
 #include "SKMass.h"
-#include "SKSoundMan.h"
 #include "SKPlayer.h"
 #include "SKObject.h"
 #include "SKEnemyMan.h"
