@@ -34,11 +34,23 @@ namespace sizurus_fonts{
         
     }
     
+    void SKFont::drawCharacter(const char* character, GMSpriteBatch* s, const GMRect2D& destRect, const GMColor& color, double rotation, const GMVector2D& origin){
+        SizurusFontsName drawFont[3];
+        ten_flags flags[3];
+        convertChar2Name(drawFont, flags, character);
+        GMRect2D srcRect((drawFont[0]%charNum)*charSize, (drawFont[0]/charNum)*charSize, charSize, charSize);
+        s->draw(gGameInst->getFontTex(), destRect, srcRect, color, rotation*M_PI, origin*charSize, GMSpriteFlipHorizontally);
+        if(flags[0] == dakuten){
+            srcRect.x = (濁点%charNum)*charSize;
+            srcRect.y = (濁点/charNum)*charSize;
+            s->draw(gGameInst->getFontTex(), destRect, srcRect, color, rotation, origin*charSize, GMSpriteFlipHorizontally);
+        }
+    }
+    
     void SKFont::drawString_toWindow(const SizurusFontsName drawFont, const GMRect2D& destRect, GMSpriteBatch* s, GMColor c){
         int tx = (drawFont%charNum)*charSize;
         int ty = (drawFont/charNum)*charSize;
         s->draw(gGameInst->getFontTex(), destRect, GMRect2D(tx, ty, charSize, charSize), c);
-        
     }
     
     void SKFont::convertChar2Name(SizurusFontsName* fontNames, ten_flags* daku, const std::string& str){

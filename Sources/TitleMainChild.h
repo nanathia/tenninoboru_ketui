@@ -16,6 +16,9 @@ namespace selectWindow{
     class Element;
     class Carsor;
 }
+namespace JASpeakWindow{
+    class Window;
+}
 
 namespace titleScene{
     class TitleMain;
@@ -40,6 +43,7 @@ namespace titleScene{
     
     class MainMenu: public MainChild{
         selectWindow::Window* m_slectWindow;
+        JASpeakWindow::Window* m_speakWindow;
     public:
         MainMenu();
         ~MainMenu();

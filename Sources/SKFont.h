@@ -62,6 +62,10 @@ public:
     // 文字列から、静流フォント配列にコンバートして返す。配列には、予め256バイトくらい用意しとこうよ。
     // 日本語以外はバグるんるん 第二引数は、濁点つけるかどうか。
     static void convertChar2Name(SizurusFontsName* fontNames, ten_flags* flags, const std::string& str);
+ 
+    // 一文字のみを描画する。
+    // 自由回転、自由拡縮、カラー指定描画が可能。時空亜空の言葉のために、追加したメソッド。
+    static void drawCharacter(const char* character, GMSpriteBatch* s, const GMRect2D& destRect, const GMColor& color, double rotation, const GMVector2D& origin);
 };
 
 }

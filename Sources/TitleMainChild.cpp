@@ -13,6 +13,8 @@
 #include "SKSelectWindow.h"
 #include "Globals.h"
 #include "GameMain.h"
+#include "SKFont.h"
+#include "JASpeakWindow.h"
 
 namespace titleScene{
     
@@ -44,9 +46,11 @@ namespace titleScene{
     
     MainMenu::MainMenu():
     MainChild(),
-    m_slectWindow(0)
+    m_slectWindow(0),
+    m_speakWindow(0)
     {
         m_slectWindow = new selectWindow::Window;
+        m_speakWindow = new JASpeakWindow::Window;
         selectWindow::Element* elements[] = {
             new selectWindow::Element(m_slectWindow),
             new selectWindow::Element(m_slectWindow),
@@ -71,6 +75,11 @@ namespace titleScene{
     MainChild* MainMenu::update(TitleMain* parent, GMInput* input, double deltaTime){
         MainChild* next = this;
         selectWindow::Element* selected = m_slectWindow->update(input, deltaTime);
+        m_speakWindow->update(input, deltaTime);
+        if(input->isKeyDownTriggered(GMKeyMaskD)){
+            delete m_speakWindow;
+            m_speakWindow = new JASpeakWindow::Window;
+        }
         if(selected){
             if(selected->getLabel() == "初めから旅する"){
                 next = new MainOuter(MainOuter::branch_newGame);
@@ -79,7 +88,11 @@ namespace titleScene{
         return next;
     }
     void MainMenu::draw(TitleMain* parent, GMSpriteBatch* s){
+        m_speakWindow->draw(s);
         m_slectWindow->draw(s);
+        GMColor gold = GMColor::Gold;
+        gold.a = 0.6;
+        sizurus_fonts::SKFont::drawCharacter("撃", s, GMRect2D(400, 400, 100, 100), gold, 0.5, GMVector2D(0.5, 0.5));
     }
     
     MainOuter::MainOuter(MainOuter::OuterBranch branch):
