@@ -20,9 +20,11 @@ namespace selectWindow{
     // カーソルのデフォルトカラーは白。
     class Carsor{
         GMColor m_Color;
-        Window* parent;
+        Window* m_Window;
         Element* m_UnderElement;
     public:
+        Carsor(Window* window);
+        ~Carsor();
         Element* update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
     public:
@@ -70,6 +72,7 @@ namespace selectWindow{
         Element* update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
     public:
+        std::vector<Element*>& getElements();
         GMRect2D getRect() const;
         GMColor getColor() const;
         void setColor(const GMColor& color);
