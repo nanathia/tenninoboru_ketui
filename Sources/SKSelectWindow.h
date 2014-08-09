@@ -77,6 +77,7 @@ namespace selectWindow{
         GMColor getColor() const;
         void setColor(const GMColor& color);
         void addElement(Element* elem);
+        void setCarsor(Carsor* carsor);
     };
 
 }

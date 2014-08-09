@@ -11,42 +11,59 @@
 
 #include "Karakuri.h"
 
+namespace selectWindow{
+    class Window;
+    class Element;
+    class Carsor;
+}
+
 namespace titleScene{
     class TitleMain;
 
-    class TitleMainChild{
+    class MainChild{
+    protected:
         double m_animationTime;
     public:
-        TitleMainChild();
-        virtual ~TitleMainChild();
-        virtual TitleMainChild* update(TitleMain* parent, GMInput* input, double deltaTime) = 0;
+        MainChild();
+        virtual ~MainChild();
+        virtual MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) = 0;
         virtual void draw(TitleMain* parent, GMSpriteBatch* s) = 0;
     };
     
-    class MainInter: public TitleMainChild{
+    class MainInter: public MainChild{
     public:
         MainInter();
         ~MainInter();
-        TitleMainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
+        MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
     
-    class MainMenu: public TitleMainChild{
+    class MainMenu: public MainChild{
+        selectWindow::Window* m_slectWindow;
     public:
         MainMenu();
         ~MainMenu();
-        TitleMainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
+        MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
     
-    class MainOuter: public TitleMainChild{
+    class MainOuter: public MainChild{
     public:
-        MainOuter();
+        enum OuterBranch{
+            branch_newGame,
+            branch_continue2Data_1,
+            branch_continue2Data_2,
+            branch_continue2Data_3,
+        };
+    private:
+        OuterBranch m_branch;
+    public:
+        MainOuter(OuterBranch branch);
         ~MainOuter();
-        TitleMainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
+        MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
     
 }
 
-#endif /* defined(__Karakuri2_Mac__TitleMainChild__) */
+#endif /* defined(__Karakuri2_Mac__MainChild__) */

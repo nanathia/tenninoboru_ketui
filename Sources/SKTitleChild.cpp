@@ -8,8 +8,10 @@
 
 #include "SKTitleChild.h"
 #include "LogoChild.h"
+#include "TitleMainChild.h"
 #include "Globals.h"
 #include "GameMain.h"
+#include "SKSelectWindow.h"
 
 namespace titleScene{
     
@@ -53,8 +55,11 @@ namespace titleScene{
     }
     
     TitleMain::TitleMain():
-    SceneChild(){
+    SceneChild(),
+    m_child(0)
+    {
         m_BGImage = new GMTexture2D("タイトルメイン背景.png");
+        m_child = new MainInter;
     }
     TitleMain::~TitleMain(){
         delete m_BGImage;
@@ -62,6 +67,11 @@ namespace titleScene{
     }
     SceneChild* TitleMain::update(GMInput *input, double deltaTime){
         SceneChild* next = this;
+        MainChild* nextChild = m_child->update(this, input, deltaTime);
+        if(nextChild != m_child){
+            delete m_child;
+            m_child = nextChild;
+        }
         return next;
     }
     void TitleMain::draw(GMSpriteBatch *s){
@@ -70,6 +80,7 @@ namespace titleScene{
         white.a = m_animationTime;
         s->draw(m_BGImage, GMRect2D(0, 0, SCREEN_SIZE.x, SCREEN_SIZE.y));
         s->draw(0, GMRect2D(0, SCREEN_SIZE), white);
+        m_child->draw(this, s);
     }
     
 }

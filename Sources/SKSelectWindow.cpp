@@ -8,6 +8,7 @@
 
 #include "SKSelectWindow.h"
 #include "SKDrawFont.h"
+#include "SaKumas_includes.h"
 
 namespace selectWindow{
     
@@ -15,9 +16,17 @@ namespace selectWindow{
     m_carsor(0),
     m_rect(GMRect2D(0, 0)),
     m_Color(GMColor::Black){
-        m_Color.a = 0.7;
+        m_Color.a = 0.5;
     }
     Window::~Window(){
+        int size = (int)m_elements.size();
+        for(int i = 0; i < size; i++){
+            delete m_elements[i];
+            m_elements[i] = 0;
+        }
+        safeCleanUp(m_elements);
+        delete m_carsor;
+        m_carsor = 0;
     }
     void Window::setRectAuto(){
         if(m_elements.empty()) return;
@@ -27,12 +36,12 @@ namespace selectWindow{
             if(i == 0){
                 m_rect = elemRect;
             }else{
-                m_rect.unionRect(elemRect);
+                m_rect = m_rect.unionRect(elemRect);
             }
         }
     }
     Element* Window::update(GMInput *input, double deltaTime){
-        return 0;
+        return m_carsor->update(input, deltaTime);
     }
     void Window::draw(GMSpriteBatch *s){
         s->draw(0, m_rect, m_Color);
@@ -61,6 +70,9 @@ namespace selectWindow{
     }
     std::vector<Element*>& Window::getElements(){
         return m_elements;
+    }
+    void Window::setCarsor(Carsor* carsor){
+        m_carsor = carsor;
     }
     
     Element::Element(Window* window):
@@ -123,10 +135,32 @@ namespace selectWindow{
     Carsor::~Carsor(){
     }
     Element* Carsor::update(GMInput* input, double deltaTime){
+        if(!m_UnderElement){
+            GMException("うにゃにゃー");
+        }
         if(input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskReturn)){
+            // 決定キーが押された。
+            // 現在選択エレメントを返す。
             return m_UnderElement;
         }
-        
+        if(input->isKeyDownTriggered(GMKeyMaskLeft | GMKeyMaskUp)){
+            m_UnderElement->setCarsor(0);
+            if(m_UnderElement->getPrev()){
+                m_UnderElement = m_UnderElement->getPrev();
+            }else{
+                m_UnderElement = m_Window->getElements()[m_Window->getElements().size()-1];
+            }
+            m_UnderElement->setCarsor(this);
+        }
+        if(input->isKeyDownTriggered(GMKeyMaskRight | GMKeyMaskDown)){
+            m_UnderElement->setCarsor(0);
+            if(m_UnderElement->getNext()){
+                m_UnderElement = m_UnderElement->getNext();
+            }else{
+                m_UnderElement = m_Window->getElements()[0];
+            }
+            m_UnderElement->setCarsor(this);
+        }
         return 0;
     }
     void Carsor::draw(GMSpriteBatch* s){

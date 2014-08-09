@@ -11,10 +11,15 @@
 
 #include "Karakuri.h"
 
+namespace selectWindow{
+    class Window;
+    class Element;
+    class Carsor;
+}
+
 namespace titleScene{
     class LogoChild;
     class MainChild;
-    
     class SceneChild{
     public:
         GMMusic* m_BGMusic;
@@ -47,8 +52,6 @@ namespace titleScene{
         SceneChild* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;
     };
-    
-//    class 
     
 }
 
