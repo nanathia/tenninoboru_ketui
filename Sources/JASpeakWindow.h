@@ -42,6 +42,7 @@ namespace JASpeakWindow{
         void allCharacterGoUnderLava();
         std::vector<Character*>& getCharacters_2();
         void push();
+        bool isAllCharacterStilled();
     };
     
 }

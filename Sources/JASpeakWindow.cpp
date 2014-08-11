@@ -150,5 +150,8 @@ namespace JASpeakWindow{
             m_chargeStrs.pop_front();
         }
     }
+    bool Window::isAllCharacterStilled(){
+        return m_state->isAllCharacterStilled();
+    }
     
 }

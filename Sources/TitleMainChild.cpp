@@ -15,17 +15,20 @@
 #include "GameMain.h"
 #include "SKFont.h"
 #include "JASpeakWindow.h"
+#include "SKTitleChild.h"
+#include "SKTitleMainMenuState.h"
 
 namespace titleScene{
     
-    MainChild::MainChild():
-    m_animationTime(0){
+    MainChild::MainChild(TitleMain* user):
+    m_animationTime(0),
+    m_user(user){
     }
     MainChild::~MainChild(){
     }
     
-    MainInter::MainInter():
-    MainChild(){
+    MainInter::MainInter(TitleMain* user):
+    MainChild(user){
         gTitleScene->getMusicMan()->get(MusicName_Main)->play();
     }
     MainInter::~MainInter(){
@@ -34,7 +37,7 @@ namespace titleScene{
         MainChild* next = this;
         m_animationTime += deltaTime/3;
         if(m_animationTime >= 1){
-            next = new MainMenu;
+            next = new MainMenu(m_user);
         }
         return next;
     }
@@ -44,18 +47,15 @@ namespace titleScene{
         s->draw(0, GMRect2D(0, SCREEN_SIZE), white);
     }
     
-    MainMenu::MainMenu():
-    MainChild(),
-    m_slectWindow(0),
-    m_speakWindow(0)
+    MainMenu::MainMenu(TitleMain* user):
+    MainChild(user),
+    m_state(0)
     {
-        m_slectWindow = new selectWindow::Window;
-        m_speakWindow = new JASpeakWindow::Window;
         selectWindow::Element* elements[] = {
-            new selectWindow::Element(m_slectWindow),
-            new selectWindow::Element(m_slectWindow),
-            new selectWindow::Element(m_slectWindow),
-            new selectWindow::Element(m_slectWindow),
+            new selectWindow::Element(user->getSelectWindow()),
+            new selectWindow::Element(user->getSelectWindow()),
+            new selectWindow::Element(user->getSelectWindow()),
+            new selectWindow::Element(user->getSelectWindow()),
         };
         elements[0]->setLabel("初めから旅する");
         elements[1]->setLabel("旅を続ける");
@@ -64,39 +64,30 @@ namespace titleScene{
         int size = (int)sizeof(elements) / sizeof(elements[0]);
         for(int i = 0; i < size; i++){
             elements[i]->setRect(GMRect2D(500, 500-(i*50), 400, 50));
-            m_slectWindow->addElement(elements[i]);
+            user->getSelectWindow()->addElement(elements[i]);
         }
-        selectWindow::Carsor* carsor = new selectWindow::Carsor(m_slectWindow);
-        m_slectWindow->setCarsor(carsor);
+        selectWindow::Carsor* carsor = new selectWindow::Carsor(user->getSelectWindow());
+        user->getSelectWindow()->setCarsor(carsor);
         elements[0]->setCarsor(carsor);
-        m_speakWindow->addString("ワンパンマン。漸プレイステーション。漸コリジョンコレダー。");
-        m_speakWindow->addString("そして誰もいなくなった。漸そして誰も要らなくなった。漸そして誰も見なくなった。");
-        m_speakWindow->addString("今日から私は転校生。漸さて、どうしようか。漸まずは、自己紹介をしよう。");
-        m_speakWindow->addString("扇風機が回りっぱなしだ。漸結構頭こんがらがってきた。漸そしてカレーをいっぱい買ったのよ。");
+        m_state = new mainmenu::MenuState(this);
     }
     MainMenu::~MainMenu(){
     }
     MainChild* MainMenu::update(TitleMain* parent, GMInput* input, double deltaTime){
         MainChild* next = this;
-        selectWindow::Element* selected = m_slectWindow->update(input, deltaTime);
-        m_speakWindow->update(input, deltaTime);
-        if(selected){
-            if(selected->getLabel() == "初めから旅する"){
-                next = new MainOuter(MainOuter::branch_newGame);
-            }
-        }
+        m_state->update(input, deltaTime);
         return next;
     }
     void MainMenu::draw(TitleMain* parent, GMSpriteBatch* s){
-        m_speakWindow->draw(s);
-        m_slectWindow->draw(s);
-        GMColor gold = GMColor::Gold;
-        gold.a = 0.6;
-        sizurus_fonts::SKFont::drawCharacter("撃", s, GMRect2D(400, 400, 100, 100), gold, 0.5, GMVector2D(0.5, 0.5));
+        m_user->getSelectWindow()->draw(s);
+        m_state->draw(s);
+    }
+    TitleMain* MainMenu::getUser(){
+        return m_user;
     }
     
-    MainOuter::MainOuter(MainOuter::OuterBranch branch):
-    MainChild(),
+    MainOuter::MainOuter(TitleMain* user, MainOuter::OuterBranch branch):
+    MainChild(user),
     m_branch(branch){
     }
     MainOuter::~MainOuter(){

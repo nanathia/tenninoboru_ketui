@@ -23,6 +23,8 @@ namespace JASpeakWindow{
         virtual ~WindowStateChild();
         virtual WindowStateChild* update(GMInput* input, double deltaTime) = 0;
         virtual void draw(GMSpriteBatch* s) = 0;
+    public:
+        virtual bool isAllCharacterStilled();
     };
     
     class WindowInter: public WindowStateChild{
@@ -35,12 +37,13 @@ namespace JASpeakWindow{
     };
     
     class WindowVisible: public WindowStateChild{
-        bool isAllCharacterStilled();
     public:
         WindowVisible(Window* user);
         ~WindowVisible();
         WindowStateChild* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;
+    public:
+        bool isAllCharacterStilled() override;
     };
     
     class WindowOuter: public WindowStateChild{
@@ -59,6 +62,7 @@ namespace JASpeakWindow{
         ~WindowState();
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
+        bool isAllCharacterStilled();
     };
     
     

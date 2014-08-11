@@ -66,6 +66,7 @@ namespace selectWindow{
         GMRect2D m_rect;
         GMColor m_Color;
         void setRectAuto();
+        double m_time;
     public:
         Window();
         ~Window();

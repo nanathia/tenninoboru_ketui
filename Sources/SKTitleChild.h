@@ -17,6 +17,10 @@ namespace selectWindow{
     class Carsor;
 }
 
+namespace JASpeakWindow{
+    class Window;
+}
+
 namespace titleScene{
     class LogoChild;
     class MainChild;
@@ -44,6 +48,8 @@ namespace titleScene{
     
     class TitleMain: public SceneChild{
         MainChild* m_child;
+        selectWindow::Window* m_selectWindow;
+        JASpeakWindow::Window* m_speakWindow;
     public:
         GMTexture2D* m_BGImage;
     public:
@@ -51,6 +57,9 @@ namespace titleScene{
         ~TitleMain();
         SceneChild* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;
+    public:
+        selectWindow::Window* getSelectWindow();
+        JASpeakWindow::Window* getSpeakWindow();
     };
     
 }

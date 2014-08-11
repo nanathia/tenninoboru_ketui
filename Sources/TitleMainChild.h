@@ -22,12 +22,16 @@ namespace JASpeakWindow{
 
 namespace titleScene{
     class TitleMain;
+    namespace mainmenu{
+        class MenuState;
+    }
 
     class MainChild{
     protected:
+        TitleMain* m_user;
         double m_animationTime;
     public:
-        MainChild();
+        MainChild(TitleMain* user);
         virtual ~MainChild();
         virtual MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) = 0;
         virtual void draw(TitleMain* parent, GMSpriteBatch* s) = 0;
@@ -35,20 +39,21 @@ namespace titleScene{
     
     class MainInter: public MainChild{
     public:
-        MainInter();
+        MainInter(TitleMain* user);
         ~MainInter();
         MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
     
     class MainMenu: public MainChild{
-        selectWindow::Window* m_slectWindow;
-        JASpeakWindow::Window* m_speakWindow;
+        mainmenu::MenuState* m_state;
     public:
-        MainMenu();
+        MainMenu(TitleMain* user);
         ~MainMenu();
         MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
+    public:
+        TitleMain* getUser();
     };
     
     class MainOuter: public MainChild{
@@ -62,7 +67,7 @@ namespace titleScene{
     private:
         OuterBranch m_branch;
     public:
-        MainOuter(OuterBranch branch);
+        MainOuter(TitleMain* user, OuterBranch branch);
         ~MainOuter();
         MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;

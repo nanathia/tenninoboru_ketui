@@ -12,6 +12,7 @@
 #include "Globals.h"
 #include "GameMain.h"
 #include "SKSelectWindow.h"
+#include "JASpeakWindow.h"
 
 namespace titleScene{
     
@@ -56,12 +57,22 @@ namespace titleScene{
     
     TitleMain::TitleMain():
     SceneChild(),
-    m_child(0)
+    m_child(0),
+    m_speakWindow(0),
+    m_selectWindow(0)
     {
         m_BGImage = new GMTexture2D("タイトルメイン背景.png");
-        m_child = new MainInter;
+        m_child = new MainInter(this);
+        m_selectWindow = new selectWindow::Window;
+        m_speakWindow = new JASpeakWindow::Window;
     }
     TitleMain::~TitleMain(){
+        delete m_speakWindow;
+        m_speakWindow = 0;
+        delete m_selectWindow;
+        m_selectWindow = 0;
+        delete m_child;
+        m_child = 0;
         delete m_BGImage;
         m_BGImage = 0;
     }
@@ -81,6 +92,12 @@ namespace titleScene{
         s->draw(m_BGImage, GMRect2D(0, 0, SCREEN_SIZE.x, SCREEN_SIZE.y));
         s->draw(0, GMRect2D(0, SCREEN_SIZE), white);
         m_child->draw(this, s);
+    }
+    selectWindow::Window* TitleMain::getSelectWindow(){
+        return m_selectWindow;
+    }
+    JASpeakWindow::Window* TitleMain::getSpeakWindow(){
+        return m_speakWindow;
     }
     
 }

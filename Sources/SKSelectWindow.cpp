@@ -20,7 +20,8 @@ namespace selectWindow{
     Window::Window():
     m_carsor(0),
     m_rect(GMRect2D(0, 0)),
-    m_Color(GMColor::Black){
+    m_Color(GMColor::Black),
+    m_time(0){
         m_Color.a = 0.5;
     }
     Window::~Window(){
@@ -46,10 +47,16 @@ namespace selectWindow{
         }
     }
     Element* Window::update(GMInput *input, double deltaTime){
+        m_time += deltaTime/2;
+        if(m_time >= 1){
+            m_time = 1;
+        }
         return m_carsor->update(input, deltaTime);
     }
     void Window::draw(GMSpriteBatch *s){
-        s->draw(0, m_rect, m_Color);
+        GMColor c = m_Color;
+        c.a = GMMath::Lerp(0, m_Color.a, m_time);
+        s->draw(0, m_rect, c);
         int size = (int)m_elements.size();
         for(int i = 0; i < size; i++){
             m_elements[i]->draw(s);

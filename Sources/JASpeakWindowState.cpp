@@ -30,11 +30,17 @@ namespace JASpeakWindow{
     void WindowState::draw(GMSpriteBatch* s){
         m_child->draw(s);
     };
+    bool WindowState::isAllCharacterStilled(){
+        return m_child->isAllCharacterStilled();
+    }
     
     WindowStateChild::WindowStateChild(Window*user):
     m_user(user){
     }
     WindowStateChild::~WindowStateChild(){
+    }
+    bool WindowStateChild::isAllCharacterStilled(){
+        return false;
     }
     
     WindowInter::WindowInter(Window* user):
@@ -111,6 +117,5 @@ namespace JASpeakWindow{
         c.a = GMMath::Lerp(m_user->getColor().a, 0, m_time);
         s->draw(0, m_user->getRect(), c);
     };
-    
     
 }
