@@ -37,8 +37,6 @@ void SKTitle::willAppear(GMGraphics* g){
     m_SpriteBatch = new GMSpriteBatch();
     m_SoundMan = new SKSoundManager;
     m_SoundMan->add(SoundName_Logo, "SKLogoSound.wav");
-    m_SoundMan->add(SoundName_Selected, "SKCommandSelectReturn.wav");
-    m_SoundMan->add(SoundName_SelectChange, "SKSelectChange.wav");
     m_MusicMan = new SKMusicManager;
     m_MusicMan->add(MusicName_Main, "SKTitleMainBGM.mp3");
     m_child = new titleScene::TitleLogo();

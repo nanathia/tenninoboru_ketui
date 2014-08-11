@@ -13,12 +13,25 @@
 #include "Karakuri.h"
 #include "Globals.h"
 
+class SKMusicManager;
+class SKSoundManager;
+
+enum SKSoundName{
+    SoundName_Carsor,
+    SoundName_Return,
+    SoundName_JACharHalt,
+};
+
+enum SKMusicName{
+};
 
 // このクラスのインスタンスには、gGameInst 変数でアクセスできます。
 
 class GameMain : public GMGame {
     GMTexture2D* m_sizuruFont;
     GMFont* m_sazamekiFont;
+    SKMusicManager* m_MusicMan;
+    SKSoundManager* m_SoundMan;
 
 public:
     
@@ -28,6 +41,8 @@ public:
     GMTexture2D* getFontTex() const;
     void setFont(GMTexture2D* sizuru);
     GMFont* getFont();
+    SKMusicManager* getMusicMan();
+    SKSoundManager* getSoundMan();
     
 };
 

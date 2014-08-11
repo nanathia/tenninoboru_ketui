@@ -69,6 +69,10 @@ namespace titleScene{
         selectWindow::Carsor* carsor = new selectWindow::Carsor(m_slectWindow);
         m_slectWindow->setCarsor(carsor);
         elements[0]->setCarsor(carsor);
+        m_speakWindow->addString("ワンパンマン。漸プレイステーション。漸コリジョンコレダー。");
+        m_speakWindow->addString("そして誰もいなくなった。漸そして誰も要らなくなった。漸そして誰も見なくなった。");
+        m_speakWindow->addString("今日から私は転校生。漸さて、どうしようか。漸まずは、自己紹介をしよう。");
+        m_speakWindow->addString("扇風機が回りっぱなしだ。漸結構頭こんがらがってきた。漸そしてカレーをいっぱい買ったのよ。");
     }
     MainMenu::~MainMenu(){
     }
@@ -76,10 +80,6 @@ namespace titleScene{
         MainChild* next = this;
         selectWindow::Element* selected = m_slectWindow->update(input, deltaTime);
         m_speakWindow->update(input, deltaTime);
-        if(input->isKeyDownTriggered(GMKeyMaskD)){
-            delete m_speakWindow;
-            m_speakWindow = new JASpeakWindow::Window;
-        }
         if(selected){
             if(selected->getLabel() == "初めから旅する"){
                 next = new MainOuter(MainOuter::branch_newGame);

@@ -55,25 +55,90 @@ namespace JASpeakWindow{
     public:
         virtual CharacterState* update(GMInput* input, double deltaTime) = 0;
         virtual void draw(GMSpriteBatch* s) = 0;
+    public:
+        virtual bool isEnableLunchNextChar() = 0;
+        virtual bool isStill() const = 0;
+        virtual bool isVanish();
+        virtual void ill_Be_Back();
+    };
+    
+    class CharacterLeady: public CharacterState{
+    public:
+        CharacterLeady(Character* character);
+        ~CharacterLeady();
+        CharacterState* update(GMInput* input, double deltaTime) override;
+        void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
     };
     
     class CharacterFly: public CharacterState{
         double m_time;
+        double m_deltaTime;
     public:
         CharacterFly(Character* character);
         ~CharacterFly();
     public:
         CharacterState* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
     };
     
     class CharacterHold: public CharacterState{
+        bool m_isGoUnderLava;
     public:
         CharacterHold(Character* character);
         ~CharacterHold();
     public:
         CharacterState* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
+        void ill_Be_Back() override;
+    };
+    
+    class CharacterRetire: public CharacterState{
+        double m_time;
+        double m_deltaTime;
+    public:
+        CharacterRetire(Character* character);
+        ~CharacterRetire();
+    public:
+        CharacterState* update(GMInput* input, double deltaTime) override;
+        void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
+    };
+    
+    class CharacterVanished: public CharacterState{
+    public:
+        CharacterVanished(Character* character);
+        ~CharacterVanished();
+    public:
+        CharacterState* update(GMInput* input, double deltaTime) override;
+        void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
+        bool isVanish() override;
+    };
+    
+    class CharacterRetireLeady: public CharacterState{
+    public:
+        CharacterRetireLeady(Character* character);
+        ~CharacterRetireLeady();
+    public:
+        CharacterState* update(GMInput* input, double deltaTime) override;
+        void draw(GMSpriteBatch* s) override;
+    public:
+        bool isEnableLunchNextChar() override;
+        bool isStill() const override;
+        bool isVanish() override;
     };
     
     // 時空亜空が発する言葉の一文字。グラフィカルに表現するため、クラスで表す。
@@ -92,6 +157,12 @@ namespace JASpeakWindow{
         CharacterState* m_state;
         // 色
         GMColor m_color;
+        // チェーン
+        Character* m_nextCharacter;
+        Character* m_prevCharacter;
+        // インターバル
+        double m_nextLunchInterval;
+        double m_completeTime;
     public:
         Character(const char* character, const GMVector2D& characterPos);
         ~Character();
@@ -107,6 +178,19 @@ namespace JASpeakWindow{
         std::string getCharacter() const;
         GMColor getColor() const;
         void setColor(GMColor color);
+        Character* getNext();
+        Character* getPrev();
+        void setNext(Character* next);
+        void setPrev(Character* prev);
+        bool isEnableNextLunchChar();
+        double getNextLunchInterval();
+        void setNextLunchInterval(double interval);
+        double getCompleteTime();
+        void setCompleteTime(double time);
+        bool isStill() const;
+        void setInter();
+        void setOuter();
+        void ill_Be_Back();
     };
     
 }

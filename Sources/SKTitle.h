@@ -17,12 +17,10 @@ namespace titleScene{
     class SceneChild;
 }
 enum TitleMusicName{
-    MusicName_Main,
+    MusicName_Main
 };
 enum TitleSoundName{
-    SoundName_Selected,
-    SoundName_Logo,
-    SoundName_SelectChange,
+    SoundName_Logo
 };
 
 class SKTitle : public GMScene{

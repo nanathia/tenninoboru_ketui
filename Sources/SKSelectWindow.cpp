@@ -146,11 +146,7 @@ namespace selectWindow{
         if(input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskReturn)){
             // 決定キーが押された。
             // 現在選択エレメントを返す。
-            if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
-                gTitleScene->getSoundMan()->get(SoundName_Selected)->play();
-            }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
-                // TODO::タイトルセレクト音再生の実装。
-            }
+            gGameInst->getSoundMan()->get(SoundName_Return)->play();
             return m_UnderElement;
         }
         if(input->isKeyDownTriggered(GMKeyMaskLeft | GMKeyMaskUp)){
@@ -162,7 +158,7 @@ namespace selectWindow{
             }
             m_UnderElement->setCarsor(this);
             if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
-                gTitleScene->getSoundMan()->get(SoundName_SelectChange)->play();
+                gGameInst->getSoundMan()->get(SoundName_Carsor)->play();
             }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
             }
         }else if(input->isKeyDownTriggered(GMKeyMaskRight | GMKeyMaskDown)){
@@ -174,7 +170,7 @@ namespace selectWindow{
             }
             m_UnderElement->setCarsor(this);
             if(dynamic_cast<SKTitle*>(gGameInst->GetCurrentScene())){
-                gTitleScene->getSoundMan()->get(SoundName_SelectChange)->play();
+                gGameInst->getSoundMan()->get(SoundName_Carsor)->play();
             }else if(dynamic_cast<SKPlayScene*>(gGameInst->GetCurrentScene())){
             }
         }

@@ -251,6 +251,8 @@
 		04C7A649199681FB00D7AEEC /* SKSelectChange.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04C7A648199681FB00D7AEEC /* SKSelectChange.wav */; };
 		04C7A64D19968D0A00D7AEEC /* JASpeakWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A64B19968D0A00D7AEEC /* JASpeakWindow.cpp */; };
 		04C7A650199691A500D7AEEC /* JASpeakCharacter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A64E199691A500D7AEEC /* JASpeakCharacter.cpp */; };
+		04C7A66A1997B3E800D7AEEC /* JASpeakWindowState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6681997B3E800D7AEEC /* JASpeakWindowState.cpp */; };
+		04C7A66F19982BC700D7AEEC /* JASpeakCharManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A66D19982BC700D7AEEC /* JASpeakCharManager.cpp */; };
 		04D28CC9196785D5005BCE10 /* SKItemContainar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */; };
 		04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCC1967A2B8005BCE10 /* SKSword.cpp */; };
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
@@ -681,6 +683,10 @@
 		04C7A64C19968D0A00D7AEEC /* JASpeakWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASpeakWindow.h; sourceTree = "<group>"; };
 		04C7A64E199691A500D7AEEC /* JASpeakCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JASpeakCharacter.cpp; sourceTree = "<group>"; };
 		04C7A64F199691A500D7AEEC /* JASpeakCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASpeakCharacter.h; sourceTree = "<group>"; };
+		04C7A6681997B3E800D7AEEC /* JASpeakWindowState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JASpeakWindowState.cpp; sourceTree = "<group>"; };
+		04C7A6691997B3E800D7AEEC /* JASpeakWindowState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASpeakWindowState.h; sourceTree = "<group>"; };
+		04C7A66D19982BC700D7AEEC /* JASpeakCharManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JASpeakCharManager.cpp; sourceTree = "<group>"; };
+		04C7A66E19982BC700D7AEEC /* JASpeakCharManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASpeakCharManager.h; sourceTree = "<group>"; };
 		04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKItemContainar.cpp; sourceTree = "<group>"; };
 		04D28CC8196785D5005BCE10 /* SKItemContainar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKItemContainar.h; sourceTree = "<group>"; };
 		04D28CCC1967A2B8005BCE10 /* SKSword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSword.cpp; sourceTree = "<group>"; };
@@ -1481,12 +1487,48 @@
 		04C7A64A19968C9B00D7AEEC /* 時空亜空の言葉 */ = {
 			isa = PBXGroup;
 			children = (
+				04C7A6661997B3AD00D7AEEC /* window */,
+			);
+			name = "時空亜空の言葉";
+			sourceTree = "<group>";
+		};
+		04C7A6661997B3AD00D7AEEC /* window */ = {
+			isa = PBXGroup;
+			children = (
+				04C7A66B19982B8A00D7AEEC /* character */,
+				04C7A6671997B3B700D7AEEC /* state */,
 				04C7A64B19968D0A00D7AEEC /* JASpeakWindow.cpp */,
 				04C7A64C19968D0A00D7AEEC /* JASpeakWindow.h */,
+			);
+			name = window;
+			sourceTree = "<group>";
+		};
+		04C7A6671997B3B700D7AEEC /* state */ = {
+			isa = PBXGroup;
+			children = (
+				04C7A6681997B3E800D7AEEC /* JASpeakWindowState.cpp */,
+				04C7A6691997B3E800D7AEEC /* JASpeakWindowState.h */,
+			);
+			name = state;
+			sourceTree = "<group>";
+		};
+		04C7A66B19982B8A00D7AEEC /* character */ = {
+			isa = PBXGroup;
+			children = (
+				04C7A66C19982B9900D7AEEC /* manager */,
 				04C7A64E199691A500D7AEEC /* JASpeakCharacter.cpp */,
 				04C7A64F199691A500D7AEEC /* JASpeakCharacter.h */,
 			);
-			name = "時空亜空の言葉";
+			name = character;
+			sourceTree = "<group>";
+		};
+		04C7A66C19982B9900D7AEEC /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				04C7A66D19982BC700D7AEEC /* JASpeakCharManager.cpp */,
+				04C7A66E19982BC700D7AEEC /* JASpeakCharManager.h */,
+			);
+			name = manager;
 			sourceTree = "<group>";
 		};
 		04D28CCB1967A295005BCE10 /* items */ = {
@@ -2057,6 +2099,7 @@
 				04203FF219839FEE007B349E /* State_Menu_Key.cpp in Sources */,
 				8EE63A5A1432690C00922244 /* GMAppDelegate.mm in Sources */,
 				0445024D198F2035001CA8A4 /* SKEnemyMoveChild.cpp in Sources */,
+				04C7A66F19982BC700D7AEEC /* JASpeakCharManager.cpp in Sources */,
 				043959AB194FB05300D43459 /* ScmlObject.cpp in Sources */,
 				0424C182196138D20081BB5B /* PlayerPorch.cpp in Sources */,
 				0444064719353EE900D49BDF /* SKMassManager.cpp in Sources */,
@@ -2085,6 +2128,7 @@
 				041C627019498E9E00D78C35 /* ESKonran.cpp in Sources */,
 				8EF0605413EEB8D9007C1B2E /* GMDraw.cpp in Sources */,
 				041C62791949927600D78C35 /* ESNomalMoveInRoom.cpp in Sources */,
+				04C7A66A1997B3E800D7AEEC /* JASpeakWindowState.cpp in Sources */,
 				8E2C23FE1415981D00A5D822 /* GMDrawSys.cpp in Sources */,
 				04C7A6371994922E00D7AEEC /* SKSelectWindow.cpp in Sources */,
 				8EF0605513EEB8D9007C1B2E /* GMEffect.mm in Sources */,

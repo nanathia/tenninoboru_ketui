@@ -11,6 +11,8 @@
 #include "SKPlayScene.h"
 #include "SKTitle.h"
 #include "SKGameOver.h"
+#include "SKMusicManager.h"
+#include "SKSoundManager.h"
 
 
 GameMain*   gGameInst = 0;
@@ -25,6 +27,10 @@ m_sazamekiFont(0)
     ///// ゲームの初期化
     // TODO: ゲーム内で共通して利用する変数などがあれば、ここで準備してください。
     // TODO: GameMain クラスのインスタンスには、GameMain.h をインクルードして gGameInst 変数で参照します。
+    m_MusicMan = new SKMusicManager;
+    m_SoundMan = new SKSoundManager;
+    m_SoundMan->add(SoundName_Return, "SKCommandSelectReturn.wav");
+    m_SoundMan->add(SoundName_Carsor, "SKSelectChange.wav");
     
     ///// シーンの追加
     addScene("play", new SKPlayScene());
@@ -44,6 +50,10 @@ GameMain::~GameMain()
 {
     ///// ゲームの解放
     // TODO: ゲーム内で共通して利用していた変数などがあれば、ここで解放してください。
+    delete m_SoundMan;
+    m_SoundMan = 0;
+    delete m_MusicMan;
+    m_MusicMan = 0;
     delete m_sizuruFont;
     m_sizuruFont = 0;
     delete m_sazamekiFont;
@@ -62,3 +72,12 @@ void GameMain::setFont(GMTexture2D* sizuru){
 GMFont* GameMain::getFont(){
     return m_sazamekiFont;
 }
+
+SKMusicManager* GameMain::getMusicMan(){
+    return m_MusicMan;
+}
+
+SKSoundManager* GameMain::getSoundMan(){
+    return m_SoundMan;
+}
+
