@@ -11,9 +11,15 @@
 
 #include "Karakuri.h"
 
+namespace selectWindow{
+    class Window;
+}
+
 namespace titleScene{
     class MainMenu;
+    
     namespace mainmenu{
+        class HajimekaraState;
         class MenuState;
         class StateChild{
         protected:
@@ -34,11 +40,24 @@ namespace titleScene{
         };
         
         class Hajimekara: public StateChild{
+            enum selectName{
+                saisyokarahajimeruka_,
+                goToGame_begin,
+                goToGame_data1,
+                goToGame_data2,
+                goToGame_data3,
+                backMainSelect,
+                backThisSelect,
+                none,
+            };
+            selectName m_currentselect;
+            selectWindow::Window* m_sel_win;
         public:
             Hajimekara(MainMenu* user);
             ~Hajimekara();
             StateChild* update(GMInput* input, double deltaTime) override;
             void draw(GMSpriteBatch* s) override;
+            selectWindow::Window* getSel_Win();
         };
         
         class Tudukikara: public StateChild{

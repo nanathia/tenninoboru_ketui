@@ -30,7 +30,9 @@ namespace JASpeakWindow{
     m_color(GMColor::Black),
     m_state(0),
     m_characters(new std::vector<Character*>),
-    m_characters_2(new std::vector<Character*>)
+    m_characters_2(new std::vector<Character*>),
+    m_returnKey(-1),
+    m_nextReturnKey(-1)
     {
         m_color.a = 0.5;
         m_state = new WindowState(this);
@@ -48,7 +50,7 @@ namespace JASpeakWindow{
         if(m_characters) delete m_characters;
         m_characters = 0;
     }
-    void Window::update(GMInput* input, double deltaTime){
+    int Window::update(GMInput* input, double deltaTime){
         m_state->update(input, deltaTime);
         int size = (int)(*m_characters).size();
         for(int i = 0; i < size; i++){
@@ -58,6 +60,8 @@ namespace JASpeakWindow{
         for(int i = 0; i < size; i++){
             (*m_characters_2)[i]->update(input, deltaTime);
         }
+        int ret = m_returnKey;
+        return ret;
     }
     void Window::draw(GMSpriteBatch* s){
         m_state->draw(s);
@@ -128,13 +132,18 @@ namespace JASpeakWindow{
     void Window::addString(const string& str){
         m_chargeStrs.push_back(str);
     }
-    std::deque<std::string>& Window::getChargeStrs(){
+    std::deque<StrQuotation>& Window::getChargeStrs(){
         return m_chargeStrs;
     }
     void Window::allCharacterGoUnderLava(){
         int size = (int)(*m_characters).size();
         for(int i = 0; i < size; i++){
             (*m_characters)[i]->ill_Be_Back();
+        }
+        if(!m_chargeStrs.empty()){
+            m_nextReturnKey = m_chargeStrs.front().getQuota();
+        }else{
+            m_nextReturnKey = -1;
         }
         this->push();
     }
@@ -146,12 +155,28 @@ namespace JASpeakWindow{
         m_characters_2 = m_characters;
         m_characters = new std::vector<Character*>;
         if(!m_chargeStrs.empty()){
-            this->setString(m_chargeStrs.front());
+            this->setString(m_chargeStrs.front().getStr());
             m_chargeStrs.pop_front();
         }
     }
     bool Window::isAllCharacterStilled(){
         return m_state->isAllCharacterStilled();
+    }
+    void Window::addString(const std::string &str, int key){
+        m_chargeStrs.push_back(StrQuotation(str, key));
+    }
+    void Window::setNextReturnKey(int key){
+        m_nextReturnKey = key;
+    }
+    void Window::setReturnKey(){
+        m_returnKey = m_nextReturnKey;
+    }
+    int Window::getKey(){
+        return m_returnKey;
+    }
+    void Window::setKey(int key){
+        m_returnKey = key;
+        m_nextReturnKey = -1;
     }
     
 }

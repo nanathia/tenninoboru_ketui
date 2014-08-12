@@ -31,6 +31,7 @@ namespace JASpeakWindow{
         double m_time;
     public:
         WindowInter(Window* user);
+        WindowInter(Window* user, double time);
         ~WindowInter();
         WindowStateChild* update(GMInput* input, double deltaTime) override;
         void draw(GMSpriteBatch* s) override;

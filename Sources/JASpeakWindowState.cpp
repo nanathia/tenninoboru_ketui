@@ -47,6 +47,10 @@ namespace JASpeakWindow{
     WindowStateChild(user),
     m_time(0){
     }
+    WindowInter::WindowInter(Window* user, double time):
+    WindowStateChild(user),
+    m_time(time){
+    }
     WindowInter::~WindowInter(){
     }
     WindowStateChild* WindowInter::update(GMInput* input, double deltaTime){
@@ -65,23 +69,28 @@ namespace JASpeakWindow{
     
     WindowVisible::WindowVisible(Window* user):
     WindowStateChild(user){
-        m_user->setString(m_user->getChargeStrs().front());
-        m_user->getChargeStrs().pop_front();
+        if(!m_user->getChargeStrs().empty()){
+            m_user->setString(m_user->getChargeStrs().front().getStr());
+            m_user->setNextReturnKey(m_user->getChargeStrs().front().getQuota());
+            m_user->getChargeStrs().pop_front();
+        }
     }
     WindowVisible::~WindowVisible(){
     }
     WindowStateChild* WindowVisible::update(GMInput* input, double deltaTime){
         WindowStateChild* next = this;
-        if(this->isAllCharacterStilled() && input->isKeyDownTriggered(GMKeyMaskReturn | GMKeyMaskZ | GMKeyMaskSpace)){
-            if(m_user->getChargeStrs().empty()){
-                next = new WindowOuter(m_user);
-                m_user->allCharacterGoUnderLava();
-            }else{
-                m_user->allCharacterGoUnderLava();
+        if(this->isAllCharacterStilled()){
+            m_user->setReturnKey();
+            if(input->isKeyDownTriggered(GMKeyMaskReturn | GMKeyMaskZ | GMKeyMaskSpace)){
+                if(m_user->getChargeStrs().empty()){
+                    next = new WindowOuter(m_user);
+                    m_user->setReturnKey();
+                    m_user->allCharacterGoUnderLava();
+                }else{
+                    m_user->setReturnKey();
+                    m_user->allCharacterGoUnderLava();
+                }
             }
-        }
-        if(input->isKeyDownTriggered(GMKeyMaskS)){
-            m_user->setString(m_user->getChargeStrs().back());
         }
         return next;
     }
@@ -109,6 +118,9 @@ namespace JASpeakWindow{
         m_time += deltaTime/3;
         if(m_time >= 1){
             m_time = 1;
+        }
+        if(!m_user->getChargeStrs().empty()){
+            next = new WindowInter(m_user, 1-m_time);
         }
         return next;
     }

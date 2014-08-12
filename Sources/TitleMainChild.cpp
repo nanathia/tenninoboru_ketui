@@ -17,6 +17,7 @@
 #include "JASpeakWindow.h"
 #include "SKTitleChild.h"
 #include "SKTitleMainMenuState.h"
+#include "TitleHajimekara.h"
 
 namespace titleScene{
     
@@ -49,7 +50,8 @@ namespace titleScene{
     
     MainMenu::MainMenu(TitleMain* user):
     MainChild(user),
-    m_state(0)
+    m_state(0),
+    m_nextBranch(MainOuter::branch_none)
     {
         selectWindow::Element* elements[] = {
             new selectWindow::Element(user->getSelectWindow()),
@@ -76,14 +78,24 @@ namespace titleScene{
     MainChild* MainMenu::update(TitleMain* parent, GMInput* input, double deltaTime){
         MainChild* next = this;
         m_state->update(input, deltaTime);
+        JASpeakWindow::Window* spk_win = getUser()->getSpeakWindow();
+        spk_win->update(input, deltaTime);
+        if(m_nextBranch != MainOuter::branch_none){
+            next = new MainOuter(m_user, m_nextBranch);
+        }
         return next;
     }
     void MainMenu::draw(TitleMain* parent, GMSpriteBatch* s){
         m_user->getSelectWindow()->draw(s);
         m_state->draw(s);
+        JASpeakWindow::Window* spk_win = getUser()->getSpeakWindow();
+        spk_win->draw(s);
     }
     TitleMain* MainMenu::getUser(){
         return m_user;
+    }
+    void MainMenu::goNext(MainOuter::OuterBranch branch){
+        m_nextBranch = branch;
     }
     
     MainOuter::MainOuter(TitleMain* user, MainOuter::OuterBranch branch):

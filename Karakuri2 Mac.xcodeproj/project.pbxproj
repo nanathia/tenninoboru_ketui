@@ -254,6 +254,8 @@
 		04C7A66A1997B3E800D7AEEC /* JASpeakWindowState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6681997B3E800D7AEEC /* JASpeakWindowState.cpp */; };
 		04C7A66F19982BC700D7AEEC /* JASpeakCharManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A66D19982BC700D7AEEC /* JASpeakCharManager.cpp */; };
 		04C7A6731998AFD600D7AEEC /* SKTitleMainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6711998AFD600D7AEEC /* SKTitleMainMenuState.cpp */; };
+		04C7A6761999302B00D7AEEC /* StrQuota.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6741999302B00D7AEEC /* StrQuota.cpp */; };
+		04C7A67D1999AE5000D7AEEC /* TitleHajimekara.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A67B1999AE5000D7AEEC /* TitleHajimekara.cpp */; };
 		04D28CC9196785D5005BCE10 /* SKItemContainar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */; };
 		04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCC1967A2B8005BCE10 /* SKSword.cpp */; };
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
@@ -690,6 +692,9 @@
 		04C7A66E19982BC700D7AEEC /* JASpeakCharManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASpeakCharManager.h; sourceTree = "<group>"; };
 		04C7A6711998AFD600D7AEEC /* SKTitleMainMenuState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKTitleMainMenuState.cpp; sourceTree = "<group>"; };
 		04C7A6721998AFD600D7AEEC /* SKTitleMainMenuState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTitleMainMenuState.h; sourceTree = "<group>"; };
+		04C7A6741999302B00D7AEEC /* StrQuota.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StrQuota.cpp; sourceTree = "<group>"; };
+		04C7A67B1999AE5000D7AEEC /* TitleHajimekara.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleHajimekara.cpp; sourceTree = "<group>"; };
+		04C7A67C1999AE5000D7AEEC /* TitleHajimekara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleHajimekara.h; sourceTree = "<group>"; };
 		04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKItemContainar.cpp; sourceTree = "<group>"; };
 		04D28CC8196785D5005BCE10 /* SKItemContainar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKItemContainar.h; sourceTree = "<group>"; };
 		04D28CCC1967A2B8005BCE10 /* SKSword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSword.cpp; sourceTree = "<group>"; };
@@ -1503,6 +1508,7 @@
 				04C7A6671997B3B700D7AEEC /* state */,
 				04C7A64B19968D0A00D7AEEC /* JASpeakWindow.cpp */,
 				04C7A64C19968D0A00D7AEEC /* JASpeakWindow.h */,
+				04C7A6741999302B00D7AEEC /* StrQuota.cpp */,
 			);
 			name = window;
 			sourceTree = "<group>";
@@ -1538,10 +1544,20 @@
 		04C7A6701998AFB400D7AEEC /* menuState */ = {
 			isa = PBXGroup;
 			children = (
+				04C7A67A1999AE3100D7AEEC /* hajimekara */,
 				04C7A6711998AFD600D7AEEC /* SKTitleMainMenuState.cpp */,
 				04C7A6721998AFD600D7AEEC /* SKTitleMainMenuState.h */,
 			);
 			name = menuState;
+			sourceTree = "<group>";
+		};
+		04C7A67A1999AE3100D7AEEC /* hajimekara */ = {
+			isa = PBXGroup;
+			children = (
+				04C7A67B1999AE5000D7AEEC /* TitleHajimekara.cpp */,
+				04C7A67C1999AE5000D7AEEC /* TitleHajimekara.h */,
+			);
+			name = hajimekara;
 			sourceTree = "<group>";
 		};
 		04D28CCB1967A295005BCE10 /* items */ = {
@@ -2179,6 +2195,7 @@
 				041C627C1949928A00D78C35 /* ESNomalMoveInPassage.cpp in Sources */,
 				04440D901936A1A700D49BDF /* SKItem.cpp in Sources */,
 				04C5C022197272760073B05A /* SKMoveObject.cpp in Sources */,
+				04C7A6761999302B00D7AEEC /* StrQuota.cpp in Sources */,
 				04BBC1DF1942D10700F7751C /* SKItemManager.cpp in Sources */,
 				8EF0606713EEB8D9007C1B2E /* GMObject.cpp in Sources */,
 				8EF0607E13EEB989007C1B2E /* GMOpenGLView.mm in Sources */,
@@ -2239,6 +2256,7 @@
 				04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */,
 				04D28CD41967A2D0005BCE10 /* SKShield.cpp in Sources */,
 				043A8011194D44C2005A5189 /* SelectUI.cpp in Sources */,
+				04C7A67D1999AE5000D7AEEC /* TitleHajimekara.cpp in Sources */,
 				8EF0607313EEB8D9007C1B2E /* GMVector2D.cpp in Sources */,
 				04C7A64D19968D0A00D7AEEC /* JASpeakWindow.cpp in Sources */,
 				0478FEDA198521BA008923B1 /* EpuipmentItem.cpp in Sources */,

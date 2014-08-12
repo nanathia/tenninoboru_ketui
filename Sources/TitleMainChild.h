@@ -45,17 +45,6 @@ namespace titleScene{
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
     
-    class MainMenu: public MainChild{
-        mainmenu::MenuState* m_state;
-    public:
-        MainMenu(TitleMain* user);
-        ~MainMenu();
-        MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
-        void draw(TitleMain* parent, GMSpriteBatch* s) override;
-    public:
-        TitleMain* getUser();
-    };
-    
     class MainOuter: public MainChild{
     public:
         enum OuterBranch{
@@ -63,6 +52,7 @@ namespace titleScene{
             branch_continue2Data_1,
             branch_continue2Data_2,
             branch_continue2Data_3,
+            branch_none
         };
     private:
         OuterBranch m_branch;
@@ -72,6 +62,20 @@ namespace titleScene{
         MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
         void draw(TitleMain* parent, GMSpriteBatch* s) override;
     };
+    
+    class MainMenu: public MainChild{
+        mainmenu::MenuState* m_state;
+        MainOuter::OuterBranch m_nextBranch;
+    public:
+        MainMenu(TitleMain* user);
+        ~MainMenu();
+        MainChild* update(TitleMain* parent, GMInput* input, double deltaTime) override;
+        void draw(TitleMain* parent, GMSpriteBatch* s) override;
+    public:
+        TitleMain* getUser();
+        void goNext(MainOuter::OuterBranch);
+    };
+    
     
 }
 
