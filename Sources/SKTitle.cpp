@@ -39,8 +39,7 @@ void SKTitle::willAppear(GMGraphics* g){
     m_SoundMan->add(SoundName_Logo, "SKLogoSound.wav");
     m_MusicMan = new SKMusicManager;
     m_MusicMan->add(MusicName_Main, "SKTitleMainBGM.mp3");
-    // FIXME デバッグの解除
-    m_child = new titleScene::TitleMain();
+    m_child = new titleScene::TitleLogo();
 }
 
 void SKTitle::didDisappear(){

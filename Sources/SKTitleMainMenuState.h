@@ -61,6 +61,17 @@ namespace titleScene{
         };
         
         class Tudukikara: public StateChild{
+            enum selectName{
+                goToGame_begin,
+                goToGame_data1,
+                goToGame_data2,
+                goToGame_data3,
+                backMainSelect,
+                backThisSelect,
+                none,
+            };
+            selectName m_currentselect;
+            selectWindow::Window* m_sel_win;
         public:
             Tudukikara(MainMenu* user);
             ~Tudukikara();
@@ -69,6 +80,17 @@ namespace titleScene{
         };
         
         class Settei: public StateChild{
+            enum selectName{
+                goToGame_begin,
+                goToGame_data1,
+                goToGame_data2,
+                goToGame_data3,
+                backMainSelect,
+                backThisSelect,
+                none,
+            };
+            selectName m_currentselect;
+            selectWindow::Window* m_sel_win;
         public:
             Settei(MainMenu* user);
             ~Settei();
@@ -77,6 +99,17 @@ namespace titleScene{
         };
         
         class Omake: public StateChild{
+            enum selectName{
+                goToGame_begin,
+                goToGame_data1,
+                goToGame_data2,
+                goToGame_data3,
+                backMainSelect,
+                backThisSelect,
+                none,
+            };
+            selectName m_currentselect;
+            selectWindow::Window* m_sel_win;
         public:
             Omake(MainMenu* user);
             ~Omake();

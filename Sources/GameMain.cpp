@@ -10,9 +10,10 @@
 #include "Globals.h"
 #include "SKPlayScene.h"
 #include "SKTitle.h"
-#include "SKGameOver.h"
+#include "SKStartDemo.h"
 #include "SKMusicManager.h"
 #include "SKSoundManager.h"
+#include "SKTextureManager.h"
 
 
 GameMain*   gGameInst = 0;
@@ -31,11 +32,12 @@ m_sazamekiFont(0)
     m_SoundMan = new SKSoundManager;
     m_SoundMan->add(SoundName_Return, "SKCommandSelectReturn.wav");
     m_SoundMan->add(SoundName_Carsor, "SKSelectChange.wav");
+    m_texMan = new SKTextureManager;
     
     ///// シーンの追加
     addScene("play", new SKPlayScene());
     addScene("title", new SKTitle());
-    addScene("gameOver", new SKGameOver());
+    addScene("startDemo", new SKStartDemo());
 
     ///// 最初のシーンの選択
     GMGame::ChangeScene( "title" );
@@ -54,6 +56,8 @@ GameMain::~GameMain()
     m_SoundMan = 0;
     delete m_MusicMan;
     m_MusicMan = 0;
+    delete m_texMan;
+    m_texMan = 0;
     delete m_sizuruFont;
     m_sizuruFont = 0;
     delete m_sazamekiFont;
@@ -79,5 +83,9 @@ SKMusicManager* GameMain::getMusicMan(){
 
 SKSoundManager* GameMain::getSoundMan(){
     return m_SoundMan;
+}
+
+SKTextureManager* GameMain::getTexMan(){
+    return m_texMan;
 }
 

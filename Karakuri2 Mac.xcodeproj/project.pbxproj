@@ -29,6 +29,14 @@
 		0424C1871961940A0081BB5B /* SKFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0424C1861961940A0081BB5B /* SKFont.mm */; };
 		0424C1901962D9220081BB5B /* sizuruFonts.png in Resources */ = {isa = PBXBuildFile; fileRef = 0424C18F1962D9220081BB5B /* sizuruFonts.png */; };
 		042A678D193C6A6D00A5E739 /* SKBlockManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042A678B193C6A6D00A5E739 /* SKBlockManager.cpp */; };
+		0437695D199B39AA000BCE66 /* SKStartDemoBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0437695C199B39AA000BCE66 /* SKStartDemoBGM.mp3 */; };
+		04376962199BF8AE000BCE66 /* SKEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04376960199BF8AE000BCE66 /* SKEffect.cpp */; };
+		04376967199C0202000BCE66 /* SKStartDemoBGI.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376963199C0202000BCE66 /* SKStartDemoBGI.png */; };
+		04376968199C0202000BCE66 /* SKStartDemoSakuma1_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376964199C0202000BCE66 /* SKStartDemoSakuma1_c.png */; };
+		04376969199C0202000BCE66 /* SKStartDemoSakuma1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376965199C0202000BCE66 /* SKStartDemoSakuma1.png */; };
+		0437696A199C0202000BCE66 /* SKStartDemojikuuakuu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376966199C0202000BCE66 /* SKStartDemojikuuakuu.png */; };
+		04376970199C0590000BCE66 /* StartDemoMainState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0437696E199C0590000BCE66 /* StartDemoMainState.cpp */; };
+		04376972199C23F2000BCE66 /* SKFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376971199C23F2000BCE66 /* SKFill.png */; };
 		04395970194F4A9D00D43459 /* SKBlockImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0439596F194F4A9D00D43459 /* SKBlockImage.png */; };
 		0439599E194FB05300D43459 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04395972194FB05300D43459 /* Animation.cpp */; };
 		0439599F194FB05300D43459 /* BoneTimelineKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04395974194FB05300D43459 /* BoneTimelineKey.cpp */; };
@@ -101,7 +109,6 @@
 		048D39411975B06F00195328 /* SKItemImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39401975B06F00195328 /* SKItemImage.png */; };
 		048D394A1978E3E500195328 /* SKTitleBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39491978E3E500195328 /* SKTitleBackImage.png */; };
 		048D394D1978E59200195328 /* SKDrawFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 048D394B1978E59200195328 /* SKDrawFont.cpp */; };
-		048D39661979B2C000195328 /* SKGameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 048D39641979B2C000195328 /* SKGameOver.cpp */; };
 		048D39691979B64600195328 /* SKGameOverImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39681979B64600195328 /* SKGameOverImage.png */; };
 		04B347361938DC5400D9622A /* SKDrawManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347341938DC5400D9622A /* SKDrawManager.cpp */; };
 		04B347391938DCB700D9622A /* SKMatrixManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347371938DCB700D9622A /* SKMatrixManager.cpp */; };
@@ -256,6 +263,8 @@
 		04C7A6731998AFD600D7AEEC /* SKTitleMainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6711998AFD600D7AEEC /* SKTitleMainMenuState.cpp */; };
 		04C7A6761999302B00D7AEEC /* StrQuota.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6741999302B00D7AEEC /* StrQuota.cpp */; };
 		04C7A67D1999AE5000D7AEEC /* TitleHajimekara.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A67B1999AE5000D7AEEC /* TitleHajimekara.cpp */; };
+		04C7A6811999FC0B00D7AEEC /* SKStartDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A67F1999FC0B00D7AEEC /* SKStartDemo.cpp */; };
+		04C7A6841999FED000D7AEEC /* StartDemoChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7A6821999FED000D7AEEC /* StartDemoChild.cpp */; };
 		04D28CC9196785D5005BCE10 /* SKItemContainar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */; };
 		04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCC1967A2B8005BCE10 /* SKSword.cpp */; };
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
@@ -382,6 +391,16 @@
 		0424C18F1962D9220081BB5B /* sizuruFonts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizuruFonts.png; sourceTree = "<group>"; };
 		042A678B193C6A6D00A5E739 /* SKBlockManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKBlockManager.cpp; sourceTree = "<group>"; };
 		042A678C193C6A6D00A5E739 /* SKBlockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBlockManager.h; sourceTree = "<group>"; };
+		0437695C199B39AA000BCE66 /* SKStartDemoBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SKStartDemoBGM.mp3; sourceTree = "<group>"; };
+		04376960199BF8AE000BCE66 /* SKEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKEffect.cpp; sourceTree = "<group>"; };
+		04376961199BF8AE000BCE66 /* SKEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEffect.h; sourceTree = "<group>"; };
+		04376963199C0202000BCE66 /* SKStartDemoBGI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKStartDemoBGI.png; sourceTree = "<group>"; };
+		04376964199C0202000BCE66 /* SKStartDemoSakuma1_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKStartDemoSakuma1_c.png; sourceTree = "<group>"; };
+		04376965199C0202000BCE66 /* SKStartDemoSakuma1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKStartDemoSakuma1.png; sourceTree = "<group>"; };
+		04376966199C0202000BCE66 /* SKStartDemojikuuakuu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKStartDemojikuuakuu.png; sourceTree = "<group>"; };
+		0437696E199C0590000BCE66 /* StartDemoMainState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartDemoMainState.cpp; sourceTree = "<group>"; };
+		0437696F199C0590000BCE66 /* StartDemoMainState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDemoMainState.h; sourceTree = "<group>"; };
+		04376971199C23F2000BCE66 /* SKFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKFill.png; sourceTree = "<group>"; };
 		043772B9198031DE0030B1B8 /* CallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallBack.h; sourceTree = "<group>"; };
 		0439596F194F4A9D00D43459 /* SKBlockImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKBlockImage.png; sourceTree = "<group>"; };
 		04395972194FB05300D43459 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Animation.cpp; sourceTree = "<group>"; };
@@ -522,8 +541,6 @@
 		048D39491978E3E500195328 /* SKTitleBackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKTitleBackImage.png; sourceTree = "<group>"; };
 		048D394B1978E59200195328 /* SKDrawFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDrawFont.cpp; sourceTree = "<group>"; };
 		048D394C1978E59200195328 /* SKDrawFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDrawFont.h; sourceTree = "<group>"; };
-		048D39641979B2C000195328 /* SKGameOver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKGameOver.cpp; sourceTree = "<group>"; };
-		048D39651979B2C000195328 /* SKGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKGameOver.h; sourceTree = "<group>"; };
 		048D39681979B64600195328 /* SKGameOverImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKGameOverImage.png; sourceTree = "<group>"; };
 		04B347341938DC5400D9622A /* SKDrawManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDrawManager.cpp; sourceTree = "<group>"; };
 		04B347351938DC5400D9622A /* SKDrawManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDrawManager.h; sourceTree = "<group>"; };
@@ -695,6 +712,10 @@
 		04C7A6741999302B00D7AEEC /* StrQuota.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StrQuota.cpp; sourceTree = "<group>"; };
 		04C7A67B1999AE5000D7AEEC /* TitleHajimekara.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleHajimekara.cpp; sourceTree = "<group>"; };
 		04C7A67C1999AE5000D7AEEC /* TitleHajimekara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleHajimekara.h; sourceTree = "<group>"; };
+		04C7A67F1999FC0B00D7AEEC /* SKStartDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKStartDemo.cpp; sourceTree = "<group>"; };
+		04C7A6801999FC0B00D7AEEC /* SKStartDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKStartDemo.h; sourceTree = "<group>"; };
+		04C7A6821999FED000D7AEEC /* StartDemoChild.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartDemoChild.cpp; sourceTree = "<group>"; };
+		04C7A6831999FED000D7AEEC /* StartDemoChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDemoChild.h; sourceTree = "<group>"; };
 		04D28CC7196785D5005BCE10 /* SKItemContainar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKItemContainar.cpp; sourceTree = "<group>"; };
 		04D28CC8196785D5005BCE10 /* SKItemContainar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKItemContainar.h; sourceTree = "<group>"; };
 		04D28CCC1967A2B8005BCE10 /* SKSword.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSword.cpp; sourceTree = "<group>"; };
@@ -975,6 +996,44 @@
 				0478FF0319853239008923B1 /* ItemCommandInfo.h */,
 			);
 			name = select;
+			sourceTree = "<group>";
+		};
+		0437695E199BF891000BCE66 /* efect */ = {
+			isa = PBXGroup;
+			children = (
+				0437695F199BF8A0000BCE66 /* child */,
+				04411B78193423DC00C324FE /* SKEffectMan.cpp */,
+				04411B79193423DC00C324FE /* SKEffectMan.h */,
+			);
+			name = efect;
+			sourceTree = "<group>";
+		};
+		0437695F199BF8A0000BCE66 /* child */ = {
+			isa = PBXGroup;
+			children = (
+				04376960199BF8AE000BCE66 /* SKEffect.cpp */,
+				04376961199BF8AE000BCE66 /* SKEffect.h */,
+			);
+			name = child;
+			sourceTree = "<group>";
+		};
+		0437696C199C055E000BCE66 /* child */ = {
+			isa = PBXGroup;
+			children = (
+				0437696D199C056E000BCE66 /* mainState */,
+				04C7A6821999FED000D7AEEC /* StartDemoChild.cpp */,
+				04C7A6831999FED000D7AEEC /* StartDemoChild.h */,
+			);
+			name = child;
+			sourceTree = "<group>";
+		};
+		0437696D199C056E000BCE66 /* mainState */ = {
+			isa = PBXGroup;
+			children = (
+				0437696E199C0590000BCE66 /* StartDemoMainState.cpp */,
+				0437696F199C0590000BCE66 /* StartDemoMainState.h */,
+			);
+			name = mainState;
 			sourceTree = "<group>";
 		};
 		04395971194FB05300D43459 /* Spriter */ = {
@@ -1400,15 +1459,6 @@
 			name = title;
 			sourceTree = "<group>";
 		};
-		048D39631979B2A900195328 /* gameover */ = {
-			isa = PBXGroup;
-			children = (
-				048D39641979B2C000195328 /* SKGameOver.cpp */,
-				048D39651979B2C000195328 /* SKGameOver.h */,
-			);
-			name = gameover;
-			sourceTree = "<group>";
-		};
 		048D39671979B61B00195328 /* gameover */ = {
 			isa = PBXGroup;
 			children = (
@@ -1560,6 +1610,16 @@
 			name = hajimekara;
 			sourceTree = "<group>";
 		};
+		04C7A67E1999FBF000D7AEEC /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				0437696C199C055E000BCE66 /* child */,
+				04C7A67F1999FC0B00D7AEEC /* SKStartDemo.cpp */,
+				04C7A6801999FC0B00D7AEEC /* SKStartDemo.h */,
+			);
+			name = demo;
+			sourceTree = "<group>";
+		};
 		04D28CCB1967A295005BCE10 /* items */ = {
 			isa = PBXGroup;
 			children = (
@@ -1605,6 +1665,11 @@
 				048D39401975B06F00195328 /* SKItemImage.png */,
 				04BBC1E01942EF6B00F7751C /* direction.png */,
 				0439596F194F4A9D00D43459 /* SKBlockImage.png */,
+				04376971199C23F2000BCE66 /* SKFill.png */,
+				04376963199C0202000BCE66 /* SKStartDemoBGI.png */,
+				04376964199C0202000BCE66 /* SKStartDemoSakuma1_c.png */,
+				04376965199C0202000BCE66 /* SKStartDemoSakuma1.png */,
+				04376966199C0202000BCE66 /* SKStartDemojikuuakuu.png */,
 				0448A183194EE4CC00217DAA /* SKFloorImage.png */,
 				04B3473D1938FF0500D9622A /* 床.png */,
 			);
@@ -1693,8 +1758,7 @@
 				04C7A64A19968C9B00D7AEEC /* 時空亜空の言葉 */,
 				04C7A641199670D800D7AEEC /* sound&music */,
 				04C7A6391995122D00D7AEEC /* selectWindow */,
-				04411B78193423DC00C324FE /* SKEffectMan.cpp */,
-				04411B79193423DC00C324FE /* SKEffectMan.h */,
+				0437695E199BF891000BCE66 /* efect */,
 				04B347341938DC5400D9622A /* SKDrawManager.cpp */,
 				04B347351938DC5400D9622A /* SKDrawManager.h */,
 				04B347371938DCB700D9622A /* SKMatrixManager.cpp */,
@@ -1738,6 +1802,7 @@
 		8ED7022C162B242A001450D5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				0437695C199B39AA000BCE66 /* SKStartDemoBGM.mp3 */,
 				04C7A648199681FB00D7AEEC /* SKSelectChange.wav */,
 				04C7A63B1996703C00D7AEEC /* SKCommandSelectReturn.wav */,
 				04C7A63C1996703C00D7AEEC /* SKTitleMainBGM.mp3 */,
@@ -1749,7 +1814,7 @@
 		8EE63A0A1432667100922244 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				048D39631979B2A900195328 /* gameover */,
+				04C7A67E1999FBF000D7AEEC /* demo */,
 				044F75C319405A3200D0E4BB /* title */,
 				8E84293D16327FEF00CF4BC4 /* game */,
 				8E84293916327F3000CF4BC4 /* dungeon */,
@@ -1962,6 +2027,7 @@
 				04C5C0DD19731DE70073B05A /* Image_0040.png in Resources */,
 				04C5C0DF19731DE70073B05A /* Image_0042.png in Resources */,
 				04C5C0E319731DE70073B05A /* Image_0046.png in Resources */,
+				04376968199C0202000BCE66 /* SKStartDemoSakuma1_c.png in Resources */,
 				04C7A6401996703C00D7AEEC /* SKLogoSound.wav in Resources */,
 				04C5C0BB19731DE70073B05A /* Image_0006.png in Resources */,
 				04C5C0BD19731DE70073B05A /* Image_0008.png in Resources */,
@@ -1999,6 +2065,7 @@
 				04C5C12D19731DE70073B05A /* sakumaIm_45.png in Resources */,
 				04C5C0F519731DE70073B05A /* Image_0064.png in Resources */,
 				0424C18419618B190081BB5B /* 07やさしさゴシックボールド.ttf in Resources */,
+				04376969199C0202000BCE66 /* SKStartDemoSakuma1.png in Resources */,
 				04C7A63E1996703C00D7AEEC /* SKCommandSelectReturn.wav in Resources */,
 				04C5C10319731DE70073B05A /* sakumaIm_3.png in Resources */,
 				04C5C10519731DE70073B05A /* sakumaIm_5.png in Resources */,
@@ -2033,6 +2100,7 @@
 				04C5C0D119731DE70073B05A /* Image_0028.png in Resources */,
 				04C5C0E219731DE70073B05A /* Image_0045.png in Resources */,
 				04C7A628199458EA00D7AEEC /* タイトルサクマ.png in Resources */,
+				04376972199C23F2000BCE66 /* SKFill.png in Resources */,
 				8EBF7E921620C0B4002F78FB /* font-scp-21x42.png in Resources */,
 				04C5C11519731DE70073B05A /* sakumaIm_21.png in Resources */,
 				04C5C0FA19731DE70073B05A /* Image_0069.png in Resources */,
@@ -2057,6 +2125,8 @@
 				04C5C11119731DE70073B05A /* sakumaIm_17.png in Resources */,
 				8EBF7E9B1620CE34002F78FB /* font-ubuntu_mono-21x42.png in Resources */,
 				04C5C0D819731DE70073B05A /* Image_0035.png in Resources */,
+				0437696A199C0202000BCE66 /* SKStartDemojikuuakuu.png in Resources */,
+				04376967199C0202000BCE66 /* SKStartDemoBGI.png in Resources */,
 				04C7A63F1996703C00D7AEEC /* SKTitleMainBGM.mp3 in Resources */,
 				04C5C0F119731DE70073B05A /* Image_0060.png in Resources */,
 				8EBF7E9C1620CE34002F78FB /* font-ubuntu_mono-28x56.png in Resources */,
@@ -2104,6 +2174,7 @@
 				04C5C10119731DE70073B05A /* sakumaIm_1.png in Resources */,
 				04C5C0F419731DE70073B05A /* Image_0063.png in Resources */,
 				04C5C10D19731DE70073B05A /* sakumaIm_13.png in Resources */,
+				0437695D199B39AA000BCE66 /* SKStartDemoBGM.mp3 in Resources */,
 				04C5C0FB19731DE70073B05A /* Image_0070.png in Resources */,
 				04C5C0D519731DE70073B05A /* Image_0032.png in Resources */,
 				04C5C0F019731DE70073B05A /* Image_0059.png in Resources */,
@@ -2211,6 +2282,7 @@
 				043959A3194FB05300D43459 /* Folder.cpp in Sources */,
 				043959B1194FB05300D43459 /* tinyxml2.cpp in Sources */,
 				04C7A6731998AFD600D7AEEC /* SKTitleMainMenuState.cpp in Sources */,
+				04376962199BF8AE000BCE66 /* SKEffect.cpp in Sources */,
 				0477D1F11947B079008D13BC /* State_W_Key.cpp in Sources */,
 				8EF0606913EEB8D9007C1B2E /* GMQuat.cpp in Sources */,
 				8EF0606A13EEB8D9007C1B2E /* GMRandom.cpp in Sources */,
@@ -2220,6 +2292,7 @@
 				04450243198C3233001CA8A4 /* SKEnemyState.cpp in Sources */,
 				0478FF0819857A33008923B1 /* SKItemInclude.cpp in Sources */,
 				043959A2194FB05300D43459 /* File.cpp in Sources */,
+				04C7A6811999FC0B00D7AEEC /* SKStartDemo.cpp in Sources */,
 				04C7A644199670E800D7AEEC /* SKSoundManager.cpp in Sources */,
 				04C7A6221992BBA400D7AEEC /* TitleMainChild.cpp in Sources */,
 				8E27C7C0140FD62C00B36186 /* GMRenderTarget2D.cpp in Sources */,
@@ -2231,10 +2304,10 @@
 				04B3473C1938F9BE00D9622A /* SKTextureManager.cpp in Sources */,
 				04411B7119340E3000C324FE /* SKPlayScene.cpp in Sources */,
 				8E1C6C1413EEDA0F00450DD6 /* GMSoundImpl.mm in Sources */,
+				04376970199C0590000BCE66 /* StartDemoMainState.cpp in Sources */,
 				8EF0607013EEB8D9007C1B2E /* GMSpriteBatch.cpp in Sources */,
 				0478FEE319852234008923B1 /* UsingItem.cpp in Sources */,
 				046B1B93196A84B100100BC9 /* SKPlayAction.cpp in Sources */,
-				048D39661979B2C000195328 /* SKGameOver.cpp in Sources */,
 				04440DA11936C0AD00D49BDF /* SKBlock.cpp in Sources */,
 				043959A1194FB05300D43459 /* Entity.cpp in Sources */,
 				041C6249194965AF00D78C35 /* mamusi.cpp in Sources */,
@@ -2266,6 +2339,7 @@
 				8E1C6C0813EED98E00450DD6 /* GMVector4D.cpp in Sources */,
 				0478FEFE1985275B008923B1 /* KaidanItem.cpp in Sources */,
 				043A8017194D48B6005A5189 /* UITemplate.cpp in Sources */,
+				04C7A6841999FED000D7AEEC /* StartDemoChild.cpp in Sources */,
 				8E1C6C0B13EED9A100450DD6 /* GMViewport.cpp in Sources */,
 				043959AC194FB05300D43459 /* SpatialInfo.cpp in Sources */,
 				043959B0194FB05300D43459 /* TimelineKey.cpp in Sources */,

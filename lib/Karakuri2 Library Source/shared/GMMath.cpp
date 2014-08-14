@@ -55,7 +55,7 @@ double GMMath::EaseInOut(double value1, double value2, double t)
         return (value1 + (middle - value1) * (t * t));
     }
     t -= 1;
-    return (middle + (value2 - middle) * (t * t));
+    return middle - (value2 - middle) * (t * (t - 2));
 }
 
 double GMMath::EaseOut(double value1, double value2, double t)

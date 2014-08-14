@@ -15,6 +15,7 @@
 
 class SKMusicManager;
 class SKSoundManager;
+class SKTextureManager;
 
 enum SKSoundName{
     SoundName_Carsor,
@@ -25,6 +26,10 @@ enum SKSoundName{
 enum SKMusicName{
 };
 
+enum SKTextureName{
+    TextureName_Fill,
+};
+
 // このクラスのインスタンスには、gGameInst 変数でアクセスできます。
 
 class GameMain : public GMGame {
@@ -32,6 +37,7 @@ class GameMain : public GMGame {
     GMFont* m_sazamekiFont;
     SKMusicManager* m_MusicMan;
     SKSoundManager* m_SoundMan;
+    SKTextureManager* m_texMan;
 
 public:
     
@@ -43,6 +49,7 @@ public:
     GMFont* getFont();
     SKMusicManager* getMusicMan();
     SKSoundManager* getSoundMan();
+    SKTextureManager* getTexMan();
     
 };
 

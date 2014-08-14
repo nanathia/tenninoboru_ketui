@@ -9,6 +9,20 @@
 #ifndef __Karakuri2_Mac__SKEffectMan__
 #define __Karakuri2_Mac__SKEffectMan__
 
-#include <iostream>
+#include "Karakuri.h"
+
+class SKTextureManager;
+class SKEffect;
+
+class SKEffectManager{
+    SKTextureManager* m_texMan;
+public:
+    SKEffectManager();
+    ~SKEffectManager();
+    void update(GMInput* input, double deltaTime);
+    void draw(GMSpriteBatch* s);
+public:
+    
+};
 
 #endif /* defined(__Karakuri2_Mac__SKEffectMan__) */

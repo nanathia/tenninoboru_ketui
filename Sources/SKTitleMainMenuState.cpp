@@ -54,6 +54,12 @@ namespace titleScene{
             if(sel_elem){
                 if(sel_elem->getLabel() == "初めから旅する"){
                     next = new Hajimekara(m_user);
+                }else if(sel_elem->getLabel() == "おまけ"){
+                    next = new Omake(m_user);
+                }else if(sel_elem->getLabel() == "旅を続ける"){
+                    next = new Tudukikara(m_user);
+                }else if(sel_elem->getLabel() == "ゲーム設定"){
+                    next = new Settei(m_user);
                 }
             }
             return next;
@@ -88,8 +94,8 @@ namespace titleScene{
                         if(pushElem->getLabel() == "うん"){
                             spk_win->addString("じゃあ、君をゲーム世界に誘うわ。");
                             spk_win->addString("えーと少し待ってね。");
-                            spk_win->addString("・・・・・・・・・・・・・");
-                            spk_win->addString("・・・・・・・・・・・・・・漸・・・・・・・・・・・・・・");
+                            spk_win->addString("。。。。。。。。。。。。。。");
+                            spk_win->addString("。。。。。。。。。。。。。。漸。。。。。。。。。。。。。。");
                             spk_win->addString("準備出来たわ。");
                             spk_win->addString("画面変わるわよー。", goToGame_begin);
                         }else if(pushElem->getLabel() == "やめとく"){
@@ -105,7 +111,6 @@ namespace titleScene{
                         spk_win->setKey(-1);
                     }
                 }
-                
             }
             
             int push = spk_win->getKey();
@@ -147,6 +152,9 @@ namespace titleScene{
         
         Tudukikara::Tudukikara(MainMenu* user):
         StateChild(user){
+            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            spk_win->addString("ごめんね。漸「続きから」はもうすぐ作るから我慢してて。", backMainSelect);
         }
         Tudukikara::~Tudukikara(){
         }
@@ -154,6 +162,15 @@ namespace titleScene{
             StateChild* next = this;
             selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            
+            int push = spk_win->getKey();
+            if(push == backMainSelect && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                next = new MainCommandSelect(m_user);
+                spk_win->setKey(-1);
+            }else if(push == goToGame_begin && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                m_user->goNext(MainOuter::branch_newGame);
+            }
+            
             return next;
         }
         void Tudukikara::draw(GMSpriteBatch* s){
@@ -161,6 +178,11 @@ namespace titleScene{
         
         Settei::Settei(MainMenu* user):
         StateChild(user){
+            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            spk_win->addString("ごめんね。漸まだゲーム設定画面は実装してないの。");
+            spk_win->addString("出来るまで待ってて。");
+            spk_win->addString("ね？", backMainSelect);
         }
         Settei::~Settei(){
         }
@@ -168,6 +190,15 @@ namespace titleScene{
             StateChild* next = this;
             selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            
+            int push = spk_win->getKey();
+            if(push == backMainSelect && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                next = new MainCommandSelect(m_user);
+                spk_win->setKey(-1);
+            }else if(push == goToGame_begin && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                m_user->goNext(MainOuter::branch_newGame);
+            }
+            
             return next;
         }
         void Settei::draw(GMSpriteBatch* s){
@@ -175,6 +206,10 @@ namespace titleScene{
         
         Omake::Omake(MainMenu* user):
         StateChild(user){
+            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            spk_win->addString("ごめんね。漸おまけはまだ実装してないわ。");
+            spk_win->addString("出来るまで待ってて。", backMainSelect);
         }
         Omake::~Omake(){
         }
@@ -182,6 +217,15 @@ namespace titleScene{
             StateChild* next = this;
             selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+            
+            int push = spk_win->getKey();
+            if(push == backMainSelect && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                next = new MainCommandSelect(m_user);
+                spk_win->setKey(-1);
+            }else if(push == goToGame_begin && input->isKeyDownTriggered(GMKeyMaskZ | GMKeyMaskSpace | GMKeyMaskReturn)){
+                m_user->goNext(MainOuter::branch_newGame);
+            }
+            
             return next;
         }
         void Omake::draw(GMSpriteBatch* s){

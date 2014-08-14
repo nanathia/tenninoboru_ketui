@@ -39,6 +39,7 @@ namespace JASpeakWindow{
         WindowState* m_state;
         int m_returnKey;
         int m_nextReturnKey;
+        bool m_isLockInput;
     public:
         Window();
         ~Window();
@@ -62,6 +63,8 @@ namespace JASpeakWindow{
         void setReturnKey();
         int getKey();
         void setKey(int key);
+        void DisableInput();
+        void EnableInput();
     };
     
 }

@@ -153,68 +153,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "lib/Karakuri2 Library Source/shared/GMTexture2D.mm"
-            timestampString = "423529269.491671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "GMTexture2D::GMTexture2D(const std::string&amp; imageName, GMTexture2DScaleMode mode)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "lib/Karakuri2 Library Source/shared/GMTexture2D.mm"
-            timestampString = "423529324.699641"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "GMTexture2D::GMTexture2D(const std::string&amp; imageName, GMTexture2DScaleMode mode)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GMTexture2D::GMTexture2D(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;, GMTexture2DScaleMode)"
-                  moduleName = "Karakuri2 Mac"
-                  urlString = "file:///Users/nanathia/Desktop/%E3%82%B5%E3%82%AF%E3%83%9E%E3%81%AE%E4%B8%8D%E6%80%9D%E8%AD%B0%E3%81%AE%E3%82%BF%E3%82%99%E3%83%B3%E3%82%B7%E3%82%99%E3%83%A7%E3%83%B3/lib/Karakuri2%20Library%20Source/shared/GMTexture2D.mm"
-                  timestampString = "423529324.701874"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GMTexture2D::GMTexture2D(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;, GMTexture2DScaleMode)"
-                  moduleName = "Karakuri2 Mac"
-                  urlString = "file:///Users/nanathia/Desktop/%E3%82%B5%E3%82%AF%E3%83%9E%E3%81%AE%E4%B8%8D%E6%80%9D%E8%AD%B0%E3%81%AE%E3%82%BF%E3%82%99%E3%83%B3%E3%82%B7%E3%82%99%E3%83%A7%E3%83%B3/lib/Karakuri2%20Library%20Source/shared/GMTexture2D.mm"
-                  timestampString = "423529324.702268"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "445">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "lib/Karakuri2 Library Source/shared/GMInput.mm"
             timestampString = "423561831.74477"
             startingColumnNumber = "9223372036854775807"

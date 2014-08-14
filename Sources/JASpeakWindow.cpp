@@ -32,7 +32,8 @@ namespace JASpeakWindow{
     m_characters(new std::vector<Character*>),
     m_characters_2(new std::vector<Character*>),
     m_returnKey(-1),
-    m_nextReturnKey(-1)
+    m_nextReturnKey(-1),
+    m_isLockInput(0)
     {
         m_color.a = 0.5;
         m_state = new WindowState(this);
@@ -51,7 +52,7 @@ namespace JASpeakWindow{
         m_characters = 0;
     }
     int Window::update(GMInput* input, double deltaTime){
-        m_state->update(input, deltaTime);
+        if(!m_isLockInput) m_state->update(input, deltaTime);
         int size = (int)(*m_characters).size();
         for(int i = 0; i < size; i++){
             (*m_characters)[i]->update(input, deltaTime);
@@ -177,6 +178,12 @@ namespace JASpeakWindow{
     void Window::setKey(int key){
         m_returnKey = key;
         m_nextReturnKey = -1;
+    }
+    void Window::EnableInput(){
+        m_isLockInput = true;
+    }
+    void Window::DisableInput(){
+        m_isLockInput = false;
     }
     
 }

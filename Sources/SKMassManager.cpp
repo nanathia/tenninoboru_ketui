@@ -96,7 +96,7 @@ m_kaisou(1)
         noneBlock_masses[randNum] = noneBlock_masses[noneBlock_masses.size()-val-2];
     }
     // アイテムランダム配置
-    for(; val < 50; val++){
+    for(; val < 30; val++){
         SKItem* enem = SKItem::createRandamItem();
         gPlayScene->getItemMan()->add(enem);
         int randNum = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-val-2);

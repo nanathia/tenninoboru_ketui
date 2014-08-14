@@ -18,6 +18,7 @@
 #include "GMGlobals.h"
 #include "GMGraphics.h"
 #include "GMTexture2D.h"
+#include "SKTextureManager.h"
 
 
 // Mac OS X 10.4 のサポート
@@ -176,6 +177,9 @@ typedef unsigned int NSUInteger;
                                  toTarget:self
                                withObject:nil];
     }
+    
+    // Karakuri初期化の終了。GMに依存する全体的に使用するクラスの初期化は、ここで行う。
+    mGameInst->getTexMan()->add(TextureName_Fill, "SKFill.png");
 }
 
 /*

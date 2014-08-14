@@ -61,7 +61,7 @@ namespace titleScene{
         };
         elements[0]->setLabel("初めから旅する");
         elements[1]->setLabel("旅を続ける");
-        elements[2]->setLabel("ゲーム詳細");
+        elements[2]->setLabel("ゲーム設定");
         elements[3]->setLabel("おまけ");
         int size = (int)sizeof(elements) / sizeof(elements[0]);
         for(int i = 0; i < size; i++){
@@ -109,7 +109,7 @@ namespace titleScene{
         m_animationTime += deltaTime/4;
         if(m_animationTime >= 1){
             if(m_branch == branch_newGame){
-                gGameInst->ChangeScene("play");
+                gGameInst->ChangeScene("startDemo");
             }
         }
         return next;
