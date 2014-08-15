@@ -37,6 +37,7 @@
 		0437696A199C0202000BCE66 /* SKStartDemojikuuakuu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376966199C0202000BCE66 /* SKStartDemojikuuakuu.png */; };
 		04376970199C0590000BCE66 /* StartDemoMainState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0437696E199C0590000BCE66 /* StartDemoMainState.cpp */; };
 		04376972199C23F2000BCE66 /* SKFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376971199C23F2000BCE66 /* SKFill.png */; };
+		04376975199D8BD6000BCE66 /* sizurusFonts.png in Resources */ = {isa = PBXBuildFile; fileRef = 04376974199D8BD6000BCE66 /* sizurusFonts.png */; };
 		04395970194F4A9D00D43459 /* SKBlockImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0439596F194F4A9D00D43459 /* SKBlockImage.png */; };
 		0439599E194FB05300D43459 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04395972194FB05300D43459 /* Animation.cpp */; };
 		0439599F194FB05300D43459 /* BoneTimelineKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04395974194FB05300D43459 /* BoneTimelineKey.cpp */; };
@@ -401,6 +402,7 @@
 		0437696E199C0590000BCE66 /* StartDemoMainState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartDemoMainState.cpp; sourceTree = "<group>"; };
 		0437696F199C0590000BCE66 /* StartDemoMainState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDemoMainState.h; sourceTree = "<group>"; };
 		04376971199C23F2000BCE66 /* SKFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKFill.png; sourceTree = "<group>"; };
+		04376974199D8BD6000BCE66 /* sizurusFonts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sizurusFonts.png; sourceTree = "<group>"; };
 		043772B9198031DE0030B1B8 /* CallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallBack.h; sourceTree = "<group>"; };
 		0439596F194F4A9D00D43459 /* SKBlockImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKBlockImage.png; sourceTree = "<group>"; };
 		04395972194FB05300D43459 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Animation.cpp; sourceTree = "<group>"; };
@@ -1034,6 +1036,13 @@
 				0437696F199C0590000BCE66 /* StartDemoMainState.h */,
 			);
 			name = mainState;
+			sourceTree = "<group>";
+		};
+		04376973199D497E000BCE66 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Event;
 			sourceTree = "<group>";
 		};
 		04395971194FB05300D43459 /* Spriter */ = {
@@ -1773,6 +1782,7 @@
 		8EBF7EA71620D28D002F78FB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				04376974199D8BD6000BCE66 /* sizurusFonts.png */,
 				0424C18F1962D9220081BB5B /* sizuruFonts.png */,
 				0424C18319618B190081BB5B /* 07やさしさゴシックボールド.ttf */,
 				8EBF7E9E1620D21E002F78FB /* font-erbos_draco-7x14.png */,
@@ -1814,6 +1824,7 @@
 		8EE63A0A1432667100922244 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				04376973199D497E000BCE66 /* Event */,
 				04C7A67E1999FBF000D7AEEC /* demo */,
 				044F75C319405A3200D0E4BB /* title */,
 				8E84293D16327FEF00CF4BC4 /* game */,
@@ -2182,6 +2193,7 @@
 				8EBF7EA51620D21E002F78FB /* font-erbos_draco-21x42.png in Resources */,
 				04C5C0F619731DE70073B05A /* Image_0065.png in Resources */,
 				04C5C10219731DE70073B05A /* sakumaIm_2.png in Resources */,
+				04376975199D8BD6000BCE66 /* sizurusFonts.png in Resources */,
 				8EBF7EA61620D21E002F78FB /* font-erbos_draco-28x56.png in Resources */,
 				04C5C0CF19731DE70073B05A /* Image_0026.png in Resources */,
 				04C5C0CC19731DE70073B05A /* Image_0023.png in Resources */,

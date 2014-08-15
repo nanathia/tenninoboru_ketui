@@ -10,6 +10,7 @@
 
 #import "Globals.h"
 #import "GMSoundImpl.h"
+#import "SKTextureManager.h"
 
 
 // Mac OS X 10.4 のサポート
@@ -58,6 +59,10 @@ static GMAppDelegate*   sInstance = nil;
     if (gGMHasGameStartError) {
         [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(showStartError:) userInfo:nil repeats:NO];
     }
+    
+    // Karakuri初期化の終了。GMに依存する全体的に使用するクラスの初期化は、ここで行う。
+    gGameInst->setFont(new GMTexture2D("sizurusFonts.png"));
+    gGameInst->getTexMan()->add(TextureName_Fill, "SKFill.png");
 }
 
 - (void)showStartError:(NSTimer *)timer

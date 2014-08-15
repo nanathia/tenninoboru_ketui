@@ -29,10 +29,6 @@ SKTitle::~SKTitle(){
 }
 
 void SKTitle::willAppear(GMGraphics* g){
-    if(!gGameInst->getFontTex()){
-        // フォントの読み込み
-        gGameInst->setFont(new GMTexture2D("sizuruFonts.png"));
-    }
     m_BasicEffect = new GMBasicEffect();
     m_SpriteBatch = new GMSpriteBatch();
     m_SoundMan = new SKSoundManager;

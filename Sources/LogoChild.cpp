@@ -38,7 +38,7 @@ namespace titleScene{
         c.a = parent->m_animationTime;
         s->draw(0, GMRect2D(0, SCREEN_SIZE), c, 0);
         s->draw(parent->m_LogoImage, GMRect2D(SCREEN_SIZE.x-400, 200, 300, 300), c2);
-        gGameInst->getFont()->drawString(s, "Project by", GMVector2D(50, SCREEN_SIZE.y/2+50), c3);
+        if(gGameInst->getFont()) gGameInst->getFont()->drawString(s, "Project by", GMVector2D(50, SCREEN_SIZE.y/2+50), c3);
         if(parent->m_animationTime >= 0.5){
             GMColor c4 = GMColor::SkyBlue;
             c4.a = GMMath::EaseInOut(0, 1, parent->m_animationTime-0.5)*2;

@@ -165,7 +165,7 @@ namespace JASpeakWindow{
         sizurus_fonts::SKFont::drawCharacter
         (m_character->getCharacter().c_str(),
          s,
-         GMRect2D(m_character->getOrbit()->getOrbit(m_character->getStartPos(), m_character->getEndPos(), m_time), 50),
+         GMRect2D(m_character->getOrbit()->getOrbit(m_character->getStartPos(), m_character->getEndPos(), m_time), GMMath::Lerp(0, 50, m_time)),
          c,
          m_character->getAngle(),
          GMVector2D(0.5, 0.5));
@@ -259,7 +259,7 @@ namespace JASpeakWindow{
         sizurus_fonts::SKFont::drawCharacter
         (m_character->getCharacter().c_str(),
          s,
-         GMRect2D(m_character->getOrbit()->getOrbit(m_character->getStartPos(), m_character->getEndPos(), m_time), 50),
+         GMRect2D(m_character->getOrbit()->getOrbit(m_character->getStartPos(), m_character->getEndPos(), m_time), GMMath::Lerp(50, 0, m_time)),
          c,
          m_character->getAngle(),
          GMVector2D(0.5, 0.5));

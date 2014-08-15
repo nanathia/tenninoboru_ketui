@@ -5,8 +5,8 @@
 namespace sizurus_fonts{
     namespace{
         enum size{
-            texSizeW = 2046,
-            texSizeH = 2046,
+            texSizeW = 2048,
+            texSizeH = 2048,
             charSize = 64,
             charNum = 32,
         };

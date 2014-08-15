@@ -60,6 +60,7 @@ namespace startdemomain{
         m_user->getSpkWin()->update(input, deltaTime);
         if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new JikuakuuInter(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -73,8 +74,10 @@ namespace startdemomain{
     }
     StateChild* TextOnly3::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
-            next = new JikuakuuInter(m_user);
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
+            next = new SakumaInter(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -88,7 +91,8 @@ namespace startdemomain{
     }
     StateChild* TextOnly4::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new AllOuter(m_user);
         }
         return next;
@@ -136,8 +140,10 @@ namespace startdemomain{
     }
     StateChild* JikuakuuImage::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new JikuuakuuOuter(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -149,13 +155,14 @@ namespace startdemomain{
     };
     
     JikuuakuuOuter::JikuuakuuOuter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     JikuuakuuOuter::~JikuuakuuOuter(){
     }
     StateChild* JikuuakuuOuter::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        m_time += deltaTime/3;
+        m_time += deltaTime/4;
         if(m_time >= 1){
             next = new TextOnly2(m_user);
         }else
@@ -166,7 +173,8 @@ namespace startdemomain{
     }
     void JikuuakuuOuter::draw(GMSpriteBatch* s){
         GMColor white = GMColor::White;
-        white.a = 1-m_time;
+        white.a = (1.0-m_time)/3.0;
+        s->fill(GMRect2D(0, SCREEN_SIZE), white);
         s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_jiikuuakuu), GMRect2D(0, SCREEN_SIZE), white);
     };
     bool JikuuakuuOuter::isVisible(){
@@ -180,8 +188,9 @@ namespace startdemomain{
     }
     StateChild* TextOnly2::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
-            next = new SakumaInter(m_user);
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
+            next = new TetoraInter(m_user);
         }
         return next;
     }
@@ -189,7 +198,8 @@ namespace startdemomain{
     };
     
     SakumaInter::SakumaInter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     SakumaInter::~SakumaInter(){
     }
@@ -220,8 +230,10 @@ namespace startdemomain{
     }
     StateChild* SakumaVisible::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new SakumaInter2(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -230,7 +242,8 @@ namespace startdemomain{
     };
     
     SakumaInter2::SakumaInter2(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     SakumaInter2::~SakumaInter2(){
     }
@@ -248,7 +261,7 @@ namespace startdemomain{
     void SakumaInter2::draw(GMSpriteBatch* s){
         GMColor white = GMColor::White;
         white.a = m_time;
-        s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_sakuma), GMRect2D(0, SCREEN_SIZE), white);
+        s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_sakuma), GMRect2D(0, SCREEN_SIZE), GMColor::White);
         s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_sakuma_c), GMRect2D(0, SCREEN_SIZE), white);
     };
     bool SakumaInter2::isVisible(){
@@ -256,14 +269,17 @@ namespace startdemomain{
     }
     
     SakumaSakumaVisible2::SakumaSakumaVisible2(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     SakumaSakumaVisible2::~SakumaSakumaVisible2(){
     }
     StateChild* SakumaSakumaVisible2::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new SakumaOuter(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -273,12 +289,17 @@ namespace startdemomain{
     };
     
     SakumaOuter::SakumaOuter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     SakumaOuter::~SakumaOuter(){
     }
     StateChild* SakumaOuter::update(GMInput* input, double deltaTime){
         StateChild* next = this;
+        m_time += deltaTime/4;
+        if(m_time >= 1){
+            next = new TextOnly4(m_user);
+        }
         if(m_isNext){
             next = new TextOnly4(m_user);
         }
@@ -286,7 +307,7 @@ namespace startdemomain{
     }
     void SakumaOuter::draw(GMSpriteBatch* s){
         GMColor white = GMColor::White;
-        white.a = 1-m_time;
+        white.a = (1-m_time);
         s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_sakuma), GMRect2D(0, SCREEN_SIZE), white);
         s->draw(gStartDemo->getTexMan()->get(SKStartDemo::texName_sakuma_c), GMRect2D(0, SCREEN_SIZE), white);
     };
@@ -295,12 +316,17 @@ namespace startdemomain{
     }
     
     TetoraInter::TetoraInter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     TetoraInter::~TetoraInter(){
     }
     StateChild* TetoraInter::update(GMInput* input, double deltaTime){
         StateChild* next = this;
+        m_time += deltaTime/4;
+        if(m_time >= 1){
+            next = new TetoraVisible(m_user);
+        }
         if(m_isNext){
             next = new TetoraVisible(m_user);
         }
@@ -316,12 +342,17 @@ namespace startdemomain{
     }
     
     TetoraOuter::TetoraOuter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     TetoraOuter::~TetoraOuter(){
     }
     StateChild* TetoraOuter::update(GMInput* input, double deltaTime){
         StateChild* next = this;
+        m_time += deltaTime/4;
+        if(m_time >= 1){
+            next = new TextOnly3(m_user);
+        }
         if(m_isNext){
             next = new TextOnly3(m_user);
         }
@@ -343,8 +374,10 @@ namespace startdemomain{
     }
     StateChild* TetoraVisible::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_isNext){
+        m_user->getSpkWin()->update(input, deltaTime);
+        if(m_isNext || ((m_user->getSpkWin()->getKey() == StartDemoMain::nextScene) && input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskZ|GMKeyMaskReturn))){
             next = new TetoraOuter(m_user);
+            m_user->getSpkWin()->setKey(-1);
         }
         return next;
     }
@@ -353,18 +386,23 @@ namespace startdemomain{
     };
     
     AllOuter::AllOuter(StartDemoMain* user):
-    StateChild(user){
+    StateChild(user),
+    m_time(0){
     }
     AllOuter::~AllOuter(){
     }
     StateChild* AllOuter::update(GMInput* input, double deltaTime){
         StateChild* next = this;
-        if(m_time <= 1){
+        m_time += deltaTime/5;
+        if(m_time >= 1){
             gGameInst->ChangeScene("play");
         }
         return next;
     }
     void AllOuter::draw(GMSpriteBatch* s){
+        GMColor white = GMColor::White;
+        white.a = m_time;
+        s->fill(GMRect2D(0, SCREEN_SIZE), white);
     };
     bool AllOuter::isVisible(){
         return false;

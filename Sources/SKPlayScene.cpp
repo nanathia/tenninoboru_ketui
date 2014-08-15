@@ -33,10 +33,6 @@ void SKPlayScene::willAppear(GMGraphics *g){
     m_TexMan->add(Texture_itemName, "SKItemImage.png");
     m_TexMan->add(Texture_blockName, "SKBlockImage.png");
     m_TexMan->add(Texture_directionName, "direction.png");
-    if(!gGameInst->getFontTex()){
-        // 静流ずフォントの読み込み
-        gGameInst->setFont(new GMTexture2D("sizuruFonts.png"));
-    }
     
     // 色々読み込み
 //    m_player = new SKPlayer();

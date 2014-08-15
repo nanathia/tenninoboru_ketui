@@ -14,7 +14,7 @@ namespace JASpeakWindow{
     
     WindowState::WindowState(Window* user):
     m_child(0){
-        m_child = new WindowInter(user);
+        m_child = new WindowOuter(user, 1);
     }
     WindowState::~WindowState(){
         delete m_child;
@@ -55,7 +55,7 @@ namespace JASpeakWindow{
     }
     WindowStateChild* WindowInter::update(GMInput* input, double deltaTime){
         WindowStateChild* next = this;
-        m_time += deltaTime/3;
+        m_time += deltaTime;
         if(m_time >= 1){
             next = new WindowVisible(m_user);
         }
@@ -110,6 +110,10 @@ namespace JASpeakWindow{
     WindowOuter::WindowOuter(Window* user):
     WindowStateChild(user),
     m_time(0){
+    }
+    WindowOuter::WindowOuter(Window* user, int time):
+    WindowStateChild(user),
+    m_time(time){
     }
     WindowOuter::~WindowOuter(){
     }

@@ -74,7 +74,7 @@ void GameMain::setFont(GMTexture2D* sizuru){
 }
 
 GMFont* GameMain::getFont(){
-    return m_sazamekiFont;
+    return m_sazamekiFont? m_sazamekiFont: 0;
 }
 
 SKMusicManager* GameMain::getMusicMan(){
@@ -86,6 +86,6 @@ SKSoundManager* GameMain::getSoundMan(){
 }
 
 SKTextureManager* GameMain::getTexMan(){
-    return m_texMan;
+    return m_texMan? m_texMan: 0;
 }
 
