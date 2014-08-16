@@ -49,7 +49,6 @@ namespace titleScene{
         StateChild* MainCommandSelect::update(GMInput* input, double deltaTime){
             StateChild* next = this;
             selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
-            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             selectWindow::Element* sel_elem = sel_win->update(input, deltaTime);
             if(sel_elem){
                 if(sel_elem->getLabel() == "初めから旅する"){
@@ -72,7 +71,6 @@ namespace titleScene{
         StateChild(user),
         m_sel_win(0),
         m_currentselect(none){
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             spk_win->addString("はじめからゲームを開始するのね。");
             spk_win->addString("このゲームは、とある少女、漸サクマの悲劇と努力の物語よ。");
@@ -152,7 +150,7 @@ namespace titleScene{
         
         Tudukikara::Tudukikara(MainMenu* user):
         StateChild(user){
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             spk_win->addString("ごめんね。漸「続きから」はもうすぐ作るから我慢してて。", backMainSelect);
         }
@@ -160,7 +158,7 @@ namespace titleScene{
         }
         StateChild* Tudukikara::update(GMInput* input, double deltaTime){
             StateChild* next = this;
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             
             int push = spk_win->getKey();
@@ -178,7 +176,7 @@ namespace titleScene{
         
         Settei::Settei(MainMenu* user):
         StateChild(user){
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             spk_win->addString("ごめんね。漸まだゲーム設定画面は実装してないの。");
             spk_win->addString("出来るまで待ってて。");
@@ -188,7 +186,7 @@ namespace titleScene{
         }
         StateChild* Settei::update(GMInput* input, double deltaTime){
             StateChild* next = this;
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             
             int push = spk_win->getKey();
@@ -206,7 +204,7 @@ namespace titleScene{
         
         Omake::Omake(MainMenu* user):
         StateChild(user){
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             spk_win->addString("ごめんね。漸おまけはまだ実装してないわ。");
             spk_win->addString("出来るまで待ってて。", backMainSelect);
@@ -215,7 +213,7 @@ namespace titleScene{
         }
         StateChild* Omake::update(GMInput* input, double deltaTime){
             StateChild* next = this;
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             
             int push = spk_win->getKey();
@@ -238,8 +236,8 @@ namespace titleScene{
         }
         StateChild* Chancel::update(GMInput* input, double deltaTime){
             StateChild* next = this;
-            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
-            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
+//            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
+//            JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
             return next;
         }
         void Chancel::draw(GMSpriteBatch* s){
