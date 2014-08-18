@@ -38,7 +38,6 @@ class GameMain : public GMGame {
     SKMusicManager* m_MusicMan;
     SKSoundManager* m_SoundMan;
     SKTextureManager* m_texMan;
-    // 非常に不本意だが・・・
 public:
     
     GameMain();

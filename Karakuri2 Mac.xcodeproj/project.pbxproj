@@ -270,6 +270,7 @@
 		04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCC1967A2B8005BCE10 /* SKSword.cpp */; };
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
 		04D28CD41967A2D0005BCE10 /* SKShield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CD21967A2D0005BCE10 /* SKShield.cpp */; };
+		04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */; };
 		04FC1309193DAAEE00E449A8 /* randam_dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FC1307193DAAEE00E449A8 /* randam_dungeon.cpp */; };
 		8E1C6C0713EED98E00450DD6 /* GMVector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C6C0313EED98900450DD6 /* GMVector3D.cpp */; };
 		8E1C6C0813EED98E00450DD6 /* GMVector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C6C0513EED98B00450DD6 /* GMVector4D.cpp */; };
@@ -726,6 +727,9 @@
 		04D28CD01967A2C5005BCE10 /* SKUdewa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUdewa.h; sourceTree = "<group>"; };
 		04D28CD21967A2D0005BCE10 /* SKShield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKShield.cpp; sourceTree = "<group>"; };
 		04D28CD31967A2D0005BCE10 /* SKShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKShield.h; sourceTree = "<group>"; };
+		04F39B82199FCC9F00696FD7 /* picojson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = picojson.h; path = "../../../Downloads/picojson-master/picojson.h"; sourceTree = "<group>"; };
+		04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayBase.cpp; sourceTree = "<group>"; };
+		04F39B8D19A1ADD800696FD7 /* SKPlayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayBase.h; sourceTree = "<group>"; };
 		04FC1307193DAAEE00E449A8 /* randam_dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = randam_dungeon.cpp; sourceTree = "<group>"; };
 		04FC1308193DAAEE00E449A8 /* randam_dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = randam_dungeon.h; sourceTree = "<group>"; };
 		8E1C6C0313EED98900450DD6 /* GMVector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GMVector3D.cpp; sourceTree = "<group>"; };
@@ -1655,6 +1659,24 @@
 			name = "kind of...";
 			sourceTree = "<group>";
 		};
+		04F39B8F19A1AE0100696FD7 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				04411B6F19340E3000C324FE /* SKPlayScene.cpp */,
+				04411B7019340E3000C324FE /* SKPlayScene.h */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
+		04F39B9019A1AE2900696FD7 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */,
+				04F39B8D19A1ADD800696FD7 /* SKPlayBase.h */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
 		04FC1306193DAA3100E449A8 /* randomStage_renderer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1732,8 +1754,6 @@
 				046B1B86196A79EE00100BC9 /* playChild */,
 				04FC1306193DAA3100E449A8 /* randomStage_renderer */,
 				04411B7E19344F8100C324FE /* mass */,
-				04411B6F19340E3000C324FE /* SKPlayScene.cpp */,
-				04411B7019340E3000C324FE /* SKPlayScene.h */,
 				0480486E1931026F003885C2 /* Object */,
 				8E84296816329AAF00CF4BC4 /* all */,
 				0421AF84193D8831003F492D /* SaKumas_includes.h */,
@@ -1748,15 +1768,12 @@
 		8E84293D16327FEF00CF4BC4 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				04F39B9019A1AE2900696FD7 /* base */,
+				04F39B8F19A1AE0100696FD7 /* scene */,
 				0445024E1990DA94001CA8A4 /* baseArea */,
-				04395971194FB05300D43459 /* Spriter */,
+				8E84293916327F3000CF4BC4 /* dungeon */,
 				049A790E19273BBB00745977 /* key_state */,
-				8E39DB4D142A454000E5A206 /* Globals.h */,
-				8E39DB4E142A454000E5A206 /* Globals.cpp */,
-				8E39DB4F142A454000E5A206 /* GameMain.h */,
-				8E39DB50142A454000E5A206 /* GameMain.cpp */,
-				044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */,
-				044F75C119402EF300D0E4BB /* SKKeyHandler.h */,
+				04395971194FB05300D43459 /* Spriter */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -1824,11 +1841,17 @@
 		8EE63A0A1432667100922244 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8E39DB4D142A454000E5A206 /* Globals.h */,
+				8E39DB4E142A454000E5A206 /* Globals.cpp */,
+				8E39DB4F142A454000E5A206 /* GameMain.h */,
+				8E39DB50142A454000E5A206 /* GameMain.cpp */,
+				044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */,
+				044F75C119402EF300D0E4BB /* SKKeyHandler.h */,
+				04F39B82199FCC9F00696FD7 /* picojson.h */,
 				04376973199D497E000BCE66 /* Event */,
 				04C7A67E1999FBF000D7AEEC /* demo */,
 				044F75C319405A3200D0E4BB /* title */,
 				8E84293D16327FEF00CF4BC4 /* game */,
-				8E84293916327F3000CF4BC4 /* dungeon */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -2222,6 +2245,7 @@
 				041C62401949641900D78C35 /* EnemyFactory.cpp in Sources */,
 				043959AA194FB05300D43459 /* ScmlFunctions.cpp in Sources */,
 				043959AF194FB05300D43459 /* Timeline.cpp in Sources */,
+				04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */,
 				041F921B1991ECBB0020FC79 /* LogoChild.cpp in Sources */,
 				0477D1F71947B80C008D13BC /* State_Nomal_Key.cpp in Sources */,
 				8E1C6C1E13EEDA7200450DD6 /* GMBoundingBox.cpp in Sources */,

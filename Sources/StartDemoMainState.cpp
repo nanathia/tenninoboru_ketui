@@ -11,6 +11,7 @@
 #include "StartDemoChild.h"
 #include "SKTextureManager.h"
 #include "SKStartDemo.h"
+#include "picojson.h"
 
 namespace startdemo{
 namespace startdemomain{

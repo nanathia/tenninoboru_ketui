@@ -13,22 +13,21 @@
 
 namespace baseArea{
     
-//    class SKBaseAreaScene: public GMScene{
-//        GMTexture2D* m_BackImage;
-//        GMMusic* m_BackMusic;
-//        GMBasicEffect* m_BasicEffect;
-//        GMSpriteBatch* m_SpriteBatch;
-//        
-//    public:
-//        SKBaseAreaScene();
-//        ~SKBaseAreaScene();
-//        void drawView(GMGraphics* g) override;
-//        void updateModel(GMInput* input, double deltaTime) override;
-//        void willAppear(GMGraphics* g) override;
-//        void didDisappear() override;
-//        SKTitle();
-//        ~SKTitle();
-//    };
+    class SKBaseAreaScene: public GMScene{
+        GMTexture2D* m_BackImage;
+        GMMusic* m_BackMusic;
+        GMBasicEffect* m_BasicEffect;
+        GMSpriteBatch* m_SpriteBatch;
+        
+    public:
+        SKBaseAreaScene();
+        ~SKBaseAreaScene();
+        void drawView(GMGraphics* g) override;
+        void updateModel(GMInput* input, double deltaTime) override;
+        void willAppear(GMGraphics* g) override;
+        void didDisappear() override;
+    };
+    
 };
 
 #endif /* defined(__Karakuri2_Mac__SKBaseAreaScene__) */

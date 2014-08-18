@@ -21,6 +21,8 @@
 // プレイ画面のサイズ
 #define kPlayViewSize           GMVector2D(640, 480)
 
+#define IS_DEBUG (1)
+
 
 #endif  //#ifndef __GLOBALS_H__
 

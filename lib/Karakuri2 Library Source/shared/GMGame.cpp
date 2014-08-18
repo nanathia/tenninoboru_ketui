@@ -100,6 +100,16 @@ void GMGame::updateModel(GMInput* input, double deltaTime)
         throw GMException("Game scene has not been selected.");
     }
     
+#if IS_DEBUG
+    if(input->isKeyDownTriggered(GMKeyMaskP) && input->isKeyDown(GMKeyMaskC)){
+        this->ChangeScene("play");
+    }else if(input->isKeyDownTriggered(GMKeyMaskT) && input->isKeyDown(GMKeyMaskC)){
+        this->ChangeScene("title");
+    }else if(input->isKeyDownTriggered(GMKeyMaskD) && input->isKeyDown(GMKeyMaskC)){
+        this->ChangeScene("startDemo");
+    }
+#endif
+    
     mCurrentScene->updateModel(input, deltaTime);
 }
 

@@ -56,6 +56,8 @@ public:
         @abstract   このゲームのウィンドウのタイトルバーに表示されているタイトル文字列を取得します。
      */
     std::string getTitle() const;
+    // FIXME: 削除
+    std::string debug_changeStr;
     
 public:
     ///// ゲーム進行

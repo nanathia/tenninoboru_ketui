@@ -152,7 +152,7 @@ namespace titleScene{
         StateChild(user){
 //            selectWindow::Window* sel_win = m_user->getUser()->getSelectWindow();
             JASpeakWindow::Window* spk_win = m_user->getUser()->getSpeakWindow();
-            spk_win->addString("ごめんね。漸「続きから」はもうすぐ作るから我慢してて。", backMainSelect);
+            spk_win->addString("殺劇武荒拳よー。＋ー＝〜｜￥＠”’＆％＄M>{}", backMainSelect);
         }
         Tudukikara::~Tudukikara(){
         }
