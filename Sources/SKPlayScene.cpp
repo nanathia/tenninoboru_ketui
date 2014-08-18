@@ -12,9 +12,9 @@
 #include "SKUserInterface.h"
 #include "spriterFiles.h"
 #include "GameMain.h"
-#include "SKPlayFree.h"
-#include "SKPlayMenu.h"
-#include "SKPlayAction.h"
+//#include "SKPlayFree.h"
+//#include "SKPlayMenu.h"
+//#include "SKPlayAction.h"
 #include "ItemCommandInfo.h"
 #include "SKItemInclude.h"
 
@@ -49,12 +49,12 @@ void SKPlayScene::willAppear(GMGraphics *g){
     SKKeyHandle::create();
     
     // シーケンスの用意
-    m_child = new SKPlayFree();
+//    m_child = new SKPlayFree();
 }
 
 void SKPlayScene::didDisappear(){
-    delete m_child;
-    m_child = 0;
+//    delete m_child;
+//    m_child = 0;
     
     SKKeyHandle::destroy();
     
@@ -79,8 +79,8 @@ void SKPlayScene::didDisappear(){
 }
 
 
-SKPlayScene::SKPlayScene():
-m_child(0)
+SKPlayScene::SKPlayScene()
+//m_child(0)
 {
     gPlayScene = this;
 }
@@ -93,7 +93,7 @@ void SKPlayScene::updateModel(GMInput* input, double deltaTime){
     m_massMan->update();
     SKKeyHandle::KeyFlag_update(input, deltaTime);
     
-    SKPlayChild* next = m_child->update(input, deltaTime, this);
+//    SKPlayChild* next = m_child->update(input, deltaTime, this);
     this->m_player->objectUpdate(input, deltaTime);
     
     // そもそもプレイヤー以外は毎フレーム見る必要はない
@@ -101,10 +101,10 @@ void SKPlayScene::updateModel(GMInput* input, double deltaTime){
     this->m_itemMan->update_allItem(input, deltaTime);
     this->m_blockMan->update_allBlock(input, deltaTime);
 
-    if(next != m_child){
-        delete m_child;
-        m_child = next;
-    }
+//    if(next != m_child){
+//        delete m_child;
+//        m_child = next;
+//    }
     
     m_UI->updateUI(input, deltaTime);
 }

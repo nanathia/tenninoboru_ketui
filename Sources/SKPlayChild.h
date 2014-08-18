@@ -10,6 +10,7 @@
 #define __Karakuri2_Mac__SKPlayChild__
 
 #include "Karakuri.h"
+#include "SKPlayBase.h"
 
 class SKPlayScene;
 
@@ -18,6 +19,7 @@ public:
     virtual ~SKPlayChild();
     // 更新のみを任せる。
     virtual SKPlayChild* update(GMInput* input, double deltaTime, SKPlayScene* parent) = 0;
+    virtual void draw(GMSpriteBatch* s) = 0;
 };
 
 #endif /* defined(__Karakuri2_Mac__SKPlayChild__) */

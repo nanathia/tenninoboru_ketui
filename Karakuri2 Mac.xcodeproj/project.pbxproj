@@ -87,9 +87,6 @@
 		044F75C219402EF300D0E4BB /* SKKeyHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */; };
 		044F75C619405A4700D0E4BB /* SKTitle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044F75C419405A4700D0E4BB /* SKTitle.cpp */; };
 		046B1B89196A7A0300100BC9 /* SKPlayChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */; };
-		046B1B90196A84A600100BC9 /* SKPlayFree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B8E196A84A600100BC9 /* SKPlayFree.cpp */; };
-		046B1B93196A84B100100BC9 /* SKPlayAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B91196A84B100100BC9 /* SKPlayAction.cpp */; };
-		046B1B96196A84BF00100BC9 /* SKPlayMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B94196A84BF00100BC9 /* SKPlayMenu.cpp */; };
 		0477D1EE1947AED1008D13BC /* State_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1EC1947AED1008D13BC /* State_Key.cpp */; };
 		0477D1F11947B079008D13BC /* State_W_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1EF1947B079008D13BC /* State_W_Key.cpp */; };
 		0477D1F41947B6E7008D13BC /* State_Skip_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1F21947B6E7008D13BC /* State_Skip_Key.cpp */; };
@@ -271,6 +268,7 @@
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
 		04D28CD41967A2D0005BCE10 /* SKShield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CD21967A2D0005BCE10 /* SKShield.cpp */; };
 		04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */; };
+		04F39B9319A1B22D00696FD7 /* SKDungeonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */; };
 		04FC1309193DAAEE00E449A8 /* randam_dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FC1307193DAAEE00E449A8 /* randam_dungeon.cpp */; };
 		8E1C6C0713EED98E00450DD6 /* GMVector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C6C0313EED98900450DD6 /* GMVector3D.cpp */; };
 		8E1C6C0813EED98E00450DD6 /* GMVector4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E1C6C0513EED98B00450DD6 /* GMVector4D.cpp */; };
@@ -499,12 +497,6 @@
 		044F75C519405A4700D0E4BB /* SKTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTitle.h; sourceTree = "<group>"; };
 		046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayChild.cpp; sourceTree = "<group>"; };
 		046B1B88196A7A0300100BC9 /* SKPlayChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayChild.h; sourceTree = "<group>"; };
-		046B1B8E196A84A600100BC9 /* SKPlayFree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayFree.cpp; sourceTree = "<group>"; };
-		046B1B8F196A84A600100BC9 /* SKPlayFree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayFree.h; sourceTree = "<group>"; };
-		046B1B91196A84B100100BC9 /* SKPlayAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayAction.cpp; sourceTree = "<group>"; };
-		046B1B92196A84B100100BC9 /* SKPlayAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayAction.h; sourceTree = "<group>"; };
-		046B1B94196A84BF00100BC9 /* SKPlayMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayMenu.cpp; sourceTree = "<group>"; };
-		046B1B95196A84BF00100BC9 /* SKPlayMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayMenu.h; sourceTree = "<group>"; };
 		0477D1EC1947AED1008D13BC /* State_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Key.cpp; sourceTree = "<group>"; };
 		0477D1ED1947AED1008D13BC /* State_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Key.h; sourceTree = "<group>"; };
 		0477D1EF1947B079008D13BC /* State_W_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_W_Key.cpp; sourceTree = "<group>"; };
@@ -730,6 +722,8 @@
 		04F39B82199FCC9F00696FD7 /* picojson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = picojson.h; path = "../../../Downloads/picojson-master/picojson.h"; sourceTree = "<group>"; };
 		04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayBase.cpp; sourceTree = "<group>"; };
 		04F39B8D19A1ADD800696FD7 /* SKPlayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayBase.h; sourceTree = "<group>"; };
+		04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDungeonScene.cpp; sourceTree = "<group>"; };
+		04F39B9219A1B22D00696FD7 /* SKDungeonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDungeonScene.h; sourceTree = "<group>"; };
 		04FC1307193DAAEE00E449A8 /* randam_dungeon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = randam_dungeon.cpp; sourceTree = "<group>"; };
 		04FC1308193DAAEE00E449A8 /* randam_dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = randam_dungeon.h; sourceTree = "<group>"; };
 		8E1C6C0313EED98900450DD6 /* GMVector3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GMVector3D.cpp; sourceTree = "<group>"; };
@@ -1374,40 +1368,12 @@
 		046B1B86196A79EE00100BC9 /* playChild */ = {
 			isa = PBXGroup;
 			children = (
-				046B1B8D196A7B6400100BC9 /* menu */,
-				046B1B8B196A7AD900100BC9 /* action */,
-				046B1B8A196A7ABE00100BC9 /* wait */,
 				046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */,
 				046B1B88196A7A0300100BC9 /* SKPlayChild.h */,
+				0445024E1990DA94001CA8A4 /* baseArea */,
+				8E84293916327F3000CF4BC4 /* dungeon */,
 			);
 			name = playChild;
-			sourceTree = "<group>";
-		};
-		046B1B8A196A7ABE00100BC9 /* wait */ = {
-			isa = PBXGroup;
-			children = (
-				046B1B8E196A84A600100BC9 /* SKPlayFree.cpp */,
-				046B1B8F196A84A600100BC9 /* SKPlayFree.h */,
-			);
-			name = wait;
-			sourceTree = "<group>";
-		};
-		046B1B8B196A7AD900100BC9 /* action */ = {
-			isa = PBXGroup;
-			children = (
-				046B1B91196A84B100100BC9 /* SKPlayAction.cpp */,
-				046B1B92196A84B100100BC9 /* SKPlayAction.h */,
-			);
-			name = action;
-			sourceTree = "<group>";
-		};
-		046B1B8D196A7B6400100BC9 /* menu */ = {
-			isa = PBXGroup;
-			children = (
-				046B1B94196A84BF00100BC9 /* SKPlayMenu.cpp */,
-				046B1B95196A84BF00100BC9 /* SKPlayMenu.h */,
-			);
-			name = menu;
 			sourceTree = "<group>";
 		};
 		0478FEE419852418008923B1 /* equipment */ = {
@@ -1751,7 +1717,6 @@
 		8E84293916327F3000CF4BC4 /* dungeon */ = {
 			isa = PBXGroup;
 			children = (
-				046B1B86196A79EE00100BC9 /* playChild */,
 				04FC1306193DAA3100E449A8 /* randomStage_renderer */,
 				04411B7E19344F8100C324FE /* mass */,
 				0480486E1931026F003885C2 /* Object */,
@@ -1761,6 +1726,8 @@
 				04D28CC8196785D5005BCE10 /* SKItemContainar.h */,
 				04C5C020197272760073B05A /* SKMoveObject.cpp */,
 				04C5C021197272760073B05A /* SKMoveObject.h */,
+				04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */,
+				04F39B9219A1B22D00696FD7 /* SKDungeonScene.h */,
 			);
 			name = dungeon;
 			sourceTree = "<group>";
@@ -1768,10 +1735,9 @@
 		8E84293D16327FEF00CF4BC4 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				046B1B86196A79EE00100BC9 /* playChild */,
 				04F39B9019A1AE2900696FD7 /* base */,
 				04F39B8F19A1AE0100696FD7 /* scene */,
-				0445024E1990DA94001CA8A4 /* baseArea */,
-				8E84293916327F3000CF4BC4 /* dungeon */,
 				049A790E19273BBB00745977 /* key_state */,
 				04395971194FB05300D43459 /* Spriter */,
 			);
@@ -2286,7 +2252,6 @@
 				0478FEE8198524B0008923B1 /* EatingItem.cpp in Sources */,
 				0445024A198F159F001CA8A4 /* SKEnemyMoveState.cpp in Sources */,
 				043959A6194FB05300D43459 /* Math2.cpp in Sources */,
-				046B1B96196A84BF00100BC9 /* SKPlayMenu.cpp in Sources */,
 				8EF0605913EEB8D9007C1B2E /* GMGraphics.cpp in Sources */,
 				8ECF08851401864B00FC43D7 /* GMInput.mm in Sources */,
 				8EF0607D13EEB989007C1B2E /* GMInputObjC.mm in Sources */,
@@ -2309,7 +2274,6 @@
 				04B347391938DCB700D9622A /* SKMatrixManager.cpp in Sources */,
 				04C5C0251972A4410073B05A /* SKPlayerState.cpp in Sources */,
 				0445025119914A14001CA8A4 /* SKBaseAreaScene.cpp in Sources */,
-				046B1B90196A84A600100BC9 /* SKPlayFree.cpp in Sources */,
 				0478FEFA1985272E008923B1 /* WanaItem.cpp in Sources */,
 				0424C1871961940A0081BB5B /* SKFont.mm in Sources */,
 				8EA870751405A670002C38FF /* GMParticle.cpp in Sources */,
@@ -2343,8 +2307,8 @@
 				04376970199C0590000BCE66 /* StartDemoMainState.cpp in Sources */,
 				8EF0607013EEB8D9007C1B2E /* GMSpriteBatch.cpp in Sources */,
 				0478FEE319852234008923B1 /* UsingItem.cpp in Sources */,
-				046B1B93196A84B100100BC9 /* SKPlayAction.cpp in Sources */,
 				04440DA11936C0AD00D49BDF /* SKBlock.cpp in Sources */,
+				04F39B9319A1B22D00696FD7 /* SKDungeonScene.cpp in Sources */,
 				043959A1194FB05300D43459 /* Entity.cpp in Sources */,
 				041C6249194965AF00D78C35 /* mamusi.cpp in Sources */,
 				8EC05B16140AAFBE00C545D6 /* GMStringSupport.cpp in Sources */,

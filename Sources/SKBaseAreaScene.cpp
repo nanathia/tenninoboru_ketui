@@ -10,17 +10,6 @@
 
 namespace baseArea{
     
-    void SKBaseAreaScene::drawView(GMGraphics* g){
-        
-    }
-    void SKBaseAreaScene::updateModel(GMInput* input, double deltaTime){
-        
-    }
-    void SKBaseAreaScene::willAppear(GMGraphics* g){
-        
-    }
-    void SKBaseAreaScene::didDisappear(){
-        
-    }
+    
 
 }
