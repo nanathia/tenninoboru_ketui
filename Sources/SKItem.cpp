@@ -9,6 +9,7 @@
 #include "SKItem.h"
 #include "SKItemInclude.h"
 #include "SaKumas_includes.h"
+#include "SKDungeonScene.h"
 
 namespace{
     const int yNum = 2;
@@ -41,7 +42,7 @@ SKItem* SKItem::createRandamItem(){
 
 void SKItem::objectDraw(int i_x, int i_y){
     GMDraw::Begin();
-    gPlayScene->getCurrentEffect()->setTexture(gPlayScene->getTexMan()->get(Texture_itemName));
+    gPlayScene->getCurrentEffect()->setTexture(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_itemName));
     int x = m_itemNum%xNum;
     int y = m_itemNum/xNum;
     GMDraw::FillQuad(GMVector3D(i_x, i_y, 10), GMVector3D(i_x+mass_size+1, i_y, 10),

@@ -34,7 +34,7 @@ class SKMassManager{
     bool m_nextFlag;
     
 public:
-    SKMassManager(int stageWidth, int stageHeight, int drawAreaWidth, int drawAreaHeight, GMGraphics* g);
+    SKMassManager(int stageWidth, int stageHeight, int drawAreaWidth, int drawAreaHeight);
     ~SKMassManager();
     
     void update();

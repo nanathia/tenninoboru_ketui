@@ -40,7 +40,7 @@ namespace enemyState{
                 enem->resetMoveOrAction();
             }
         }else if(enem->isAction() && enem->isMeetingPlayer()){
-            enem->setSKObjectAngle(gPlayScene->getPlayer());
+            enem->setSKObjectAngle(gPlayScene->getDungeonScene()->getPlayer());
             SKEnemyState* attack = new SyokutyuuAttack();
             next = attack->update(input, deltaTime, enem);
             if(next != attack){
@@ -114,7 +114,7 @@ namespace enemyState{
             }
             if(SKObject* mo = enem->getMassForRadian(enem->getRadian())->getMovingObject()){
                 if(mo->getName() == "サクマ"){
-                    gPlayScene->getPlayer()->damage(10, enem);
+                    gPlayScene->getDungeonScene()->getPlayer()->damage(10, enem);
                 }
             }
         }

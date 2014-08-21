@@ -33,9 +33,9 @@ void StatusUI::draw(GMSpriteBatch *s) const{
     // TODO: ステータスUIの実装
     GMFont* f = gGameInst->getFont();
     std::ostringstream oss;
-    oss << " " << gPlayScene->getMassMan()->getKaisou() << "F  "
+    oss << " " << gPlayScene->getDungeonScene()->getMassMan()->getKaisou() << "F  "
     << "Lv" << 1
-    << "  HP" << gPlayScene->getPlayer()->getHp()
+    << "  HP" << gPlayScene->getDungeonScene()->getPlayer()->getHp()
     << "/" << 100
     << "      " << 0 << "G";
     std::string str = oss.str();

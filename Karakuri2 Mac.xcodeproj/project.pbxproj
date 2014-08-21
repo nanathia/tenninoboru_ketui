@@ -23,7 +23,6 @@
 		041F92151991E6720020FC79 /* SKTitleChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F92131991E6720020FC79 /* SKTitleChild.cpp */; };
 		041F921B1991ECBB0020FC79 /* LogoChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F92191991ECBB0020FC79 /* LogoChild.cpp */; };
 		041F921E19920CB70020FC79 /* JKLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 041F921D19920CB70020FC79 /* JKLogo.png */; };
-		04203FF219839FEE007B349E /* State_Menu_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04203FF019839FEE007B349E /* State_Menu_Key.cpp */; };
 		0424C182196138D20081BB5B /* PlayerPorch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424C180196138D20081BB5B /* PlayerPorch.cpp */; };
 		0424C18419618B190081BB5B /* 07やさしさゴシックボールド.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0424C18319618B190081BB5B /* 07やさしさゴシックボールド.ttf */; };
 		0424C1871961940A0081BB5B /* SKFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0424C1861961940A0081BB5B /* SKFont.mm */; };
@@ -84,14 +83,32 @@
 		0445025119914A14001CA8A4 /* SKBaseAreaScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0445024F19914A14001CA8A4 /* SKBaseAreaScene.cpp */; };
 		0448A184194EE4CC00217DAA /* SKFloorImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0448A183194EE4CC00217DAA /* SKFloorImage.png */; };
 		044A38BA19564064004C5F11 /* nazo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 044A38B919564064004C5F11 /* nazo.txt */; };
-		044F75C219402EF300D0E4BB /* SKKeyHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */; };
 		044F75C619405A4700D0E4BB /* SKTitle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044F75C419405A4700D0E4BB /* SKTitle.cpp */; };
 		046B1B89196A7A0300100BC9 /* SKPlayChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */; };
-		0477D1EE1947AED1008D13BC /* State_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1EC1947AED1008D13BC /* State_Key.cpp */; };
-		0477D1F11947B079008D13BC /* State_W_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1EF1947B079008D13BC /* State_W_Key.cpp */; };
-		0477D1F41947B6E7008D13BC /* State_Skip_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1F21947B6E7008D13BC /* State_Skip_Key.cpp */; };
-		0477D1F71947B80C008D13BC /* State_Nomal_Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1F51947B80C008D13BC /* State_Nomal_Key.cpp */; };
-		0477D1FA1947FD17008D13BC /* State_Key_Not.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0477D1F81947FD17008D13BC /* State_Key_Not.cpp */; };
+		047810B819A3E89E00A02FB2 /* BaseAreaMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 047810B619A3E89E00A02FB2 /* BaseAreaMap.mm */; };
+		047810BF19A3EA2A00A02FB2 /* TileLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810BD19A3EA2A00A02FB2 /* TileLayerManager.cpp */; };
+		047810C219A3EA3B00A02FB2 /* ImageLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810C019A3EA3B00A02FB2 /* ImageLayerManager.cpp */; };
+		047810C519A3EA4900A02FB2 /* ObjectLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810C319A3EA4900A02FB2 /* ObjectLayerManager.cpp */; };
+		047810C919A4028F00A02FB2 /* ImageLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810C719A4028F00A02FB2 /* ImageLayer.cpp */; };
+		047810CE19A4041900A02FB2 /* TileLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810CC19A4041900A02FB2 /* TileLayer.cpp */; };
+		047810D119A4042400A02FB2 /* ObjectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810CF19A4042400A02FB2 /* ObjectLayer.cpp */; };
+		0478118919A4264300A02FB2 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478118719A4264300A02FB2 /* Tile.cpp */; };
+		0478118D19A42B1500A02FB2 /* TileSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478118B19A42B1500A02FB2 /* TileSet.cpp */; };
+		0478119119A42FFB00A02FB2 /* TileSetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478118F19A42FFB00A02FB2 /* TileSetManager.cpp */; };
+		047811A019A452CC00A02FB2 /* mura.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0478119219A452CC00A02FB2 /* mura.tmx */; };
+		047811A119A452CC00A02FB2 /* tetora.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0478119319A452CC00A02FB2 /* tetora.tmx */; };
+		047811A219A452CC00A02FB2 /* tetra.json in Resources */ = {isa = PBXBuildFile; fileRef = 0478119419A452CC00A02FB2 /* tetra.json */; };
+		047811A319A452CC00A02FB2 /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119519A452CC00A02FB2 /* tip.png */; };
+		047811A419A452CC00A02FB2 /* tip2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0478119619A452CC00A02FB2 /* tip2.gif */; };
+		047811A519A452CC00A02FB2 /* tip3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119719A452CC00A02FB2 /* tip3.png */; };
+		047811A619A452CC00A02FB2 /* tip4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119819A452CC00A02FB2 /* tip4.png */; };
+		047811A719A452CC00A02FB2 /* tip5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119919A452CC00A02FB2 /* tip5.png */; };
+		047811A819A452CC00A02FB2 /* tip6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119A19A452CC00A02FB2 /* tip6.png */; };
+		047811A919A452CC00A02FB2 /* tip7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119B19A452CC00A02FB2 /* tip7.png */; };
+		047811AA19A452CC00A02FB2 /* tip8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119C19A452CC00A02FB2 /* tip8.png */; };
+		047811AB19A452CC00A02FB2 /* tip9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119D19A452CC00A02FB2 /* tip9.png */; };
+		047811AC19A452CC00A02FB2 /* tip10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0478119E19A452CC00A02FB2 /* tip10.png */; };
+		047811AD19A452CC00A02FB2 /* Untitled.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0478119F19A452CC00A02FB2 /* Untitled.tmx */; };
 		0478CFF1197D06E100612C48 /* ESMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478CFEF197D06E100612C48 /* ESMove.cpp */; };
 		0478FEDA198521BA008923B1 /* EpuipmentItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478FED8198521BA008923B1 /* EpuipmentItem.cpp */; };
 		0478FEE319852234008923B1 /* UsingItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0478FEE119852234008923B1 /* UsingItem.cpp */; };
@@ -380,8 +397,6 @@
 		041F92191991ECBB0020FC79 /* LogoChild.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogoChild.cpp; sourceTree = "<group>"; };
 		041F921A1991ECBB0020FC79 /* LogoChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoChild.h; sourceTree = "<group>"; };
 		041F921D19920CB70020FC79 /* JKLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JKLogo.png; sourceTree = "<group>"; };
-		04203FF019839FEE007B349E /* State_Menu_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Menu_Key.cpp; sourceTree = "<group>"; };
-		04203FF119839FEE007B349E /* State_Menu_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Menu_Key.h; sourceTree = "<group>"; };
 		0421AF84193D8831003F492D /* SaKumas_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaKumas_includes.h; sourceTree = "<group>"; };
 		0424C180196138D20081BB5B /* PlayerPorch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerPorch.cpp; sourceTree = "<group>"; };
 		0424C181196138D20081BB5B /* PlayerPorch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPorch.h; sourceTree = "<group>"; };
@@ -491,22 +506,45 @@
 		0445025019914A14001CA8A4 /* SKBaseAreaScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBaseAreaScene.h; sourceTree = "<group>"; };
 		0448A183194EE4CC00217DAA /* SKFloorImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKFloorImage.png; sourceTree = "<group>"; };
 		044A38B919564064004C5F11 /* nazo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nazo.txt; sourceTree = "<group>"; };
-		044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKKeyHandler.cpp; sourceTree = "<group>"; };
-		044F75C119402EF300D0E4BB /* SKKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKKeyHandler.h; sourceTree = "<group>"; };
 		044F75C419405A4700D0E4BB /* SKTitle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = SKTitle.cpp; sourceTree = "<group>"; };
 		044F75C519405A4700D0E4BB /* SKTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTitle.h; sourceTree = "<group>"; };
 		046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayChild.cpp; sourceTree = "<group>"; };
 		046B1B88196A7A0300100BC9 /* SKPlayChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayChild.h; sourceTree = "<group>"; };
-		0477D1EC1947AED1008D13BC /* State_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Key.cpp; sourceTree = "<group>"; };
-		0477D1ED1947AED1008D13BC /* State_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Key.h; sourceTree = "<group>"; };
-		0477D1EF1947B079008D13BC /* State_W_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_W_Key.cpp; sourceTree = "<group>"; };
-		0477D1F01947B079008D13BC /* State_W_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_W_Key.h; sourceTree = "<group>"; };
-		0477D1F21947B6E7008D13BC /* State_Skip_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Skip_Key.cpp; sourceTree = "<group>"; };
-		0477D1F31947B6E7008D13BC /* State_Skip_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Skip_Key.h; sourceTree = "<group>"; };
-		0477D1F51947B80C008D13BC /* State_Nomal_Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Nomal_Key.cpp; sourceTree = "<group>"; };
-		0477D1F61947B80C008D13BC /* State_Nomal_Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Nomal_Key.h; sourceTree = "<group>"; };
-		0477D1F81947FD17008D13BC /* State_Key_Not.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State_Key_Not.cpp; sourceTree = "<group>"; };
-		0477D1F91947FD17008D13BC /* State_Key_Not.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State_Key_Not.h; sourceTree = "<group>"; };
+		047810B619A3E89E00A02FB2 /* BaseAreaMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseAreaMap.mm; sourceTree = "<group>"; };
+		047810B719A3E89E00A02FB2 /* BaseAreaMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMap.h; sourceTree = "<group>"; };
+		047810BD19A3EA2A00A02FB2 /* TileLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileLayerManager.cpp; sourceTree = "<group>"; };
+		047810BE19A3EA2A00A02FB2 /* TileLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileLayerManager.h; sourceTree = "<group>"; };
+		047810C019A3EA3B00A02FB2 /* ImageLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageLayerManager.cpp; sourceTree = "<group>"; };
+		047810C119A3EA3B00A02FB2 /* ImageLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLayerManager.h; sourceTree = "<group>"; };
+		047810C319A3EA4900A02FB2 /* ObjectLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectLayerManager.cpp; sourceTree = "<group>"; };
+		047810C419A3EA4900A02FB2 /* ObjectLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectLayerManager.h; sourceTree = "<group>"; };
+		047810C719A4028F00A02FB2 /* ImageLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageLayer.cpp; sourceTree = "<group>"; };
+		047810C819A4028F00A02FB2 /* ImageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLayer.h; sourceTree = "<group>"; };
+		047810CC19A4041900A02FB2 /* TileLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileLayer.cpp; sourceTree = "<group>"; };
+		047810CD19A4041900A02FB2 /* TileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileLayer.h; sourceTree = "<group>"; };
+		047810CF19A4042400A02FB2 /* ObjectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectLayer.cpp; sourceTree = "<group>"; };
+		047810D019A4042400A02FB2 /* ObjectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectLayer.h; sourceTree = "<group>"; };
+		0478118719A4264300A02FB2 /* Tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tile.cpp; sourceTree = "<group>"; };
+		0478118819A4264300A02FB2 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		0478118B19A42B1500A02FB2 /* TileSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileSet.cpp; sourceTree = "<group>"; };
+		0478118C19A42B1500A02FB2 /* TileSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSet.h; sourceTree = "<group>"; };
+		0478118F19A42FFB00A02FB2 /* TileSetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileSetManager.cpp; sourceTree = "<group>"; };
+		0478119019A42FFB00A02FB2 /* TileSetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileSetManager.h; sourceTree = "<group>"; };
+		0478119219A452CC00A02FB2 /* mura.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mura.tmx; sourceTree = "<group>"; };
+		0478119319A452CC00A02FB2 /* tetora.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tetora.tmx; sourceTree = "<group>"; };
+		0478119419A452CC00A02FB2 /* tetra.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tetra.json; sourceTree = "<group>"; };
+		0478119519A452CC00A02FB2 /* tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip.png; sourceTree = "<group>"; };
+		0478119619A452CC00A02FB2 /* tip2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tip2.gif; sourceTree = "<group>"; };
+		0478119719A452CC00A02FB2 /* tip3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip3.png; sourceTree = "<group>"; };
+		0478119819A452CC00A02FB2 /* tip4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip4.png; sourceTree = "<group>"; };
+		0478119919A452CC00A02FB2 /* tip5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip5.png; sourceTree = "<group>"; };
+		0478119A19A452CC00A02FB2 /* tip6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip6.png; sourceTree = "<group>"; };
+		0478119B19A452CC00A02FB2 /* tip7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip7.png; sourceTree = "<group>"; };
+		0478119C19A452CC00A02FB2 /* tip8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip8.png; sourceTree = "<group>"; };
+		0478119D19A452CC00A02FB2 /* tip9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip9.png; sourceTree = "<group>"; };
+		0478119E19A452CC00A02FB2 /* tip10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip10.png; sourceTree = "<group>"; };
+		0478119F19A452CC00A02FB2 /* Untitled.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Untitled.tmx; sourceTree = "<group>"; };
+		047811B319A5B41B00A02FB2 /* BaseAreaSouces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAreaSouces.h; sourceTree = "<group>"; };
 		04789227195BFBAA0008F854 /* spriterFiles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spriterFiles.h; sourceTree = "<group>"; };
 		0478CFEF197D06E100612C48 /* ESMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ESMove.cpp; sourceTree = "<group>"; };
 		0478CFF0197D06E100612C48 /* ESMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESMove.h; sourceTree = "<group>"; };
@@ -871,6 +909,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0407DB6019A612650021EBF7 /* character */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = character;
+			sourceTree = "<group>";
+		};
 		040A0DDB1956379F0060D478 /* spriter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,8 +1261,11 @@
 		0445024E1990DA94001CA8A4 /* baseArea */ = {
 			isa = PBXGroup;
 			children = (
+				047811B219A5B3E100A02FB2 /* include */,
 				0445024F19914A14001CA8A4 /* SKBaseAreaScene.cpp */,
 				0445025019914A14001CA8A4 /* SKBaseAreaScene.h */,
+				047810B519A3E88E00A02FB2 /* map */,
+				0407DB6019A612650021EBF7 /* character */,
 			);
 			name = baseArea;
 			sourceTree = "<group>";
@@ -1376,6 +1424,150 @@
 			name = playChild;
 			sourceTree = "<group>";
 		};
+		047810B519A3E88E00A02FB2 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				047810B619A3E89E00A02FB2 /* BaseAreaMap.mm */,
+				047810B719A3E89E00A02FB2 /* BaseAreaMap.h */,
+				0478118A19A4285B00A02FB2 /* tileset */,
+				047810B919A3E9CA00A02FB2 /* layerManager */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		047810B919A3E9CA00A02FB2 /* layerManager */ = {
+			isa = PBXGroup;
+			children = (
+				047810BC19A3EA0100A02FB2 /* tile */,
+				047810BB19A3E9E700A02FB2 /* image */,
+				047810BA19A3E9D600A02FB2 /* object */,
+			);
+			name = layerManager;
+			sourceTree = "<group>";
+		};
+		047810BA19A3E9D600A02FB2 /* object */ = {
+			isa = PBXGroup;
+			children = (
+				047810CA19A4040700A02FB2 /* layer */,
+				047810C319A3EA4900A02FB2 /* ObjectLayerManager.cpp */,
+				047810C419A3EA4900A02FB2 /* ObjectLayerManager.h */,
+			);
+			name = object;
+			sourceTree = "<group>";
+		};
+		047810BB19A3E9E700A02FB2 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				047810C619A4027900A02FB2 /* layer */,
+				047810C019A3EA3B00A02FB2 /* ImageLayerManager.cpp */,
+				047810C119A3EA3B00A02FB2 /* ImageLayerManager.h */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		047810BC19A3EA0100A02FB2 /* tile */ = {
+			isa = PBXGroup;
+			children = (
+				047810CB19A4040E00A02FB2 /* layer */,
+				047810BD19A3EA2A00A02FB2 /* TileLayerManager.cpp */,
+				047810BE19A3EA2A00A02FB2 /* TileLayerManager.h */,
+			);
+			name = tile;
+			sourceTree = "<group>";
+		};
+		047810C619A4027900A02FB2 /* layer */ = {
+			isa = PBXGroup;
+			children = (
+				047810C719A4028F00A02FB2 /* ImageLayer.cpp */,
+				047810C819A4028F00A02FB2 /* ImageLayer.h */,
+			);
+			name = layer;
+			sourceTree = "<group>";
+		};
+		047810CA19A4040700A02FB2 /* layer */ = {
+			isa = PBXGroup;
+			children = (
+				047810CF19A4042400A02FB2 /* ObjectLayer.cpp */,
+				047810D019A4042400A02FB2 /* ObjectLayer.h */,
+			);
+			name = layer;
+			sourceTree = "<group>";
+		};
+		047810CB19A4040E00A02FB2 /* layer */ = {
+			isa = PBXGroup;
+			children = (
+				0478118619A4263800A02FB2 /* tile */,
+				047810CC19A4041900A02FB2 /* TileLayer.cpp */,
+				047810CD19A4041900A02FB2 /* TileLayer.h */,
+			);
+			name = layer;
+			sourceTree = "<group>";
+		};
+		0478110F19A41D7300A02FB2 /* tiled */ = {
+			isa = PBXGroup;
+			children = (
+				0478112E19A41E4C00A02FB2 /* tetora */,
+			);
+			name = tiled;
+			sourceTree = "<group>";
+		};
+		0478112E19A41E4C00A02FB2 /* tetora */ = {
+			isa = PBXGroup;
+			children = (
+				0478119219A452CC00A02FB2 /* mura.tmx */,
+				0478119319A452CC00A02FB2 /* tetora.tmx */,
+				0478119419A452CC00A02FB2 /* tetra.json */,
+				0478119519A452CC00A02FB2 /* tip.png */,
+				0478119619A452CC00A02FB2 /* tip2.gif */,
+				0478119719A452CC00A02FB2 /* tip3.png */,
+				0478119819A452CC00A02FB2 /* tip4.png */,
+				0478119919A452CC00A02FB2 /* tip5.png */,
+				0478119A19A452CC00A02FB2 /* tip6.png */,
+				0478119B19A452CC00A02FB2 /* tip7.png */,
+				0478119C19A452CC00A02FB2 /* tip8.png */,
+				0478119D19A452CC00A02FB2 /* tip9.png */,
+				0478119E19A452CC00A02FB2 /* tip10.png */,
+				0478119F19A452CC00A02FB2 /* Untitled.tmx */,
+			);
+			name = tetora;
+			sourceTree = "<group>";
+		};
+		0478118619A4263800A02FB2 /* tile */ = {
+			isa = PBXGroup;
+			children = (
+				0478118719A4264300A02FB2 /* Tile.cpp */,
+				0478118819A4264300A02FB2 /* Tile.h */,
+			);
+			name = tile;
+			sourceTree = "<group>";
+		};
+		0478118A19A4285B00A02FB2 /* tileset */ = {
+			isa = PBXGroup;
+			children = (
+				0478118E19A42FEE00A02FB2 /* manager */,
+				0478118B19A42B1500A02FB2 /* TileSet.cpp */,
+				0478118C19A42B1500A02FB2 /* TileSet.h */,
+			);
+			name = tileset;
+			sourceTree = "<group>";
+		};
+		0478118E19A42FEE00A02FB2 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				0478118F19A42FFB00A02FB2 /* TileSetManager.cpp */,
+				0478119019A42FFB00A02FB2 /* TileSetManager.h */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		047811B219A5B3E100A02FB2 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				047811B319A5B41B00A02FB2 /* BaseAreaSouces.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
 		0478FEE419852418008923B1 /* equipment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1444,25 +1636,6 @@
 				048D39681979B64600195328 /* SKGameOverImage.png */,
 			);
 			name = gameover;
-			sourceTree = "<group>";
-		};
-		049A790E19273BBB00745977 /* key_state */ = {
-			isa = PBXGroup;
-			children = (
-				0477D1EC1947AED1008D13BC /* State_Key.cpp */,
-				0477D1ED1947AED1008D13BC /* State_Key.h */,
-				0477D1EF1947B079008D13BC /* State_W_Key.cpp */,
-				0477D1F01947B079008D13BC /* State_W_Key.h */,
-				0477D1F21947B6E7008D13BC /* State_Skip_Key.cpp */,
-				0477D1F31947B6E7008D13BC /* State_Skip_Key.h */,
-				0477D1F51947B80C008D13BC /* State_Nomal_Key.cpp */,
-				0477D1F61947B80C008D13BC /* State_Nomal_Key.h */,
-				0477D1F81947FD17008D13BC /* State_Key_Not.cpp */,
-				0477D1F91947FD17008D13BC /* State_Key_Not.h */,
-				04203FF019839FEE007B349E /* State_Menu_Key.cpp */,
-				04203FF119839FEE007B349E /* State_Menu_Key.h */,
-			);
-			name = key_state;
 			sourceTree = "<group>";
 		};
 		04C5C0261972A4450073B05A /* state */ = {
@@ -1717,6 +1890,8 @@
 		8E84293916327F3000CF4BC4 /* dungeon */ = {
 			isa = PBXGroup;
 			children = (
+				04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */,
+				04F39B9219A1B22D00696FD7 /* SKDungeonScene.h */,
 				04FC1306193DAA3100E449A8 /* randomStage_renderer */,
 				04411B7E19344F8100C324FE /* mass */,
 				0480486E1931026F003885C2 /* Object */,
@@ -1726,8 +1901,6 @@
 				04D28CC8196785D5005BCE10 /* SKItemContainar.h */,
 				04C5C020197272760073B05A /* SKMoveObject.cpp */,
 				04C5C021197272760073B05A /* SKMoveObject.h */,
-				04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */,
-				04F39B9219A1B22D00696FD7 /* SKDungeonScene.h */,
 			);
 			name = dungeon;
 			sourceTree = "<group>";
@@ -1735,10 +1908,9 @@
 		8E84293D16327FEF00CF4BC4 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				04F39B8F19A1AE0100696FD7 /* scene */,
 				046B1B86196A79EE00100BC9 /* playChild */,
 				04F39B9019A1AE2900696FD7 /* base */,
-				04F39B8F19A1AE0100696FD7 /* scene */,
-				049A790E19273BBB00745977 /* key_state */,
 				04395971194FB05300D43459 /* Spriter */,
 			);
 			name = game;
@@ -1811,8 +1983,6 @@
 				8E39DB4E142A454000E5A206 /* Globals.cpp */,
 				8E39DB4F142A454000E5A206 /* GameMain.h */,
 				8E39DB50142A454000E5A206 /* GameMain.cpp */,
-				044F75C019402EF300D0E4BB /* SKKeyHandler.cpp */,
-				044F75C119402EF300D0E4BB /* SKKeyHandler.h */,
 				04F39B82199FCC9F00696FD7 /* picojson.h */,
 				04376973199D497E000BCE66 /* Event */,
 				04C7A67E1999FBF000D7AEEC /* demo */,
@@ -1825,6 +1995,7 @@
 		8EE63A0C1432670900922244 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0478110F19A41D7300A02FB2 /* tiled */,
 				040A0DDB1956379F0060D478 /* spriter */,
 				8E737BCD1632F41F00D1AC57 /* Texts */,
 				8E5FCF311623D597007F0319 /* Textures */,
@@ -2018,12 +2189,15 @@
 				04C5C11219731DE70073B05A /* sakumaIm_18.png in Resources */,
 				04C5C12619731DE70073B05A /* sakumaIm_38.png in Resources */,
 				8EE63A601432694400922244 /* Credits.rtf in Resources */,
+				047811AC19A452CC00A02FB2 /* tip10.png in Resources */,
 				04C5C12319731DE70073B05A /* sakumaIm_35.png in Resources */,
+				047811A419A452CC00A02FB2 /* tip2.gif in Resources */,
 				04BBC1E11942EF6B00F7751C /* direction.png in Resources */,
 				04C5C0EF19731DE70073B05A /* Image_0058.png in Resources */,
 				8EE63A611432694400922244 /* InfoPlist.strings in Resources */,
 				04C5C11D19731DE70073B05A /* sakumaIm_29.png in Resources */,
 				04C5C12C19731DE70073B05A /* sakumaIm_44.png in Resources */,
+				047811A219A452CC00A02FB2 /* tetra.json in Resources */,
 				04C5C0DD19731DE70073B05A /* Image_0040.png in Resources */,
 				04C5C0DF19731DE70073B05A /* Image_0042.png in Resources */,
 				04C5C0E319731DE70073B05A /* Image_0046.png in Resources */,
@@ -2034,6 +2208,7 @@
 				04C5C0E419731DE70073B05A /* Image_0047.png in Resources */,
 				8EE63A621432694400922244 /* MainMenu.xib in Resources */,
 				04C7A62A199458EA00D7AEEC /* タイトルメイン背景.png in Resources */,
+				047811AD19A452CC00A02FB2 /* Untitled.tmx in Resources */,
 				041F921E19920CB70020FC79 /* JKLogo.png in Resources */,
 				04C5C0CD19731DE70073B05A /* Image_0024.png in Resources */,
 				04C5C0C219731DE70073B05A /* Image_0013.png in Resources */,
@@ -2086,12 +2261,14 @@
 				04C5C0BF19731DE70073B05A /* Image_0010.png in Resources */,
 				8EBF7E901620C0B4002F78FB /* font-scp-10x20.png in Resources */,
 				04C5C11C19731DE70073B05A /* sakumaIm_28.png in Resources */,
+				047811A519A452CC00A02FB2 /* tip3.png in Resources */,
 				04C5C0F919731DE70073B05A /* Image_0068.png in Resources */,
 				04C5C0BE19731DE70073B05A /* Image_0009.png in Resources */,
 				04B3473E1938FF0500D9622A /* 床.png in Resources */,
 				8EBF7E911620C0B4002F78FB /* font-scp-14x28.png in Resources */,
 				04C5C10019731DE70073B05A /* sakuma.scml in Resources */,
 				04C5C0B619731DE70073B05A /* Image_0001.png in Resources */,
+				047811A319A452CC00A02FB2 /* tip.png in Resources */,
 				0424C1901962D9220081BB5B /* sizuruFonts.png in Resources */,
 				04C5C10619731DE70073B05A /* sakumaIm_6.png in Resources */,
 				04C5C0D919731DE70073B05A /* Image_0036.png in Resources */,
@@ -2112,11 +2289,13 @@
 				04C5C11919731DE70073B05A /* sakumaIm_25.png in Resources */,
 				04C5C0DC19731DE70073B05A /* Image_0039.png in Resources */,
 				04C5C11619731DE70073B05A /* sakumaIm_22.png in Resources */,
+				047811A019A452CC00A02FB2 /* mura.tmx in Resources */,
 				8EBF7E991620CE34002F78FB /* font-ubuntu_mono-7x14.png in Resources */,
 				04C5C0B819731DE70073B05A /* Image_0003.png in Resources */,
 				04C5C12719731DE70073B05A /* sakumaIm_39.png in Resources */,
 				04C5C0C819731DE70073B05A /* Image_0019.png in Resources */,
 				04C5C12E19731DE70073B05A /* sakumaIm_46.png in Resources */,
+				047811A819A452CC00A02FB2 /* tip6.png in Resources */,
 				8EBF7E9A1620CE34002F78FB /* font-ubuntu_mono-14x28.png in Resources */,
 				04C5C10A19731DE70073B05A /* sakumaIm_10.png in Resources */,
 				04C5C10819731DE70073B05A /* sakumaIm_8.png in Resources */,
@@ -2135,11 +2314,15 @@
 				04C5C0DA19731DE70073B05A /* Image_0037.png in Resources */,
 				04C5C11B19731DE70073B05A /* sakumaIm_27.png in Resources */,
 				048D394A1978E3E500195328 /* SKTitleBackImage.png in Resources */,
+				047811A719A452CC00A02FB2 /* tip5.png in Resources */,
 				04C5C0DB19731DE70073B05A /* Image_0038.png in Resources */,
 				04C5C12419731DE70073B05A /* sakumaIm_36.png in Resources */,
 				04C5C0E019731DE70073B05A /* Image_0043.png in Resources */,
 				04C5C0B719731DE70073B05A /* Image_0002.png in Resources */,
+				047811AA19A452CC00A02FB2 /* tip8.png in Resources */,
 				04C7A649199681FB00D7AEEC /* SKSelectChange.wav in Resources */,
+				047811A119A452CC00A02FB2 /* tetora.tmx in Resources */,
+				047811A919A452CC00A02FB2 /* tip7.png in Resources */,
 				04C5C10919731DE70073B05A /* sakumaIm_9.png in Resources */,
 				04C5C0CB19731DE70073B05A /* Image_0022.png in Resources */,
 				04C5C0C719731DE70073B05A /* Image_0018.png in Resources */,
@@ -2161,6 +2344,7 @@
 				04C5C10C19731DE70073B05A /* sakumaIm_12.png in Resources */,
 				04C5C0BC19731DE70073B05A /* Image_0007.png in Resources */,
 				04C5C12519731DE70073B05A /* sakumaIm_37.png in Resources */,
+				047811AB19A452CC00A02FB2 /* tip9.png in Resources */,
 				04C5C0C319731DE70073B05A /* Image_0014.png in Resources */,
 				04C5C10719731DE70073B05A /* sakumaIm_7.png in Resources */,
 				04C5C12119731DE70073B05A /* sakumaIm_33.png in Resources */,
@@ -2176,6 +2360,7 @@
 				04C5C10D19731DE70073B05A /* sakumaIm_13.png in Resources */,
 				0437695D199B39AA000BCE66 /* SKStartDemoBGM.mp3 in Resources */,
 				04C5C0FB19731DE70073B05A /* Image_0070.png in Resources */,
+				047811A619A452CC00A02FB2 /* tip4.png in Resources */,
 				04C5C0D519731DE70073B05A /* Image_0032.png in Resources */,
 				04C5C0F019731DE70073B05A /* Image_0059.png in Resources */,
 				04C5C0F319731DE70073B05A /* Image_0062.png in Resources */,
@@ -2197,8 +2382,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04203FF219839FEE007B349E /* State_Menu_Key.cpp in Sources */,
 				8EE63A5A1432690C00922244 /* GMAppDelegate.mm in Sources */,
+				047810C219A3EA3B00A02FB2 /* ImageLayerManager.cpp in Sources */,
 				0445024D198F2035001CA8A4 /* SKEnemyMoveChild.cpp in Sources */,
 				04C7A66F19982BC700D7AEEC /* JASpeakCharManager.cpp in Sources */,
 				043959AB194FB05300D43459 /* ScmlObject.cpp in Sources */,
@@ -2208,23 +2393,24 @@
 				8EF0604E13EEB8D9007C1B2E /* GMBasicEffect.cpp in Sources */,
 				04D28CC9196785D5005BCE10 /* SKItemContainar.cpp in Sources */,
 				043A8007194C3520005A5189 /* ESNomalMovePlayerLooking.cpp in Sources */,
+				047810BF19A3EA2A00A02FB2 /* TileLayerManager.cpp in Sources */,
 				041C62401949641900D78C35 /* EnemyFactory.cpp in Sources */,
 				043959AA194FB05300D43459 /* ScmlFunctions.cpp in Sources */,
 				043959AF194FB05300D43459 /* Timeline.cpp in Sources */,
 				04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */,
 				041F921B1991ECBB0020FC79 /* LogoChild.cpp in Sources */,
-				0477D1F71947B80C008D13BC /* State_Nomal_Key.cpp in Sources */,
 				8E1C6C1E13EEDA7200450DD6 /* GMBoundingBox.cpp in Sources */,
 				043A800A194C9370005A5189 /* SKUserInterface.cpp in Sources */,
 				8E1C6C1F13EEDA7200450DD6 /* GMBoundingFrustum.cpp in Sources */,
 				0478FEF4198526D4008923B1 /* ToutekiItem.cpp in Sources */,
 				043959A0194FB05300D43459 /* CharacterMap.cpp in Sources */,
-				0477D1EE1947AED1008D13BC /* State_Key.cpp in Sources */,
 				0478FF0419853239008923B1 /* ItemCommandInfo.cpp in Sources */,
+				047810CE19A4041900A02FB2 /* TileLayer.cpp in Sources */,
 				041C626119498E1900D78C35 /* ESNomalAttack.cpp in Sources */,
 				0478FEEE198525A8008923B1 /* NenryouItem.cpp in Sources */,
 				8E1C6C2013EEDA7200450DD6 /* GMBoundingSphere.cpp in Sources */,
 				8E471F5D140E508A0032D32D /* GMButton.cpp in Sources */,
+				047810D119A4042400A02FB2 /* ObjectLayer.cpp in Sources */,
 				8EF0605213EEB8D9007C1B2E /* GMColor.cpp in Sources */,
 				8EF0605313EEB8D9007C1B2E /* GMDebug.mm in Sources */,
 				041C627019498E9E00D78C35 /* ESKonran.cpp in Sources */,
@@ -2238,7 +2424,6 @@
 				04411B7A193423DC00C324FE /* SKEffectMan.cpp in Sources */,
 				0439599E194FB05300D43459 /* Animation.cpp in Sources */,
 				041C62391949619900D78C35 /* EnemyStrategy.cpp in Sources */,
-				0477D1F41947B6E7008D13BC /* State_Skip_Key.cpp in Sources */,
 				8EF0605613EEB8D9007C1B2E /* GMException.cpp in Sources */,
 				8E5FCF6816248EAF007F0319 /* GMFont.cpp in Sources */,
 				0439599F194FB05300D43459 /* BoneTimelineKey.cpp in Sources */,
@@ -2258,8 +2443,10 @@
 				041C62431949654400D78C35 /* syokutyuu.cpp in Sources */,
 				046B1B89196A7A0300100BC9 /* SKPlayChild.cpp in Sources */,
 				8EC05B0F140AA03900C545D6 /* GMLabel.mm in Sources */,
+				047810C919A4028F00A02FB2 /* ImageLayer.cpp in Sources */,
 				8EF0605B13EEB8D9007C1B2E /* GMMath.cpp in Sources */,
 				042A678D193C6A6D00A5E739 /* SKBlockManager.cpp in Sources */,
+				0478119119A42FFB00A02FB2 /* TileSetManager.cpp in Sources */,
 				8EF0605C13EEB8D9007C1B2E /* GMMatrix.cpp in Sources */,
 				8EF0606613EEB8D9007C1B2E /* GMMusic.mm in Sources */,
 				041C628619499BE300D78C35 /* EAStrategy.cpp in Sources */,
@@ -2282,8 +2469,8 @@
 				043959A3194FB05300D43459 /* Folder.cpp in Sources */,
 				043959B1194FB05300D43459 /* tinyxml2.cpp in Sources */,
 				04C7A6731998AFD600D7AEEC /* SKTitleMainMenuState.cpp in Sources */,
+				0478118D19A42B1500A02FB2 /* TileSet.cpp in Sources */,
 				04376962199BF8AE000BCE66 /* SKEffect.cpp in Sources */,
-				0477D1F11947B079008D13BC /* State_W_Key.cpp in Sources */,
 				8EF0606913EEB8D9007C1B2E /* GMQuat.cpp in Sources */,
 				8EF0606A13EEB8D9007C1B2E /* GMRandom.cpp in Sources */,
 				8E1C6C1713EEDA3B00450DD6 /* GMRay.cpp in Sources */,
@@ -2308,6 +2495,7 @@
 				8EF0607013EEB8D9007C1B2E /* GMSpriteBatch.cpp in Sources */,
 				0478FEE319852234008923B1 /* UsingItem.cpp in Sources */,
 				04440DA11936C0AD00D49BDF /* SKBlock.cpp in Sources */,
+				0478118919A4264300A02FB2 /* Tile.cpp in Sources */,
 				04F39B9319A1B22D00696FD7 /* SKDungeonScene.cpp in Sources */,
 				043959A1194FB05300D43459 /* Entity.cpp in Sources */,
 				041C6249194965AF00D78C35 /* mamusi.cpp in Sources */,
@@ -2315,7 +2503,6 @@
 				8ECF09161401B0FD00FC43D7 /* GMTextReader.mm in Sources */,
 				043959A8194FB05300D43459 /* MyTexture.cpp in Sources */,
 				04440D8819369C1000D49BDF /* SKObject.cpp in Sources */,
-				0477D1FA1947FD17008D13BC /* State_Key_Not.cpp in Sources */,
 				0478FEF719852714008923B1 /* KusaItem.cpp in Sources */,
 				8EF0607213EEB8D9007C1B2E /* GMTexture2D.mm in Sources */,
 				8EF0607F13EEB989007C1B2E /* GMTexture2DLoader.mm in Sources */,
@@ -2324,7 +2511,6 @@
 				04450232198B4803001CA8A4 /* SKTurnControl.cpp in Sources */,
 				043959AD194FB05300D43459 /* SpatialTimelineKey.cpp in Sources */,
 				04411B77193423C300C324FE /* SKEnemyMan.cpp in Sources */,
-				044F75C219402EF300D0E4BB /* SKKeyHandler.cpp in Sources */,
 				04450246198CB14D001CA8A4 /* SyokutyuuState.cpp in Sources */,
 				04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */,
 				04D28CD41967A2D0005BCE10 /* SKShield.cpp in Sources */,
@@ -2334,6 +2520,7 @@
 				04C7A64D19968D0A00D7AEEC /* JASpeakWindow.cpp in Sources */,
 				0478FEDA198521BA008923B1 /* EpuipmentItem.cpp in Sources */,
 				8E1C6C0713EED98E00450DD6 /* GMVector3D.cpp in Sources */,
+				047810B819A3E89E00A02FB2 /* BaseAreaMap.mm in Sources */,
 				043959A4194FB05300D43459 /* MainlineKey.cpp in Sources */,
 				048D394D1978E59200195328 /* SKDrawFont.cpp in Sources */,
 				8E1C6C0813EED98E00450DD6 /* GMVector4D.cpp in Sources */,
@@ -2348,6 +2535,7 @@
 				043959A9194FB05300D43459 /* Ref.cpp in Sources */,
 				04440D971936A21F00D49BDF /* SKEnemy.cpp in Sources */,
 				04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */,
+				047810C519A3EA4900A02FB2 /* ObjectLayerManager.cpp in Sources */,
 				8E39DB61142A454000E5A206 /* Globals.cpp in Sources */,
 				8E39DB62142A454000E5A206 /* GameMain.cpp in Sources */,
 				0478FEEB198524DA008923B1 /* MakimonoItem.cpp in Sources */,

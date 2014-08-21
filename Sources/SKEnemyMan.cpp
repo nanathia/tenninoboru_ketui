@@ -15,7 +15,7 @@
 //    // クイックソートを使用。
 //    int gd(SKEnemy* e){
 //        int x, y, ex, ey;
-//        gPlayScene->getPlayer()->getMass()->getPos(x, y);
+//        gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(x, y);
 //        e->getMass()->getPos(ex, ey);
 //        ex -= x;
 //        ey -= y;
@@ -141,7 +141,7 @@ void SKEnemyMan::sort_pivotForPlayer(std::vector<SKEnemy*>& ret){
 }
 
 bool SKEnemyMan::isAllActionEnded(){
-    if(gPlayScene->getPlayer()->isAct()){
+    if(gPlayScene->getDungeonScene()->getPlayer()->isAct()){
         return false;
     }
     auto it = m_enemys.begin();

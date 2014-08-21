@@ -7,6 +7,7 @@
 //
 
 #include "ESNomalAttack.h"
+#include "SKDungeonScene.h"
 
 ESNomalAttack::ESNomalAttack():
 EAStrategy()
@@ -30,6 +31,6 @@ const char* ESNomalAttack::resetAction(SKEnemy *parent){
 
 void ESNomalAttack::action(SKEnemy* parent){
     
-    parent->setSKObjectAngle(gPlayScene->getPlayer()->getMass());
+    parent->setSKObjectAngle(gPlayScene->getDungeonScene()->getPlayer()->getMass());
     
 }

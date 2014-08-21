@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "428710040.749892"
+            timestampString = "430135104.810016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "SKMassManager::getRooms()"
             landmarkType = "5">
          </BreakpointContent>
@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "428710040.749892"
+            timestampString = "430135104.810016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
             landmarkName = "SKMassManager::convertDrawIndex(const SKMass* mass, int&amp; ix, int&amp; iy)"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,11 +278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "428710040.749892"
+            timestampString = "430135104.810016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "SKMassManager::convertDrawIndex(const SKMass* mass, int&amp; ix, int&amp; iy)"
             landmarkType = "5">
          </BreakpointContent>
@@ -423,100 +423,6 @@
                   startingLineNumber = "22"
                   endingLineNumber = "22"
                   offsetFromSymbolStart = "562">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Spriter/ScmlObject.cpp"
-            timestampString = "425083844.833423"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "ScmlObject::ScmlObject( const char* filename )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Spriter/ScmlObject.cpp"
-            timestampString = "425083844.833423"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "ScmlObject::ScmlObject( const char* filename )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Spriter/ScmlObject.cpp"
-            timestampString = "425421919.71643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "ScmlObject::ScmlObject( const char* filename )"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Spriter/ScmlObject.cpp"
-            timestampString = "426326049.307738"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "ScmlObject::ScmlObject( const char* filename )"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spriter::ScmlObject::ScmlObject(char const*)"
-                  moduleName = "Karakuri2 Mac"
-                  urlString = "file:///Users/nanathia/Desktop/%E3%82%B5%E3%82%AF%E3%83%9E%E3%81%AE%E4%B8%8D%E6%80%9D%E8%AD%B0%E3%81%AE%E3%82%BF%E3%82%99%E3%83%B3%E3%82%B7%E3%82%99%E3%83%A7%E3%83%B3/Sources/Spriter/ScmlObject.cpp"
-                  timestampString = "425084581.25559"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "3090">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spriter::ScmlObject::ScmlObject(char const*)"
-                  moduleName = "Karakuri2 Mac"
-                  urlString = "file:///Users/nanathia/Desktop/%E3%82%B5%E3%82%AF%E3%83%9E%E3%81%AE%E4%B8%8D%E6%80%9D%E8%AD%B0%E3%81%AE%E3%82%BF%E3%82%99%E3%83%B3%E3%82%B7%E3%82%99%E3%83%A7%E3%83%B3/Sources/Spriter/ScmlObject.cpp"
-                  timestampString = "425084581.255796"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "3110">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1084,11 +990,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "428710040.749892"
+            timestampString = "430135104.810016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "SKMassManager::allDraw_currentGameGraph()"
             landmarkType = "5">
          </BreakpointContent>

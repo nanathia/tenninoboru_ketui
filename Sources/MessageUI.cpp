@@ -46,20 +46,16 @@ void MessageUI::draw(GMSpriteBatch *s) const{
     if(m_message == "") return;
     
     SizurusFontsName fonts[256];
-    ten_flags flags[256];
     std::string str = m_message;
-    SKFont::convertChar2Name(fonts, flags, str);
+    SKFont::convertChar2Name(fonts, str);
     int i = 0;
     
     GMColor c = GMColor::White;
-    gPlayScene->getTexMan()->get(Texture_messageName)->getSize();
-    s->draw(gPlayScene->getTexMan()->get(Texture_messageName), GMRect2D(50, 0, SCREEN_SIZE.x-100, 150), GMRect2D(0, gPlayScene->getTexMan()->get(Texture_messageName)->getSize()), c);
+    gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName)->getSize();
+    s->draw(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName), GMRect2D(50, 0, SCREEN_SIZE.x-100, 150), GMRect2D(0, gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName)->getSize()), c);
     
     while(fonts[i] != sizurusFonts_end){
         SKFont::drawString_toWindow(fonts[i], GMRect2D(50*(i+1), 100, 50, 50), s);
-        if(flags[i] == dakuten){
-            SKFont::drawString_toWindow(濁点, GMRect2D(50*(i+1), 100, 50, 50), s);
-        }
         i++;
     }
     

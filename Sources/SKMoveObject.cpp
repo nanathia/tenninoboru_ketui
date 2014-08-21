@@ -10,6 +10,7 @@
 #include "SaKumas_includes.h"
 #include "ScmlFunctions.h"
 #include "SKEnemyState.h"
+#include "SKDungeonScene.h"
 #include <sstream>
 
 SKMoveObject::SKMoveObject():
@@ -30,7 +31,6 @@ SKMoveObject::~SKMoveObject(){
 void SKMoveObject::attack(){
     
     if(this->getName() == "サクマ"){
-        SKKeyHandle::set(SKKeyHandle::key_playerAction);
     }else{
         reinterpret_cast<SKEnemy*>(this)->resetMoveOrAction();
     }
@@ -136,7 +136,7 @@ void SKMoveObject::damage(int point, SKMoveObject* obj){
     }else{
         oss << this->getName() << "に" << SKUserInterface::convertNum2Str(point) << "のダメージを与えた。";
     }
-    gPlayScene->getUI()->textInput(oss.str());
+    gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
 }
 
 void SKMoveObject::damaged(){

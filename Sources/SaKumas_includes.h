@@ -22,9 +22,11 @@
 #include "SKItemManager.h"
 #include "SKItem.h"
 #include "SKTextureManager.h"
-#include "SKKeyHandler.h"
 #include "SKItemContainar.h"
 #include "SKUserInterface.h"
+#include "SKDungeonScene.h"
+#include "PlayerPorch.h"
+#include "SKBaseAreaScene.h"
 
 #include "Globals.h"
 

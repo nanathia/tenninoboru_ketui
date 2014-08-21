@@ -10,11 +10,12 @@
 #include "randam_dungeon.h"
 #include "ItemCommandInfo.h"
 #include "SKItemInclude.h"
+#include "SKDungeonScene.h"
 #include <fstream>
 #include <vector>
 
 // コンストラクタあ〜^q^♪
-SKMassManager::SKMassManager(int width, int height, int drawAreaWidth, int drawAreaHeight, GMGraphics* g):
+SKMassManager::SKMassManager(int width, int height, int drawAreaWidth, int drawAreaHeight):
 m_stageWidth(width),
 m_stageHeight(height),
 m_drawAreaWidth(drawAreaWidth),
@@ -24,7 +25,7 @@ m_nextFlag(false),
 m_kaisou(1)
 {
     // プレイシーンにセット。
-    gPlayScene->setMassMan(this);
+    gPlayScene->getDungeonScene()->setMassMan(this);
     
     int size = width*height;
     m_masses = new SKMass*[size];
@@ -59,8 +60,7 @@ m_kaisou(1)
         }
         else if(m_random_dungeonRenderer->getFlags()[i] & randam_dungeon::flag_on_block){
             SKBlock* block = new SKBlock();
-            gPlayScene->getBlockMan()->add(block);
-            block->objectInit(g);
+            gPlayScene->getDungeonScene()->getBlockMan()->add(block);
             m_masses[i]->setBlock(block);
         }
     }
@@ -72,8 +72,7 @@ m_kaisou(1)
     
     // サクマを生成してから、各参照先へアドレスを渡すにゃん^q^♪
     SKPlayer* player = new SKPlayer();
-    gPlayScene->setPlayer(player);
-    player->objectInit(g);
+    gPlayScene->getDungeonScene()->setPlayer(player);
     
     // サクマの位置はランダム配置にゃん🌟
     vector<SKMass*> noneBlock_masses;
@@ -90,7 +89,7 @@ m_kaisou(1)
     int val = 0;
     for(; val < 10; val++){
         SKEnemy* enem = SKEnemy::createRandomEnemy();
-        gPlayScene->getEnemMan()->add(enem);
+        gPlayScene->getDungeonScene()->getEnemMan()->add(enem);
         int randNum = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-val-2);
         noneBlock_masses[randNum]->setMovingObject(enem);
         noneBlock_masses[randNum] = noneBlock_masses[noneBlock_masses.size()-val-2];
@@ -98,15 +97,13 @@ m_kaisou(1)
     // アイテムランダム配置
     for(; val < 30; val++){
         SKItem* enem = SKItem::createRandamItem();
-        gPlayScene->getItemMan()->add(enem);
+        gPlayScene->getDungeonScene()->getItemMan()->add(enem);
         int randNum = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-val-2);
         noneBlock_masses[randNum]->setItem(enem);
-        enem->objectInit(g);
         noneBlock_masses[randNum] = noneBlock_masses[noneBlock_masses.size()-val-2];
     }
     int r_n = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-22);
     SKItem* item = new KaidanItem();
-    item->objectInit(g);
     noneBlock_masses[r_n]->setItem(item);
     noneBlock_masses[r_n] = noneBlock_masses[noneBlock_masses.size()-22];
 
@@ -133,10 +130,10 @@ void SKMassManager::_nextFloor(){
     for(int i = 0; i < size; i++){
         m_masses[i]->clean();
     }
-    gPlayScene->getEnemMan()->clean();
-    gPlayScene->getItemMan()->clean();
-    gPlayScene->getBlockMan()->clean();
-    gPlayScene->getPlayer()->setMass(0);
+    gPlayScene->getDungeonScene()->getEnemMan()->clean();
+    gPlayScene->getDungeonScene()->getItemMan()->clean();
+    gPlayScene->getDungeonScene()->getBlockMan()->clean();
+    gPlayScene->getDungeonScene()->getPlayer()->setMass(0);
     
     // まずブロックを生成するにゃん。先に生成しないと他のアイテムとか色々置けないにゃん。
     // このゲームの物は壁を通れないからにゃん。
@@ -163,7 +160,7 @@ void SKMassManager::_nextFloor(){
         }
         else if(m_random_dungeonRenderer->getFlags()[i] & randam_dungeon::flag_on_block){
             SKBlock* block = new SKBlock();
-            gPlayScene->getBlockMan()->add(block);
+            gPlayScene->getDungeonScene()->getBlockMan()->add(block);
             block->objectInit(GMGraphics::CurrentGraphics);
             m_masses[i]->setBlock(block);
         }
@@ -182,12 +179,12 @@ void SKMassManager::_nextFloor(){
     }
     // サクマを配置
     int player_index = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-1);
-    noneBlock_masses[player_index]->setMovingObject(gPlayScene->getPlayer());
+    noneBlock_masses[player_index]->setMovingObject(gPlayScene->getDungeonScene()->getPlayer());
     noneBlock_masses[player_index] = noneBlock_masses[noneBlock_masses.size()-1];
     // 敵ランダム配置
     for(int i = 0; i < 10; i++){
         SKEnemy* enem = SKEnemy::createRandomEnemy();
-        gPlayScene->getEnemMan()->add(enem);
+        gPlayScene->getDungeonScene()->getEnemMan()->add(enem);
         int randNum = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-i-2);
         noneBlock_masses[randNum]->setMovingObject(enem);
         enem->objectInit(GMGraphics::CurrentGraphics);
@@ -197,7 +194,7 @@ void SKMassManager::_nextFloor(){
     // アイテムランダム配置
     for(int i = 10; i < 20; i++){
         SKItem* enem = SKItem::createRandamItem();
-        gPlayScene->getItemMan()->add(enem);
+        gPlayScene->getDungeonScene()->getItemMan()->add(enem);
         int randNum = (int)randam_dungeon::rand(0, (int)noneBlock_masses.size()-i-2);
         noneBlock_masses[randNum]->setItem(enem);
         enem->objectInit(GMGraphics::CurrentGraphics);
@@ -217,7 +214,7 @@ void SKMassManager::allDraw_currentGameGraph(){
     // 描画を開始するマスの x y インデクスを取得。
     int startIndex_x, startIndex_y;
     // まずプレイヤー位置を取得し
-    gPlayScene->getPlayer()->getMass()->getPos(startIndex_x, startIndex_y);
+    gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(startIndex_x, startIndex_y);
     // 画面に入りきる幅と高さの、それぞれのマス数の半分を格納。
     int harfWidht = m_drawAreaWidth/2;
     int harfHeight = m_drawAreaHeight/2;
@@ -315,7 +312,7 @@ void SKMassManager::convertDrawIndex(const SKMass* mass, int& ix, int& iy) const
     // 描画を開始するマスの x y インデクスを取得。
     int startIndex_x, startIndex_y;
     // まずプレイヤー位置を取得し
-    gPlayScene->getPlayer()->getMass()->getPos(startIndex_x, startIndex_y);
+    gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(startIndex_x, startIndex_y);
     // 画面に入りきる幅と高さの、それぞれのマス数の半分を格納。
     int harfWidht = m_drawAreaWidth/2;
     int harfHeight = m_drawAreaHeight/2;

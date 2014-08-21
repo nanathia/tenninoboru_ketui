@@ -7,6 +7,7 @@
 //
 
 #include "ESNomalMovePlayerLooking.h"
+#include "SKDungeonScene.h"
 
 ESNomalMovePlayerLooking::ESNomalMovePlayerLooking():
 ESMove()
@@ -25,7 +26,7 @@ const char* ESNomalMovePlayerLooking::resetAction(SKEnemy *parent){
         next = "meeting_player";
     }else if(!parent->isSeeingPlayer()){
         next = "room";
-        SKMass* mass = gPlayScene->getPlayer()->getExit();
+        SKMass* mass = gPlayScene->getDungeonScene()->getPlayer()->getExit();
         if(!mass) mass = parent->getRandomRoomExitMass();
         parent->setExit(mass);
     }else if(!parent->getMass()->getRoom()){
@@ -36,5 +37,5 @@ const char* ESNomalMovePlayerLooking::resetAction(SKEnemy *parent){
 }
 
 void ESNomalMovePlayerLooking::action(SKEnemy* parent){
-    parent->move(gPlayScene->getPlayer());
+    parent->move(gPlayScene->getDungeonScene()->getPlayer());
 }

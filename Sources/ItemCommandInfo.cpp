@@ -10,8 +10,9 @@
 #include "SaKumas_includes.h"
 #include "PlayerPorch.h"
 #include "SKDrawFont.h"
+#include "SKDungeonScene.h"
 #include <sstream>
-#define pp (gPlayScene->getPlayer()->getPorch())
+#define pp (gPlayScene->getDungeonScene()->getPlayer()->getPorch())
 
 CommandInfo::CommandInfo():
 m_child(0),
@@ -192,17 +193,17 @@ void SetumeiCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
 }
 
 CarsorSelectReAction* OkuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
-    if(gPlayScene->getPlayer()->getMass()->getItem()){
-        gPlayScene->getUI()->textInput("ここには置けない");
-        gPlayScene->getPlayer()->endItemSelect();
+    if(gPlayScene->getDungeonScene()->getPlayer()->getMass()->getItem()){
+        gPlayScene->getDungeonScene()->getUI()->textInput("ここには置けない");
+        gPlayScene->getDungeonScene()->getPlayer()->endItemSelect();
     }else{
         std::ostringstream oss;
         oss << item->getName() << "を置いた。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
         pp->getItems().remove(item);
-        gPlayScene->getPlayer()->getMass()->setItem(item);
-        item->setMass(gPlayScene->getPlayer()->getMass());
-        gPlayScene->getPlayer()->endItemSelect();
+        gPlayScene->getDungeonScene()->getPlayer()->getMass()->setItem(item);
+        item->setMass(gPlayScene->getDungeonScene()->getPlayer()->getMass());
+        gPlayScene->getDungeonScene()->getPlayer()->endItemSelect();
     }
     return 0;
 }

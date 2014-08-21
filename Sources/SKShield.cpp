@@ -40,9 +40,9 @@ void ShieldItem::getSetumei(std::string &str){
 }
 
 void ShieldItem::soubi(){
-    gPlayScene->getPlayer()->soubiShiled(this);
+    gPlayScene->getDungeonScene()->getPlayer()->soubiShiled(this);
 }
 
 void ShieldItem::hazusu(){
-    gPlayScene->getPlayer()->soubiShiled(0);
+    gPlayScene->getDungeonScene()->getPlayer()->soubiShiled(0);
 }

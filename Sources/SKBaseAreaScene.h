@@ -11,14 +11,24 @@
 
 #include "Karakuri.h"
 #include "SKPlayChild.h"
+#include <string>
+
+namespace tinyxml2{
+    class XMLElement;
+}
 
 namespace baseArea{
+    class BaseAreaMap;
+    class CharacterManager;
     
     class SKBaseAreaScene: public SKPlayChild{
-        
+        BaseAreaMap* m_Map;
+        CharacterManager* m_CharacterMan;
     public:
-        SKBaseAreaScene();
+        SKBaseAreaScene(const std::string& areaName);
         ~SKBaseAreaScene();
+        SKPlayChild* update(GMInput* input, double deltaTime) override;
+        void draw(GMSpriteBatch* s) override;
     };
     
 };

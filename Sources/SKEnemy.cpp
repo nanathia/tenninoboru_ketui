@@ -53,12 +53,12 @@ void SKEnemy::clearFlag(){
 // プレイヤーに隣接しているか
 bool SKEnemy::isMeetingPlayer(){
     int px, py, tx, ty;
-    gPlayScene->getPlayer()->getMass()->getPos(tx, ty);
+    gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(tx, ty);
     m_myLocations_mass->getPos(px, py);
     tx -= px;
     ty -= py;
     if(abs(tx) <= 1 && abs(ty) <= 1){
-        if(this->isEnableAttackMass(gPlayScene->getPlayer()->getMass())){
+        if(this->isEnableAttackMass(gPlayScene->getDungeonScene()->getPlayer()->getMass())){
             return true;
         }
     }
@@ -67,7 +67,7 @@ bool SKEnemy::isMeetingPlayer(){
 
 // プレイヤーが視界範囲にいるか
 bool SKEnemy::isSeeingPlayer(){
-    return m_myLocations_mass->getRoom() == gPlayScene->getPlayer()->getMass()->getRoom() ? true: false;
+    return m_myLocations_mass->getRoom() == gPlayScene->getDungeonScene()->getPlayer()->getMass()->getRoom() ? true: false;
 }
 
 void SKEnemy::setMove(){
@@ -148,21 +148,21 @@ SKMass* SKEnemy::isNomalMoveMass(SKMass* mass){
 
 // プレイヤーと同じ部屋かどうか
 bool SKEnemy::isSameRoomWithPlayer(){
-    return this->getMass()->getRoom() == gPlayScene->getPlayer()->getMass()->getRoom();
+    return this->getMass()->getRoom() == gPlayScene->getDungeonScene()->getPlayer()->getMass()->getRoom();
 }
 
 // 一足飛びの位置にプレイヤーが居るかどうか
 SKMass* SKEnemy::isOneStepAttackToPlayer(){
     int x, y;
-    getDistances(gPlayScene->getPlayer(), x, y);
+    getDistances(gPlayScene->getDungeonScene()->getPlayer(), x, y);
     if(abs(x)>2 || abs(y)>2) return 0;
-    return gPlayScene->getPlayer()->getMass();
+    return gPlayScene->getDungeonScene()->getPlayer()->getMass();
 }
 
 // 障害物を考えずに、どの方向がプレイヤーに近いか
 SKMass* SKEnemy::isNearestPlayerMass(){
     int x, y;
-    getDistances(gPlayScene->getPlayer(), x, y);
+    getDistances(gPlayScene->getDungeonScene()->getPlayer(), x, y);
     localize(x, y);
     return getMassForOffset(x, y);
 }

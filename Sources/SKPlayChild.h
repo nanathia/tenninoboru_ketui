@@ -18,7 +18,7 @@ class SKPlayChild{
 public:
     virtual ~SKPlayChild();
     // 更新のみを任せる。
-    virtual SKPlayChild* update(GMInput* input, double deltaTime, SKPlayScene* parent) = 0;
+    virtual SKPlayChild* update(GMInput* input, double deltaTime) = 0;
     virtual void draw(GMSpriteBatch* s) = 0;
 };
 

@@ -11,13 +11,54 @@
 
 #include "Karakuri.h"
 #include "SKPlayChild.h"
+class SKPlayer;
+class SKEnemyMan;
+class SKItemManager;
+class SKEffectManager;
+class SKMassManager;
+class SKUserInterface;
+class SKSoundManager;
+class SKTextureManager;
+class SKAnimationManager;
+class SKBlockManager;
+class SKPlayChild;
 
-//class SKDungeonScene: public SKPlayChild{
-//public:
-//    SKDungeonScene();
-//    ~SKDungeonScene();
-//    void update(GMInput* input, double deltaTime) = 0;
-//    void draw(GMSpriteBatch* s) override;
-//};
+class SKDungeonScene: public SKPlayChild{
+    SKPlayer* m_player;
+    SKEnemyMan* m_enemMan;
+    SKItemManager* m_itemMan;
+    SKEffectManager* m_EffectMan;
+    SKMassManager* m_massMan;
+    SKUserInterface* m_UI;
+    SKSoundManager* m_soundMan;
+    SKTextureManager* m_TexMan;
+    SKBlockManager* m_blockMan;
+
+public:
+    SKDungeonScene();
+    ~SKDungeonScene();
+    SKPlayChild* update(GMInput* input, double deltaTime) override;
+    void draw(GMSpriteBatch* s) override;
+    
+public:
+    // 取得関数
+    SKPlayer* getPlayer() const;
+    SKEffectManager* getEffectMan() const;
+    SKItemManager* getItemMan() const;
+    SKEnemyMan* getEnemMan() const;
+    SKMassManager* getMassMan() const;
+    SKUserInterface* getUI() const;
+    SKSoundManager* getSoundMan() const;
+    SKTextureManager* getTexMan() const;
+    SKBlockManager* getBlockMan() const;
+    
+public:
+    // セット関数
+    void setPlayer(SKPlayer* player);
+    void setMassMan(SKMassManager* manager);
+    
+private:
+    void loadStage();
+};
 
 #endif /* defined(__Karakuri2_Mac__SKDungeonScene__) */

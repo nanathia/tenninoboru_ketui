@@ -41,20 +41,20 @@ m_endMass(end),
 SKPlayerState()
 {
     begin->setMovingObject(0);
-    end->setMovingObject(gPlayScene->getPlayer());
-    gPlayScene->getPlayer()->setPreviousMass(begin);
-    gPlayScene->getPlayer()->doAct();
+    end->setMovingObject(gPlayScene->getDungeonScene()->getPlayer());
+    gPlayScene->getDungeonScene()->getPlayer()->setPreviousMass(begin);
+    gPlayScene->getDungeonScene()->getPlayer()->doAct();
 }
 PlayerMoving::~PlayerMoving(){
     m_startMass = 0;
     m_endMass = 0;
 }
 SKPlayerState* PlayerMoving::update(GMInput *input, double deltaTime){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     SKPlayerState* next = this;
     m_time += deltaTime*3;
     if(m_time >= 1.0){
-        gPlayScene->getPlayer()->doEnd();
+        gPlayScene->getDungeonScene()->getPlayer()->doEnd();
         p->getPorch()->getItem_myMass();
         if(!p->getTurn()->m_actionEnemys.empty()){
             SKPlayerState* wait = new PlayerWaitingEnemyAction();
@@ -76,7 +76,7 @@ SKPlayerState* PlayerMoving::update(GMInput *input, double deltaTime){
     return next;
 }
 void PlayerMoving::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d = SKObject::getLarpPoint(m_startMass, m_endMass, dx, dy, m_time);
     spriter::ScmlFunctions::setAnimation(p->characterName.c_str(), "move");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_time);
@@ -87,15 +87,15 @@ GMVector2D PlayerMoving::getCameraPos(int dx, int dy){
 
 PlayerLeady::PlayerLeady():
 SKPlayerState(){
-    gPlayScene->getPlayer()->actionReset();
-    auto it = gPlayScene->getEnemMan()->m_enemys.begin();
-    while(it != gPlayScene->getEnemMan()->m_enemys.end()){
+    gPlayScene->getDungeonScene()->getPlayer()->actionReset();
+    auto it = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys.begin();
+    while(it != gPlayScene->getDungeonScene()->getEnemMan()->m_enemys.end()){
         (*it)->actionReset();
         it++;
     }
 }
 SKPlayerState* PlayerLeady::update(GMInput* input, double deltaTime){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     SKPlayerState* next = this;
     
     int ofsx = 0;
@@ -114,7 +114,7 @@ SKPlayerState* PlayerLeady::update(GMInput* input, double deltaTime){
         ofsx += 1;
     }
     
-    if(!gPlayScene->getEnemMan()->isAllActionEnded()){
+    if(!gPlayScene->getDungeonScene()->getEnemMan()->isAllActionEnded()){
     }else if(ofsx || ofsy){
         p->setRadian(atan2(ofsy, ofsx)/M_PI);
         SKMass* nextMass = p->getMassForOffset(ofsx, ofsy);
@@ -127,7 +127,7 @@ SKPlayerState* PlayerLeady::update(GMInput* input, double deltaTime){
         p->actionCount();
         next = new PlayerAttack();
     }else if(input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskI)){
-        gPlayScene->getUI()->uiOn();
+        gPlayScene->getDungeonScene()->getUI()->uiOn();
         next = new PlayerOpenMenu();
     }
     
@@ -139,7 +139,7 @@ SKPlayerState* PlayerLeady::update(GMInput* input, double deltaTime){
     return next;
 }
 void PlayerLeady::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation(p->characterName.c_str(), "stop");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -170,15 +170,15 @@ void PlayerNanameInput::draw(int dx, int dy){
 PlayerAttack::PlayerAttack():
 SKPlayerState(),
 m_isAttacked(false){
-    gPlayScene->getPlayer()->doAct();
+    gPlayScene->getDungeonScene()->getPlayer()->doAct();
 }
 PlayerAttack::~PlayerAttack(){
 }
 SKPlayerState* PlayerAttack::update(GMInput* input, double deltaTime){
     SKPlayerState* next = this;
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     if(m_time >= 1){
-        gPlayScene->getPlayer()->doEnd();
+        gPlayScene->getDungeonScene()->getPlayer()->doEnd();
         p->getTurn()->actionCreate();
         p->getTurn()->move();
         SKPlayerState* wait = new PlayerWaitingEnemyMove();
@@ -201,7 +201,7 @@ SKPlayerState* PlayerAttack::update(GMInput* input, double deltaTime){
     return next;
 }
 void PlayerAttack::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation("sakuma", "attack");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -212,17 +212,17 @@ SKPlayerState(){
 }
 SKPlayerState* PlayerOpenMenu::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
-    if(input->isKeyDownTriggered(GMKeyMaskI) || gPlayScene->getPlayer()->m_isItemSelectEnd){
+    if(input->isKeyDownTriggered(GMKeyMaskI) || gPlayScene->getDungeonScene()->getPlayer()->m_isItemSelectEnd){
         next = new PlayerLeady();
-        gPlayScene->getUI()->uiOff();
-        gPlayScene->getPlayer()->m_isItemSelectEnd = false;
+        gPlayScene->getDungeonScene()->getUI()->uiOff();
+        gPlayScene->getDungeonScene()->getPlayer()->m_isItemSelectEnd = false;
     }
     m_animationTime += deltaTime;
     if(m_animationTime >= 1) m_animationTime = 0;;
     return next;
 }
 void PlayerOpenMenu::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation("sakuma", "stop");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -230,14 +230,14 @@ void PlayerOpenMenu::draw(int dx, int dy){
 
 PlayerDamage::PlayerDamage():
 SKPlayerState(){
-    gPlayScene->getPlayer()->doAct();
+    gPlayScene->getDungeonScene()->getPlayer()->doAct();
 }
 PlayerDamage::~PlayerDamage(){
 }
 SKPlayerState* PlayerDamage::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
     if(m_time >= 1){
-        gPlayScene->getPlayer()->doEnd();
+        gPlayScene->getDungeonScene()->getPlayer()->doEnd();
         SKPlayerState* wait = new PlayerWaitingEnemyAction();
         next = wait->update(input, deltaTime);
         if(next != wait){
@@ -250,7 +250,7 @@ SKPlayerState* PlayerDamage::update(GMInput *input, double deltaTime){
     return next;
 }
 void PlayerDamage::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation("sakuma", "damage");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -261,8 +261,8 @@ SKPlayerState(){
 }
 SKPlayerState* PlayerWaitingEnemyMove::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
-    if(gPlayScene->getEnemMan()->isAllActionEnded()){
-        if(gPlayScene->getPlayer()->getTurn()->m_actionEnemys.empty()){
+    if(gPlayScene->getDungeonScene()->getEnemMan()->isAllActionEnded()){
+        if(gPlayScene->getDungeonScene()->getPlayer()->getTurn()->m_actionEnemys.empty()){
             SKPlayerState* leady = new PlayerLeady();
             next = leady->update(input, deltaTime);
             if(next != leady){
@@ -278,7 +278,7 @@ SKPlayerState* PlayerWaitingEnemyMove::update(GMInput *input, double deltaTime){
     return next;
 }
 void PlayerWaitingEnemyMove::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation("sakuma", "stop");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -289,8 +289,8 @@ SKPlayerState(){
 }
 SKPlayerState* PlayerWaitingEnemyAction::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
-    SKPlayer* p = gPlayScene->getPlayer();
-    bool isNextAction = gPlayScene->getEnemMan()->isAllActionEnded();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
+    bool isNextAction = gPlayScene->getDungeonScene()->getEnemMan()->isAllActionEnded();
     if(isNextAction && !p->getTurn()->m_actionEnemys.empty()){
         if(p->isDamaged()){
             p->damaged();
@@ -319,7 +319,7 @@ SKPlayerState* PlayerWaitingEnemyAction::update(GMInput *input, double deltaTime
     return next;
 }
 void PlayerWaitingEnemyAction::draw(int dx, int dy){
-    SKPlayer* p = gPlayScene->getPlayer();
+    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
     GMVector2D d(dx, dy);
     spriter::ScmlFunctions::setAnimation("sakuma", "stop");
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
@@ -345,7 +345,7 @@ void PlayerWaitingEnemyAction::draw(int dx, int dy){
 //    return next;
 //}
 //void Player::draw(int dx, int dy){
-//    SKPlayer* p = gPlayScene->getPlayer();
+//    SKPlayer* p = gPlayScene->getDungeonScene()->getPlayer();
 //    GMVector2D d(dx, dy);
 //    spriter::ScmlFunctions::setAnimation("sakuma", "damage");
 //    spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);

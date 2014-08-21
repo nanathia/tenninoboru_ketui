@@ -56,7 +56,7 @@ bool SKObject::positionUpdate(int x_offset, int y_offset){
     int y = 0;
     m_myLocations_mass->getPos(x, y);
     int s_x, s_y;
-    gPlayScene->getMassMan()->getStageSize(s_x, s_y);
+    gPlayScene->getDungeonScene()->getMassMan()->getStageSize(s_x, s_y);
     //
     if(x_offset < 0){
         if(x == 0){
@@ -77,16 +77,16 @@ bool SKObject::positionUpdate(int x_offset, int y_offset){
         }
     }
     
-    this->setPreviousMass(gPlayScene->getMassMan()->get(x, y));
+    this->setPreviousMass(gPlayScene->getDungeonScene()->getMassMan()->get(x, y));
     
     int new_x = x + x_offset;
     int new_y = y + y_offset;
-    SKMass* nextMass = gPlayScene->getMassMan()->get(new_x, new_y);
+    SKMass* nextMass = gPlayScene->getDungeonScene()->getMassMan()->get(new_x, new_y);
     if(nextMass->getBlock() || nextMass->getMovingObject()){
         return false;
     }
-    gPlayScene->getMassMan()->get(x, y)->setMovingObject(0);
-    gPlayScene->getMassMan()->get(new_x, new_y)->setMovingObject(this);
+    gPlayScene->getDungeonScene()->getMassMan()->get(x, y)->setMovingObject(0);
+    gPlayScene->getDungeonScene()->getMassMan()->get(new_x, new_y)->setMovingObject(this);
     return true;
 }
 
@@ -127,7 +127,7 @@ void SKObject::setSKObjectAngle(double radian){
 // デバッグ用。現在位置に、矢印を描画する。
 void SKObject::drawDirectionEffect(int d_x, int d_y, GMSpriteBatch* s, double radian){
     //    s->draw(<#GMTexture2D *tex#>, <#const GMVector2D &pos#>, <#const GMRect2D &srcRect#>, <#const GMColor &color#>, <#double rotation#>, <#const GMVector2D &origin#>, <#const GMVector2D &scale#>, <#GMSpriteFlip flip#>)
-    s->draw(gPlayScene->getTexMan()->get(Texture_directionName), GMVector2D(d_x+mass_size/2, d_y+mass_size/2), GMRect2D(0,0,64,64), GMColor::White, radian*M_PI, GMVector2D(0,32), GMVector2D(0.5, 0.5), GMSpriteFlip(GMSpriteFlipHorizontally), 0.9 );
+    s->draw(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_directionName), GMVector2D(d_x+mass_size/2, d_y+mass_size/2), GMRect2D(0,0,64,64), GMColor::White, radian*M_PI, GMVector2D(0,32), GMVector2D(0.5, 0.5), GMSpriteFlip(GMSpriteFlipHorizontally), 0.9 );
 }
 
 
@@ -209,7 +209,7 @@ void SKObject::move(int x_offset, int y_offset){
     int y = 0;
     m_myLocations_mass->getPos(x, y);
     int s_x, s_y;
-    gPlayScene->getMassMan()->getStageSize(s_x, s_y);
+    gPlayScene->getDungeonScene()->getMassMan()->getStageSize(s_x, s_y);
     //
     if(x_offset < 0){
         if(x == 0){
@@ -230,15 +230,15 @@ void SKObject::move(int x_offset, int y_offset){
         }
     }
     
-    this->setPreviousMass(gPlayScene->getMassMan()->get(x, y));
+    this->setPreviousMass(gPlayScene->getDungeonScene()->getMassMan()->get(x, y));
     
     int new_x = x + x_offset;
     int new_y = y + y_offset;
-    SKMass* nextMass = gPlayScene->getMassMan()->get(new_x, new_y);
+    SKMass* nextMass = gPlayScene->getDungeonScene()->getMassMan()->get(new_x, new_y);
     if(nextMass->getBlock() || nextMass->getMovingObject()) return;
     
-    gPlayScene->getMassMan()->get(x, y)->setMovingObject(0);
-    gPlayScene->getMassMan()->get(new_x, new_y)->setMovingObject(this);
+    gPlayScene->getDungeonScene()->getMassMan()->get(x, y)->setMovingObject(0);
+    gPlayScene->getDungeonScene()->getMassMan()->get(new_x, new_y)->setMovingObject(this);
     this->setRadian(atan2(y_offset, x_offset)/M_PI);
     return;
 }
@@ -268,7 +268,7 @@ vector<SKObject*> SKObject::serchObject(int distance){
     this->getMass()->getPos(px, py);
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){
-            SKMass* mass = gPlayScene->getMassMan()->get(i-distance, j-distance);
+            SKMass* mass = gPlayScene->getDungeonScene()->getMassMan()->get(i-distance, j-distance);
             if(mass){
                 if(mass->getMovingObject()){
                     objects.push_back(mass->getMovingObject());
@@ -291,7 +291,7 @@ bool SKObject::serchObject(SKObject* obj, int distance){
     this->getMass()->getPos(px, py);
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){
-            SKMass* mass = gPlayScene->getMassMan()->get(i-distance, j-distance);
+            SKMass* mass = gPlayScene->getDungeonScene()->getMassMan()->get(i-distance, j-distance);
             if(mass){
                 if(mass->getMovingObject() == obj){
                     return true;
@@ -356,7 +356,7 @@ SKObject* SKObject::getVectorObject(){
     while(true){
         px += ofsx;
         py += ofsy;
-        SKMass* mass = gPlayScene->getMassMan()->get(px, py);
+        SKMass* mass = gPlayScene->getDungeonScene()->getMassMan()->get(px, py);
         if(mass){
             if(mass->getMovingObject()){
                 return mass->getMovingObject();
@@ -383,7 +383,7 @@ vector<SKObject*> SKObject::getVectorObjects(){
     while(true){
         px += ofsx;
         py += ofsy;
-        SKMass* mass = gPlayScene->getMassMan()->get(px, py);
+        SKMass* mass = gPlayScene->getDungeonScene()->getMassMan()->get(px, py);
         if(mass){
             if(mass->getMovingObject()){
                 objects.push_back(mass->getMovingObject());
@@ -558,7 +558,7 @@ SKMass* SKObject::getMassForRadian(double radian, int distance){
     py += oy;
     px *= distance;
     py *= distance;
-    return gPlayScene->getMassMan()->get(px, py);
+    return gPlayScene->getDungeonScene()->getMassMan()->get(px, py);
 }
 
 // 差分からマスを取得
@@ -567,7 +567,7 @@ SKMass* SKObject::getMassForOffset(int ofs_x, int ofs_y){
     this->getMass()->getPos(px, py);
     px += ofs_x;
     py += ofs_y;
-    return gPlayScene->getMassMan()->get(px, py);
+    return gPlayScene->getDungeonScene()->getMassMan()->get(px, py);
 }
 
 // 現在位置と向きから、通常で最も移動すべきマスを取得
@@ -616,7 +616,7 @@ SKObject* SKObject::getForwordObject(){
     this->getMass()->getPos(px, py);
     px += x;
     py += y;
-    return gPlayScene->getMassMan()->get(px, py)->getMovingObject();
+    return gPlayScene->getDungeonScene()->getMassMan()->get(px, py)->getMovingObject();
 }
 
 double SKObject::getRadian(SKObject* t){

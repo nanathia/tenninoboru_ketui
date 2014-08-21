@@ -15,6 +15,7 @@
 #include "spriterFiles.h"
 #include "CallBack.h"
 #include "SKItemInclude.h"
+#include "SKDungeonScene.h"
 #include <sstream>
 
 SKPlayer::SKPlayer():
@@ -31,7 +32,7 @@ m_equipmentSword(0),
 m_state(0),
 m_isAct(0)
 {
-    gPlayScene->setPlayer(this);
+    gPlayScene->getDungeonScene()->setPlayer(this);
     
     // アプリケーション・バンドル内のリソース位置を取得
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sakuma" withExtension:@"scml"];
@@ -99,7 +100,7 @@ SKMass* SKPlayer::getExitEntrance() const{
 }
 
 void _turnControl::actionCreate(){
-    std::list<SKEnemy*>& em = gPlayScene->getEnemMan()->m_enemys;
+    std::list<SKEnemy*>& em = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys;
     auto it = em.begin();
     while(it != em.end()){
         (*it)->actionReset();
@@ -114,7 +115,7 @@ void _turnControl::actionCreate(){
 }
 
 bool _turnControl::move(){
-    auto em = gPlayScene->getEnemMan()->m_enemys;
+    auto em = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys;
     auto it = em.begin();
     while(it != em.end()){
         (*it)->setMove();
@@ -156,13 +157,13 @@ void SKPlayer::soubiSword(SwordItem* sword){
     if(!sword){
         std::ostringstream oss;
         oss << m_equipmentSword->getName() << "　を外した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentSword = sword;
         std::ostringstream oss;
         oss << sword->getName() << "　を装備した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
     }
 }
 
@@ -170,13 +171,13 @@ void SKPlayer::soubiShiled(ShieldItem* shield){
     if(!shield){
         std::ostringstream oss;
         oss << m_equipmentShield->getName() << "　を外した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentShield = shield;
         std::ostringstream oss;
         oss << shield->getName() << "　を装備した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
     }
 }
 
@@ -184,13 +185,13 @@ void SKPlayer::soubiUdewa_1(UdewaItem* udewa){
     if(!udewa){
         std::ostringstream oss;
         oss << m_equipmentUdewa_1->getName() << "　を外した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentUdewa_1 = udewa;
         std::ostringstream oss;
         oss << udewa->getName() << "　を装備した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
     }
 }
 
@@ -198,13 +199,13 @@ void SKPlayer::soubiUdewa_2(UdewaItem* udewa){
     if(!udewa){
         std::ostringstream oss;
         oss << m_equipmentUdewa_2->getName() << "　を外した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentUdewa_2 = udewa;
         std::ostringstream oss;
         oss << udewa->getName() << "　を装備した。";
-        gPlayScene->getUI()->textInput(oss.str());
+        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
     }
 }
 

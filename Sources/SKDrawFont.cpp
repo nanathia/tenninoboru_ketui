@@ -16,7 +16,7 @@ using namespace sizurus_fonts;
 void SKDrawFont::drawString(const std::string& str, const GMVector2D& charSize, const GMVector2D& strPos, const GMVector2D& strWidth, GMSpriteBatch* s, GMColor c){
     SizurusFontsName fonts[256];
     ten_flags flags[256];
-    sizurus_fonts::SKFont::convertChar2Name(fonts, flags, str);
+    sizurus_fonts::SKFont::convertChar2Name(fonts, str);
     int i = 0;
     
     while(fonts[i] != sizurusFonts_end){

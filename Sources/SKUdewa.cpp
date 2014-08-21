@@ -25,11 +25,11 @@ CarsorSelectReAction* UdewaItem::getSelectReaction(){
 }
 
 void UdewaItem::soubi(){
-    gPlayScene->getPlayer()->soubiUdewa_1(this);
+    gPlayScene->getDungeonScene()->getPlayer()->soubiUdewa_1(this);
 }
 
 void UdewaItem::hazusu(){
-    gPlayScene->getPlayer()->soubiUdewa_2(0);
+    gPlayScene->getDungeonScene()->getPlayer()->soubiUdewa_2(0);
 }
 
 void UdewaItem::getSetumei(std::string &strIn){

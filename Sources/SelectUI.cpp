@@ -28,7 +28,7 @@ void SelectUI::update(GMInput *input, double deltaTime){
     // TODO: セレクトUIの実装
     if(m_isShow){
         if(m_child){
-            auto it = gPlayScene->getPlayer()->getPorch()->getItems().begin();
+            auto it = gPlayScene->getDungeonScene()->getPlayer()->getPorch()->getItems().begin();
             for(int i = 0; i < m_carsor; i++){
                 it++;
             }
@@ -67,7 +67,7 @@ void SelectUI::update(GMInput *input, double deltaTime){
                 }
             }
             else if(input->isKeyDownTriggered(GMKeyMaskZ)){
-                auto& pp = gPlayScene->getPlayer()->getPorch()->getItems();
+                auto& pp = gPlayScene->getDungeonScene()->getPlayer()->getPorch()->getItems();
                 auto it = pp.begin();
                 for(int i = 0; i < m_carsor; i++){
                     it++;
@@ -82,7 +82,7 @@ void SelectUI::update(GMInput *input, double deltaTime){
 
 void SelectUI::draw(GMSpriteBatch *s) const{
     if(m_isShow){
-        PlayerPorch* pp = gPlayScene->getPlayer()->getPorch();
+        PlayerPorch* pp = gPlayScene->getDungeonScene()->getPlayer()->getPorch();
         GMColor c1 = GMColor::DarkBlue;
         c1.a = 0.8;
         s->draw(0, GMRect2D(200, 150, 600, 400), c1);
