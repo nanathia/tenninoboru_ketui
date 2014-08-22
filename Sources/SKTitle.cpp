@@ -39,6 +39,8 @@ void SKTitle::willAppear(GMGraphics* g){
 }
 
 void SKTitle::didDisappear(){
+    delete m_child;
+    m_child = 0;
     delete m_MusicMan;
     m_MusicMan = 0;
     delete m_SoundMan;

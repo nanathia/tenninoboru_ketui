@@ -107,6 +107,8 @@ namespace baseArea{
         }
     }
     TileSet::~TileSet(){
+        delete m_Image;
+        m_Image = 0;
     }
     int TileSet::getTileHeight() const{
         return m_TileHeight;

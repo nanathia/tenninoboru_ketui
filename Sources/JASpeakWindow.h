@@ -10,6 +10,7 @@
 #define __Karakuri2_Mac__JASpeakWindow__
 
 #include "Karakuri.h"
+#include "JASpeakCharManager.h"
 #include <vector>
 #include <deque>
 
@@ -33,8 +34,7 @@ namespace JASpeakWindow{
     class Window{
         std::deque<StrQuotation> m_chargeStrs;
         GMRect2D m_WindowRect;
-        std::vector<Character*>* m_characters;
-        std::vector<Character*>* m_characters_2;
+        std::deque<CharacterManager*> m_Strs;
         GMColor m_color;
         WindowState* m_state;
         int m_returnKey;
@@ -47,7 +47,7 @@ namespace JASpeakWindow{
         void draw(GMSpriteBatch* s);
     public:
         void setString(const std::string& str);
-        std::vector<Character*>& getCharacters();
+        CharacterManager* getCharacters();
         GMColor getColor() const;
         void setColor(const GMColor& color);
         GMRect2D getRect() const;
@@ -55,7 +55,6 @@ namespace JASpeakWindow{
         void addString(const std::string& str);
         std::deque<StrQuotation>& getChargeStrs();
         void allCharacterGoUnderLava();
-        std::vector<Character*>& getCharacters_2();
         void push();
         bool isAllCharacterStilled();
         void addString(const std::string& str, int key);

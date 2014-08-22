@@ -74,6 +74,8 @@ namespace titleScene{
         m_state = new mainmenu::MenuState(this);
     }
     MainMenu::~MainMenu(){
+        delete m_state;
+        m_state = 0;
     }
     MainChild* MainMenu::update(TitleMain* parent, GMInput* input, double deltaTime){
         MainChild* next = this;

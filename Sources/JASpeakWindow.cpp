@@ -12,16 +12,6 @@
 #include "JASpeakWindowState.h"
 #include <string>
 
-namespace{
-    bool len(const char* _1, const char* _2){
-        if(_1[0] == _2[0]){
-            if(_1[1] == _2[1] && _1[2] == _2[2]){
-                return true;
-            }
-        }
-        return false;
-    }
-}
 
 namespace JASpeakWindow{
     
@@ -29,8 +19,6 @@ namespace JASpeakWindow{
     m_WindowRect(GMRect2D(25, 25, 950, 150)),
     m_color(GMColor::Black),
     m_state(0),
-    m_characters(new std::vector<Character*>),
-    m_characters_2(new std::vector<Character*>),
     m_returnKey(-1),
     m_nextReturnKey(-1),
     m_isLockInput(0)
@@ -39,84 +27,40 @@ namespace JASpeakWindow{
         m_state = new WindowState(this);
     }
     Window::~Window(){
-        int size = (int)m_characters->size();
+        delete m_state;
+        m_state = 0;
+        
+        int size = (int)m_Strs.size();
         for(int i = 0; i < size; i++){
-            delete (*m_characters)[i];
-            (*m_characters)[i] = 0;
+            delete m_Strs[i];
+            m_Strs[i] = 0;
         }
-        safeCleanUp(*m_characters);
-        (*m_characters).clear();
-        if(m_characters_2) delete m_characters_2;
-        m_characters_2 = 0;
-        if(m_characters) delete m_characters;
-        m_characters = 0;
     }
     int Window::update(GMInput* input, double deltaTime){
         if(!m_isLockInput) m_state->update(input, deltaTime);
-        int size = (int)(*m_characters).size();
+        int size = (int)m_Strs.size();
         for(int i = 0; i < size; i++){
-            (*m_characters)[i]->update(input, deltaTime);
+            m_Strs[i]->update(input, deltaTime);
         }
-        size = (int)(*m_characters_2).size();
-        for(int i = 0; i < size; i++){
-            (*m_characters_2)[i]->update(input, deltaTime);
+        if(!m_Strs.empty()){
+            if(m_Strs.back()->isVanished()){
+                delete m_Strs.back();
+                m_Strs.back() = 0;
+                m_Strs.pop_back();
+            }
         }
         int ret = m_returnKey;
         return ret;
     }
     void Window::draw(GMSpriteBatch* s){
         m_state->draw(s);
-        int size = (int)(*m_characters).size();
+        int size = (int)m_Strs.size();
         for(int i = 0; i < size; i++){
-            (*m_characters)[i]->draw(s);
-        }
-        size = (int)(*m_characters_2).size();
-        for(int i = 0; i < size; i++){
-            (*m_characters_2)[i]->draw(s);
+            m_Strs[i]->draw(s);
         }
     }
-    void Window::setString(const std::string& str){
-        if(!(*m_characters).empty()){
-            int size = (int)(*m_characters).size();
-            for(int i = 0; i < size; i++){
-                delete (*m_characters)[i];
-                (*m_characters)[i] = 0;
-            }
-            safeCleanUp((*m_characters));
-            (*m_characters).clear();
-        }
-        int size = (int)str.size()/3;
-        int xPos = 0;
-        int yPos = 0;
-        for(int i = 0; i < size; i++){
-            if(xPos >= 19){
-                xPos = 0;
-                yPos++;
-            }
-            const char* cStr = &(str.c_str()[i*3]);
-            if(len(cStr, "漸")){
-                xPos = 0;
-                yPos++;
-                continue;
-            }
-            char destStr[256];
-            destStr[0] = cStr[0];
-            destStr[1] = cStr[1];
-            destStr[2] = cStr[2];
-            destStr[3] = '\0';
-            Character* newChar = new Character(destStr, GMVector2D(xPos*50+50, 150-yPos*50));
-            newChar->setNextLunchInterval(0.1);
-            newChar->setCompleteTime(1);
-            if(i != 0){
-                newChar->setPrev((*m_characters)[(int)(*m_characters).size()-1]);
-                (*m_characters)[(int)(*m_characters).size()-1]->setNext(newChar);
-            }
-            xPos++;
-            (*m_characters).push_back(newChar);
-        }
-    }
-    std::vector<Character*>& Window::getCharacters(){
-        return (*m_characters);
+    CharacterManager* Window::getCharacters(){
+        return m_Strs.front();
     }
     GMColor Window::getColor() const{
         return m_color;
@@ -137,10 +81,7 @@ namespace JASpeakWindow{
         return m_chargeStrs;
     }
     void Window::allCharacterGoUnderLava(){
-        int size = (int)(*m_characters).size();
-        for(int i = 0; i < size; i++){
-            (*m_characters)[i]->ill_Be_Back();
-        }
+        m_Strs.front()->goUnderLava();
         if(!m_chargeStrs.empty()){
             m_nextReturnKey = m_chargeStrs.front().getQuota();
         }else{
@@ -148,15 +89,9 @@ namespace JASpeakWindow{
         }
         this->push();
     }
-    std::vector<Character*>& Window::getCharacters_2(){
-        return *m_characters_2;
-    }
     void Window::push(){
-        if(m_characters_2) delete m_characters_2;
-        m_characters_2 = m_characters;
-        m_characters = new std::vector<Character*>;
+        m_Strs.push_front(new CharacterManager(m_chargeStrs.front().getStr()));
         if(!m_chargeStrs.empty()){
-            this->setString(m_chargeStrs.front().getStr());
             m_chargeStrs.pop_front();
         }
     }
@@ -184,6 +119,9 @@ namespace JASpeakWindow{
     }
     void Window::DisableInput(){
         m_isLockInput = false;
+    }
+    void Window::setString(const std::string &str){
+        m_Strs.push_front(new CharacterManager(str));
     }
     
 }

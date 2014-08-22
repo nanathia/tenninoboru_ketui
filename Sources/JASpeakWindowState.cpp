@@ -84,10 +84,8 @@ namespace JASpeakWindow{
             if(input->isKeyDownTriggered(GMKeyMaskReturn | GMKeyMaskZ | GMKeyMaskSpace)){
                 if(m_user->getChargeStrs().empty()){
                     next = new WindowOuter(m_user);
-                    m_user->setReturnKey();
                     m_user->allCharacterGoUnderLava();
                 }else{
-                    m_user->setReturnKey();
                     m_user->allCharacterGoUnderLava();
                 }
             }
@@ -98,13 +96,7 @@ namespace JASpeakWindow{
         s->draw(0, m_user->getRect(), m_user->getColor());
     };
     bool WindowVisible::isAllCharacterStilled(){
-        int size = (int)m_user->getCharacters().size();
-        for(int i = 0; i < size; i++){
-            if(!m_user->getCharacters()[i]->isStill()){
-                return false;
-            }
-        }
-        return true;
+        return m_user->getCharacters()->isHolded();
     }
     
     WindowOuter::WindowOuter(Window* user):

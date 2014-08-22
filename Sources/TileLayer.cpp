@@ -7,6 +7,7 @@
 //
 
 #include "BaseAreaSouces.h"
+#include "SaKumas_includes.h"
 #include "tinyxml2.h"
 
 namespace baseArea{
@@ -34,7 +35,15 @@ namespace baseArea{
         }
     }
     TileLayer::~TileLayer(){
-        
+        if(!m_Tiles.empty()){
+            auto it = m_Tiles.begin();
+            while(it != m_Tiles.end()){
+                delete *it;
+                *it = 0;
+                it++;
+            }
+            safeCleanUp(m_Tiles);
+        }
     }
     void TileLayer::update(GMInput *input, double deltaTime){
         

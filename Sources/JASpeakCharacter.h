@@ -138,7 +138,6 @@ namespace JASpeakWindow{
     public:
         bool isEnableLunchNextChar() override;
         bool isStill() const override;
-        bool isVanish() override;
     };
     
     // 時空亜空が発する言葉の一文字。グラフィカルに表現するため、クラスで表す。
@@ -191,6 +190,7 @@ namespace JASpeakWindow{
         void setInter();
         void setOuter();
         void ill_Be_Back();
+        bool isVanished() const;
     };
     
 }

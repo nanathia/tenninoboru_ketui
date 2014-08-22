@@ -33,11 +33,14 @@ namespace JASpeakWindow{
     Character::~Character(){
         delete m_Orbit;
         m_Orbit = 0;
+        delete m_state;
+        m_state = 0;
     }
     void Character::update(GMInput *input, double deltaTime){
         CharacterState* nextState = m_state->update(input, deltaTime);
         if(nextState != m_state){
             delete m_state;
+            m_state = 0;
             m_state = nextState;
         }
     }
@@ -124,10 +127,12 @@ namespace JASpeakWindow{
         m_startPos += m_endPos;
         m_startPos.x += 500;
         swap(m_startPos, m_endPos);
-        m_state = new CharacterLeady(this);
     }
     void Character::ill_Be_Back(){
         m_state->ill_Be_Back();
+    }
+    bool Character::isVanished() const{
+        return m_state->isVanish();
     }
     
     CharacterState::CharacterState(Character* character):
@@ -305,7 +310,6 @@ namespace JASpeakWindow{
             }
         }else{
             next = new CharacterRetire(m_character);
-            next->update(input, deltaTime);
         }
         return next;
     }
@@ -322,9 +326,6 @@ namespace JASpeakWindow{
         return false;
     }
     bool CharacterRetireLeady::isStill() const{
-        return true;
-    }
-    bool CharacterRetireLeady::isVanish(){
         return true;
     }
     

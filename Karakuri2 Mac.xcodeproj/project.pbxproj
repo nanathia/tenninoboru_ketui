@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407DB6319A613DA0021EBF7 /* BaseAreaCharacterManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0407DB6119A613DA0021EBF7 /* BaseAreaCharacterManager.cpp */; };
 		041C62391949619900D78C35 /* EnemyStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041C62371949619900D78C35 /* EnemyStrategy.cpp */; };
 		041C62401949641900D78C35 /* EnemyFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041C623E1949641900D78C35 /* EnemyFactory.cpp */; };
 		041C62431949654400D78C35 /* syokutyuu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041C62411949654400D78C35 /* syokutyuu.cpp */; };
@@ -364,6 +365,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0407DB6119A613DA0021EBF7 /* BaseAreaCharacterManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaCharacterManager.cpp; sourceTree = "<group>"; };
+		0407DB6219A613DA0021EBF7 /* BaseAreaCharacterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaCharacterManager.h; sourceTree = "<group>"; };
 		041C62371949619900D78C35 /* EnemyStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyStrategy.cpp; sourceTree = "<group>"; };
 		041C62381949619900D78C35 /* EnemyStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyStrategy.h; sourceTree = "<group>"; };
 		041C623E1949641900D78C35 /* EnemyFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyFactory.cpp; sourceTree = "<group>"; };
@@ -912,6 +915,8 @@
 		0407DB6019A612650021EBF7 /* character */ = {
 			isa = PBXGroup;
 			children = (
+				0407DB6119A613DA0021EBF7 /* BaseAreaCharacterManager.cpp */,
+				0407DB6219A613DA0021EBF7 /* BaseAreaCharacterManager.h */,
 			);
 			name = character;
 			sourceTree = "<group>";
@@ -2489,6 +2494,7 @@
 				04411B8119344F9800C324FE /* SKMass.cpp in Sources */,
 				8E1C6C1313EEDA0F00450DD6 /* GMSound.mm in Sources */,
 				04B3473C1938F9BE00D9622A /* SKTextureManager.cpp in Sources */,
+				0407DB6319A613DA0021EBF7 /* BaseAreaCharacterManager.cpp in Sources */,
 				04411B7119340E3000C324FE /* SKPlayScene.cpp in Sources */,
 				8E1C6C1413EEDA0F00450DD6 /* GMSoundImpl.mm in Sources */,
 				04376970199C0590000BCE66 /* StartDemoMainState.cpp in Sources */,

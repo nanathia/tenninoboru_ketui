@@ -20,5 +20,6 @@
 #include "ImageLayer.h"
 #include "ObjectLayerManager.h"
 #include "ObjectLayer.h"
+#include "BaseAreaCharacterManager.h"
 
 #endif

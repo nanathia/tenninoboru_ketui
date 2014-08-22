@@ -21,7 +21,8 @@ namespace baseArea{
         }
     }
     SKBaseAreaScene::~SKBaseAreaScene(){
-        
+        delete m_Map;
+        m_Map = 0;
     }
     SKPlayChild* SKBaseAreaScene::update(GMInput *input, double deltaTime){
         SKPlayChild* next = this;
