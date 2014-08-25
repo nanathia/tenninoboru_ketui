@@ -14,13 +14,20 @@
 namespace baseArea{
     class Player;
     class MurabitoManager;
+    class SKBaseAreaScene;
 
     class CharacterManager{
         Player* m_Player;
         MurabitoManager* m_Murabitos;
+        SKBaseAreaScene* m_parent;
     public:
+        CharacterManager(SKBaseAreaScene* parent);
+        ~CharacterManager();
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
+    public:
+        Player* getPlayer();
+        MurabitoManager* getMurabitoMan();
     };
     
 }

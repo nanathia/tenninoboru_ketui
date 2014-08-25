@@ -30,8 +30,12 @@ namespace baseArea{
         TileLayer(tinyxml2::XMLElement* data, TileLayerManager* parent);
         ~TileLayer();
         void update(GMInput* input, double deltaTime);
-        void draw(GMSpriteBatch* s, const GMRect2D& dest);
+        void draw(GMSpriteBatch* s);
         TileLayerManager* getManager();
+        const std::string& getName();
+        const int getWigth() const;
+        const int getHeight() const;
+        bool isCollision(const GMRect2D& rect) const;
     };
     
 }

@@ -27,9 +27,11 @@ namespace baseArea{
         TileLayerManager(BaseAreaMap* parent);
         ~TileLayerManager();
         void update(GMInput* input, double deltaTime);
-        void draw(GMSpriteBatch* s, const GMRect2D& dest);
+        void FirstDraw(GMSpriteBatch* s);
+        void SecondDraw(GMSpriteBatch* s);
         void add(TileLayer* layer);
         BaseAreaMap* getBaseAreaMap();
+        bool isCollision(const GMRect2D& rect) const;
     };
     
 }

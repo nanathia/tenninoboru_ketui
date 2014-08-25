@@ -6,22 +6,15 @@
 //  Copyright (c) 2014年 Satoshi Numata. All rights reserved.
 //
 
-#include "BaseAreaMap.h"
-#include "ImageLayerManager.h"
-#include "TileLayerManager.h"
-#include "ObjectLayerManager.h"
-#include "TileSetManager.h"
-#include "TileSet.h"
-#include "ObjectLayer.h"
-#include "TileLayer.h"
-#include "ImageLayer.h"
+#include "BaseAreaSouces.h"
 #include "tinyxml2.h"
 
 namespace baseArea{
-    BaseAreaMap::BaseAreaMap(const std::string& fileName, const std::string& extension):
+    BaseAreaMap::BaseAreaMap(SKBaseAreaScene* parent, const std::string& fileName, const std::string& extension):
     m_ObjectLayerMan(0),
     m_TileLayerMan(0),
-    m_ImageLayerMan(0){
+    m_ImageLayerMan(0),
+    m_parent(parent){
         
         NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@(fileName.c_str()) withExtension:@(extension.c_str())];
         if (!fileURL) {
@@ -68,9 +61,8 @@ namespace baseArea{
     void BaseAreaMap::update(GMInput *intput, double deltaTime){
         
     }
-    void BaseAreaMap::draw(GMSpriteBatch *s, const GMRect2D& dest){
+    void BaseAreaMap::draw(GMSpriteBatch *s){
         m_ImageLayerMan->draw(s);
-        m_TileLayerMan->draw(s, dest);
         m_ObjectLayerMan->draw(s);
     }
     ImageLayerManager* BaseAreaMap::getImageLayerMan(){
@@ -84,6 +76,9 @@ namespace baseArea{
     }
     TileSetManager* BaseAreaMap::getTileSetMan(){
         return m_TileSetMan;
+    }
+    SKBaseAreaScene* BaseAreaMap::getBaseAreaScene(){
+        return m_parent;
     }
     
 }

@@ -28,6 +28,7 @@ namespace baseArea{
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s, const GMRect2D& dest);
         TileLayer* getTileLayer();
+        int getGid() const;
     };
 
 }

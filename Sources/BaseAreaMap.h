@@ -21,23 +21,27 @@ namespace baseArea{
     class TileLayerManager;
     class ObjectLayerManager;
     class TileSetManager;
+    class SKBaseAreaScene;
+    class Player;
     
     class BaseAreaMap{
         ImageLayerManager* m_ImageLayerMan;
         TileLayerManager* m_TileLayerMan;
         ObjectLayerManager* m_ObjectLayerMan;
         TileSetManager* m_TileSetMan;
+        SKBaseAreaScene* m_parent;
         
     public:
-        BaseAreaMap(const std::string& fileName, const std::string& extetion);
+        BaseAreaMap(SKBaseAreaScene* parent, const std::string& fileName, const std::string& extetion);
         ~BaseAreaMap();
         void update(GMInput* intput, double deltaTime);
-        void draw(GMSpriteBatch* s, const GMRect2D& dest);
+        void draw(GMSpriteBatch* s);
     public:
         ImageLayerManager* getImageLayerMan();
         TileLayerManager* getTileLayerMan();
         ObjectLayerManager* getObjectLayerMan();
         TileSetManager* getTileSetMan();
+        SKBaseAreaScene* getBaseAreaScene();
     };
     
 }

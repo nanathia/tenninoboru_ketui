@@ -10,6 +10,7 @@
 #include "SaKumas_includes.h"
 #include "TileLayer.h"
 #include "tinyxml2.h"
+#include <string>
 
 namespace baseArea{
     
@@ -28,10 +29,18 @@ namespace baseArea{
     void TileLayerManager::update(GMInput *input, double deltaTime){
         
     }
-    void TileLayerManager::draw(GMSpriteBatch *s, const GMRect2D& dest){
+    void TileLayerManager::FirstDraw(GMSpriteBatch *s){
         int size = (int)m_tileLayer.size();
         for(int i = 0; i < size; i++){
-            m_tileLayer[i]->draw(s, dest);
+            if(m_tileLayer[i]->getName().find("firstdraw") == string::npos) continue;
+            m_tileLayer[i]->draw(s);
+        }
+    }
+    void TileLayerManager::SecondDraw(GMSpriteBatch *s){
+        int size = (int)m_tileLayer.size();
+        for(int i = 0; i < size; i++){
+            if(m_tileLayer[i]->getName().find("seconddraw") == string::npos) continue;
+            m_tileLayer[i]->draw(s);
         }
     }
     void TileLayerManager::add(baseArea::TileLayer *layer){
@@ -39,6 +48,14 @@ namespace baseArea{
     }
     BaseAreaMap* TileLayerManager::getBaseAreaMap(){
         return m_parent;
+    }
+    bool TileLayerManager::isCollision(const GMRect2D& rect) const{
+        int size = (int)m_tileLayer.size();
+        for(int i = 0; i < size; i++){
+            if(m_tileLayer[i]->getName() != "collision") continue;
+            if(m_tileLayer[i]->isCollision(rect)) return true;
+        }
+        return false;
     }
     
 }

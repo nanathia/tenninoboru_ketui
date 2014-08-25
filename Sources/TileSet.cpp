@@ -87,6 +87,18 @@ namespace baseArea{
                      m_parent->getTileHeight());
         s->draw(m_tex, dest, src, GMColor::White, radian, 0, GMSpriteFlipHorizontally);
     }
+    int TileSetImage::getTileSetWidth() const{
+        return m_TileSetWidth;
+    }
+    int TileSetImage::getTileSetHeight() const{
+        return m_TileSetHeight;
+    }
+    int TileSetImage::getTileXNum() const{
+        return m_TileXNum;
+    }
+    int TileSetImage::getTileYNum() const{
+        return m_TileYNum;
+    }
     
     TileSet::TileSet(tinyxml2::XMLElement* data, TileSetManager* parent):
     m_parent(parent),

@@ -21,5 +21,10 @@
 #include "ObjectLayerManager.h"
 #include "ObjectLayer.h"
 #include "BaseAreaCharacterManager.h"
+#include "BaseAreaPlayer.h"
+#include "BaseAreaPlayerAngleState.h"
+#include "BaseAreaCamera.h"
+#include "BaseAreaMurabito.h"
+#include "BaseAreaMurabitoManager.h"
 
 #endif

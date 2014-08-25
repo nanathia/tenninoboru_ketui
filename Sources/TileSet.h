@@ -49,6 +49,11 @@ namespace baseArea{
     public:
         void draw(GMSpriteBatch* s, const GMRect2D& dest, int git) const;
         void draw(GMSpriteBatch* s, const GMRect2D& dest, double radian, int git) const;
+    public:
+        int getTileSetWidth() const;
+        int getTileSetHeight() const;
+        int getTileXNum() const;
+        int getTileYNum() const;
     };
     
     class TileSet{

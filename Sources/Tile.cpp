@@ -46,5 +46,8 @@ namespace baseArea{
     TileLayer* Tile::getTileLayer(){
         return m_parent;
     }
+    int Tile::getGid() const{
+        return m_Gid;
+    }
     
 }

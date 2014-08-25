@@ -41,7 +41,6 @@ m_child(0)
 }
 
 SKPlayScene::~SKPlayScene(){
-    
 }
 
 void SKPlayScene::updateModel(GMInput* input, double deltaTime){
@@ -56,7 +55,7 @@ void SKPlayScene::updateModel(GMInput* input, double deltaTime){
 void SKPlayScene::drawView(GMGraphics* g){
     // 画面のクリア
     g->clear(GMColor::LimeGreen);
-    m_child->draw(mSpriteBatch);
+    if(m_child) m_child->draw(mSpriteBatch);
     
 }
 
