@@ -14,6 +14,7 @@
 #include "SKTextureManager.h"
 #include "Globals.h"
 #include "BaseAreaMap.h"
+#include "SKSpeakWindow.h"
 
 #pragma mark １マスの幅
 namespace {
@@ -30,7 +31,18 @@ namespace baseArea{
     m_MusicMan(0),
     m_TexMan(0),
     m_ViewMatrix(GMMatrix::Identity),
-    m_Camera(0){
+    m_Camera(0),
+    m_nomalSpeakWindow(0){
+        m_nomalSpeakWindow = new SKSpeakWindow::Window;
+        m_nomalSpeakWindow->addString("みゃああああああああああああお！");
+        m_nomalSpeakWindow->addString("ふにゃあああああああああ漸ふぬもーん漸ぱっぱらぱー");
+        m_nomalSpeakWindow->addString("みぎゃあああああああああああ");
+        m_nomalSpeakWindow->addString("ぬええええええええええええ");
+        m_nomalSpeakWindow->addString("はんばーぐーーーーーーー");
+        m_nomalSpeakWindow->addString("ぺろーーーーーーーーーーーん");
+        m_nomalSpeakWindow->addString("まじかるまじかるー");
+        m_nomalSpeakWindow->addString("えんどろーるむーんうぉーくー");
+        m_nomalSpeakWindow->addString("にゃはははははははは！");
         m_SoundMan = new SKSoundManager;
         m_MusicMan = new SKMusicManager;
         m_TexMan = new SKTextureManager;
@@ -54,11 +66,14 @@ namespace baseArea{
         m_SoundMan = 0;
         delete m_MusicMan;
         m_MusicMan = 0;
+        delete m_nomalSpeakWindow;
+        m_nomalSpeakWindow = 0;
     }
     SKPlayChild* SKBaseAreaScene::update(GMInput *input, double deltaTime){
         SKPlayChild* next = this;
         m_CharacterMan->update(input, deltaTime);
         m_Camera->update(input, deltaTime);
+        m_nomalSpeakWindow->update(input, deltaTime);
         return next;
     }
     void SKBaseAreaScene::draw(GMSpriteBatch *s){
@@ -98,6 +113,16 @@ namespace baseArea{
         gPlayScene->getCurrentEffect()->begin();
         s->begin();
         m_Map->getTileLayerMan()->SecondDraw(s);
+        s->end();
+        gPlayScene->getCurrentEffect()->end();
+        
+        // UI描画
+        gPlayScene->getCurrentEffect()->setViewMatrix(GMMatrix::Identity);
+        prjMt = GMMatrix::CreateOrthographicOffCenter(0, SCREEN_SIZE.x, 0, SCREEN_SIZE.y, -1, 1);
+        gPlayScene->getCurrentEffect()->setProjectionMatrix(prjMt);
+        gPlayScene->getCurrentEffect()->begin();
+        s->begin();
+        m_nomalSpeakWindow->draw(s);
         s->end();
         gPlayScene->getCurrentEffect()->end();
     }

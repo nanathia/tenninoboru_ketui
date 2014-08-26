@@ -1,0 +1,137 @@
+<!--テトラペッドらメインマップにおける、村人のデータ。-->
+<tetora_murabitoData>
+    <!--いわゆるようこそ係。-->
+    <obj_18 isTurnToPlayer = "1">
+        <speak value = "ようこそ。"/>
+        <speak value = "ここは和と伝統を重んじる国、漸テトラペッドラよ。"/>
+        <speak value = "って、あなたサクマじゃない。漸"/>
+        <speak value = "こんな所で何してるの？"/>
+        <speak value = "外は危険な生き物がいて、凄く危ないわよ"/>
+        <walk type = "stop", angle = "bottom"/>
+    </obj_18>
+    <!--入口近くにいる子供。物語に関係する歌を歌っている。-->
+    <obj_1 isTurnToPlayer = "1">
+        <speak value = "白き衣纏って〜♪"/>
+        <speak value = "踊る〜♪"/>
+        <speak value = "この世で最も清く〜♪"/>
+        <speak value = "儚い〜♪"/>
+        <speak value = "それが〜♪"/>
+        <speak value = "テトラペッドラの〜♪"/>
+        <speak value = "一番の誇り〜♪"/>
+        <speak value = "神に仕える巫女〜♪"/>
+        <speak value = "あっ、おねえちゃん誰？"/>
+        <speak value = "おねえちゃんも、漸巫女になりたいの？"/>
+        <walk type = "free", interval = "1", speed = "0.2"/>
+    </obj_1>
+    <!--なんか、老人。特に意味は無い。-->
+    <obj_2 isTurnToPlayer = "1">
+        <speak value = "なんじゃ？"/>
+        <speak value = "何じゃと聞いておるんじゃ。"/>
+        <speak value = "ほ？なにか言ったかのう。聞こえんわい。"/>
+        <speak value = "それより婆さんや、昼飯はまだかの。"/>
+        <walk type = "free", interval = "6", speed = "1"/>
+        </obj_2>
+    <!--木を眺めている村人-->
+    <obj_3 isTurnToPlayer = "1">
+        <speak value = "ねえ、君。"/>
+        <speak value = "そう、君だよ君。青い髪の君。"/>
+        <speak value = "君は、僕の目の前にあるこの木が見えるかい？">
+            <question>
+                <answer value = "うん。見えるわ。">
+                    <speak value = "この木、大きい木だよね。", key = "turnTop"/>
+                    <speak value = "・・・でもね、君。漸昔は・・・"/>
+                    <speak value = "およそ１００年位前までは、漸テトラペッドラには、漸もっと大きな木があったんだよ。"/>
+                    <speak value = "このテトラペッドラの頂上でも、漸全然届かないような高層の雲をも貫き、漸神様の住む天空の社にまで届いたとか。"/>
+                    <speak value = "・・・らしいんだけど、今は跡形も無いよね。"/>
+                    <speak value = "どうして、無くなってしまったんだろう？"/>
+                    <speak value = "君は、どうしてだと思う？"/>
+                </answer>
+                <answer value = "いいえ、見えないわ。">
+                    <speak value = "・・・え？漸・・・見えないの？"/>
+                    <speak value = "・・・君、もしかして目が悪いのかな？"/>
+                    <speak value = "・・・え、あれ？"/>
+                    <speak value = "もしかして俺の目が悪いの？？"/>
+                    <speak value = "いつの間にそんなに悪くなってたんだ、漸僕の目は・・・。"/>
+                </answer>
+            </question>
+        </speak>
+        <walk type = "stop", angle = "top"/>
+    </obj_3>
+    <!--川で洗濯している女の人-->
+    <obj_4 isTurnToPlayer = "0">
+        <speak value = "はあ、毎日掃除洗濯炊事・・・。"/>
+        <speak value = "大変だわ。旦那は収入低いし・・・。", key = "turnPlayer"/>
+        <speak value = "・・・はっ。ちょっとそこの女の子！漸今の、誰にも言っちゃダメよ！"/>
+        <walk type = "stop", angle = "left"/>
+    </obj_4>
+    <!--特に意味のない男性-->
+    <obj_5 isTurnToPlayer = "0">
+        <speak value = "この川、どこまで続いてるのかなぁ。"/>
+        <walk type = "stop", angle = "left"/>
+    </obj_5>
+    <!--崖下を眺める男性-->
+    <obj_6 isTurnToPlayer = "0">
+        <speak value = "この崖、高くて怖いなぁ。", key = "turnPlayer"/>
+        <speak value = "でも不思議と、このテトラペッドラには漸崖から転落する人はいないんだよね。"/>
+        <speak value = "慣れてるからなのかな？"/>
+        <walk type = "stop" angle = "bottom"/>
+    </obj_6>
+    <!--花を見る女性-->
+    <obj_7 isTurnToPlayer = "0">
+        <speak value = "綺麗な花ね。", key = "turnPlayer"/>
+        <speak value = "あなたもそう思うでしょ？">
+            <question>
+                <answer value = "私もそう思う。">
+                    <speak value = "そうよねっ。漸テトラペッドラの、高い土地に咲く花は漸とても綺麗よ。"/>
+                    <speak value = "もっと高い場所には、漸もっときれいな花があるのかしら・・・"/>
+                    <speak value = "・・・なんて。漸このテトラペッドラよりも高い場所なんて、漸無いものね。"/>
+                    <speak value = "もしかしたら、どこかにあるのかしら？"/>
+                    <speak value = "そうだったら、素敵ね。"/>
+                    <speak value = "見てみたいなぁ・・・。"/>
+                <answer value = "思わないわ。">
+                    <speak value = "思わないの？"/>
+                    <speak value = "変わった女の子ね。"/>
+            </question>
+        </speak>
+    </obj_7>
+    <!--会話するオバサマ：左側-->
+    <obj_8 isTurnToPlayer = "0">
+        <speak value = ""/>
+    </obj_8>
+    <!---->
+    <obj_9 isTurnToPlayer = "0">
+        <speak value = ""/>
+    </obj_9>
+    <!---->
+    <obj_10>
+        <speak value = ""/>
+    </obj_10>
+    <!---->
+    <obj_11>
+        <speak value = ""/>
+    </obj_11>
+    <!---->
+    <obj_12>
+        <speak value = ""/>
+    </obj_12>
+    <!---->
+    <obj_13>
+        <speak value = ""/>
+    </obj_13>
+    <!---->
+    <obj_14>
+        <speak value = ""/>
+    </obj_14>
+    <!---->
+    <obj_15>
+        <speak value = ""/>
+    </obj_15>
+    <!---->
+    <obj_16>
+        <speak value = ""/>
+    </obj_16>
+    <!---->
+    <obj_17>
+        <speak value = ""/>
+    </obj_17>
+</tetora_murabitoData>

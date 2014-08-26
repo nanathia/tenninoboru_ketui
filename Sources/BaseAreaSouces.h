@@ -26,5 +26,6 @@
 #include "BaseAreaCamera.h"
 #include "BaseAreaMurabito.h"
 #include "BaseAreaMurabitoManager.h"
+#include "BaseAreaMapObject.h"
 
 #endif

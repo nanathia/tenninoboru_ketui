@@ -87,7 +87,6 @@ namespace JASpeakWindow{
         }else{
             m_nextReturnKey = -1;
         }
-        this->push();
     }
     void Window::push(){
         m_Strs.push_front(new CharacterManager(m_chargeStrs.front().getStr()));

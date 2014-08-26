@@ -227,7 +227,7 @@ namespace SKSpeakWindow{
     }
     CharacterState* CharacterRetire::update(GMInput* input, double deltaTime){
         CharacterState* next = this;
-        m_time += deltaTime/m_character->getCompleteTime();
+        m_time += deltaTime/0.2;
         m_deltaTime += deltaTime;
         if(m_time >= 1){
             next = new CharacterVanished(m_character);

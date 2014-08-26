@@ -50125,13 +50125,40 @@
   <object name="minka23" x="368" y="96" width="16" height="16"/>
   <object x="240" y="1264" width="16" height="16"/>
   <object name="mapselect" x="1120" y="1584" width="16" height="16"/>
+  <object x="224" y="1472" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="siraberu" width="100" height="100">
+ <objectgroup name="siraberu" width="100" height="100" visible="0">
   <object name="kanban" x="1120" y="1440" width="16" height="16">
    <properties>
     <property name="string0" value="ようこそテトラペッドラへ。"/>
     <property name="string1" value="ここは、伝統と和を重んじる国。"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="murabito" width="100" height="100">
+  <object name="kodomo" x="1168" y="1488" width="16" height="16"/>
+  <object x="816" y="1520" width="16" height="16"/>
+  <object x="1024" y="1424" width="16" height="16"/>
+  <object x="448" y="1520" width="16" height="16"/>
+  <object x="464" y="1472" width="16" height="16"/>
+  <object x="464" y="1248" width="16" height="16"/>
+  <object x="640" y="1264" width="16" height="16"/>
+  <object x="688" y="1184" width="16" height="16"/>
+  <object x="976" y="1184" width="16" height="16"/>
+  <object x="992" y="1184" width="16" height="16"/>
+  <object x="1248" y="1152" width="16" height="16"/>
+  <object x="1072" y="800" width="16" height="16"/>
+  <object x="816" y="976" width="16" height="16"/>
+  <object x="720" y="832" width="16" height="16"/>
+  <object x="624" y="832" width="16" height="16"/>
+  <object x="448" y="1024" width="16" height="16"/>
+  <object x="464" y="496" width="16" height="16"/>
+  <object x="944" y="544" width="16" height="16"/>
+  <object x="640" y="112" width="16" height="16"/>
+  <object x="672" y="112" width="16" height="16"/>
+  <object x="864" y="160" width="16" height="16"/>
+  <object x="224" y="1536" width="16" height="16"/>
+  <object x="400" y="224" width="16" height="16"/>
+  <object x="480" y="128" width="16" height="16"/>
  </objectgroup>
 </map>

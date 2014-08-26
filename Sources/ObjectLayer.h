@@ -17,15 +17,19 @@ namespace tinyxml2{
 }
 
 namespace baseArea{
-    class MapImage;
+    class ObjectLayerManager;
+    class MapElement;
     
     class ObjectLayer{
-        std::list<MapImage*> m_Images;
+        std::list<MapElement*> m_Elements;
+        const std::string m_Name;
+        ObjectLayerManager* m_parent;
     public:
-        ObjectLayer(tinyxml2::XMLElement* data);
+        ObjectLayer(ObjectLayerManager* parent, tinyxml2::XMLElement* data);
         ~ObjectLayer();
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
+        
     };
     
 }

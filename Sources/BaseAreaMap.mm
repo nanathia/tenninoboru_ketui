@@ -10,6 +10,7 @@
 #include "tinyxml2.h"
 
 namespace baseArea{
+    
     BaseAreaMap::BaseAreaMap(SKBaseAreaScene* parent, const std::string& fileName, const std::string& extension):
     m_ObjectLayerMan(0),
     m_TileLayerMan(0),
@@ -39,7 +40,7 @@ namespace baseArea{
             }else if(name == "layer"){
                 m_TileLayerMan->add(new TileLayer(c, m_TileLayerMan));
             }else if(name == "objectgroup"){
-                m_ObjectLayerMan->add(new ObjectLayer(c));
+                m_ObjectLayerMan->add(new ObjectLayer(m_ObjectLayerMan, c));
             }else if(name == "imagelayer"){
                 m_ImageLayerMan->add(new ImageLayer(c));
             }else{

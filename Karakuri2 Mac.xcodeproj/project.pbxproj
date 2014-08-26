@@ -75,6 +75,7 @@
 		043D86F519AAAE3800A74282 /* SKSpeakWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043D86EF19AAAE3800A74282 /* SKSpeakWindow.cpp */; };
 		043D86F619AAAE3800A74282 /* SKSpeakWindowState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043D86F119AAAE3800A74282 /* SKSpeakWindowState.cpp */; };
 		043D86F819AAAFCF00A74282 /* _StrQuota.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043D86F719AAAFCF00A74282 /* _StrQuota.cpp */; };
+		043D871119AAD0EE00A74282 /* BaseAreaMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 043D870F19AAD0EE00A74282 /* BaseAreaMapObject.cpp */; };
 		04411B7119340E3000C324FE /* SKPlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04411B6F19340E3000C324FE /* SKPlayScene.cpp */; };
 		04411B77193423C300C324FE /* SKEnemyMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04411B75193423C300C324FE /* SKEnemyMan.cpp */; };
 		04411B7A193423DC00C324FE /* SKEffectMan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04411B78193423DC00C324FE /* SKEffectMan.cpp */; };
@@ -137,6 +138,7 @@
 		048D394A1978E3E500195328 /* SKTitleBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39491978E3E500195328 /* SKTitleBackImage.png */; };
 		048D394D1978E59200195328 /* SKDrawFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 048D394B1978E59200195328 /* SKDrawFont.cpp */; };
 		048D39691979B64600195328 /* SKGameOverImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39681979B64600195328 /* SKGameOverImage.png */; };
+		04AB44AF19AC2BCA00BE0052 /* tetora_murabito.xml in Resources */ = {isa = PBXBuildFile; fileRef = 04AB44AE19AC2BCA00BE0052 /* tetora_murabito.xml */; };
 		04B347361938DC5400D9622A /* SKDrawManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347341938DC5400D9622A /* SKDrawManager.cpp */; };
 		04B347391938DCB700D9622A /* SKMatrixManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347371938DCB700D9622A /* SKMatrixManager.cpp */; };
 		04B3473C1938F9BE00D9622A /* SKTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B3473A1938F9BE00D9622A /* SKTextureManager.cpp */; };
@@ -503,6 +505,8 @@
 		043D86F119AAAE3800A74282 /* SKSpeakWindowState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSpeakWindowState.cpp; sourceTree = "<group>"; };
 		043D86F219AAAE3800A74282 /* SKSpeakWindowState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSpeakWindowState.h; sourceTree = "<group>"; };
 		043D86F719AAAFCF00A74282 /* _StrQuota.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _StrQuota.cpp; sourceTree = "<group>"; };
+		043D870F19AAD0EE00A74282 /* BaseAreaMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaMapObject.cpp; sourceTree = "<group>"; };
+		043D871019AAD0EE00A74282 /* BaseAreaMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMapObject.h; sourceTree = "<group>"; };
 		04411B6F19340E3000C324FE /* SKPlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayScene.cpp; sourceTree = "<group>"; };
 		04411B7019340E3000C324FE /* SKPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayScene.h; sourceTree = "<group>"; };
 		04411B75193423C300C324FE /* SKEnemyMan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKEnemyMan.cpp; sourceTree = "<group>"; };
@@ -609,6 +613,7 @@
 		048D394B1978E59200195328 /* SKDrawFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDrawFont.cpp; sourceTree = "<group>"; };
 		048D394C1978E59200195328 /* SKDrawFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDrawFont.h; sourceTree = "<group>"; };
 		048D39681979B64600195328 /* SKGameOverImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SKGameOverImage.png; sourceTree = "<group>"; };
+		04AB44AE19AC2BCA00BE0052 /* tetora_murabito.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tetora_murabito.xml; sourceTree = "<group>"; };
 		04B347341938DC5400D9622A /* SKDrawManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDrawManager.cpp; sourceTree = "<group>"; };
 		04B347351938DC5400D9622A /* SKDrawManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDrawManager.h; sourceTree = "<group>"; };
 		04B347371938DCB700D9622A /* SKMatrixManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKMatrixManager.cpp; sourceTree = "<group>"; };
@@ -1270,6 +1275,15 @@
 			name = "普通の言葉";
 			sourceTree = "<group>";
 		};
+		043D870E19AAD0DA00A74282 /* object */ = {
+			isa = PBXGroup;
+			children = (
+				043D870F19AAD0EE00A74282 /* BaseAreaMapObject.cpp */,
+				043D871019AAD0EE00A74282 /* BaseAreaMapObject.h */,
+			);
+			name = object;
+			sourceTree = "<group>";
+		};
 		04411B7E19344F8100C324FE /* mass */ = {
 			isa = PBXGroup;
 			children = (
@@ -1567,6 +1581,7 @@
 		047810BA19A3E9D600A02FB2 /* object */ = {
 			isa = PBXGroup;
 			children = (
+				043D870E19AAD0DA00A74282 /* object */,
 				047810CA19A4040700A02FB2 /* layer */,
 				047810C319A3EA4900A02FB2 /* ObjectLayerManager.cpp */,
 				047810C419A3EA4900A02FB2 /* ObjectLayerManager.h */,
@@ -1633,6 +1648,7 @@
 		0478112E19A41E4C00A02FB2 /* tetora */ = {
 			isa = PBXGroup;
 			children = (
+				04AB44AE19AC2BCA00BE0052 /* tetora_murabito.xml */,
 				0478119219A452CC00A02FB2 /* mura.tmx */,
 				0478119319A452CC00A02FB2 /* tetora.tmx */,
 				0478119419A452CC00A02FB2 /* tetra.json */,
@@ -2459,6 +2475,7 @@
 				04C5C0FE19731DE70073B05A /* Image_0073.png in Resources */,
 				04C5C0E119731DE70073B05A /* Image_0044.png in Resources */,
 				8EBF7EA41620D21E002F78FB /* font-erbos_draco-14x28.png in Resources */,
+				04AB44AF19AC2BCA00BE0052 /* tetora_murabito.xml in Resources */,
 				04C5C11F19731DE70073B05A /* sakumaIm_31.png in Resources */,
 				04C5C0DE19731DE70073B05A /* Image_0041.png in Resources */,
 				04C5C10C19731DE70073B05A /* sakumaIm_12.png in Resources */,
@@ -2508,6 +2525,7 @@
 				0445024D198F2035001CA8A4 /* SKEnemyMoveChild.cpp in Sources */,
 				04C7A66F19982BC700D7AEEC /* JASpeakCharManager.cpp in Sources */,
 				043959AB194FB05300D43459 /* ScmlObject.cpp in Sources */,
+				043D871119AAD0EE00A74282 /* BaseAreaMapObject.cpp in Sources */,
 				0424C182196138D20081BB5B /* PlayerPorch.cpp in Sources */,
 				0444064719353EE900D49BDF /* SKMassManager.cpp in Sources */,
 				04C7A6321994622600D7AEEC /* TitleMenuChild.cpp in Sources */,

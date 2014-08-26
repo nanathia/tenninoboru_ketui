@@ -87,6 +87,7 @@ namespace SKSpeakWindow{
                     m_user->allCharacterGoUnderLava();
                 }else{
                     m_user->allCharacterGoUnderLava();
+                    m_user->push();
                 }
             }
         }
