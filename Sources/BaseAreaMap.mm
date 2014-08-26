@@ -15,7 +15,11 @@ namespace baseArea{
     m_ObjectLayerMan(0),
     m_TileLayerMan(0),
     m_ImageLayerMan(0),
-    m_parent(parent){
+    m_parent(parent),
+    m_SceneJumpLayerMan(0),
+    m_SiraberuLayerMan(0),
+    m_MurabitoLayerMan(0),
+    m_TileSetMan(0){
         
         NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@(fileName.c_str()) withExtension:@(extension.c_str())];
         if (!fileURL) {
@@ -32,13 +36,24 @@ namespace baseArea{
         m_ObjectLayerMan = new ObjectLayerManager(this);
         m_TileLayerMan = new TileLayerManager(this);
         m_TileSetMan = new TileSetManager(this);
+        m_MurabitoLayerMan = new MurabitoLayerManager(this);
+        m_SiraberuLayerMan = new SiraberuLayerManager(this);
+        m_SceneJumpLayerMan = new SceneJumpLayerManager(this);
         
         while(c){
             std::string name = c->Name();
             if(name == "tileset"){
                 m_TileSetMan->add(new TileSet(c, m_TileSetMan));
             }else if(name == "layer"){
-                m_TileLayerMan->add(new TileLayer(c, m_TileLayerMan));
+                if(std::string(c->Attribute("name")).find_last_of("siraberu")!=std::string::npos){
+                    m_SiraberuMan->add(m_SiraberuLayerMan, c);
+                }else if(std::string(c->Attribute("name")).find_last_of("murabito")!=std::string::npos){
+                    m_MurabitoMan->add(m_MurabitoLayerMan, c);
+                }else if(std::string(c->Attribute("name")).find_last_of("jumpscene")!=std::string::npos){
+                    m_SceneJumpMan->add(m_SceneJumpLayerMan, c);
+                }else{
+                    m_TileLayerMan->add(new TileLayer(c, m_TileLayerMan));
+                }
             }else if(name == "objectgroup"){
                 m_ObjectLayerMan->add(new ObjectLayer(m_ObjectLayerMan, c));
             }else if(name == "imagelayer"){
@@ -80,6 +95,15 @@ namespace baseArea{
     }
     SKBaseAreaScene* BaseAreaMap::getBaseAreaScene(){
         return m_parent;
+    }
+    MurabitoLayerManager* BaseAreaMap::getMurabitoLayerMan(){
+        return m_MurabitoLayerMan;
+    }
+    SiraberuLayerManager* BaseAreaMap::getSiraberuLayerMan(){
+        return m_SiraberuLayerMan;
+    }
+    SceneJumpLayerManager* BaseAreaMap::getSceneJumpLayerMan(){
+        return m_SceneJumpLayerMan;
     }
     
 }

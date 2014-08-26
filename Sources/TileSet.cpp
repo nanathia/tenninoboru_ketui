@@ -112,7 +112,7 @@ namespace baseArea{
         while(c){
             std::string name = c->Name();
             if(name == "image"){
-                m_Image = new TileSetImage(c, this);
+               if(m_Name!="number") m_Image = new TileSetImage(c, this);
             }if(name == "tile"){
             }
             c = c->NextSiblingElement();
