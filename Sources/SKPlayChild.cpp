@@ -8,6 +8,10 @@
 
 #include "SKPlayChild.h"
 
+SKPlayChild::SKPlayChild(){
+    
+}
+
 SKPlayChild::~SKPlayChild(){
     
 }

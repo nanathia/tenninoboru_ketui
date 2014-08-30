@@ -64,6 +64,7 @@ namespace SKSpeakWindow{
         void setKey(int key);
         void DisableInput();
         void EnableInput();
+        bool isAllEnd() const;
     };
     
 }

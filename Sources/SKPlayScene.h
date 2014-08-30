@@ -27,9 +27,13 @@ enum SKTextureNames{
     Texture_directionName = 99,
 };
 
+class SKPlaySceneState;
+
 class SKPlayScene : public GMScene{
+    // シーン遷移のためのステイト
+    SKPlaySceneState* m_state;
     // 子シーケンス
-    SKPlayChild* m_child; 
+    SKPlayChild* m_child;
     
 // 画像描画のためのクラス
     GMBasicEffect* mBasicEffect;
@@ -50,7 +54,8 @@ public:
     SKDungeonScene* getDungeonScene();
     baseArea::SKBaseAreaScene* getBaseArea();
     void setChild(SKPlayChild* child);
-    
+    void changeScene(SKPlayChild* nextScene);
+    SKPlayChild* getChild();
 };
 
 extern SKPlayScene* gPlayScene;

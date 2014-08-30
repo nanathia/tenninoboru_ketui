@@ -62,6 +62,7 @@ namespace baseArea{
         // 描画座標を取得
         static GMVector2D convertMat2Draw(const GMVector2D& matrixVector);
         static const GMVector2D& getTileDestSize();
+        SKSpeakWindow::Window* getNomalSpeakWin();
     };
     
 };

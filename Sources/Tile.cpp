@@ -38,9 +38,9 @@ namespace baseArea{
     }
     void Tile::draw(GMSpriteBatch *s, const GMRect2D& dest){
         if(m_PIRadian){
-            getTileLayer()->getManager()->getBaseAreaMap()->getTileSetMan()->drawTile(s, dest, m_PIRadian, m_Gid);
+            getTileLayer()->getBaseAreaMap()->getTileSetMan()->drawTile(s, dest, m_PIRadian, m_Gid);
         }else{
-            getTileLayer()->getManager()->getBaseAreaMap()->getTileSetMan()->drawTile(s, dest, m_Gid);
+            getTileLayer()->getBaseAreaMap()->getTileSetMan()->drawTile(s, dest, m_Gid);
         }
     }
     TileLayer* Tile::getTileLayer(){

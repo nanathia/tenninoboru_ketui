@@ -12,14 +12,15 @@
 #include "Karakuri.h"
 
 class SKMass;
+class SKPlayer;
 
 class SKPlayerState{
 protected:
     double m_animationTime;
     double m_time;
-    
+    SKPlayer* m_user;
 public:
-    SKPlayerState();
+    SKPlayerState(SKPlayer* user);
     virtual ~SKPlayerState(){};
     virtual SKPlayerState* update(GMInput* input, double deltaTime) = 0;
     virtual void draw(int dx, int dy) = 0;
@@ -29,21 +30,21 @@ public:
 
 class PlayerWait: public SKPlayerState{
 public:
-    PlayerWait();
+    PlayerWait(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
 
 class PlayerLeady: public SKPlayerState{
 public:
-    PlayerLeady();
+    PlayerLeady(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
 
 class PlayerChoiceAngle: public SKPlayerState{
 public:
-    PlayerChoiceAngle();
+    PlayerChoiceAngle(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
@@ -52,7 +53,7 @@ class PlayerMoving: public SKPlayerState{
     SKMass* m_startMass;
     SKMass* m_endMass;
 public:
-    PlayerMoving(SKMass* moveStartMass, SKMass* MoveEndMass);
+    PlayerMoving(SKPlayer* user, SKMass* moveStartMass, SKMass* MoveEndMass);
     ~PlayerMoving();
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
@@ -61,7 +62,7 @@ public:
 
 class PlayerNanameInput: public SKPlayerState{
 public:
-    PlayerNanameInput();
+    PlayerNanameInput(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
@@ -69,7 +70,7 @@ public:
 class PlayerAttack: public SKPlayerState{
     bool m_isAttacked;
 public:
-    PlayerAttack();
+    PlayerAttack(SKPlayer* user);
     ~PlayerAttack();
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
@@ -77,7 +78,7 @@ public:
 
 class PlayerDamage: public SKPlayerState{
 public:
-    PlayerDamage();
+    PlayerDamage(SKPlayer* user);
     ~PlayerDamage();
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
@@ -85,21 +86,21 @@ public:
 
 class PlayerOpenMenu: public SKPlayerState{
 public:
-    PlayerOpenMenu();
+    PlayerOpenMenu(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
 
 class PlayerWaitingEnemyMove: public SKPlayerState{
 public:
-    PlayerWaitingEnemyMove();
+    PlayerWaitingEnemyMove(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };
 
 class PlayerWaitingEnemyAction: public SKPlayerState{
 public:
-    PlayerWaitingEnemyAction();
+    PlayerWaitingEnemyAction(SKPlayer* user);
     SKPlayerState* update(GMInput* input, double deltaTime) override;
     void draw(int dx, int dy) override;
 };

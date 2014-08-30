@@ -16,6 +16,7 @@ class SKPlayScene;
 
 class SKPlayChild{
 public:
+    SKPlayChild();
     virtual ~SKPlayChild();
     // 更新のみを任せる。
     virtual SKPlayChild* update(GMInput* input, double deltaTime) = 0;

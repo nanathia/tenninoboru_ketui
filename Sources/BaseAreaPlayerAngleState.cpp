@@ -14,8 +14,13 @@
 
 namespace baseArea{
     
+    namespace{
+        const double siraberuOffset = 0.1;
+    }
+    
     PlayerAngleState::PlayerAngleState(Player* user):
-    m_child(0){
+    m_child(0),
+    m_user(user){
         m_child = new PlayerBottomAngle(user);
     }
     PlayerAngleState::~PlayerAngleState(){
@@ -23,6 +28,7 @@ namespace baseArea{
         m_child = 0;
     }
     void PlayerAngleState::update(GMInput* input, double deltaTime){
+        if(m_user->isSpeak()) return;
         PlayerAngleStateChild* nextChild = m_child->update(input, deltaTime);
         if(nextChild != m_child){
             delete m_child;
@@ -138,6 +144,15 @@ namespace baseArea{
         if(m_time >= 1){
             m_time = 0;
         }
+        if(input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
+            GMRect2D rect = m_user->Rect();
+            rect.y -= siraberuOffset;
+            Murabito* mura = m_user->getBaseAreaScene()->getMap()->getMurabitoMan()->isCollision(rect);
+            if(mura){
+                m_user->speak(mura);
+            }
+        }
+        
         return next;
     }
     void PlayerBottomAngle::draw(GMSpriteBatch* s){

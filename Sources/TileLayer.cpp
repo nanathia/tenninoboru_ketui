@@ -10,10 +10,11 @@
 #include "SaKumas_includes.h"
 #include "tinyxml2.h"
 #include <algorithm>
+#include <sstream>
 
 namespace baseArea{
     
-    TileLayer::TileLayer(tinyxml2::XMLElement* data, TileLayerManager* parent):
+    TileLayer::TileLayer(tinyxml2::XMLElement* data, BaseAreaMap* parent):
     m_Name(data->Attribute("name")),
     m_width(data->IntAttribute("width")),
     m_height(data->IntAttribute("height")),
@@ -50,7 +51,7 @@ namespace baseArea{
         
     }
     void TileLayer::draw(GMSpriteBatch *s){
-        const GMVector2D& p_pos = m_parent->getBaseAreaMap()->getBaseAreaScene()->getCharMan()->getPlayer()->getPos();
+        const GMVector2D& p_pos = m_parent->getBaseAreaScene()->getCharMan()->getPlayer()->getPos();
         int start_x = std::max(((int)(p_pos.x)-11), 0);
         int end_x = std::min(((int)(p_pos.x)+12), m_width);
         int start_y = std::max(((int)(-p_pos.y)-7), 0);
@@ -62,7 +63,7 @@ namespace baseArea{
             }
         }
     }
-    TileLayerManager* TileLayer::getManager(){
+    BaseAreaMap* TileLayer::getBaseAreaMap(){
         return m_parent;
     }
     const std::string& TileLayer::getName(){
@@ -89,6 +90,24 @@ namespace baseArea{
             }
         }
         return false;
+    }
+    const std::string TileLayer::isCollisionANDGetNumberingStr(const GMRect2D& rect) const{
+        int start_x = std::max(((int)(rect.x)-2), 0);
+        int end_x = std::min(((int)(rect.x)+2), m_width);
+        int start_y = std::max(((int)(-rect.y)-2), 0);
+        int end_y = std::min(((int)(-rect.y)+2), m_height);
+        for(int y = start_y; y < end_y; y++){
+            for(int x = start_x; x < end_x; x++){
+                if(m_Tiles[y*m_width+x]->getGid()){
+                    if(rect.intersects(GMRect2D(x, -y-1, 1, 1))){
+                        ostringstream oss;
+                        oss << "obj_" << m_parent->getTileSetMan()->getLocalGid(m_Tiles[y*m_width+x]->getGid());
+                        return oss.str().c_str();
+                    }
+                }
+            }
+        }
+        return "";
     }
     
 }

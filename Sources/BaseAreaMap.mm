@@ -18,7 +18,7 @@ namespace baseArea{
     m_parent(parent),
     m_SceneJumpLayerMan(0),
     m_SiraberuLayerMan(0),
-    m_MurabitoLayerMan(0),
+    m_MurabitoMan(0),
     m_TileSetMan(0){
         
         NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@(fileName.c_str()) withExtension:@(extension.c_str())];
@@ -36,7 +36,6 @@ namespace baseArea{
         m_ObjectLayerMan = new ObjectLayerManager(this);
         m_TileLayerMan = new TileLayerManager(this);
         m_TileSetMan = new TileSetManager(this);
-        m_MurabitoLayerMan = new MurabitoLayerManager(this);
         m_SiraberuLayerMan = new SiraberuLayerManager(this);
         m_SceneJumpLayerMan = new SceneJumpLayerManager(this);
         
@@ -45,14 +44,16 @@ namespace baseArea{
             if(name == "tileset"){
                 m_TileSetMan->add(new TileSet(c, m_TileSetMan));
             }else if(name == "layer"){
-                if(std::string(c->Attribute("name")).find_last_of("siraberu")!=std::string::npos){
-                    m_SiraberuMan->add(m_SiraberuLayerMan, c);
-                }else if(std::string(c->Attribute("name")).find_last_of("murabito")!=std::string::npos){
-                    m_MurabitoMan->add(m_MurabitoLayerMan, c);
-                }else if(std::string(c->Attribute("name")).find_last_of("jumpscene")!=std::string::npos){
-                    m_SceneJumpMan->add(m_SceneJumpLayerMan, c);
+                TileLayer* layer = new TileLayer(c, this);
+                if(std::string(c->Attribute("name")).rfind("siraberu")!=std::string::npos){
+                    m_SiraberuLayerMan->add(layer);
+                }else if(std::string(c->Attribute("name")).rfind("murabito")!=std::string::npos){
+                    delete layer; layer = 0;
+                    m_MurabitoMan = new MurabitoManager(c, this);
+                }else if(std::string(c->Attribute("name")).rfind("jumpscene")!=std::string::npos){
+                    m_SceneJumpLayerMan->add(layer);
                 }else{
-                    m_TileLayerMan->add(new TileLayer(c, m_TileLayerMan));
+                    m_TileLayerMan->add(layer);
                 }
             }else if(name == "objectgroup"){
                 m_ObjectLayerMan->add(new ObjectLayer(m_ObjectLayerMan, c));
@@ -74,12 +75,12 @@ namespace baseArea{
         delete m_TileSetMan;
         m_TileSetMan = 0;
     }
-    void BaseAreaMap::update(GMInput *intput, double deltaTime){
-        
+    void BaseAreaMap::update(GMInput *input, double deltaTime){
+        m_MurabitoMan->update(input, deltaTime);
     }
     void BaseAreaMap::draw(GMSpriteBatch *s){
         m_ImageLayerMan->draw(s);
-        m_ObjectLayerMan->draw(s);
+        m_MurabitoMan->draw(s);
     }
     ImageLayerManager* BaseAreaMap::getImageLayerMan(){
         return m_ImageLayerMan;
@@ -96,8 +97,8 @@ namespace baseArea{
     SKBaseAreaScene* BaseAreaMap::getBaseAreaScene(){
         return m_parent;
     }
-    MurabitoLayerManager* BaseAreaMap::getMurabitoLayerMan(){
-        return m_MurabitoLayerMan;
+    MurabitoManager* BaseAreaMap::getMurabitoMan(){
+        return m_MurabitoMan;
     }
     SiraberuLayerManager* BaseAreaMap::getSiraberuLayerMan(){
         return m_SiraberuLayerMan;

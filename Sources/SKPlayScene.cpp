@@ -10,6 +10,8 @@
 #include "SKPlayChild.h"
 #include "SKDungeonScene.h"
 #include "SKBaseAreaScene.h"
+#include "SKPlaySceneState.h"
+#include "SKSceneChangeOuters.h"
 #include "Globals.h"
 
 SKPlayScene* gPlayScene = 0;
@@ -20,9 +22,12 @@ void SKPlayScene::willAppear(GMGraphics *g){
     mSpriteBatch = new GMSpriteBatch;
     // シーケンスの用意
     m_child = new baseArea::SKBaseAreaScene("テトラペッドラ");
+    m_state = new SKPlaySceneState(this);
 }
 
 void SKPlayScene::didDisappear(){
+    delete m_state;
+    m_state = 0;
     delete m_child;
     m_child = 0;
     
@@ -35,7 +40,8 @@ void SKPlayScene::didDisappear(){
 
 
 SKPlayScene::SKPlayScene():
-m_child(0)
+m_child(0),
+m_state(0)
 {
     gPlayScene = this;
 }
@@ -44,18 +50,13 @@ SKPlayScene::~SKPlayScene(){
 }
 
 void SKPlayScene::updateModel(GMInput* input, double deltaTime){
-    SKPlayChild* nextChild = m_child->update(input, deltaTime);
-    if(nextChild != m_child){
-        delete m_child;
-        m_child = nextChild;
-        nextChild = 0;
-    }
+    m_state->update(input, deltaTime);
 }
 
 void SKPlayScene::drawView(GMGraphics* g){
     // 画面のクリア
     g->clear(GMColor::LimeGreen);
-    if(m_child) m_child->draw(mSpriteBatch);
+    m_state->draw(mSpriteBatch);
     
 }
 
@@ -75,4 +76,12 @@ SKDungeonScene* SKPlayScene::getDungeonScene(){
 
 void SKPlayScene::setChild(SKPlayChild *child){
     m_child = child;
+}
+
+void SKPlayScene::changeScene(SKPlayChild *nextScene){
+    m_state->changeScene(m_child, nextScene, this);
+}
+
+SKPlayChild* SKPlayScene::getChild(){
+    return m_child;
 }

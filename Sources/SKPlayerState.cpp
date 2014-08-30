@@ -12,7 +12,8 @@
 #include "PlayerPorch.h"
 #include <string>
 
-SKPlayerState::SKPlayerState():
+SKPlayerState::SKPlayerState(SKPlayer* user):
+m_user(user),
 m_time(0),
 m_animationTime(0)
 {
@@ -22,8 +23,8 @@ GMVector2D SKPlayerState::getCameraPos(int dx, int dy){
     return GMVector2D(dx, dy);
 }
 
-PlayerWait::PlayerWait():
-SKPlayerState(){
+PlayerWait::PlayerWait(SKPlayer* user):
+SKPlayerState(user){
     
 }
 SKPlayerState* PlayerWait::update(GMInput* input, double deltaTime){
@@ -35,10 +36,10 @@ void PlayerWait::draw(int dx, int dy){
     
 }
 
-PlayerMoving::PlayerMoving(SKMass* begin, SKMass* end):
+PlayerMoving::PlayerMoving(SKPlayer* user, SKMass* begin, SKMass* end):
 m_startMass(begin),
 m_endMass(end),
-SKPlayerState()
+SKPlayerState(user)
 {
     begin->setMovingObject(0);
     end->setMovingObject(gPlayScene->getDungeonScene()->getPlayer());
@@ -57,14 +58,14 @@ SKPlayerState* PlayerMoving::update(GMInput *input, double deltaTime){
         gPlayScene->getDungeonScene()->getPlayer()->doEnd();
         p->getPorch()->getItem_myMass();
         if(!p->getTurn()->m_actionEnemys.empty()){
-            SKPlayerState* wait = new PlayerWaitingEnemyAction();
+            SKPlayerState* wait = new PlayerWaitingEnemyAction(m_user);
             next = wait->update(input, deltaTime);
             if(next != wait){
                 delete wait;
                 wait = 0;
             }
         }else{
-            SKPlayerState* leady = new PlayerLeady();
+            SKPlayerState* leady = new PlayerLeady(m_user);
             next = leady->update(input, deltaTime);
             if(next != leady){
                 delete leady;
@@ -85,11 +86,11 @@ GMVector2D PlayerMoving::getCameraPos(int dx, int dy){
     return SKObject::getLarpPoint(m_endMass, m_startMass, dx, dy, m_time);
 }
 
-PlayerLeady::PlayerLeady():
-SKPlayerState(){
-    gPlayScene->getDungeonScene()->getPlayer()->actionReset();
-    auto it = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys.begin();
-    while(it != gPlayScene->getDungeonScene()->getEnemMan()->m_enemys.end()){
+PlayerLeady::PlayerLeady(SKPlayer* user):
+SKPlayerState(user){
+    user->actionReset();
+    auto it = user->getDungeonScene()->getEnemMan()->m_enemys.begin();
+    while(it != user->getDungeonScene()->getEnemMan()->m_enemys.end()){
         (*it)->actionReset();
         it++;
     }
@@ -119,16 +120,16 @@ SKPlayerState* PlayerLeady::update(GMInput* input, double deltaTime){
         p->setRadian(atan2(ofsy, ofsx)/M_PI);
         SKMass* nextMass = p->getMassForOffset(ofsx, ofsy);
         if(p->isEnableMoveMass(nextMass)){
-            next = new PlayerMoving(p->getMass(), nextMass);
+            next = new PlayerMoving(m_user, p->getMass(), nextMass);
             p->m_turnControl->actionCreate();
             p->m_turnControl->move();
         }
     }else if(input->isKeyDown(GMKeyMaskZ)){
         p->actionCount();
-        next = new PlayerAttack();
+        next = new PlayerAttack(m_user);
     }else if(input->isKeyDownTriggered(GMKeyMaskSpace|GMKeyMaskI)){
         gPlayScene->getDungeonScene()->getUI()->uiOn();
-        next = new PlayerOpenMenu();
+        next = new PlayerOpenMenu(m_user);
     }
     
     if(m_animationTime >= 1){
@@ -146,8 +147,8 @@ void PlayerLeady::draw(int dx, int dy){
 }
 
 
-PlayerChoiceAngle::PlayerChoiceAngle():
-SKPlayerState(){
+PlayerChoiceAngle::PlayerChoiceAngle(SKPlayer* user):
+SKPlayerState(user){
 }
 SKPlayerState* PlayerChoiceAngle::update(GMInput* input, double deltaTime){
     return this;
@@ -156,8 +157,8 @@ void PlayerChoiceAngle::draw(int dx, int dy){
     
 }
 
-PlayerNanameInput::PlayerNanameInput():
-SKPlayerState(){
+PlayerNanameInput::PlayerNanameInput(SKPlayer* user):
+SKPlayerState(user){
     
 }
 SKPlayerState* PlayerNanameInput::update(GMInput* input, double deltaTime){
@@ -167,8 +168,8 @@ void PlayerNanameInput::draw(int dx, int dy){
     
 }
 
-PlayerAttack::PlayerAttack():
-SKPlayerState(),
+PlayerAttack::PlayerAttack(SKPlayer* user):
+SKPlayerState(user),
 m_isAttacked(false){
     gPlayScene->getDungeonScene()->getPlayer()->doAct();
 }
@@ -181,7 +182,7 @@ SKPlayerState* PlayerAttack::update(GMInput* input, double deltaTime){
         gPlayScene->getDungeonScene()->getPlayer()->doEnd();
         p->getTurn()->actionCreate();
         p->getTurn()->move();
-        SKPlayerState* wait = new PlayerWaitingEnemyMove();
+        SKPlayerState* wait = new PlayerWaitingEnemyMove(m_user);
         next = wait->update(input, deltaTime);
         if(wait != next){
             delete wait;
@@ -207,13 +208,13 @@ void PlayerAttack::draw(int dx, int dy){
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
 }
 
-PlayerOpenMenu::PlayerOpenMenu():
-SKPlayerState(){
+PlayerOpenMenu::PlayerOpenMenu(SKPlayer* user):
+SKPlayerState(user){
 }
 SKPlayerState* PlayerOpenMenu::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
     if(input->isKeyDownTriggered(GMKeyMaskI) || gPlayScene->getDungeonScene()->getPlayer()->m_isItemSelectEnd){
-        next = new PlayerLeady();
+        next = new PlayerLeady(m_user);
         gPlayScene->getDungeonScene()->getUI()->uiOff();
         gPlayScene->getDungeonScene()->getPlayer()->m_isItemSelectEnd = false;
     }
@@ -228,8 +229,8 @@ void PlayerOpenMenu::draw(int dx, int dy){
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
 }
 
-PlayerDamage::PlayerDamage():
-SKPlayerState(){
+PlayerDamage::PlayerDamage(SKPlayer* user):
+SKPlayerState(user){
     gPlayScene->getDungeonScene()->getPlayer()->doAct();
 }
 PlayerDamage::~PlayerDamage(){
@@ -238,7 +239,7 @@ SKPlayerState* PlayerDamage::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
     if(m_time >= 1){
         gPlayScene->getDungeonScene()->getPlayer()->doEnd();
-        SKPlayerState* wait = new PlayerWaitingEnemyAction();
+        SKPlayerState* wait = new PlayerWaitingEnemyAction(m_user);
         next = wait->update(input, deltaTime);
         if(next != wait){
             delete wait;
@@ -256,14 +257,14 @@ void PlayerDamage::draw(int dx, int dy){
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
 }
 
-PlayerWaitingEnemyMove::PlayerWaitingEnemyMove():
-SKPlayerState(){
+PlayerWaitingEnemyMove::PlayerWaitingEnemyMove(SKPlayer* user):
+SKPlayerState(user){
 }
 SKPlayerState* PlayerWaitingEnemyMove::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
     if(gPlayScene->getDungeonScene()->getEnemMan()->isAllActionEnded()){
         if(gPlayScene->getDungeonScene()->getPlayer()->getTurn()->m_actionEnemys.empty()){
-            SKPlayerState* leady = new PlayerLeady();
+            SKPlayerState* leady = new PlayerLeady(m_user);
             next = leady->update(input, deltaTime);
             if(next != leady){
                 delete leady;
@@ -271,7 +272,7 @@ SKPlayerState* PlayerWaitingEnemyMove::update(GMInput *input, double deltaTime){
             next->update(input, deltaTime);
             leady = 0;
         }else{
-            next = new PlayerWaitingEnemyAction();
+            next = new PlayerWaitingEnemyAction(m_user);
         }
     }
     m_animationTime += deltaTime*2;
@@ -284,8 +285,8 @@ void PlayerWaitingEnemyMove::draw(int dx, int dy){
     spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 40), 0.20, GMVector3D(0, p->getRadian(), 0), m_animationTime);
 }
 
-PlayerWaitingEnemyAction::PlayerWaitingEnemyAction():
-SKPlayerState(){
+PlayerWaitingEnemyAction::PlayerWaitingEnemyAction(SKPlayer* user):
+SKPlayerState(user){
 }
 SKPlayerState* PlayerWaitingEnemyAction::update(GMInput *input, double deltaTime){
     SKPlayerState* next = this;
@@ -294,7 +295,7 @@ SKPlayerState* PlayerWaitingEnemyAction::update(GMInput *input, double deltaTime
     if(isNextAction && !p->getTurn()->m_actionEnemys.empty()){
         if(p->isDamaged()){
             p->damaged();
-            next = new PlayerDamage();
+            next = new PlayerDamage(m_user);
             next->update(input, deltaTime);
         }else{
             while(true){
@@ -304,7 +305,7 @@ SKPlayerState* PlayerWaitingEnemyAction::update(GMInput *input, double deltaTime
         }
     }
     if(p->getTurn()->m_actionEnemys.empty() && isNextAction){
-        SKPlayerState* leady = new PlayerLeady();
+        SKPlayerState* leady = new PlayerLeady(m_user);
         next = leady->update(input, deltaTime);
         if(next != leady){
             delete leady;

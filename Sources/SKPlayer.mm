@@ -18,7 +18,7 @@
 #include "SKDungeonScene.h"
 #include <sstream>
 
-SKPlayer::SKPlayer():
+SKPlayer::SKPlayer(SKDungeonScene* parent):
 SKMoveObject(),
 m_exitMass(0),
 m_animation(0),
@@ -30,9 +30,10 @@ m_equipmentUdewa_1(0),
 m_equipmentUdewa_2(0),
 m_equipmentSword(0),
 m_state(0),
-m_isAct(0)
+m_isAct(0),
+m_parent(parent)
 {
-    gPlayScene->getDungeonScene()->setPlayer(this);
+//    gPlayScene->getDungeonScene()->setPlayer(this);
     
     // アプリケーション・バンドル内のリソース位置を取得
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sakuma" withExtension:@"scml"];
@@ -49,7 +50,7 @@ m_isAct(0)
     this->m_porch = new PlayerPorch();
     this->m_objectName = "サクマ";
     this->m_turnControl = new _turnControl();
-    this->m_state = new PlayerLeady();
+    this->m_state = new PlayerLeady(this);
     m_objHeight = 40;
 }
 
@@ -240,3 +241,8 @@ void SKPlayer::doAct(){
 void SKPlayer::doEnd(){
     m_isAct = false;
 }
+
+SKDungeonScene* SKPlayer::getDungeonScene(){
+    return m_parent;
+}
+

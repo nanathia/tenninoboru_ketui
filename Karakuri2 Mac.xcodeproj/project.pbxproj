@@ -138,7 +138,11 @@
 		048D39691979B64600195328 /* SKGameOverImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 048D39681979B64600195328 /* SKGameOverImage.png */; };
 		04AB44AF19AC2BCA00BE0052 /* tetora_murabito.xml in Resources */ = {isa = PBXBuildFile; fileRef = 04AB44AE19AC2BCA00BE0052 /* tetora_murabito.xml */; };
 		04AB44B819AC839E00BE0052 /* BaseAreaMurabito.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44B619AC839E00BE0052 /* BaseAreaMurabito.cpp */; };
-		04AB44BC19AC83D200BE0052 /* BaseAreaMurabitoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.cpp */; };
+		04AB44BC19AC83D200BE0052 /* BaseAreaMurabitoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.mm */; };
+		04AB44CB19ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44C919ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.cpp */; };
+		04AB44D319ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44D119ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.cpp */; };
+		04AB44FE19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB44FC19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.cpp */; };
+		04AB450219AEF9C700BE0052 /* SpeakStrManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AB450019AEF9C700BE0052 /* SpeakStrManager.cpp */; };
 		04B347361938DC5400D9622A /* SKDrawManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347341938DC5400D9622A /* SKDrawManager.cpp */; };
 		04B347391938DCB700D9622A /* SKMatrixManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B347371938DCB700D9622A /* SKMatrixManager.cpp */; };
 		04B3473C1938F9BE00D9622A /* SKTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B3473A1938F9BE00D9622A /* SKTextureManager.cpp */; };
@@ -298,6 +302,19 @@
 		04D28CCE1967A2B9005BCE10 /* SKSword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCC1967A2B8005BCE10 /* SKSword.cpp */; };
 		04D28CD11967A2C5005BCE10 /* SKUdewa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CCF1967A2C5005BCE10 /* SKUdewa.cpp */; };
 		04D28CD41967A2D0005BCE10 /* SKShield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D28CD21967A2D0005BCE10 /* SKShield.cpp */; };
+		04DED82319AFC04400E48DF5 /* BaseAreaMurabitoState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED82119AFC04400E48DF5 /* BaseAreaMurabitoState.cpp */; };
+		04DED82719AFD7C800E48DF5 /* BaseAreaPlayerMainState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED82519AFD7C800E48DF5 /* BaseAreaPlayerMainState.cpp */; };
+		04DED82B19B0AE7500E48DF5 /* SKMapSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED82919B0AE7500E48DF5 /* SKMapSelect.cpp */; };
+		04DED83319B0BE1500E48DF5 /*  MapSelectTentinoreiei.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED82C19B0BE1500E48DF5 /*  MapSelectTentinoreiei.png */; };
+		04DED83419B0BE1500E48DF5 /*  MapSelectBGI.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED82D19B0BE1500E48DF5 /*  MapSelectBGI.png */; };
+		04DED83519B0BE1500E48DF5 /*  MapSelectGendoumurasaki.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED82E19B0BE1500E48DF5 /*  MapSelectGendoumurasaki.png */; };
+		04DED83619B0BE1500E48DF5 /*  MapSelectHyururimyururi.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED82F19B0BE1500E48DF5 /*  MapSelectHyururimyururi.png */; };
+		04DED83719B0BE1500E48DF5 /*  MapSelectKaminoyasiro.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED83019B0BE1500E48DF5 /*  MapSelectKaminoyasiro.png */; };
+		04DED83819B0BE1500E48DF5 /*  MapSelectTetorapeddora.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED83119B0BE1500E48DF5 /*  MapSelectTetorapeddora.png */; };
+		04DED83919B0BE1500E48DF5 /*  MapSelectUminomeikyuu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED83219B0BE1500E48DF5 /*  MapSelectUminomeikyuu.png */; };
+		04DED83D19B0C3C200E48DF5 /* SKPlaySceneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED83B19B0C3C200E48DF5 /* SKPlaySceneState.cpp */; };
+		04DED84219B0C7CB00E48DF5 /* SKSceneChangeInters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED84019B0C7CB00E48DF5 /* SKSceneChangeInters.cpp */; };
+		04DED84519B0C7D700E48DF5 /* SKSceneChangeOuters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DED84319B0C7D700E48DF5 /* SKSceneChangeOuters.cpp */; };
 		04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */; };
 		04F39B9319A1B22D00696FD7 /* SKDungeonScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */; };
 		04FC1309193DAAEE00E449A8 /* randam_dungeon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04FC1307193DAAEE00E449A8 /* randam_dungeon.cpp */; };
@@ -612,8 +629,16 @@
 		04AB44AE19AC2BCA00BE0052 /* tetora_murabito.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tetora_murabito.xml; sourceTree = "<group>"; };
 		04AB44B619AC839E00BE0052 /* BaseAreaMurabito.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaMurabito.cpp; sourceTree = "<group>"; };
 		04AB44B719AC839E00BE0052 /* BaseAreaMurabito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMurabito.h; sourceTree = "<group>"; };
-		04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaMurabitoManager.cpp; sourceTree = "<group>"; };
+		04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseAreaMurabitoManager.mm; sourceTree = "<group>"; };
 		04AB44BB19AC83D200BE0052 /* BaseAreaMurabitoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMurabitoManager.h; sourceTree = "<group>"; };
+		04AB44C919ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaMurabitoLayerManager.cpp; sourceTree = "<group>"; };
+		04AB44CA19ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMurabitoLayerManager.h; sourceTree = "<group>"; };
+		04AB44D119ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaSiraberuLayerManager.cpp; sourceTree = "<group>"; };
+		04AB44D219ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaSiraberuLayerManager.h; sourceTree = "<group>"; };
+		04AB44FC19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaSceneJumpLayerManager.cpp; sourceTree = "<group>"; };
+		04AB44FD19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaSceneJumpLayerManager.h; sourceTree = "<group>"; };
+		04AB450019AEF9C700BE0052 /* SpeakStrManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpeakStrManager.cpp; sourceTree = "<group>"; };
+		04AB450119AEF9C700BE0052 /* SpeakStrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakStrManager.h; sourceTree = "<group>"; };
 		04B347341938DC5400D9622A /* SKDrawManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKDrawManager.cpp; sourceTree = "<group>"; };
 		04B347351938DC5400D9622A /* SKDrawManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDrawManager.h; sourceTree = "<group>"; };
 		04B347371938DCB700D9622A /* SKMatrixManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKMatrixManager.cpp; sourceTree = "<group>"; };
@@ -796,6 +821,25 @@
 		04D28CD01967A2C5005BCE10 /* SKUdewa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUdewa.h; sourceTree = "<group>"; };
 		04D28CD21967A2D0005BCE10 /* SKShield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKShield.cpp; sourceTree = "<group>"; };
 		04D28CD31967A2D0005BCE10 /* SKShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKShield.h; sourceTree = "<group>"; };
+		04DED82119AFC04400E48DF5 /* BaseAreaMurabitoState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaMurabitoState.cpp; sourceTree = "<group>"; };
+		04DED82219AFC04400E48DF5 /* BaseAreaMurabitoState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaMurabitoState.h; sourceTree = "<group>"; };
+		04DED82519AFD7C800E48DF5 /* BaseAreaPlayerMainState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseAreaPlayerMainState.cpp; sourceTree = "<group>"; };
+		04DED82619AFD7C800E48DF5 /* BaseAreaPlayerMainState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAreaPlayerMainState.h; sourceTree = "<group>"; };
+		04DED82919B0AE7500E48DF5 /* SKMapSelect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKMapSelect.cpp; sourceTree = "<group>"; };
+		04DED82A19B0AE7500E48DF5 /* SKMapSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMapSelect.h; sourceTree = "<group>"; };
+		04DED82C19B0BE1500E48DF5 /*  MapSelectTentinoreiei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectTentinoreiei.png"; sourceTree = "<group>"; };
+		04DED82D19B0BE1500E48DF5 /*  MapSelectBGI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectBGI.png"; sourceTree = "<group>"; };
+		04DED82E19B0BE1500E48DF5 /*  MapSelectGendoumurasaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectGendoumurasaki.png"; sourceTree = "<group>"; };
+		04DED82F19B0BE1500E48DF5 /*  MapSelectHyururimyururi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectHyururimyururi.png"; sourceTree = "<group>"; };
+		04DED83019B0BE1500E48DF5 /*  MapSelectKaminoyasiro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectKaminoyasiro.png"; sourceTree = "<group>"; };
+		04DED83119B0BE1500E48DF5 /*  MapSelectTetorapeddora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectTetorapeddora.png"; sourceTree = "<group>"; };
+		04DED83219B0BE1500E48DF5 /*  MapSelectUminomeikyuu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MapSelectUminomeikyuu.png"; sourceTree = "<group>"; };
+		04DED83B19B0C3C200E48DF5 /* SKPlaySceneState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlaySceneState.cpp; sourceTree = "<group>"; };
+		04DED83C19B0C3C200E48DF5 /* SKPlaySceneState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlaySceneState.h; sourceTree = "<group>"; };
+		04DED84019B0C7CB00E48DF5 /* SKSceneChangeInters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSceneChangeInters.cpp; sourceTree = "<group>"; };
+		04DED84119B0C7CB00E48DF5 /* SKSceneChangeInters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSceneChangeInters.h; sourceTree = "<group>"; };
+		04DED84319B0C7D700E48DF5 /* SKSceneChangeOuters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKSceneChangeOuters.cpp; sourceTree = "<group>"; };
+		04DED84419B0C7D700E48DF5 /* SKSceneChangeOuters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSceneChangeOuters.h; sourceTree = "<group>"; };
 		04F39B82199FCC9F00696FD7 /* picojson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = picojson.h; path = "../../../Downloads/picojson-master/picojson.h"; sourceTree = "<group>"; };
 		04F39B8C19A1ADD800696FD7 /* SKPlayBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayBase.cpp; sourceTree = "<group>"; };
 		04F39B8D19A1ADD800696FD7 /* SKPlayBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayBase.h; sourceTree = "<group>"; };
@@ -951,6 +995,7 @@
 		0407DB6019A612650021EBF7 /* character */ = {
 			isa = PBXGroup;
 			children = (
+				04AB44FF19AEF9A500BE0052 /* speakStrManager */,
 				04AB44B519AC838B00BE0052 /* murabito */,
 				0407DB7219A811290021EBF7 /* player */,
 				0407DB6119A613DA0021EBF7 /* BaseAreaCharacterManager.cpp */,
@@ -962,6 +1007,7 @@
 		0407DB7219A811290021EBF7 /* player */ = {
 			isa = PBXGroup;
 			children = (
+				04DED82419AFD7A200E48DF5 /* mainstate */,
 				0407DB9319A843C30021EBF7 /* anglestate */,
 				0407DB6F19A811240021EBF7 /* BaseAreaPlayer.cpp */,
 				0407DB7019A811240021EBF7 /* BaseAreaPlayer.h */,
@@ -1374,6 +1420,7 @@
 		0445024E1990DA94001CA8A4 /* baseArea */ = {
 			isa = PBXGroup;
 			children = (
+				04DED82819B0AE4D00E48DF5 /* mapselect */,
 				043D86CA19A8E8C100A74282 /* baseAreaCamera */,
 				047811B219A5B3E100A02FB2 /* include */,
 				0445024F19914A14001CA8A4 /* SKBaseAreaScene.cpp */,
@@ -1760,6 +1807,7 @@
 		04AB44B219AC824C00BE0052 /* murabito */ = {
 			isa = PBXGroup;
 			children = (
+				04AB44C819ACE2C400BE0052 /* manager */,
 			);
 			name = murabito;
 			sourceTree = "<group>";
@@ -1767,6 +1815,7 @@
 		04AB44B319AC825500BE0052 /* siraberu */ = {
 			isa = PBXGroup;
 			children = (
+				04AB44CC19ACE2E500BE0052 /* manager */,
 			);
 			name = siraberu;
 			sourceTree = "<group>";
@@ -1774,6 +1823,8 @@
 		04AB44B419AC825E00BE0052 /* scenejump */ = {
 			isa = PBXGroup;
 			children = (
+				04AB44FC19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.cpp */,
+				04AB44FD19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.h */,
 			);
 			name = scenejump;
 			sourceTree = "<group>";
@@ -1781,6 +1832,7 @@
 		04AB44B519AC838B00BE0052 /* murabito */ = {
 			isa = PBXGroup;
 			children = (
+				04DED81D19AFBEF500E48DF5 /* state */,
 				04AB44B919AC83BD00BE0052 /* manager */,
 				04AB44B619AC839E00BE0052 /* BaseAreaMurabito.cpp */,
 				04AB44B719AC839E00BE0052 /* BaseAreaMurabito.h */,
@@ -1791,10 +1843,37 @@
 		04AB44B919AC83BD00BE0052 /* manager */ = {
 			isa = PBXGroup;
 			children = (
-				04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.cpp */,
+				04AB44BA19AC83D200BE0052 /* BaseAreaMurabitoManager.mm */,
 				04AB44BB19AC83D200BE0052 /* BaseAreaMurabitoManager.h */,
 			);
 			name = manager;
+			sourceTree = "<group>";
+		};
+		04AB44C819ACE2C400BE0052 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				04AB44C919ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.cpp */,
+				04AB44CA19ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.h */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		04AB44CC19ACE2E500BE0052 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				04AB44D119ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.cpp */,
+				04AB44D219ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.h */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		04AB44FF19AEF9A500BE0052 /* speakStrManager */ = {
+			isa = PBXGroup;
+			children = (
+				04AB450019AEF9C700BE0052 /* SpeakStrManager.cpp */,
+				04AB450119AEF9C700BE0052 /* SpeakStrManager.h */,
+			);
+			name = speakStrManager;
 			sourceTree = "<group>";
 		};
 		04C5C0261972A4450073B05A /* state */ = {
@@ -1957,9 +2036,66 @@
 			name = "kind of...";
 			sourceTree = "<group>";
 		};
+		04DED81D19AFBEF500E48DF5 /* state */ = {
+			isa = PBXGroup;
+			children = (
+				04DED82119AFC04400E48DF5 /* BaseAreaMurabitoState.cpp */,
+				04DED82219AFC04400E48DF5 /* BaseAreaMurabitoState.h */,
+			);
+			name = state;
+			sourceTree = "<group>";
+		};
+		04DED82419AFD7A200E48DF5 /* mainstate */ = {
+			isa = PBXGroup;
+			children = (
+				04DED82519AFD7C800E48DF5 /* BaseAreaPlayerMainState.cpp */,
+				04DED82619AFD7C800E48DF5 /* BaseAreaPlayerMainState.h */,
+			);
+			name = mainstate;
+			sourceTree = "<group>";
+		};
+		04DED82819B0AE4D00E48DF5 /* mapselect */ = {
+			isa = PBXGroup;
+			children = (
+				04DED82919B0AE7500E48DF5 /* SKMapSelect.cpp */,
+				04DED82A19B0AE7500E48DF5 /* SKMapSelect.h */,
+			);
+			name = mapselect;
+			sourceTree = "<group>";
+		};
+		04DED83A19B0C3B400E48DF5 /* state */ = {
+			isa = PBXGroup;
+			children = (
+				04DED83F19B0C4FE00E48DF5 /* interchild */,
+				04DED83E19B0C4F600E48DF5 /* outerchild */,
+				04DED83B19B0C3C200E48DF5 /* SKPlaySceneState.cpp */,
+				04DED83C19B0C3C200E48DF5 /* SKPlaySceneState.h */,
+			);
+			name = state;
+			sourceTree = "<group>";
+		};
+		04DED83E19B0C4F600E48DF5 /* outerchild */ = {
+			isa = PBXGroup;
+			children = (
+				04DED84319B0C7D700E48DF5 /* SKSceneChangeOuters.cpp */,
+				04DED84419B0C7D700E48DF5 /* SKSceneChangeOuters.h */,
+			);
+			name = outerchild;
+			sourceTree = "<group>";
+		};
+		04DED83F19B0C4FE00E48DF5 /* interchild */ = {
+			isa = PBXGroup;
+			children = (
+				04DED84019B0C7CB00E48DF5 /* SKSceneChangeInters.cpp */,
+				04DED84119B0C7CB00E48DF5 /* SKSceneChangeInters.h */,
+			);
+			name = interchild;
+			sourceTree = "<group>";
+		};
 		04F39B8F19A1AE0100696FD7 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				04DED83A19B0C3B400E48DF5 /* state */,
 				04411B6F19340E3000C324FE /* SKPlayScene.cpp */,
 				04411B7019340E3000C324FE /* SKPlayScene.h */,
 			);
@@ -2000,6 +2136,13 @@
 				04376964199C0202000BCE66 /* SKStartDemoSakuma1_c.png */,
 				04376965199C0202000BCE66 /* SKStartDemoSakuma1.png */,
 				04376966199C0202000BCE66 /* SKStartDemojikuuakuu.png */,
+				04DED82C19B0BE1500E48DF5 /*  MapSelectTentinoreiei.png */,
+				04DED82D19B0BE1500E48DF5 /*  MapSelectBGI.png */,
+				04DED82E19B0BE1500E48DF5 /*  MapSelectGendoumurasaki.png */,
+				04DED82F19B0BE1500E48DF5 /*  MapSelectHyururimyururi.png */,
+				04DED83019B0BE1500E48DF5 /*  MapSelectKaminoyasiro.png */,
+				04DED83119B0BE1500E48DF5 /*  MapSelectTetorapeddora.png */,
+				04DED83219B0BE1500E48DF5 /*  MapSelectUminomeikyuu.png */,
 				0448A183194EE4CC00217DAA /* SKFloorImage.png */,
 				04B3473D1938FF0500D9622A /* 床.png */,
 			);
@@ -2409,13 +2552,16 @@
 				8EBF7E8A1620BFE7002F78FB /* font-scp-28x56.png in Resources */,
 				04C5C0C419731DE70073B05A /* Image_0015.png in Resources */,
 				04C5C0CA19731DE70073B05A /* Image_0021.png in Resources */,
+				04DED83519B0BE1500E48DF5 /*  MapSelectGendoumurasaki.png in Resources */,
 				04C5C0EB19731DE70073B05A /* Image_0054.png in Resources */,
 				04C5C13119731DE70073B05A /* sakumaIm_49.png in Resources */,
 				8EBF7E8F1620C0B4002F78FB /* font-scp-7x14.png in Resources */,
 				04C5C13319731DE70073B05A /* sakumaIm_51.png in Resources */,
+				04DED83819B0BE1500E48DF5 /*  MapSelectTetorapeddora.png in Resources */,
 				04395970194F4A9D00D43459 /* SKBlockImage.png in Resources */,
 				04C5C12B19731DE70073B05A /* sakumaIm_43.png in Resources */,
 				04C5C0F719731DE70073B05A /* Image_0066.png in Resources */,
+				04DED83619B0BE1500E48DF5 /*  MapSelectHyururimyururi.png in Resources */,
 				04C5C11019731DE70073B05A /* sakumaIm_16.png in Resources */,
 				04C5C0C919731DE70073B05A /* Image_0020.png in Resources */,
 				04C5C0BF19731DE70073B05A /* Image_0010.png in Resources */,
@@ -2433,6 +2579,8 @@
 				04C5C10619731DE70073B05A /* sakumaIm_6.png in Resources */,
 				04C5C0D919731DE70073B05A /* Image_0036.png in Resources */,
 				044A38BA19564064004C5F11 /* nazo.txt in Resources */,
+				04DED83319B0BE1500E48DF5 /*  MapSelectTentinoreiei.png in Resources */,
+				04DED83719B0BE1500E48DF5 /*  MapSelectKaminoyasiro.png in Resources */,
 				04C5C0FD19731DE70073B05A /* Image_0072.png in Resources */,
 				04C5C0D119731DE70073B05A /* Image_0028.png in Resources */,
 				04C5C0E219731DE70073B05A /* Image_0045.png in Resources */,
@@ -2487,6 +2635,7 @@
 				04C5C0CB19731DE70073B05A /* Image_0022.png in Resources */,
 				04C5C0C719731DE70073B05A /* Image_0018.png in Resources */,
 				04C5C0EC19731DE70073B05A /* Image_0055.png in Resources */,
+				04DED83419B0BE1500E48DF5 /*  MapSelectBGI.png in Resources */,
 				04C5C0F219731DE70073B05A /* Image_0061.png in Resources */,
 				04C5C0B919731DE70073B05A /* Image_0004.png in Resources */,
 				048D39411975B06F00195328 /* SKItemImage.png in Resources */,
@@ -2521,6 +2670,7 @@
 				04C5C10D19731DE70073B05A /* sakumaIm_13.png in Resources */,
 				0437695D199B39AA000BCE66 /* SKStartDemoBGM.mp3 in Resources */,
 				04C5C0FB19731DE70073B05A /* Image_0070.png in Resources */,
+				04DED83919B0BE1500E48DF5 /*  MapSelectUminomeikyuu.png in Resources */,
 				047811A619A452CC00A02FB2 /* tip4.png in Resources */,
 				04C5C0D519731DE70073B05A /* Image_0032.png in Resources */,
 				04C5C0F019731DE70073B05A /* Image_0059.png in Resources */,
@@ -2558,6 +2708,7 @@
 				043A8007194C3520005A5189 /* ESNomalMovePlayerLooking.cpp in Sources */,
 				047810BF19A3EA2A00A02FB2 /* TileLayerManager.cpp in Sources */,
 				041C62401949641900D78C35 /* EnemyFactory.cpp in Sources */,
+				04DED82319AFC04400E48DF5 /* BaseAreaMurabitoState.cpp in Sources */,
 				043959AA194FB05300D43459 /* ScmlFunctions.cpp in Sources */,
 				043959AF194FB05300D43459 /* Timeline.cpp in Sources */,
 				04F39B8E19A1ADD800696FD7 /* SKPlayBase.cpp in Sources */,
@@ -2567,10 +2718,12 @@
 				8E1C6C1F13EEDA7200450DD6 /* GMBoundingFrustum.cpp in Sources */,
 				043D86F319AAAE3800A74282 /* SKSpeakCharacter.cpp in Sources */,
 				0478FEF4198526D4008923B1 /* ToutekiItem.cpp in Sources */,
+				04DED83D19B0C3C200E48DF5 /* SKPlaySceneState.cpp in Sources */,
 				043959A0194FB05300D43459 /* CharacterMap.cpp in Sources */,
 				0478FF0419853239008923B1 /* ItemCommandInfo.cpp in Sources */,
 				047810CE19A4041900A02FB2 /* TileLayer.cpp in Sources */,
 				041C626119498E1900D78C35 /* ESNomalAttack.cpp in Sources */,
+				04DED82B19B0AE7500E48DF5 /* SKMapSelect.cpp in Sources */,
 				0478FEEE198525A8008923B1 /* NenryouItem.cpp in Sources */,
 				8E1C6C2013EEDA7200450DD6 /* GMBoundingSphere.cpp in Sources */,
 				8E471F5D140E508A0032D32D /* GMButton.cpp in Sources */,
@@ -2580,7 +2733,9 @@
 				8EF0605313EEB8D9007C1B2E /* GMDebug.mm in Sources */,
 				041C627019498E9E00D78C35 /* ESKonran.cpp in Sources */,
 				8EF0605413EEB8D9007C1B2E /* GMDraw.cpp in Sources */,
+				04AB44D319ACE41B00BE0052 /* BaseAreaSiraberuLayerManager.cpp in Sources */,
 				041C62791949927600D78C35 /* ESNomalMoveInRoom.cpp in Sources */,
+				04DED82719AFD7C800E48DF5 /* BaseAreaPlayerMainState.cpp in Sources */,
 				04C7A66A1997B3E800D7AEEC /* JASpeakWindowState.cpp in Sources */,
 				8E2C23FE1415981D00A5D822 /* GMDrawSys.cpp in Sources */,
 				04C7A6371994922E00D7AEEC /* SKSelectWindow.cpp in Sources */,
@@ -2594,17 +2749,20 @@
 				8E5FCF6816248EAF007F0319 /* GMFont.cpp in Sources */,
 				0439599F194FB05300D43459 /* BoneTimelineKey.cpp in Sources */,
 				043959A5194FB05300D43459 /* MapInstruction.cpp in Sources */,
+				04DED84519B0C7D700E48DF5 /* SKSceneChangeOuters.cpp in Sources */,
 				04440D8C1936A15700D49BDF /* SKPlayer.mm in Sources */,
 				04B347361938DC5400D9622A /* SKDrawManager.cpp in Sources */,
 				04AB44B819AC839E00BE0052 /* BaseAreaMurabito.cpp in Sources */,
 				8EF0605713EEB8D9007C1B2E /* GMGame.cpp in Sources */,
 				04C7A647199673EE00D7AEEC /* SKMusicManager.cpp in Sources */,
+				04AB44FE19ADF4D400BE0052 /* BaseAreaSceneJumpLayerManager.cpp in Sources */,
 				8EF0605813EEB8D9007C1B2E /* GMGlobals.cpp in Sources */,
 				0478CFF1197D06E100612C48 /* ESMove.cpp in Sources */,
 				0478FEE8198524B0008923B1 /* EatingItem.cpp in Sources */,
 				0445024A198F159F001CA8A4 /* SKEnemyMoveState.cpp in Sources */,
 				043959A6194FB05300D43459 /* Math2.cpp in Sources */,
 				8EF0605913EEB8D9007C1B2E /* GMGraphics.cpp in Sources */,
+				04DED84219B0C7CB00E48DF5 /* SKSceneChangeInters.cpp in Sources */,
 				8ECF08851401864B00FC43D7 /* GMInput.mm in Sources */,
 				8EF0607D13EEB989007C1B2E /* GMInputObjC.mm in Sources */,
 				041C62431949654400D78C35 /* syokutyuu.cpp in Sources */,
@@ -2651,6 +2809,7 @@
 				04C7A6811999FC0B00D7AEEC /* SKStartDemo.cpp in Sources */,
 				04C7A644199670E800D7AEEC /* SKSoundManager.cpp in Sources */,
 				04C7A6221992BBA400D7AEEC /* TitleMainChild.cpp in Sources */,
+				04AB44CB19ACE2DA00BE0052 /* BaseAreaMurabitoLayerManager.cpp in Sources */,
 				8E27C7C0140FD62C00B36186 /* GMRenderTarget2D.cpp in Sources */,
 				8E5FCF65162488E9007F0319 /* GMSaveBox.mm in Sources */,
 				8EF0606D13EEB8D9007C1B2E /* GMScene.cpp in Sources */,
@@ -2673,6 +2832,7 @@
 				8EC05B16140AAFBE00C545D6 /* GMStringSupport.cpp in Sources */,
 				8ECF09161401B0FD00FC43D7 /* GMTextReader.mm in Sources */,
 				043959A8194FB05300D43459 /* MyTexture.cpp in Sources */,
+				04AB450219AEF9C700BE0052 /* SpeakStrManager.cpp in Sources */,
 				04440D8819369C1000D49BDF /* SKObject.cpp in Sources */,
 				0478FEF719852714008923B1 /* KusaItem.cpp in Sources */,
 				8EF0607213EEB8D9007C1B2E /* GMTexture2D.mm in Sources */,
@@ -2681,7 +2841,7 @@
 				041C62461949657D00D78C35 /* dokubati.cpp in Sources */,
 				04450232198B4803001CA8A4 /* SKTurnControl.cpp in Sources */,
 				043959AD194FB05300D43459 /* SpatialTimelineKey.cpp in Sources */,
-				04AB44BC19AC83D200BE0052 /* BaseAreaMurabitoManager.cpp in Sources */,
+				04AB44BC19AC83D200BE0052 /* BaseAreaMurabitoManager.mm in Sources */,
 				043D86F419AAAE3800A74282 /* SKSpeakCharManager.cpp in Sources */,
 				04411B77193423C300C324FE /* SKEnemyMan.cpp in Sources */,
 				04450246198CB14D001CA8A4 /* SyokutyuuState.cpp in Sources */,

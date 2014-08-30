@@ -30,6 +30,7 @@ namespace baseArea{
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
         void add(TileSet* tileset);
+        int getLocalGid(int gid) const;
         std::vector<TileSet*>& getTileSets();
         BaseAreaMap* getBaseAreaMap();
         void drawTile(GMSpriteBatch* s, const GMRect2D& dest, double radian, int gid) const;

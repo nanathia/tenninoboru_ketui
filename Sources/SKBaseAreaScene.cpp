@@ -15,6 +15,7 @@
 #include "Globals.h"
 #include "BaseAreaMap.h"
 #include "SKSpeakWindow.h"
+#include "SKDungeonScene.h"
 
 #pragma mark １マスの幅
 namespace {
@@ -25,6 +26,7 @@ namespace {
 namespace baseArea{
     
     SKBaseAreaScene::SKBaseAreaScene(const std::string& areaName):
+    SKPlayChild(),
     m_CharacterMan(0),
     m_Map(0),
     m_SoundMan(0),
@@ -34,15 +36,6 @@ namespace baseArea{
     m_Camera(0),
     m_nomalSpeakWindow(0){
         m_nomalSpeakWindow = new SKSpeakWindow::Window;
-        m_nomalSpeakWindow->addString("みゃああああああああああああお！");
-        m_nomalSpeakWindow->addString("ふにゃあああああああああ漸ふぬもーん漸ぱっぱらぱー");
-        m_nomalSpeakWindow->addString("みぎゃあああああああああああ");
-        m_nomalSpeakWindow->addString("ぬええええええええええええ");
-        m_nomalSpeakWindow->addString("はんばーぐーーーーーーー");
-        m_nomalSpeakWindow->addString("ぺろーーーーーーーーーーーん");
-        m_nomalSpeakWindow->addString("まじかるまじかるー");
-        m_nomalSpeakWindow->addString("えんどろーるむーんうぉーくー");
-        m_nomalSpeakWindow->addString("にゃはははははははは！");
         m_SoundMan = new SKSoundManager;
         m_MusicMan = new SKMusicManager;
         m_TexMan = new SKTextureManager;
@@ -74,6 +67,11 @@ namespace baseArea{
         m_CharacterMan->update(input, deltaTime);
         m_Camera->update(input, deltaTime);
         m_nomalSpeakWindow->update(input, deltaTime);
+        m_Map->update(input, deltaTime);
+        if(input->isKeyDownTriggered(GMKeyMaskM)){
+            SKPlayScene* test = gPlayScene;
+            gPlayScene->changeScene(new SKDungeonScene());
+        }
         return next;
     }
     void SKBaseAreaScene::draw(GMSpriteBatch *s){
@@ -98,10 +96,11 @@ namespace baseArea{
         gPlayScene->getCurrentEffect()->setProjectionMatrix(prjMt);
         
         gPlayScene->getCurrentEffect()->setViewMatrix(m_Camera->createViewMatrix());
-        // プレイヤー描画
+        // プレイヤー, 村人描画
         gPlayScene->getCurrentEffect()->begin();
         s->begin();
         m_CharacterMan->draw(s);
+        m_Map->draw(s);
         s->end();
         gPlayScene->getCurrentEffect()->end();
         
@@ -143,6 +142,9 @@ namespace baseArea{
     }
     void SKBaseAreaScene::setViewMatrix(const GMMatrix& view){
         m_ViewMatrix = view;
+    }
+    SKSpeakWindow::Window* SKBaseAreaScene::getNomalSpeakWin(){
+        return m_nomalSpeakWindow;
     }
     
 #pragma mark 共通処理メソッド

@@ -60,6 +60,7 @@ namespace baseArea{
     
     class PlayerAngleState{
         PlayerAngleStateChild* m_child;
+        Player* m_user;
     public:
         PlayerAngleState(Player* user);
         ~PlayerAngleState();

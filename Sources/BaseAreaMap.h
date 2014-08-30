@@ -23,7 +23,7 @@ namespace baseArea{
     class TileSetManager;
     class SKBaseAreaScene;
     class Player;
-    class MurabitoLayerManager;
+    class MurabitoManager;
     class SiraberuLayerManager;
     class SceneJumpLayerManager;
     
@@ -34,7 +34,7 @@ namespace baseArea{
         ObjectLayerManager* m_ObjectLayerMan;
         TileSetManager* m_TileSetMan;
         // 改造使用のレイヤーマネージャ。改造して色々な情報を強引に詰め込む。
-        MurabitoLayerManager* m_MurabitoLayerMan;
+        MurabitoManager* m_MurabitoMan;
         SiraberuLayerManager* m_SiraberuLayerMan;
         SceneJumpLayerManager* m_SceneJumpLayerMan;
         // 親クラス
@@ -51,7 +51,7 @@ namespace baseArea{
         ObjectLayerManager* getObjectLayerMan();
         TileSetManager* getTileSetMan();
         SKBaseAreaScene* getBaseAreaScene();
-        MurabitoLayerManager* getMurabitoLayerMan();
+        MurabitoManager* getMurabitoMan();
         SiraberuLayerManager* getSiraberuLayerMan();
         SceneJumpLayerManager* getSceneJumpLayerMan();
     };

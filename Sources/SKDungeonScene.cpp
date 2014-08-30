@@ -19,6 +19,7 @@
 #include "SKItemInclude.h"
 
 SKDungeonScene::SKDungeonScene():
+SKPlayChild(),
 m_blockMan(0),
 m_EffectMan(0),
 m_massMan(0),
@@ -29,7 +30,7 @@ m_enemMan(0),
 m_itemMan(0),
 m_player(0)
 {
-    gPlayScene->setChild(this);
+    if(!gPlayScene->getChild()) gPlayScene->setChild(this);
     // オブジェクト管理クラスの初期化
     m_TexMan = new SKTextureManager();
     
@@ -44,7 +45,7 @@ m_player(0)
     m_itemMan = new SKItemManager();
     m_blockMan = new SKBlockManager();
     //    m_EffectMan;
-    m_massMan = new SKMassManager(50, 50, width_num, height_num);
+    m_massMan = new SKMassManager(this, 50, 50, width_num, height_num);
     m_UI = new SKUserInterface();
     //    m_soundMan;
 }

@@ -27,5 +27,8 @@
 #include "BaseAreaMurabito.h"
 #include "BaseAreaMurabitoManager.h"
 #include "BaseAreaMapObject.h"
+#include "BaseAreaSiraberuLayerManager.h"
+#include "BaseAreaSceneJumpLayerManager.h"
+#include "BaseAreaMurabitoLayerManager.h"
 
 #endif

@@ -18,24 +18,25 @@ namespace tinyxml2{
 
 namespace baseArea{
     class Tile;
-    class TileLayerManager;
+    class BaseAreaMap;
     
     class TileLayer{
         std::vector<Tile*> m_Tiles;
         const std::string m_Name;
         const int m_width;
         const int m_height;
-        TileLayerManager* m_parent;
+        BaseAreaMap* m_parent;
     public:
-        TileLayer(tinyxml2::XMLElement* data, TileLayerManager* parent);
+        TileLayer(tinyxml2::XMLElement* data, BaseAreaMap* parent);
         ~TileLayer();
         void update(GMInput* input, double deltaTime);
         void draw(GMSpriteBatch* s);
-        TileLayerManager* getManager();
+        BaseAreaMap* getBaseAreaMap();
         const std::string& getName();
         const int getWigth() const;
         const int getHeight() const;
         bool isCollision(const GMRect2D& rect) const;
+        const std::string isCollisionANDGetNumberingStr(const GMRect2D& rect) const;
     };
     
 }

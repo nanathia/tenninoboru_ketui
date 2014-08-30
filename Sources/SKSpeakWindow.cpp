@@ -122,5 +122,8 @@ namespace SKSpeakWindow{
     void Window::setString(const std::string &str){
         m_Strs.push_front(new CharacterManager(str));
     }
+    bool Window::isAllEnd() const{
+        return m_Strs.empty() && m_chargeStrs.empty();
+    }
     
 }

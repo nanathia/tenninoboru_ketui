@@ -64,5 +64,17 @@ namespace baseArea{
         if(!set) set = m_TileSet[size-1];
         set->getImage()->draw(s, dest, radian, gid);
     }
+    int TileSetManager::getLocalGid(int gid) const{
+        int size = (int)m_TileSet.size();
+        TileSet* set = 0;
+        for(int i = 1; i < size; i++){
+            if(m_TileSet[i]->getFirstGit() > gid){
+                set = m_TileSet[i-1];
+                break;
+            }
+        }
+        if(!set) set = m_TileSet[size-1];
+        return gid - set->getFirstGit();
+    }
     
 }

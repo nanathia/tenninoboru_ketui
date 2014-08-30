@@ -25,6 +25,7 @@ class SwordItem;
 class ShieldItem;
 class UdewaItem;
 class EpuipmentItem;
+class SKDungeonScene;
 
 class SKPlayer : public SKMoveObject{
     friend class PlayerLeady;
@@ -52,9 +53,10 @@ class SKPlayer : public SKMoveObject{
     
     // 行動中
     bool m_isAct;
+    SKDungeonScene* m_parent;
     
 public:
-    SKPlayer();
+    SKPlayer(SKDungeonScene* parent);
     ~SKPlayer();
     
 public:
@@ -98,6 +100,9 @@ public:
     bool isAct();
     void doAct();
     void doEnd();
+    
+    // 親を取得
+    SKDungeonScene* getDungeonScene();
     
 };
 

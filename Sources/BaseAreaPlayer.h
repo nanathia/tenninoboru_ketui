@@ -13,8 +13,10 @@
 
 namespace baseArea{
     class PlayerAngleState;
+    class PlayerMainState;
     class SKBaseAreaScene;
     class Player;
+    class Murabito;
     
     class PlayerDraw{
         PlayerDraw();
@@ -38,6 +40,7 @@ namespace baseArea{
         GMRect2D m_Matrixrect;
         SKBaseAreaScene* m_parent;
         PlayerAngleState* m_state;
+        PlayerMainState* m_secondState;
     public:
         Player(SKBaseAreaScene* parent);
         ~Player();
@@ -46,6 +49,11 @@ namespace baseArea{
     public:
         SKBaseAreaScene* getBaseAreaScene();
         GMVector2D getPos() const;
+        void setPos(const GMVector2D& pos);
+        void setRect(const GMRect2D& rect);
+        void speak(Murabito* mura);
+        bool isSpeak() const;
+        const GMRect2D& Rect() const;
     };
     
 }
