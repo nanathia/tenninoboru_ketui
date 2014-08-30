@@ -31,6 +31,6 @@ const char* ESNomalAttack::resetAction(SKEnemy *parent){
 
 void ESNomalAttack::action(SKEnemy* parent){
     
-    parent->setSKObjectAngle(gPlayScene->getDungeonScene()->getPlayer()->getMass());
+//    parent->setSKObjectAngle(m_scene->getPlayer()->getMass());
     
 }

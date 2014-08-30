@@ -15,10 +15,12 @@
 #include "StatusUI.h"
 #include <string>
 
+class SKDungeonScene;
 
 class SKUserInterface{
     // 3D画面ゲーム画面と別に、2D描画を行うためのGMSpriteBatch
     GMSpriteBatch* mSpriteBatch;
+    SKDungeonScene* m_scene;
     
     MessageUI* m_message;
     StatusUI* m_status;
@@ -27,7 +29,7 @@ class SKUserInterface{
 public:
     // 画面に対してどのぐらいの割合を占めるかというのと、画面上の位置。いずれも、０〜１で渡す。
     // とりあえずデフォ値
-    SKUserInterface();
+    SKUserInterface(SKDungeonScene* scene);
     ~SKUserInterface();
     
 public:

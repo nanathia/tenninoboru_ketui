@@ -30,7 +30,6 @@ m_enemMan(0),
 m_itemMan(0),
 m_player(0)
 {
-    if(!gPlayScene->getChild()) gPlayScene->setChild(this);
     // オブジェクト管理クラスの初期化
     m_TexMan = new SKTextureManager();
     
@@ -41,12 +40,12 @@ m_player(0)
     m_TexMan->add(Texture_blockName, "SKBlockImage.png");
     m_TexMan->add(Texture_directionName, "direction.png");
     
-    m_enemMan = new SKEnemyMan();
+    m_enemMan = new SKEnemyMan(this);
     m_itemMan = new SKItemManager();
     m_blockMan = new SKBlockManager();
     //    m_EffectMan;
     m_massMan = new SKMassManager(this, 50, 50, width_num, height_num);
-    m_UI = new SKUserInterface();
+    m_UI = new SKUserInterface(this);
     //    m_soundMan;
 }
 

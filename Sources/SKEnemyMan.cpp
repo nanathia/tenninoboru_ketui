@@ -9,65 +9,8 @@
 #include "SKEnemyMan.h"
 #include "SaKumas_includes.h"
 
-
-
-//namespace{
-//    // クイックソートを使用。
-//    int gd(SKEnemy* e){
-//        int x, y, ex, ey;
-//        gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(x, y);
-//        e->getMass()->getPos(ex, ey);
-//        ex -= x;
-//        ey -= y;
-//        return abs(ex) + abs(ey);
-//    }
-//    
-//    int partition(vector<SKEnemy*>& v, int low, int high)
-//    {
-//        
-//        SKEnemy* pivot = v[high];
-//        
-//        int left = low - 1;
-//        int right = high;
-//        
-//        while (true) {
-//            do {
-//                left++;
-//            } while (left < right && gd(v[left]) < gd(pivot));
-//            
-//            do {
-//                right--;
-//            } while (left < right && gd(v[right]) > gd(pivot));
-//            
-//            if (left >= right) {
-//                pivot = left;
-//                break;
-//            }
-//            
-//            swap(v[left], v[right]);
-//        }
-//        
-//        if (pivot != high) {
-//            swap(v[pivot], v[high]);
-//        }
-//        
-//        return pivot;
-//    }
-//    
-//    void quick_sort(vector<int>& v, int low, int high)
-//    {
-//        if (low >= high) {
-//            return;
-//        }
-//        int pivot = partition(v, low, high);
-//        
-//        quick_sort(v, low, pivot-1);
-//        quick_sort(v, pivot+1, high);
-//    }
-//
-//}
-
-SKEnemyMan::SKEnemyMan(){
+SKEnemyMan::SKEnemyMan(SKDungeonScene* scene):
+m_scene(scene){
     
 }
 
@@ -141,7 +84,7 @@ void SKEnemyMan::sort_pivotForPlayer(std::vector<SKEnemy*>& ret){
 }
 
 bool SKEnemyMan::isAllActionEnded(){
-    if(gPlayScene->getDungeonScene()->getPlayer()->isAct()){
+    if(m_scene->getPlayer()->isAct()){
         return false;
     }
     auto it = m_enemys.begin();

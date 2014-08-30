@@ -12,23 +12,25 @@
 #include "Karakuri.h"
 #include "SKEnemy.h"
 
+class SKDungeonScene;
+
 namespace enemyChild{
 
     class syokutyuu: public SKEnemy{
     public:
-        syokutyuu();
+        syokutyuu(SKDungeonScene* scene);
         ~syokutyuu();
         bool objectUpdate(GMInput* input, double deltaTime) override;
         void objectDraw(int d_x, int d_y) override;
     };
     
     class suiryuu: public SKEnemy{
-        suiryuu();
+        suiryuu(SKDungeonScene* scene);
         ~suiryuu();
     };
     
     class dokubati: public SKEnemy{
-        dokubati();
+        dokubati(SKDungeonScene* scene);
         ~dokubati();
     };
     

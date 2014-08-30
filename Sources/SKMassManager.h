@@ -32,6 +32,7 @@ class SKMassManager{
     
     void _nextFloor();
     bool m_nextFlag;
+    SKDungeonScene* m_parent;
     
 public:
     SKMassManager(SKDungeonScene* parent, int stageWidth, int stageHeight, int drawAreaWidth, int drawAreaHeight);

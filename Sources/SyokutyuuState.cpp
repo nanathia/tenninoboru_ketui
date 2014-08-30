@@ -13,8 +13,8 @@
 
 namespace enemyState{
 
-    SyokutyuuLeady::SyokutyuuLeady():
-    SKEnemyState()
+    SyokutyuuLeady::SyokutyuuLeady(SKEnemy* user):
+    SKEnemyState(user)
     {
     }
     SyokutyuuLeady::~SyokutyuuLeady(){
@@ -34,14 +34,14 @@ namespace enemyState{
                 enem->setSKObjectAngle(end);
                 start->setMovingObject(0);
                 end->setMovingObject(enem);
-                next = new SyokutyuuMove(start, end);
+                next = new SyokutyuuMove(m_user, start, end);
                 enem->doAct();
                 next->update(input, deltaTime, enem);
                 enem->resetMoveOrAction();
             }
         }else if(enem->isAction() && enem->isMeetingPlayer()){
-            enem->setSKObjectAngle(gPlayScene->getDungeonScene()->getPlayer());
-            SKEnemyState* attack = new SyokutyuuAttack();
+            enem->setSKObjectAngle(m_user->getScene()->getPlayer());
+            SKEnemyState* attack = new SyokutyuuAttack(m_user);
             next = attack->update(input, deltaTime, enem);
             if(next != attack){
                 delete attack;
@@ -50,7 +50,7 @@ namespace enemyState{
                 enem->doAct();
             }
         }else if(enem->isDamaged()){
-            next = new SyokutyuuDamage();
+            next = new SyokutyuuDamage(m_user);
             enem->damaged();
         }else if(enem->isMeetingPlayer()){
             
@@ -68,8 +68,8 @@ namespace enemyState{
         spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 0), 0.20, GMVector3D(0, enem->getRadian(), 0), m_animationTime);
     }
     
-    SyokutyuuMove::SyokutyuuMove(SKMass* start, SKMass* end):
-    SKEnemyState(),
+    SyokutyuuMove::SyokutyuuMove(SKEnemy* user, SKMass* start, SKMass* end):
+    SKEnemyState(user),
     m_start(start),
     m_end(end)
     {
@@ -82,7 +82,7 @@ namespace enemyState{
         m_animationTime += deltaTime*4;
         if(m_time >= 1){
             enem->doEnd();
-            SKEnemyState* leady = new SyokutyuuLeady();
+            SKEnemyState* leady = new SyokutyuuLeady(m_user);
             next = leady->update(input, deltaTime, enem);
             if(leady != next){
                 delete leady;
@@ -97,8 +97,8 @@ namespace enemyState{
         spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 0), 0.20, GMVector3D(0, enem->getRadian(), 0), m_animationTime);
     }
     
-    SyokutyuuAttack::SyokutyuuAttack():
-    SKEnemyState(){
+    SyokutyuuAttack::SyokutyuuAttack(SKEnemy* user):
+    SKEnemyState(user){
     }
     SyokutyuuAttack::~SyokutyuuAttack(){
     }
@@ -106,7 +106,7 @@ namespace enemyState{
         SKEnemyState* next = this;
         if(m_time >= 1){
             enem->doEnd();
-            SKEnemyState* leady = new SyokutyuuLeady();
+            SKEnemyState* leady = new SyokutyuuLeady(m_user);
             next = leady->update(input, deltaTime, enem);
             if(next != leady){
                 delete leady;
@@ -114,7 +114,7 @@ namespace enemyState{
             }
             if(SKObject* mo = enem->getMassForRadian(enem->getRadian())->getMovingObject()){
                 if(mo->getName() == "サクマ"){
-                    gPlayScene->getDungeonScene()->getPlayer()->damage(10, enem);
+                    m_user->getScene()->getPlayer()->damage(10, enem);
                 }
             }
         }
@@ -128,8 +128,8 @@ namespace enemyState{
         spriter::ScmlFunctions::draw(GMVector3D(d.x+mass_size/2, d.y+mass_size/2, 0), 0.20, GMVector3D(0, enem->getRadian(), 0), m_animationTime);
     }
     
-    SyokutyuuDamage::SyokutyuuDamage():
-    SKEnemyState()
+    SyokutyuuDamage::SyokutyuuDamage(SKEnemy* user):
+    SKEnemyState(user)
     {
     }
     SyokutyuuDamage::~SyokutyuuDamage(){
@@ -145,7 +145,7 @@ namespace enemyState{
                 m_animationTime += deltaTime*10;
             }else{
                 enem->doEnd();
-                SKEnemyState* leady = new SyokutyuuLeady();
+                SKEnemyState* leady = new SyokutyuuLeady(m_user);
                 next = leady->update(input, deltaTime, enem);
                 if(leady != next){
                     delete leady;

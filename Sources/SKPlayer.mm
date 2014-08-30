@@ -18,8 +18,8 @@
 #include "SKDungeonScene.h"
 #include <sstream>
 
-SKPlayer::SKPlayer(SKDungeonScene* parent):
-SKMoveObject(),
+SKPlayer::SKPlayer(SKDungeonScene* scene):
+SKMoveObject(scene),
 m_exitMass(0),
 m_animation(0),
 m_porch(0),
@@ -30,11 +30,8 @@ m_equipmentUdewa_1(0),
 m_equipmentUdewa_2(0),
 m_equipmentSword(0),
 m_state(0),
-m_isAct(0),
-m_parent(parent)
+m_isAct(0)
 {
-//    gPlayScene->getDungeonScene()->setPlayer(this);
-    
     // アプリケーション・バンドル内のリソース位置を取得
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sakuma" withExtension:@"scml"];
     if (!fileURL) {
@@ -47,9 +44,9 @@ m_parent(parent)
     spriter::ScmlFunctions::SetScml(m_animation);
     this->animeName = "stop";
     this->characterName = "sakuma";
-    this->m_porch = new PlayerPorch();
+    this->m_porch = new PlayerPorch(m_scene);
     this->m_objectName = "サクマ";
-    this->m_turnControl = new _turnControl();
+    this->m_turnControl = new _turnControl(this);
     this->m_state = new PlayerLeady(this);
     m_objHeight = 40;
 }
@@ -100,8 +97,13 @@ SKMass* SKPlayer::getExitEntrance() const{
     return m_exitMass;
 }
 
+_turnControl::_turnControl(SKPlayer* parent):
+m_parent(parent){
+    
+}
+
 void _turnControl::actionCreate(){
-    std::list<SKEnemy*>& em = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys;
+    std::list<SKEnemy*>& em = m_parent->getScene()->getEnemMan()->m_enemys;
     auto it = em.begin();
     while(it != em.end()){
         (*it)->actionReset();
@@ -116,7 +118,7 @@ void _turnControl::actionCreate(){
 }
 
 bool _turnControl::move(){
-    auto em = gPlayScene->getDungeonScene()->getEnemMan()->m_enemys;
+    auto em = m_parent->getScene()->getEnemMan()->m_enemys;
     auto it = em.begin();
     while(it != em.end()){
         (*it)->setMove();
@@ -158,13 +160,13 @@ void SKPlayer::soubiSword(SwordItem* sword){
     if(!sword){
         std::ostringstream oss;
         oss << m_equipmentSword->getName() << "　を外した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentSword = sword;
         std::ostringstream oss;
         oss << sword->getName() << "　を装備した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
     }
 }
 
@@ -172,13 +174,13 @@ void SKPlayer::soubiShiled(ShieldItem* shield){
     if(!shield){
         std::ostringstream oss;
         oss << m_equipmentShield->getName() << "　を外した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentShield = shield;
         std::ostringstream oss;
         oss << shield->getName() << "　を装備した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
     }
 }
 
@@ -186,13 +188,13 @@ void SKPlayer::soubiUdewa_1(UdewaItem* udewa){
     if(!udewa){
         std::ostringstream oss;
         oss << m_equipmentUdewa_1->getName() << "　を外した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentUdewa_1 = udewa;
         std::ostringstream oss;
         oss << udewa->getName() << "　を装備した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
     }
 }
 
@@ -200,13 +202,13 @@ void SKPlayer::soubiUdewa_2(UdewaItem* udewa){
     if(!udewa){
         std::ostringstream oss;
         oss << m_equipmentUdewa_2->getName() << "　を外した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
         m_equipmentSword = 0;
     }else{
         m_equipmentUdewa_2 = udewa;
         std::ostringstream oss;
         oss << udewa->getName() << "　を装備した。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
     }
 }
 
@@ -243,6 +245,6 @@ void SKPlayer::doEnd(){
 }
 
 SKDungeonScene* SKPlayer::getDungeonScene(){
-    return m_parent;
+    return m_scene;
 }
 

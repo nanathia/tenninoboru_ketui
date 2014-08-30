@@ -13,13 +13,16 @@
 #include "UITemplate.h"
 #include "ItemCommandInfo.h"
 
+class SKDungeonScene;
+
 class SelectUI: public UITemplate{
     const int page_max = 20;
     int m_carsor;
     CarsorSelectReAction* m_child;
+    SKDungeonScene* m_scene;
     
 public:
-    SelectUI();
+    SelectUI(SKDungeonScene* scene);
     ~SelectUI();
     
     void UiOn();

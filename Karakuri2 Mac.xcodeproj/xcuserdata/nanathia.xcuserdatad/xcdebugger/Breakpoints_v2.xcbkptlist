@@ -200,43 +200,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "430135104.810016"
+            timestampString = "431061592.370863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "SKMassManager::getRooms()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Docs/SKMass.cpp"
-            timestampString = "428800761.505472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "SKMass::setRoom(_room* room)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Docs/SKMass.cpp"
-            timestampString = "428800761.505472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -253,54 +223,6 @@
             endingLineNumber = "18"
             landmarkName = "class SKState_testEnemy"
             landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/SKMassManager.cpp"
-            timestampString = "430135104.810016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "SKMassManager::convertDrawIndex(const SKMass* mass, int&amp; ix, int&amp; iy)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/SKMassManager.cpp"
-            timestampString = "430135104.810016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "SKMassManager::convertDrawIndex(const SKMass* mass, int&amp; ix, int&amp; iy)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/SKBlock.cpp"
-            timestampString = "424168078.188362"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "SKBlock::objectUpdate(GMInput* input, double deltaTime)"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -326,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKObject.cpp"
-            timestampString = "428467821.055469"
+            timestampString = "431072275.732395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113">
+            startingLineNumber = "114"
+            endingLineNumber = "114">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -942,11 +864,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKUserInterface.h"
-            timestampString = "425801270.205442"
+            timestampString = "431078212.666967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "class SKUserInterface"
             landmarkType = "3">
          </BreakpointContent>
@@ -990,11 +912,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKMassManager.cpp"
-            timestampString = "430135104.810016"
+            timestampString = "431061592.370863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "SKMassManager::allDraw_currentGameGraph()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1006,11 +928,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/KaidanItem.cpp"
-            timestampString = "428283994.927405"
+            timestampString = "431072275.732395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30">
+            startingLineNumber = "32"
+            endingLineNumber = "32">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1020,11 +942,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKUserInterface.cpp"
-            timestampString = "429004978.531903"
+            timestampString = "431078212.666967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "SKUserInterface::convertNum2Str(int num)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1096,15 +1018,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKSceneChangeInters.cpp"
-            timestampString = "431023060.862034"
+            timestampString = "431072733.784612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "Dungeon::update(GMInput* input, double deltaTime)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1116,11 +1038,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SKSceneChangeOuters.cpp"
-            timestampString = "431023068.361412"
+            timestampString = "431056290.38716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "MapSelect::update(GMInput* input, double deltaTime)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/SKSceneChangeOuters.cpp"
+            timestampString = "431056439.868624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "BaseArea::update(GMInput* input, double deltaTime)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1128,16 +1066,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sources/SKSceneChangeOuters.cpp"
-            timestampString = "431023087.292443"
+            filePath = "Sources/SKBaseAreaScene.cpp"
+            timestampString = "431061187.318267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "MapSelect::update(GMInput* input, double deltaTime)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "SKBaseAreaScene::update(GMInput *input, double deltaTime)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/SKBaseAreaScene.cpp"
+            timestampString = "431061350.099405"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "SKBaseAreaScene::update(GMInput *input, double deltaTime)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sources/SKBaseAreaScene.cpp"
+            timestampString = "431072505.125912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "SKBaseAreaScene::update(GMInput *input, double deltaTime)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

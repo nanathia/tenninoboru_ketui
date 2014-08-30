@@ -13,15 +13,15 @@
 void SKEnemy::objectInit(GMGraphics* g){
 }
 
-SKEnemy::SKEnemy():
-SKMoveObject(),
+SKEnemy::SKEnemy(SKDungeonScene* scene):
+SKMoveObject(scene),
 m_flags(0),
 m_isAction(0),
 m_state(0),
 m_isSameAct(0),
 m_move(0)
 {
-    m_state = new enemyState::SyokutyuuLeady();
+    m_state = new enemyState::SyokutyuuLeady(this);
     m_move = new enemyMove::SKEnemyMoveState(this);
 }
 
@@ -53,12 +53,12 @@ void SKEnemy::clearFlag(){
 // プレイヤーに隣接しているか
 bool SKEnemy::isMeetingPlayer(){
     int px, py, tx, ty;
-    gPlayScene->getDungeonScene()->getPlayer()->getMass()->getPos(tx, ty);
+    m_scene->getPlayer()->getMass()->getPos(tx, ty);
     m_myLocations_mass->getPos(px, py);
     tx -= px;
     ty -= py;
     if(abs(tx) <= 1 && abs(ty) <= 1){
-        if(this->isEnableAttackMass(gPlayScene->getDungeonScene()->getPlayer()->getMass())){
+        if(this->isEnableAttackMass(m_scene->getPlayer()->getMass())){
             return true;
         }
     }
@@ -67,7 +67,7 @@ bool SKEnemy::isMeetingPlayer(){
 
 // プレイヤーが視界範囲にいるか
 bool SKEnemy::isSeeingPlayer(){
-    return m_myLocations_mass->getRoom() == gPlayScene->getDungeonScene()->getPlayer()->getMass()->getRoom() ? true: false;
+    return m_myLocations_mass->getRoom() == m_scene->getPlayer()->getMass()->getRoom() ? true: false;
 }
 
 void SKEnemy::setMove(){
@@ -148,28 +148,28 @@ SKMass* SKEnemy::isNomalMoveMass(SKMass* mass){
 
 // プレイヤーと同じ部屋かどうか
 bool SKEnemy::isSameRoomWithPlayer(){
-    return this->getMass()->getRoom() == gPlayScene->getDungeonScene()->getPlayer()->getMass()->getRoom();
+    return this->getMass()->getRoom() == m_scene->getPlayer()->getMass()->getRoom();
 }
 
 // 一足飛びの位置にプレイヤーが居るかどうか
 SKMass* SKEnemy::isOneStepAttackToPlayer(){
     int x, y;
-    getDistances(gPlayScene->getDungeonScene()->getPlayer(), x, y);
+    getDistances(m_scene->getPlayer(), x, y);
     if(abs(x)>2 || abs(y)>2) return 0;
-    return gPlayScene->getDungeonScene()->getPlayer()->getMass();
+    return m_scene->getPlayer()->getMass();
 }
 
 // 障害物を考えずに、どの方向がプレイヤーに近いか
 SKMass* SKEnemy::isNearestPlayerMass(){
     int x, y;
-    getDistances(gPlayScene->getDungeonScene()->getPlayer(), x, y);
+    getDistances(m_scene->getPlayer(), x, y);
     localize(x, y);
     return getMassForOffset(x, y);
 }
 
 
-SKEnemy* SKEnemy::createRandomEnemy(){
-    return new enemyChild::syokutyuu();
+SKEnemy* SKEnemy::createRandomEnemy(SKDungeonScene* scene){
+    return new enemyChild::syokutyuu(scene);
 }
 
 // 行動中フラグに関して

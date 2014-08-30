@@ -15,8 +15,8 @@
 // 置く
 // 説明
 
-ShieldItem::ShieldItem():
-EpuipmentItem(){
+ShieldItem::ShieldItem(SKDungeonScene* scene):
+EpuipmentItem(scene){
     this->setName("盾");
     this->m_itemNum = 1;
 }
@@ -26,11 +26,11 @@ ShieldItem::~ShieldItem(){
 }
 
 CarsorSelectReAction* ShieldItem::getSelectReaction(){
-    CommandInfo* command = new CommandInfo();
-    command->addCarsor(new SoubiCommand());
-    command->addCarsor(new NageruCommand());
-    command->addCarsor(new OkuCommand());
-    command->addCarsor(new SetumeiCommand());
+    CommandInfo* command = new CommandInfo(m_scene);
+    command->addCarsor(new SoubiCommand(m_scene));
+    command->addCarsor(new NageruCommand(m_scene));
+    command->addCarsor(new OkuCommand(m_scene));
+    command->addCarsor(new SetumeiCommand(m_scene));
     return command;
     
 }
@@ -40,9 +40,9 @@ void ShieldItem::getSetumei(std::string &str){
 }
 
 void ShieldItem::soubi(){
-    gPlayScene->getDungeonScene()->getPlayer()->soubiShiled(this);
+    m_scene->getPlayer()->soubiShiled(this);
 }
 
 void ShieldItem::hazusu(){
-    gPlayScene->getDungeonScene()->getPlayer()->soubiShiled(0);
+    m_scene->getPlayer()->soubiShiled(0);
 }

@@ -11,7 +11,8 @@
 #include "SKFont.h"
 using namespace sizurus_fonts;
 
-MessageUI::MessageUI():
+MessageUI::MessageUI(SKDungeonScene* scene):
+m_scene(scene),
 m_messageCount(0)
 {
     
@@ -51,8 +52,8 @@ void MessageUI::draw(GMSpriteBatch *s) const{
     int i = 0;
     
     GMColor c = GMColor::White;
-    gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName)->getSize();
-    s->draw(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName), GMRect2D(50, 0, SCREEN_SIZE.x-100, 150), GMRect2D(0, gPlayScene->getDungeonScene()->getTexMan()->get(Texture_messageName)->getSize()), c);
+    m_scene->getTexMan()->get(Texture_messageName)->getSize();
+    s->draw(m_scene->getTexMan()->get(Texture_messageName), GMRect2D(50, 0, SCREEN_SIZE.x-100, 150), GMRect2D(0, m_scene->getTexMan()->get(Texture_messageName)->getSize()), c);
     
     while(fonts[i] != sizurusFonts_end){
         SKFont::drawString_toWindow(fonts[i], GMRect2D(50*(i+1), 100, 50, 50), s);

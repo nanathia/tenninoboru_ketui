@@ -8,8 +8,8 @@
 
 #include "MakimonoItem.h"
 
-MakimonoItem::MakimonoItem():
-UsingItem(){
+MakimonoItem::MakimonoItem(SKDungeonScene* scene):
+UsingItem(scene){
     this->setName("巻物");
     this->m_itemNum = 5;
 }
@@ -28,10 +28,10 @@ void MakimonoItem::getSetumei(std::string &str){
 
 CarsorSelectReAction* MakimonoItem::getSelectReaction(){
     // TODO: 巻物のセレクトの実装
-    CommandInfo* com = new CommandInfo();
-    com->addCarsor(new YomuCommand());
-    com->addCarsor(new NageruCommand());
-    com->addCarsor(new OkuCommand());
-    com->addCarsor(new SetumeiCommand());
+    CommandInfo* com = new CommandInfo(m_scene);
+    com->addCarsor(new YomuCommand(m_scene));
+    com->addCarsor(new NageruCommand(m_scene));
+    com->addCarsor(new OkuCommand(m_scene));
+    com->addCarsor(new SetumeiCommand(m_scene));
     return com;
 }

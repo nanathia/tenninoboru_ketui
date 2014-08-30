@@ -10,7 +10,8 @@
 #include <vector>
 #include <sstream>
 
-SKMass::SKMass(int x, int y):
+SKMass::SKMass(SKDungeonScene* scene, int x, int y):
+m_scene(scene),
 m_xIndex(x),
 m_yIndex(y),
 m_movingObject(0),
@@ -34,7 +35,7 @@ void SKMass::clean(){
         delete m_block;
         m_block = 0;
     }
-    if(m_movingObject && gPlayScene->getDungeonScene()->getPlayer()!=m_movingObject){
+    if(m_movingObject && m_scene->getPlayer()!=m_movingObject){
         delete m_movingObject;
         m_movingObject = 0;
     }else if(m_movingObject){
@@ -117,7 +118,7 @@ void SKMass::draw_debugRect(int index_x, int index_y, GMSpriteBatch* s){
 }
 
 void SKMass::draw_outOfStageBlock(int index_x, int  index_y/*, GMSpriteBatch* s*/){
-//    SKTextureManager* tex = gPlayScene->getDungeonScene()->getTexMan();
+//    SKTextureManager* tex = m_scene->getTexMan();
 //    // ピクセル単位描画位置を計算
 //    int drawPos_x = index_x*mass_size-massDrawOffset_x;
 //    int drawPos_y = index_y*mass_size-massDrawOffset_y;
@@ -133,7 +134,7 @@ void SKMass::draw_outOfStageBlock(int index_x, int  index_y/*, GMSpriteBatch* s*
 
 
 void SKMass::drawAllObject_atTheThisMass(int index_x, int index_y) const{
-    SKTextureManager* tex = gPlayScene->getDungeonScene()->getTexMan();
+    SKTextureManager* tex = m_scene->getTexMan();
     
     // ピクセル単位描画位置を計算
     int drawPos_x = index_x*mass_size-massDrawOffset_x;
@@ -159,7 +160,7 @@ void SKMass::drawAllObject_atTheThisMass(int index_x, int index_y) const{
 //        color.a = 0.7;
 //        
 //        // TODO: 部屋番号の描画の実装
-//        // gPlayScene->getDungeonScene()->getFont()->drawString(s, oss.str().c_str(), GMVector2D(drawPos_x, drawPos_y), color, 0.9);
+//        // m_scene->getFont()->drawString(s, oss.str().c_str(), GMVector2D(drawPos_x, drawPos_y), color, 0.9);
 //    }
     // マス上の　サクマ、　敵、　アイテム、　ブロック（水面等を含む）　の描画。
     // for 文で纏めるために、描画する可能性のある SKObject ポインタを配列にする。
@@ -181,7 +182,7 @@ SKMass* SKMass::getMassForOffset(int x, int y){
     getPos(px, py);
     px += x;
     py += y;
-    return gPlayScene->getDungeonScene()->getMassMan()->get(px, py);
+    return m_scene->getMassMan()->get(px, py);
 }
 
 bool SKMass::isInterOuterMass(){
@@ -206,7 +207,7 @@ void SKMass::setRoom(_room* room){
 
 // 今いる部屋を検索して格納
 void SKMass::seachRoom(){
-    vector<_room*> rooms = gPlayScene->getDungeonScene()->getMassMan()->getRooms();
+    vector<_room*> rooms = m_scene->getMassMan()->getRooms();
     int size = (int)rooms.size();
     for(int i = 0; i < size; i++){
         if(rooms[i]->isInRoom(this)){
@@ -217,7 +218,7 @@ void SKMass::seachRoom(){
 }
 
 void SKMass::getDrawPoint(int& dx, int& dy) const{
-    gPlayScene->getDungeonScene()->getMassMan()->convertDrawIndex(this, dx, dx);
+    m_scene->getMassMan()->convertDrawIndex(this, dx, dx);
     
     dx = dx*mass_size-massDrawOffset_x;
     dy = dy*mass_size-massDrawOffset_y;

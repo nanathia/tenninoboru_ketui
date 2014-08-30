@@ -12,9 +12,10 @@
 #include "SKDrawFont.h"
 #include "SKDungeonScene.h"
 #include <sstream>
-#define pp (gPlayScene->getDungeonScene()->getPlayer()->getPorch())
+#define pp (m_scene->getPlayer()->getPorch())
 
-CommandInfo::CommandInfo():
+CommandInfo::CommandInfo(SKDungeonScene* scene):
+m_scene(scene),
 m_child(0),
 m_carsor(0)
 {
@@ -33,6 +34,11 @@ CommandInfo::~CommandInfo(){
     }
     m_child = 0;
     m_carsor = 0;
+}
+
+CarsorInfo::CarsorInfo(SKDungeonScene* scene):
+m_scene(scene){
+    
 }
 
 CarsorInfo::~CarsorInfo(){
@@ -121,6 +127,9 @@ void CommandInfo::draw(GMSpriteBatch* s){
     }
 }
 
+SoubiCommand::SoubiCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* SoubiCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     dynamic_cast<EpuipmentItem*>(item)->soubi();
     return 0;
@@ -129,6 +138,9 @@ void SoubiCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "装備", s);
 }
 
+YomuCommand::YomuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* YomuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -136,6 +148,9 @@ void YomuCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "読む", s);
 }
 
+TaberuCommand::TaberuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* TaberuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -143,6 +158,9 @@ void TaberuCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "食べる", s);
 }
 
+NakawomiruCommand::NakawomiruCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* NakawomiruCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -150,6 +168,9 @@ void NakawomiruCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "中を見る", s);
 }
 
+SuteruCommand::SuteruCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* SuteruCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -157,6 +178,9 @@ void SuteruCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "捨てる", s);
 }
 
+NageruCommand::NageruCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* NageruCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -164,6 +188,9 @@ void NageruCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "投げる", s);
 }
 
+NomuCommand::NomuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* NomuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -171,6 +198,9 @@ void NomuCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "飲む", s);
 }
 
+HirouCommand::HirouCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* HirouCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -178,6 +208,9 @@ void HirouCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "拾う", s);
 }
 
+KoukanCommand::KoukanCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* KoukanCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -185,6 +218,9 @@ void KoukanCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "交換", s);
 }
 
+SetumeiCommand::SetumeiCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* SetumeiCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -192,18 +228,21 @@ void SetumeiCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "説明", s);
 }
 
+OkuCommand::OkuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* OkuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
-    if(gPlayScene->getDungeonScene()->getPlayer()->getMass()->getItem()){
-        gPlayScene->getDungeonScene()->getUI()->textInput("ここには置けない");
-        gPlayScene->getDungeonScene()->getPlayer()->endItemSelect();
+    if(m_scene->getPlayer()->getMass()->getItem()){
+        m_scene->getUI()->textInput("ここには置けない");
+        m_scene->getPlayer()->endItemSelect();
     }else{
         std::ostringstream oss;
         oss << item->getName() << "を置いた。";
-        gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+        m_scene->getUI()->textInput(oss.str());
         pp->getItems().remove(item);
-        gPlayScene->getDungeonScene()->getPlayer()->getMass()->setItem(item);
-        item->setMass(gPlayScene->getDungeonScene()->getPlayer()->getMass());
-        gPlayScene->getDungeonScene()->getPlayer()->endItemSelect();
+        m_scene->getPlayer()->getMass()->setItem(item);
+        item->setMass(m_scene->getPlayer()->getMass());
+        m_scene->getPlayer()->endItemSelect();
     }
     return 0;
 }
@@ -211,6 +250,9 @@ void OkuCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "置く", s);
 }
 
+KakuCommand::KakuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* KakuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }
@@ -218,6 +260,9 @@ void KakuCommand::draw(const GMVector2D &pos, GMSpriteBatch *s){
     this->_draw(pos, "書く", s);
 }
 
+UtuCommand::UtuCommand(SKDungeonScene* scene):
+CarsorInfo(scene){
+}
 CarsorSelectReAction* UtuCommand::choice(GMInput* input, double deltaTime, SKItem* item){
     return 0;
 }

@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "EpuipmentItem.h"
 
+class SKDungeonScene;
+
 class ShieldItem: public EpuipmentItem{
     
 public:
-    ShieldItem();
+    ShieldItem(SKDungeonScene* scene);
     virtual ~ShieldItem();
     void hazusu() override;
     void soubi() override;

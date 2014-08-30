@@ -33,7 +33,7 @@ class SKDungeonScene: public SKPlayChild{
     SKSoundManager* m_soundMan;
     SKTextureManager* m_TexMan;
     SKBlockManager* m_blockMan;
-
+    
 public:
     SKDungeonScene();
     ~SKDungeonScene();

@@ -13,11 +13,12 @@
 #include "UsingItem.h"
 
 class CarsorSelectReAction;
+class SKDungeonScene;
 
 class EatingItem: public UsingItem{
     
 public:
-    EatingItem();
+    EatingItem(SKDungeonScene* scene);
     void use() override;
     CarsorSelectReAction* getSelectReaction() override;
     void getSetumei(std::string& str) override;

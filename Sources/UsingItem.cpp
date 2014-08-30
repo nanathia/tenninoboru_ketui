@@ -8,8 +8,8 @@
 
 #include "UsingItem.h"
 
-UsingItem::UsingItem():
-SKItem()
+UsingItem::UsingItem(SKDungeonScene* scene):
+SKItem(scene)
 {
     
 }

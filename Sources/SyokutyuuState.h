@@ -18,7 +18,7 @@ namespace enemyState{
 
     class SyokutyuuAttack: public SKEnemyState{
     public:
-        SyokutyuuAttack();
+        SyokutyuuAttack(SKEnemy* user);
         ~SyokutyuuAttack();
         SKEnemyState* update(GMInput* input, double deltaTime, SKEnemy* enem) override;
         void draw(int dx, int dy, SKEnemy* enem) override;
@@ -26,7 +26,7 @@ namespace enemyState{
     
     class SyokutyuuLeady: public SKEnemyState{
     public:
-        SyokutyuuLeady();
+        SyokutyuuLeady(SKEnemy* user);
         ~SyokutyuuLeady();
         SKEnemyState* update(GMInput* input, double deltaTime, SKEnemy* enem) override;
         void draw(int dx, int dy, SKEnemy* enem) override;
@@ -36,7 +36,7 @@ namespace enemyState{
         SKMass* m_start;
         SKMass* m_end;
     public:
-        SyokutyuuMove(SKMass* start, SKMass* end);
+        SyokutyuuMove(SKEnemy* user, SKMass* start, SKMass* end);
         ~SyokutyuuMove();
         SKEnemyState* update(GMInput* input, double deltaTime, SKEnemy* enem) override;
         void draw(int dx, int dy, SKEnemy* enem) override;
@@ -44,7 +44,7 @@ namespace enemyState{
     
     class SyokutyuuDamage: public SKEnemyState{
     public:
-        SyokutyuuDamage();
+        SyokutyuuDamage(SKEnemy* user);
         ~SyokutyuuDamage();
         SKEnemyState* update(GMInput* input, double deltaTime, SKEnemy* enem) override;
         void draw(int dx, int dy, SKEnemy* enem) override;
@@ -52,7 +52,7 @@ namespace enemyState{
     
     class SyokutyuuSimetukeru: public SKEnemyState{
     public:
-        SyokutyuuSimetukeru();
+        SyokutyuuSimetukeru(SKEnemy* user);
         ~SyokutyuuSimetukeru();
         SKEnemyState* update(GMInput* input, double deltaTime, SKEnemy* enem) override;
         void draw(int dx, int dy, SKEnemy* enem) override;

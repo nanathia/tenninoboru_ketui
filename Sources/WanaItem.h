@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "SKItem.h"
 
+class SKDungeonScene;
+
 class WanaItem: public SKItem{
 public:
     // 踏む
-    WanaItem();
+    WanaItem(SKDungeonScene* scene);
     virtual ~WanaItem();
     virtual void humu(){};
     

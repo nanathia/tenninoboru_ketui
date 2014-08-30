@@ -13,13 +13,15 @@
 #include <list>
 
 class SKEnemy;
+class SKDungeonScene;
 
 class SKEnemyMan{
+    SKDungeonScene* m_scene;
 public:
-    std::list< SKEnemy* > m_enemys;
+    std::list<SKEnemy*> m_enemys;
     
 public:
-    SKEnemyMan();
+    SKEnemyMan(SKDungeonScene* scene);
     ~SKEnemyMan();
     // 敵の一括更新処理
     void update_allEnemy(GMInput* input, double deltaTime);

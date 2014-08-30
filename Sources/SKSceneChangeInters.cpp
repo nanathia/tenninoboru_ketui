@@ -7,6 +7,8 @@
 //
 
 #include "SKSceneChangeInters.h"
+#include "SKPlayChild.h"
+#include "SKPlayScene.h"
 #include "Globals.h"
 
 namespace playsceneinter{
@@ -27,9 +29,14 @@ namespace playsceneinter{
         return next;
     }
     void Dungeon::draw(GMSpriteBatch* s){
+        m_nextChild->draw(s);
+        gPlayScene->getCurrentEffect()->begin();
+        s->begin();
         GMColor blue = GMColor::Blue;
         blue.a = 1-m_time;
-        s->draw(0, SCREEN_SIZE, blue);
+        s->fill(GMRect2D(0, SCREEN_SIZE), blue);
+        s->end();
+        gPlayScene->getCurrentEffect()->end();
     }
     
     MapSelect::MapSelect(SKPlayChild* prevChild, SKPlayChild* nextChild, SKPlayScene* user):
@@ -48,9 +55,14 @@ namespace playsceneinter{
         return next;
     }
     void MapSelect::draw(GMSpriteBatch* s){
+        m_nextChild->draw(s);
+        gPlayScene->getCurrentEffect()->begin();
+        s->begin();
         GMColor blue = GMColor::Blue;
         blue.a = 1-m_time;
-        s->draw(0, SCREEN_SIZE, blue);
+        s->fill(GMRect2D(0, SCREEN_SIZE), blue);
+        s->end();
+        gPlayScene->getCurrentEffect()->end();
     }
     
     BaseArea::BaseArea(SKPlayChild* prevChild, SKPlayChild* nextChild, SKPlayScene* user):
@@ -69,9 +81,14 @@ namespace playsceneinter{
         return next;
     }
     void BaseArea::draw(GMSpriteBatch* s){
+        m_nextChild->draw(s);
+        gPlayScene->getCurrentEffect()->begin();
+        s->begin();
         GMColor blue = GMColor::Blue;
         blue.a = 1-m_time;
-        s->draw(0, SCREEN_SIZE, blue);
+        s->fill(GMRect2D(0, SCREEN_SIZE), blue);
+        s->end();
+        gPlayScene->getCurrentEffect()->end();
     }
     
 }

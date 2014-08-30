@@ -69,8 +69,8 @@ namespace baseArea{
         m_nomalSpeakWindow->update(input, deltaTime);
         m_Map->update(input, deltaTime);
         if(input->isKeyDownTriggered(GMKeyMaskM)){
-            SKPlayScene* test = gPlayScene;
-            gPlayScene->changeScene(new SKDungeonScene());
+            SKDungeonScene* test = new SKDungeonScene();
+            gPlayScene->changeScene(test);
         }
         return next;
     }

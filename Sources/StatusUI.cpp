@@ -12,7 +12,8 @@
 #include <sstream>
 
 
-StatusUI::StatusUI(){
+StatusUI::StatusUI(SKDungeonScene* scene):
+m_scene(scene){
     
 }
 
@@ -33,9 +34,9 @@ void StatusUI::draw(GMSpriteBatch *s) const{
     // TODO: ステータスUIの実装
     GMFont* f = gGameInst->getFont();
     std::ostringstream oss;
-    oss << " " << gPlayScene->getDungeonScene()->getMassMan()->getKaisou() << "F  "
+    oss << " " << m_scene->getMassMan()->getKaisou() << "F  "
     << "Lv" << 1
-    << "  HP" << gPlayScene->getDungeonScene()->getPlayer()->getHp()
+    << "  HP" << m_scene->getPlayer()->getHp()
     << "/" << 100
     << "      " << 0 << "G";
     std::string str = oss.str();

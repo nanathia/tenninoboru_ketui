@@ -16,33 +16,33 @@ namespace{
     const int xNum = 8;
 }
 
-SKItem* SKItem::createRandamItem(){
+SKItem* SKItem::createRandamItem(SKDungeonScene* scene){
     // TODO: アイテムのランダム生成の実装
     SKItem* item = 0;
     int i = randam_dungeon::rand(0, 7);
     if(i==0){
-        item = new SwordItem();
+        item = new SwordItem(scene);
     }else if(i==1){
-        item = new ShieldItem();
+        item = new ShieldItem(scene);
     }else if(i==2){
-        item = new UdewaItem();
+        item = new UdewaItem(scene);
     }else if(i==3){
-        item = new ToutekiItem();
+        item = new ToutekiItem(scene);
     }else if(i==4){
-        item = new NenryouItem();
+        item = new NenryouItem(scene);
     }else if(i==5){
-        item = new MakimonoItem();
+        item = new MakimonoItem(scene);
     }else if(i==6){
-        item = new EatingItem();
+        item = new EatingItem(scene);
     }else if(i==7){
-        item = new KusaItem();
+        item = new KusaItem(scene);
     }
     return item;
 }
 
 void SKItem::objectDraw(int i_x, int i_y){
     GMDraw::Begin();
-    gPlayScene->getCurrentEffect()->setTexture(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_itemName));
+    gPlayScene->getCurrentEffect()->setTexture(m_scene->getTexMan()->get(Texture_itemName));
     int x = m_itemNum%xNum;
     int y = m_itemNum/xNum;
     GMDraw::FillQuad(GMVector3D(i_x, i_y, 10), GMVector3D(i_x+mass_size+1, i_y, 10),
@@ -64,8 +64,8 @@ void SKItem::objectInit(GMGraphics* g){
     
 }
 
-SKItem::SKItem():
-SKObject(),
+SKItem::SKItem(SKDungeonScene* scene):
+SKObject(scene),
 m_numName(itemNames::none),
 m_flag(0),
 m_itemNum(0),
@@ -74,8 +74,8 @@ m_delFlag(false)
     m_objectName = "仮素材";
 }
 
-SKItem::SKItem(const std::string& str):
-SKObject(),
+SKItem::SKItem(SKDungeonScene* scene, const std::string& str):
+SKObject(scene),
 m_numName(itemNames::none),
 m_flag(0)
 {

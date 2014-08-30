@@ -13,12 +13,14 @@
 #include "SKItem.h"
 #include "SKItemContainar.h"
 
+class SKDungeonScene;
+
 class EpuipmentItem: public SKItem{
 protected:
     SKItemContainer* m_containar;
     
 public:
-    EpuipmentItem();
+    EpuipmentItem(SKDungeonScene* scene);
     virtual ~EpuipmentItem();
     
     // 装備する

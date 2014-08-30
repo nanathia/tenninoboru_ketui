@@ -16,6 +16,7 @@
 class SKObject;
 class SKItem;
 class SKBlock;
+class SKDungeonScene;
 
 // 更新作業について
 // まずメインループから、プレイヤー、敵の順に更新。
@@ -24,8 +25,9 @@ class SKBlock;
 
 // アイテム格納場所の一つである
 class SKMass: SKItemContainer{
+    SKDungeonScene* m_scene;
 public:
-    SKMass(int x, int y);
+    SKMass(SKDungeonScene* scene, int x, int y);
     ~SKMass();
     
 public:

@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "UITemplate.h"
 
+class SKDungeonScene;
+
 class StatusUI: public UITemplate{
-    
+    SKDungeonScene* m_scene;
 public:
-    StatusUI();
+    StatusUI(SKDungeonScene* scene);
     ~StatusUI();
     
     void update(GMInput* input, double deltaTime) override;

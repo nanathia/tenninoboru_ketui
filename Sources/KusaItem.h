@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "UsingItem.h"
 
+class SKDungeonScene;
+
 class KusaItem: public UsingItem{
     
 public:
-    KusaItem();
+    KusaItem(SKDungeonScene* scene);
     void use() override;
     CarsorSelectReAction* getSelectReaction() override;
     void getSetumei(std::string& str) override;

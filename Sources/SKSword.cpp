@@ -11,8 +11,8 @@
 #include "ItemCommandInfo.h"
 #include <string>
 
-SwordItem::SwordItem():
-EpuipmentItem(){
+SwordItem::SwordItem(SKDungeonScene* scene):
+EpuipmentItem(scene){
     this->setName("剣");
     this->m_itemNum = 0;
 }
@@ -39,11 +39,11 @@ void SwordItem::getSetumei(std::string &strIn){
 }
 
 CarsorSelectReAction* SwordItem::getSelectReaction(){
-    CommandInfo* command = new CommandInfo();
-    command->addCarsor(new SoubiCommand());
-    command->addCarsor(new NageruCommand());
-    command->addCarsor(new OkuCommand());
-    command->addCarsor(new SetumeiCommand());
+    CommandInfo* command = new CommandInfo(m_scene);
+    command->addCarsor(new SoubiCommand(m_scene));
+    command->addCarsor(new NageruCommand(m_scene));
+    command->addCarsor(new OkuCommand(m_scene));
+    command->addCarsor(new SetumeiCommand(m_scene));
     return command;
     
 }

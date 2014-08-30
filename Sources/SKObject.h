@@ -21,6 +21,7 @@ class _room;
 class SKEnemy;
 class SKItem;
 class SKOrder;
+class SKDungeonScene;
 
 class SKObject{
     
@@ -36,6 +37,8 @@ protected:
     
     // オブジェクト固有の名前。壁ならもう壁。
     std::string m_objectName;
+    
+    SKDungeonScene* m_scene;
         
 public:
     // どんなゲームでも共通する、基本的なメソッドの宣言。描画、更新、初期化。
@@ -127,11 +130,13 @@ public:
     void setName(std::string name);
     // 名前を取得する
     const string& getName();
+    // ベースエリアの取得
+    SKDungeonScene* getScene();
 
 protected:
     
 public:
-    SKObject();
+    SKObject(SKDungeonScene* parent);
     virtual ~SKObject();
     
 };

@@ -8,8 +8,8 @@
 
 #include "WanaItem.h"
 
-WanaItem::WanaItem():
-SKItem()
+WanaItem::WanaItem(SKDungeonScene* scene):
+SKItem(scene)
 {
     
 }

@@ -32,7 +32,7 @@ namespace enemyMove{
         if(m_parent->isSameRoomWithPlayer() || m_parent->isOneStepAttackToPlayer()){
             // なら追いかけよう
             next = new MoveChace(m_parent);
-            nextMass = m_parent->isNomalMoveMass(gPlayScene->getDungeonScene()->getPlayer()->getMass());
+            nextMass = m_parent->isNomalMoveMass(m_parent->getScene()->getPlayer()->getMass());
         }else{
             // プレイヤー見えねえ
             // なら適当に動くか
@@ -106,7 +106,7 @@ namespace enemyMove{
         MoveChild* next = this;
         if(m_parent->isSameRoomWithPlayer() || m_parent->isOneStepAttackToPlayer()){
             // まだプレイヤー見えるから追うわ
-            nextMass = m_parent->isNomalMoveMass(gPlayScene->getDungeonScene()->getPlayer()->getMass());
+            nextMass = m_parent->isNomalMoveMass(m_parent->getScene()->getPlayer()->getMass());
         }else{
             // プレイヤー見えなくなったから適当に歩くわ
             MoveChild* leady = new MoveLeady(m_parent);

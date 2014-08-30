@@ -23,6 +23,7 @@ namespace enemyMove {
     class SKEnemyMoveState;
 }
 class EnemyStrategy;
+class SKDungeonScene;
 
 class SKEnemy : public SKMoveObject{
 protected:
@@ -103,9 +104,9 @@ public:
     
 public:
     void objectInit(GMGraphics* g) override;
-    static SKEnemy* createRandomEnemy();
+    static SKEnemy* createRandomEnemy(SKDungeonScene* scene);
     
-    SKEnemy();
+    SKEnemy(SKDungeonScene* scene);
     virtual ~SKEnemy();
 };
 

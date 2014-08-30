@@ -12,9 +12,11 @@
 #include "Karakuri.h"
 #include "SKItem.h"
 
+class SKDungeonScene;
+
 class KaidanItem: public SKItem{
 public:
-    KaidanItem();
+    KaidanItem(SKDungeonScene* scene);
     virtual ~KaidanItem();
     void noru();
     void getSetumei(std::string& strIn) override;

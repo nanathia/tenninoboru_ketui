@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "SKItem.h"
 
+class SKDungeonScene;
+
 class UsingItem: public SKItem{
 public:
     // 使用
-    UsingItem();
+    UsingItem(SKDungeonScene* scene);
     virtual ~UsingItem();
     virtual void use() = 0;
 };

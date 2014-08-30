@@ -15,8 +15,8 @@
 
 namespace enemyChild{
 
-    syokutyuu::syokutyuu():
-    SKEnemy(){
+    syokutyuu::syokutyuu(SKDungeonScene* scene):
+    SKEnemy(scene){
         this->setName("食虫植物");
         m_hp = 100;
     }

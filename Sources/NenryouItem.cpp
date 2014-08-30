@@ -8,8 +8,8 @@
 
 #include "NenryouItem.h"
 
-NenryouItem::NenryouItem():
-UsingItem()
+NenryouItem::NenryouItem(SKDungeonScene* scene):
+UsingItem(scene)
 {
     this->setName("燃料");
     this->m_itemNum = 3;
@@ -29,10 +29,10 @@ void NenryouItem::getSetumei(std::string &str){
 
 CarsorSelectReAction* NenryouItem::getSelectReaction(){
     // TODO:燃料アイテムコマンドの実装
-    CommandInfo* com = new CommandInfo();
-//    com->addCarsor(new SoubiCommand());
-    com->addCarsor(new NageruCommand());
-    com->addCarsor(new OkuCommand());
-    com->addCarsor(new SetumeiCommand());
+    CommandInfo* com = new CommandInfo(m_scene);
+//    com->addCarsor(new SoubiCommand(m_scene));
+    com->addCarsor(new NageruCommand(m_scene));
+    com->addCarsor(new OkuCommand(m_scene));
+    com->addCarsor(new SetumeiCommand(m_scene));
     return com;
 }

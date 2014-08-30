@@ -47,6 +47,7 @@ namespace itemNames{
     
 };
 
+class SKDungeonScene;
 
 class SKItem : public SKObject{
     bool m_delFlag;
@@ -57,11 +58,11 @@ protected:
     unsigned m_flag;
     
 public:
-    SKItem();
-    SKItem(const std::string& itemName);
+    SKItem(SKDungeonScene* scene);
+    SKItem(SKDungeonScene* scene, const std::string& itemName);
     virtual ~SKItem();
     
-    static SKItem* createRandamItem();
+    static SKItem* createRandamItem(SKDungeonScene* scene);
     
     void objectDraw(int s_draw_x, int s_draw_y) override;
     bool objectUpdate(GMInput* input, double deltaTime) override;

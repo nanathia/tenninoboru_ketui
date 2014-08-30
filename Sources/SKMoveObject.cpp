@@ -13,8 +13,8 @@
 #include "SKDungeonScene.h"
 #include <sstream>
 
-SKMoveObject::SKMoveObject():
-SKObject(),
+SKMoveObject::SKMoveObject(SKDungeonScene* scene):
+SKObject(scene),
 m_hp(100),
 m_time(0),
 spin(false),
@@ -136,7 +136,7 @@ void SKMoveObject::damage(int point, SKMoveObject* obj){
     }else{
         oss << this->getName() << "に" << SKUserInterface::convertNum2Str(point) << "のダメージを与えた。";
     }
-    gPlayScene->getDungeonScene()->getUI()->textInput(oss.str());
+    m_scene->getUI()->textInput(oss.str());
 }
 
 void SKMoveObject::damaged(){

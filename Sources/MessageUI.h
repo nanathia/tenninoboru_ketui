@@ -15,6 +15,7 @@
 
 // メッセージ速度によって状態を変えるステイト
 class UI_MessageSpeed;
+class SKDungeonScene;
 
 // メッセージ速度設定についての列挙。通常、１を選択する形になると思う。
 enum Message_speedName{
@@ -41,8 +42,10 @@ class MessageUI: public UITemplate{
     // メッセージカウント
     double m_messageCount;
     
+    SKDungeonScene* m_scene;
+    
 public:
-    MessageUI();
+    MessageUI(SKDungeonScene* scene);
     ~MessageUI();
     
     void update(GMInput* input, double deltaTime) override;

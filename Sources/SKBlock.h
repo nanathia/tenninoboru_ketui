@@ -11,10 +11,12 @@
 
 #include "SKObject.h"
 
+class SKDungeonScene;
+
 class SKBlock : public SKObject{
     
 public:
-    SKBlock();
+    SKBlock(SKDungeonScene* scene);
     ~SKBlock();
     
     void objectDraw(int s_draw_x, int s_draw_y) override;

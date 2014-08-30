@@ -9,7 +9,8 @@
 #include "EpuipmentItem.h"
 #include "SaKumas_includes.h"
 
-EpuipmentItem::EpuipmentItem():
+EpuipmentItem::EpuipmentItem(SKDungeonScene* scene):
+SKItem(scene),
 m_containar(0)
 {
     

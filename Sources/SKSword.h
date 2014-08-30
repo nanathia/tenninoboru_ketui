@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "EpuipmentItem.h"
 
+class SKDungeonScene;
+
 class SwordItem: public EpuipmentItem{
     
 public:
-    SwordItem();
+    SwordItem(SKDungeonScene* scene);
     virtual ~SwordItem();
     void getSetumei(std::string& str) override;
     void hazusu() override;

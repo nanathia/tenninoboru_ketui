@@ -25,7 +25,7 @@ using namespace std;
 
 class SKItem;
 class SKMass;
-
+class SKDungeonScene;
 class SKItem;
 class SKSword;
 class SKShield;
@@ -36,9 +36,10 @@ class SKRing;
 // アイテム格納場所の一つである。
 class PlayerPorch: SKItemContainer{
     std::list<SKItem*> m_items;
+    SKDungeonScene* m_scene;
 
 public:
-    PlayerPorch();
+    PlayerPorch(SKDungeonScene* scene);
     ~PlayerPorch();
     
     std::list<SKItem*>& getItems();

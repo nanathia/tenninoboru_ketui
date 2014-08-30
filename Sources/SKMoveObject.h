@@ -37,7 +37,7 @@ public:
     
     bool objectUpdate(GMInput* input, double deltaTime) override;
     
-    SKMoveObject();
+    SKMoveObject(SKDungeonScene* scene);
     virtual ~SKMoveObject();
     void attack();
     int getHp() const;

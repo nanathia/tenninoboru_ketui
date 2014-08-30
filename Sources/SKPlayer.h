@@ -53,7 +53,6 @@ class SKPlayer : public SKMoveObject{
     
     // 行動中
     bool m_isAct;
-    SKDungeonScene* m_parent;
     
 public:
     SKPlayer(SKDungeonScene* parent);
@@ -108,7 +107,9 @@ public:
 
 
 class _turnControl{
+    SKPlayer* m_parent;
 public:
+    _turnControl(SKPlayer* parent);
     std::list<SKEnemy*> m_actionEnemys;
     void actionCreate();
     bool action();

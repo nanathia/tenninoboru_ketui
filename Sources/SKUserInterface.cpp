@@ -19,16 +19,17 @@ namespace{
     GMColor briteColor(0, 0, 200, 0.4);
 }
 
-SKUserInterface::SKUserInterface():
+SKUserInterface::SKUserInterface(SKDungeonScene* scene):
+m_scene(scene),
 m_message(0),
 m_status(0),
 m_select(0),
 mSpriteBatch(0)
 {
     mSpriteBatch = new GMSpriteBatch();
-    m_message = new MessageUI();
-    m_select = new SelectUI();
-    m_status = new StatusUI();
+    m_message = new MessageUI(scene);
+    m_select = new SelectUI(scene);
+    m_status = new StatusUI(scene);
 }
 
 SKUserInterface::~SKUserInterface(){

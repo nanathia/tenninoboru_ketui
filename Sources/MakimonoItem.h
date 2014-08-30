@@ -12,10 +12,12 @@
 #include "Karakuri.h"
 #include "UsingItem.h"
 
+class SKDungeonScene;
+
 class MakimonoItem: public UsingItem{
     
 public:
-    MakimonoItem();
+    MakimonoItem(SKDungeonScene* scene);
     ~MakimonoItem();
     void use() override;
     CarsorSelectReAction* getSelectReaction() override;

@@ -8,9 +8,11 @@
 
 #include "KaidanItem.h"
 #include "ItemCommandInfo.h"
+#include "SaKumas_includes.h"
+#include "SKDungeonScene.h"
 
-KaidanItem::KaidanItem():
-SKItem()
+KaidanItem::KaidanItem(SKDungeonScene* scene):
+SKItem(scene)
 {
     
 }
@@ -28,6 +30,6 @@ void KaidanItem::getSetumei(std::string& str){
 }
 
 CarsorSelectReAction* KaidanItem::getSelectReaction(){
-    CommandInfo* com = new CommandInfo();
+    CommandInfo* com = new CommandInfo(m_scene);
     return com;
 }

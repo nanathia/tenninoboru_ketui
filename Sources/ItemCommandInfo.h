@@ -14,8 +14,11 @@
 #include <string>
 
 class SKItem;
+class SKDungeonScene;
 
 class CarsorSelectReAction{
+protected:
+    
 public:
     virtual const char* update(GMInput* input, double deltaTime, SKItem* item) = 0;
     virtual void draw(GMSpriteBatch* s) = 0;
@@ -25,9 +28,11 @@ public:
 
 class CarsorInfo{
 protected:
+    SKDungeonScene* m_scene;
     void _draw(const GMVector2D& pos, const std::string& str, GMSpriteBatch* s);
     
 public:
+    CarsorInfo(SKDungeonScene* scene);
     virtual ~CarsorInfo();
     virtual void draw(const GMVector2D& pos, GMSpriteBatch* s) = 0;
     virtual CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) = 0;
@@ -36,6 +41,7 @@ public:
 
 class SoubiCommand: public CarsorInfo{
 public:
+    SoubiCommand(SKDungeonScene* scene);
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
 
@@ -43,6 +49,7 @@ public:
 
 class YomuCommand: public CarsorInfo{
 public:
+    YomuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -50,6 +57,7 @@ public:
 
 class TaberuCommand: public CarsorInfo{
 public:
+    TaberuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -57,6 +65,7 @@ public:
 
 class NakawomiruCommand: public CarsorInfo{
 public:
+    NakawomiruCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -64,6 +73,7 @@ public:
 
 class SuteruCommand: public CarsorInfo{
 public:
+    SuteruCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -71,6 +81,7 @@ public:
 
 class NageruCommand: public CarsorInfo{
 public:
+    NageruCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -78,6 +89,7 @@ public:
 
 class NomuCommand: public CarsorInfo{
 public:
+    NomuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -85,6 +97,7 @@ public:
 
 class HirouCommand: public CarsorInfo{
 public:
+    HirouCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -92,6 +105,7 @@ public:
 
 class KoukanCommand: public CarsorInfo{
 public:
+    KoukanCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -99,6 +113,7 @@ public:
 
 class SetumeiCommand: public CarsorInfo{
 public:
+    SetumeiCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -106,6 +121,7 @@ public:
 
 class OkuCommand: public CarsorInfo{
 public:
+    OkuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -113,6 +129,7 @@ public:
 
 class KakuCommand: public CarsorInfo{
 public:
+    KakuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -120,6 +137,7 @@ public:
 
 class UtuCommand: public CarsorInfo{
 public:
+    UtuCommand(SKDungeonScene* scene);
     CarsorSelectReAction* choice(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(const GMVector2D& pos, GMSpriteBatch* s) override;
     
@@ -130,12 +148,13 @@ class CommandInfo: public CarsorSelectReAction{
     std::vector<CarsorInfo*> m_carsors;
     int m_carsor;
     CarsorSelectReAction* m_child;
+    SKDungeonScene* m_scene;
     
 public:
     const char* update(GMInput* input, double deltaTime, SKItem* item) override;
     void draw(GMSpriteBatch* s) override;
 
-    CommandInfo();
+    CommandInfo(SKDungeonScene* scene);
     ~CommandInfo();
     std::vector<CarsorInfo*> getCarsors();
     void addCarsor(CarsorInfo* carsor);

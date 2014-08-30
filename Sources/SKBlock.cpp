@@ -9,8 +9,8 @@
 #include "SKBlock.h"
 #include "SaKumas_includes.h"
 
-SKBlock::SKBlock():
-SKObject()
+SKBlock::SKBlock(SKDungeonScene* scene):
+SKObject(scene)
 {
 }
 
@@ -31,7 +31,7 @@ void SKBlock::objectDraw(int i_x, int i_y){
     int nameNum = 4;
     
     GMDraw::Begin();
-    gPlayScene->getCurrentEffect()->setTexture(gPlayScene->getDungeonScene()->getTexMan()->get(Texture_blockName));
+    gPlayScene->getCurrentEffect()->setTexture(m_scene->getTexMan()->get(Texture_blockName));
     GMDraw::FillQuad(GMVector3D(i_x, i_y, 10), GMVector3D(i_x+mass_size+1, i_y, 10),
                      GMVector3D(i_x+mass_size+1, i_y+mass_size+1, 10), GMVector3D(i_x, i_y+mass_size+1, 10),
                      GMVector3D(0, 0, 1), GMVector3D(0, 0, 1),

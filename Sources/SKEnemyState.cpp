@@ -12,7 +12,8 @@
 
 namespace enemyState{
 
-    SKEnemyState::SKEnemyState():
+    SKEnemyState::SKEnemyState(SKEnemy* user):
+    m_user(user),
     m_time(0),
     m_animationTime(0)
     {

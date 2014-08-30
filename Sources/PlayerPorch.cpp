@@ -15,22 +15,22 @@
 // 入手系メソッド
 // プレイヤーの足元を見て、アイテムがあれば取得
 int PlayerPorch::getItem_myMass(){
-    SKItem* item = gPlayScene->getDungeonScene()->getPlayer()->getMass()->getItem();
+    SKItem* item = m_scene->getPlayer()->getMass()->getItem();
     if(!item) return 0;
     if(item->getName() == "階段"){
-        gPlayScene->getDungeonScene()->getMassMan()->nextFloor();
+        m_scene->getMassMan()->nextFloor();
         return 1;
         return 0;
     }
     if(this->getItems().size() >= 20){
-        gPlayScene->getDungeonScene()->getUI()->textInput("これ以上は持てない。");
+        m_scene->getUI()->textInput("これ以上は持てない。");
         return 0;
     }
     std::string str;
     str = "サクマは、";
     str += item->getName();
     str += "を拾った。";
-    gPlayScene->getDungeonScene()->getUI()->textInput(str);
+    m_scene->getUI()->textInput(str);
     
     item->getMass()->setItem(0);
     this->m_items.push_back(item);
@@ -38,7 +38,8 @@ int PlayerPorch::getItem_myMass(){
     return 0;
 }
 
-PlayerPorch::PlayerPorch(){
+PlayerPorch::PlayerPorch(SKDungeonScene* scene):
+m_scene(scene){
     
 }
 

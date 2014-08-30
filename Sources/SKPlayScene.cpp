@@ -57,7 +57,6 @@ void SKPlayScene::drawView(GMGraphics* g){
     // 画面のクリア
     g->clear(GMColor::LimeGreen);
     m_state->draw(mSpriteBatch);
-    
 }
 
 GMBasicEffect* SKPlayScene::getCurrentEffect(){
@@ -67,11 +66,11 @@ GMBasicEffect* SKPlayScene::getCurrentEffect(){
 baseArea::SKBaseAreaScene* SKPlayScene::getBaseArea(){
 #if IS_DEBUG
 #endif
-    return reinterpret_cast<baseArea::SKBaseAreaScene*>(m_child);
+    return m_state->getBaseAreaScene();
 }
 
 SKDungeonScene* SKPlayScene::getDungeonScene(){
-    return reinterpret_cast<SKDungeonScene*>(m_child);
+    return m_state->getDungeonScene();
 }
 
 void SKPlayScene::setChild(SKPlayChild *child){
@@ -79,7 +78,7 @@ void SKPlayScene::setChild(SKPlayChild *child){
 }
 
 void SKPlayScene::changeScene(SKPlayChild *nextScene){
-    m_state->changeScene(m_child, nextScene, this);
+    m_state->changeScene(m_child, nextScene);
 }
 
 SKPlayChild* SKPlayScene::getChild(){
