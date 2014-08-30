@@ -17,6 +17,8 @@
 #include "SKPlayChild.h"
 #include "ItemCommandInfo.h"
 #include "SKItemInclude.h"
+#include "SKMapSelect.h"
+#include "SKBaseAreaScene.h"
 
 SKDungeonScene::SKDungeonScene():
 SKPlayChild(),
@@ -81,6 +83,9 @@ SKPlayChild* SKDungeonScene::update(GMInput *input, double deltaTime){
     this->m_blockMan->update_allBlock(input, deltaTime);
     
     m_UI->updateUI(input, deltaTime);
+    
+    if(input->isKeyDownTriggered(GMKeyMaskM)) gPlayScene->changeScene(new mapSelect::SKMapSelectScene(mapSelect::SKMapSelectScene::scene_TetoraPeddora));
+    else if(input->isKeyDownTriggered(GMKeyMaskB)) gPlayScene->changeScene(new baseArea::SKBaseAreaScene("テトラペッドラ"));
     
     return next;
 }

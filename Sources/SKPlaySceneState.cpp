@@ -104,7 +104,8 @@ m_prevChild(prevChild),
 m_time(0){
 }
 SKPlaySceneInter::~SKPlaySceneInter(){
-    delete m_user->getChild();
+    delete m_prevChild;
+    m_prevChild = 0;
     m_user->setChild(m_nextChild);
     m_nextChild = 0;
 }

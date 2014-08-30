@@ -134,6 +134,7 @@ namespace SKSpeakWindow{
     CharacterState* CharacterFly::update(GMInput* input, double deltaTime){
         CharacterState* next = this;
         m_time += deltaTime/m_character->getCompleteTime();
+        if(input->isKeyDown(GMKeyMaskX)) m_time = 1;
         m_deltaTime += deltaTime;
         if(m_time >= 1){
             next = new CharacterHold(m_character);

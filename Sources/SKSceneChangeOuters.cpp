@@ -31,6 +31,7 @@ namespace playsceneouter{
         return next;
     }
     void Dungeon::draw(GMSpriteBatch* s){
+        m_prevChild->draw(s);
         gPlayScene->getCurrentEffect()->begin();
         s->begin();
         GMColor blue = GMColor::Blue;
@@ -56,6 +57,7 @@ namespace playsceneouter{
         return next;
     }
     void MapSelect::draw(GMSpriteBatch* s){
+        m_prevChild->draw(s);
         gPlayScene->getCurrentEffect()->begin();
         s->begin();
         GMColor blue = GMColor::Blue;

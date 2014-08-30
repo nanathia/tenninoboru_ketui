@@ -17,7 +17,11 @@ namespace baseArea{
     m_eye(0, 0, 1),
     m_tar(0, 0, 0),
     m_up(0, 1, 0){
-        
+        GMVector2D p_pos(SKBaseAreaScene::convertMat2Draw(m_parent->getCharMan()->getPlayer()->getPos())-SCREEN_SIZE/2);
+        m_eye.x = p_pos.x;
+        m_eye.y = p_pos.y;
+        m_tar.x = p_pos.x;
+        m_tar.y = p_pos.y;
     }
     Camera::~Camera(){
         

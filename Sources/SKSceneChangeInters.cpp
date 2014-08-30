@@ -82,10 +82,10 @@ namespace playsceneinter{
     }
     void BaseArea::draw(GMSpriteBatch* s){
         m_nextChild->draw(s);
-        gPlayScene->getCurrentEffect()->begin();
-        s->begin();
         GMColor blue = GMColor::Blue;
         blue.a = 1-m_time;
+        gPlayScene->getCurrentEffect()->begin();
+        s->begin();
         s->fill(GMRect2D(0, SCREEN_SIZE), blue);
         s->end();
         gPlayScene->getCurrentEffect()->end();

@@ -11,6 +11,7 @@
 #include "BaseAreaSouces.h"
 #include "SKSoundManager.h"
 #include "SKMusicManager.h"
+#include "SKMapSelect.h"
 #include "SKTextureManager.h"
 #include "Globals.h"
 #include "BaseAreaMap.h"
@@ -68,9 +69,11 @@ namespace baseArea{
         m_Camera->update(input, deltaTime);
         m_nomalSpeakWindow->update(input, deltaTime);
         m_Map->update(input, deltaTime);
-        if(input->isKeyDownTriggered(GMKeyMaskM)){
+        if(input->isKeyDownTriggered(GMKeyMaskD)){
             SKDungeonScene* test = new SKDungeonScene();
             gPlayScene->changeScene(test);
+        }else if(input->isKeyDownTriggered(GMKeyMaskM)){
+            gPlayScene->changeScene(new mapSelect::SKMapSelectScene(mapSelect::SKMapSelectScene::scene_TetoraPeddora));
         }
         return next;
     }

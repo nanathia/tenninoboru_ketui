@@ -31,26 +31,21 @@ namespace JASpeakWindow{
 
 // マップセレクト名前空間
 namespace mapSelect{
-    class BaseAreaMap;
-    class CharacterManager;
-    class Camera;
+    class BackImage;
+    class SelectObjManager;
+    class SelectCarsor;
     
     // マップセレクトシーン
     class SKMapSelectScene: public SKPlayChild{
-        // テクスチャ管理
-        SKTextureManager* m_TexMan;
-        // BGM管理
-        SKMusicManager* m_MusicMan;
-        // 効果音
-        SKSoundManager* m_SoundMan;
-        // カメラは要らない
-        // 時空亜空は喋る
-        JASpeakWindow::Window* m_JaSpkWin;
     public:
-        // 画像名を記載
         enum texName{
-            texName_player,
-            texName_murabito,
+            texName_BGI,
+            texName_Tetorapeddora,
+            texName_Hyururimyururi,
+            texName_Gendoumurasaki,
+            texName_Tentinoreiei,
+            texName_Kaminoyasiro,
+            texName_Uminodoukutu,
         };
         // BGM名を記載
         enum musicName{
@@ -61,13 +56,29 @@ namespace mapSelect{
         };
         // 移動エリアを記載
         enum areaScenes{
-            scene_tetorasyouzoku,
-            scene_gendoumurasaki,
-            scene_tentinoreiei,
-            scene_kaminoyasiro,
-            scene_hyururimyururi,
-            scene_uminodoukutu,
+            scene_TetoraPeddora,
+            scene_Gendoumurasaki,
+            scene_Tentinoreiei,
+            scene_Kaminoyasiro,
+            scene_Hyururimyururi,
+            scene_Uminodoukutu,
         };
+    private:
+        // テクスチャ管理
+        SKTextureManager* m_TexMan;
+        // BGM管理
+        SKMusicManager* m_MusicMan;
+        // 効果音
+        SKSoundManager* m_SoundMan;
+        // カメラは要らない
+        // 時空亜空は喋る
+        JASpeakWindow::Window* m_JaSpkWin;
+        // バックイメージ
+        BackImage* m_backImage;
+        // エリア選択カーソル
+        SelectCarsor* m_carsor;
+        // 選択エリアオブジェクト
+        SelectObjManager* m_selectAreaMan;
     public:
         // 初期化と終了
         // はじめにカーソルがあるべき場所を渡す移動前エリアを渡す

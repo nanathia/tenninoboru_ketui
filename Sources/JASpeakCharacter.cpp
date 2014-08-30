@@ -105,15 +105,6 @@ namespace JASpeakWindow{
         return m_state->isStill();
     }
     void Character::setInter(){
-        m_Orbit = new Orbit;
-        double syutugenAngle = GMRandom::NextDouble()*2.0-1.0;
-        syutugenAngle *= M_PI;
-        double sin = std::sin(syutugenAngle);
-        double cos = std::cos(syutugenAngle);
-        double distance = GMRandom::NextDouble()*500;
-        m_startPos = GMVector2D(cos*distance, sin*distance);
-        m_startPos += m_endPos;
-        m_startPos.x -= 500;
     }
     void Character::setOuter(){
         delete m_Orbit;
@@ -157,8 +148,11 @@ namespace JASpeakWindow{
     }
     CharacterState* CharacterFly::update(GMInput* input, double deltaTime){
         CharacterState* next = this;
-        m_time += deltaTime/m_character->getCompleteTime();
-        m_deltaTime += deltaTime;
+        if(input->isKeyDown(GMKeyMaskX)){
+            m_time += deltaTime/m_character->getCompleteTime()*5;
+        }else {
+            m_time += deltaTime/m_character->getCompleteTime();
+        }
         if(m_time >= 1){
             next = new CharacterHold(m_character);
         }
@@ -176,7 +170,7 @@ namespace JASpeakWindow{
          GMVector2D(0.5, 0.5));
     }
     bool CharacterFly::isEnableLunchNextChar(){
-        return m_deltaTime >= m_character->getNextLunchInterval() ? true: false;
+        return m_time >= m_character->getNextLunchInterval() ? true: false;
     }
     bool CharacterFly::isStill() const{
         return false;
@@ -251,8 +245,11 @@ namespace JASpeakWindow{
     }
     CharacterState* CharacterRetire::update(GMInput* input, double deltaTime){
         CharacterState* next = this;
-        m_time += deltaTime/m_character->getCompleteTime();
-        m_deltaTime += deltaTime;
+        if(input->isKeyDown(GMKeyMaskX)){
+            m_time += deltaTime/m_character->getCompleteTime()*5;
+        }else {
+           m_time += deltaTime/m_character->getCompleteTime();
+        }
         if(m_time >= 1){
             next = new CharacterVanished(m_character);
         }

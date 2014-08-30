@@ -12,6 +12,7 @@
 #include "SKBaseAreaScene.h"
 #include "SKPlaySceneState.h"
 #include "SKSceneChangeOuters.h"
+#include "SKMapSelect.h"
 #include "Globals.h"
 
 SKPlayScene* gPlayScene = 0;
@@ -21,7 +22,7 @@ void SKPlayScene::willAppear(GMGraphics *g){
     mBasicEffect = new GMBasicEffect;
     mSpriteBatch = new GMSpriteBatch;
     // シーケンスの用意
-    m_child = new baseArea::SKBaseAreaScene("テトラペッドラ");
+    m_child = new mapSelect::SKMapSelectScene(mapSelect::SKMapSelectScene::scene_TetoraPeddora);
     m_state = new SKPlaySceneState(this);
 }
 
