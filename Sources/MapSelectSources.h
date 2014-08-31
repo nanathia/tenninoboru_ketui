@@ -14,5 +14,6 @@
 #include "MapSelectSceneBackImage.h"
 #include "MapSelectSceneCarsor.h"
 #include "MapSelectSceneSelectObj.h"
+#include "MapSelectSceneSelectObjManager.h"
 
 #endif

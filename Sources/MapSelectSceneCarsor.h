@@ -11,6 +11,26 @@
 
 #include "Karakuri.h"
 
-
+namespace mapSelect{
+    class SKMapSelectScene;
+    class SelectObj;
+    class SelectCarsorState;
+    
+    class SelectCarsor{
+        // 親
+        SKMapSelectScene* m_parent;
+        // 状態
+        SelectCarsorState* m_state;
+    public:
+        SelectCarsor(SelectObj* firstSelect, SKMapSelectScene* parent);
+        ~SelectCarsor();
+        void update(GMInput* input, double deltaTime);
+        void draw(GMSpriteBatch* s);
+    public:
+        SKMapSelectScene* getScene();
+        SelectObj* getCurrentObj();
+    };
+    
+}
 
 #endif /* defined(__Karakuri2_Mac__MapSelectSceneCarsor__) */

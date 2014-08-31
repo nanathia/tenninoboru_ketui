@@ -34,6 +34,7 @@ namespace mapSelect{
     class BackImage;
     class SelectObjManager;
     class SelectCarsor;
+    class SceneState;
     
     // マップセレクトシーン
     class SKMapSelectScene: public SKPlayChild{
@@ -46,6 +47,7 @@ namespace mapSelect{
             texName_Tentinoreiei,
             texName_Kaminoyasiro,
             texName_Uminodoukutu,
+            texName_Carsor,
         };
         // BGM名を記載
         enum musicName{
@@ -79,6 +81,8 @@ namespace mapSelect{
         SelectCarsor* m_carsor;
         // 選択エリアオブジェクト
         SelectObjManager* m_selectAreaMan;
+        // 状態
+        SceneState* m_state;
     public:
         // 初期化と終了
         // はじめにカーソルがあるべき場所を渡す移動前エリアを渡す
@@ -93,6 +97,12 @@ namespace mapSelect{
         SKSoundManager* getSoundMan();
     public:
         JASpeakWindow::Window* getJaSpkWin();
+        void ChangeSelect();
+        void ChangeBaseAreaReady();
+        BackImage* getBackImage();
+        SelectCarsor* getCarsor();
+        SelectObjManager* getSelectObjMan();
+        bool isChangeAreaReady() const;
     };
     
 };

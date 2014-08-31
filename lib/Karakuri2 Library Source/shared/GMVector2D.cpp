@@ -52,8 +52,9 @@ GMVector2D GMVector2D::EaseInOut(const GMVector2D& vec1, const GMVector2D& vec2,
     if (t <= 1.0) {
         return vec1 + (middle - vec1) * (t * t);
     }
+    
     t -= 1;
-    return middle + (vec2 - middle) * (t * t);
+    return (middle - (vec2 - middle) * (t *(t - 2)));
 }
 
 GMVector2D GMVector2D::EaseOut(const GMVector2D& vec1, const GMVector2D& vec2, double t)
