@@ -81,22 +81,6 @@ namespace mapSelect{
     SceneStateChild(user),
     m_is2Select(false),
     m_questionWin(0){
-        m_questionWin = new selectWindow::Window;
-        selectWindow::Element* elems[] = {
-            new selectWindow::Element(m_questionWin),
-            new selectWindow::Element(m_questionWin),
-            new selectWindow::Element(m_questionWin),
-        };
-        elems[0]->setLabel("いいよ");
-        elems[1]->setLabel("やめとく");
-        elems[2]->setLabel("ねえ、そこってどんな場所？");
-        selectWindow::Carsor* carsor = new selectWindow::Carsor(m_questionWin);
-        m_questionWin->setCarsor(carsor);
-        elems[0]->setCarsor(carsor);
-        for(int i = 0; i < 3; i++){
-            elems[i]->setRect(GMRect2D(SCREEN_SIZE.x/2-200, SCREEN_SIZE.y+50, 650, 50));
-            m_questionWin->addElement(elems[i]);
-        }
         std::ostringstream oss;
         oss << m_user->getCarsor()->getCurrentObj()->Name() << "漸へ移動するわよ。いい？";
         m_user->getJaSpkWin()->addString(oss.str().c_str(), 99);
@@ -111,33 +95,49 @@ namespace mapSelect{
         if(m_time >= 1){
             m_time = 1;
         }
-        if(m_user->getJaSpkWin()->getKey() == select_backAreaSelect && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
-            m_user->getJaSpkWin()->setKey(99);
-        }else if(m_user->getJaSpkWin()->getKey() == select_backAreaSelect && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
-            m_user->getJaSpkWin()->setKey(-1);
-            next = new CarsorMove(m_user);
-        }if(m_user->getJaSpkWin()->getKey() == select_ChangeArea && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
-            m_user->getJaSpkWin()->setKey(-1);
-            gPlayScene->changeScene(new baseArea::SKBaseAreaScene(m_user->getCarsor()->getCurrentObj()->Name()));
-        }else if(m_user->getJaSpkWin()->getKey() == 99){
+        if(m_questionWin){
             if(selectWindow::Element* select = m_questionWin->update(input, deltaTime)){
                 if(select->getLabel() == "いいよ"){
-                    std::ostringstream oss;
                     m_user->getJaSpkWin()->addString("じゃあ、移動するわ。", select_ChangeArea);
-                    m_user->getJaSpkWin()->setKey(-1);
                 }else if(select->getLabel() == "やめとく"){
                     m_user->getJaSpkWin()->addString("そう。", select_backAreaSelect);
-                    m_user->getJaSpkWin()->setKey(-1);
                 }else if(select->getLabel() == "ねえ、そこってどんな場所？"){
                     m_user->getJaSpkWin()->addString("未実装よー", select_BackCarsorSelect);
-                    m_user->getJaSpkWin()->setKey(-1);
                 }
+                m_user->getJaSpkWin()->setKey(-1);
+                delete m_questionWin;
+                m_questionWin = 0;
             }
         }else{
-            m_user->getJaSpkWin()->update(input, deltaTime);
-        }
-        if(m_is2Select){
-            next = new CarsorMove(m_user);
+            if(m_user->getJaSpkWin()->getKey() == select_BackCarsorSelect && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
+                m_user->getJaSpkWin()->setKey(99);
+            }else if(m_user->getJaSpkWin()->getKey() == select_backAreaSelect && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
+                m_user->getJaSpkWin()->setKey(-1);
+                next = new CarsorMove(m_user);
+            }else if(m_user->getJaSpkWin()->getKey() == select_ChangeArea && input->isKeyDownTriggered(GMKeyMaskZ|GMKeyMaskReturn)){
+                m_user->getJaSpkWin()->setKey(-1);
+                gPlayScene->changeScene(new baseArea::SKBaseAreaScene(m_user->getCarsor()->getCurrentObj()->Name()));
+            }else if(m_user->getJaSpkWin()->getKey() == 99){
+                m_questionWin = new selectWindow::Window;
+                selectWindow::Element* elems[] = {
+                    new selectWindow::Element(m_questionWin),
+                    new selectWindow::Element(m_questionWin),
+                    new selectWindow::Element(m_questionWin),
+                };
+                elems[0]->setLabel("いいよ");
+                elems[1]->setLabel("やめとく");
+                elems[2]->setLabel("ねえ、そこってどんな場所？");
+                selectWindow::Carsor* carsor = new selectWindow::Carsor(m_questionWin);
+                m_questionWin->setCarsor(carsor);
+                elems[0]->setCarsor(carsor);
+                for(int i = 0; i < 3; i++){
+                    elems[i]->setRect(GMRect2D(SCREEN_SIZE.x/2-200, SCREEN_SIZE.y-50-i*50, 650, 50));
+                    m_questionWin->addElement(elems[i]);
+                }
+                m_user->getJaSpkWin()->setKey(-1);
+            }else if(m_is2Select){
+                next = new CarsorMove(m_user);
+            }
         }
         return next;
     }
@@ -145,8 +145,7 @@ namespace mapSelect{
         GMColor blue = GMColor::Blue;
         blue.a = m_time/3;
         s->fill(GMRect2D(0, SCREEN_SIZE), blue);
-        
-        m_questionWin->draw(s);
+        if(m_questionWin) m_questionWin->draw(s);
     };
     void MapInterYesOrNo::changeBaseAreaReady(){
         // Do notting

@@ -95,13 +95,13 @@ namespace mapSelect{
         // カーソルの更新
         m_carsor->update(input, deltaTime);
         
-        // 状態に移譲する更新
-        m_state->update(input, deltaTime);
-        
         // 時空亜空さんの更新
         m_JaSpkWin->update(input, deltaTime);
         
-        if(input->isKeyDownTriggered(GMKeyMaskD)) gPlayScene->changeScene(new SKDungeonScene);
+        // 状態に移譲する更新
+        m_state->update(input, deltaTime);
+        
+        if(input->isKeyDownTriggered(GMKeyMaskD)) gPlayScene->changeScene(new SKDungeonScene("テトラペッドラ"));
         else if(input->isKeyDownTriggered(GMKeyMaskB)) gPlayScene->changeScene(new baseArea::SKBaseAreaScene("テトラペッドラ"));
         return next;
     }

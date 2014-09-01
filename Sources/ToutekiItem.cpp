@@ -12,7 +12,7 @@
 ToutekiItem::ToutekiItem(SKDungeonScene* scene):
 UsingItem(scene){
     this->setName("投物");
-    this->m_itemNum = 8;
+    this->m_itemNum = 7;
 }
 
 void ToutekiItem::use(){

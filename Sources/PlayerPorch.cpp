@@ -18,8 +18,7 @@ int PlayerPorch::getItem_myMass(){
     SKItem* item = m_scene->getPlayer()->getMass()->getItem();
     if(!item) return 0;
     if(item->getName() == "階段"){
-        m_scene->getMassMan()->nextFloor();
-        return 1;
+        m_scene->nextFloor();
         return 0;
     }
     if(this->getItems().size() >= 20){

@@ -70,7 +70,7 @@ namespace baseArea{
         m_nomalSpeakWindow->update(input, deltaTime);
         m_Map->update(input, deltaTime);
         if(input->isKeyDownTriggered(GMKeyMaskD)){
-            SKDungeonScene* test = new SKDungeonScene();
+            SKDungeonScene* test = new SKDungeonScene("テトラペッドラ");
             gPlayScene->changeScene(test);
         }else if(input->isKeyDownTriggered(GMKeyMaskM)){
             gPlayScene->changeScene(new mapSelect::SKMapSelectScene(mapSelect::SKMapSelectScene::scene_TetoraPeddora));

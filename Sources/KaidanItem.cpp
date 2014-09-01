@@ -14,7 +14,8 @@
 KaidanItem::KaidanItem(SKDungeonScene* scene):
 SKItem(scene)
 {
-    
+    this->setName("階段");
+    this->m_itemNum = 8;
 }
 
 KaidanItem::~KaidanItem(){

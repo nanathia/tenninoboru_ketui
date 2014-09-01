@@ -109,6 +109,7 @@
 		045EEC2F19B339140055420B /* MapSelectSceneCarsorState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EEC2D19B339140055420B /* MapSelectSceneCarsorState.cpp */; };
 		045EEC3119B36F5C0055420B /* mapSelectCarsor.png in Resources */ = {isa = PBXBuildFile; fileRef = 045EEC3019B36F5C0055420B /* mapSelectCarsor.png */; };
 		045EEC3419B3739D0055420B /* MapSelectSceneSelectObjState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EEC3219B3739D0055420B /* MapSelectSceneSelectObjState.cpp */; };
+		045EEC3919B43F410055420B /* DungeonSceneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EEC3719B43F410055420B /* DungeonSceneState.cpp */; };
 		046B1B89196A7A0300100BC9 /* SKPlayChild.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */; };
 		047810B819A3E89E00A02FB2 /* BaseAreaMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 047810B619A3E89E00A02FB2 /* BaseAreaMap.mm */; };
 		047810BF19A3EA2A00A02FB2 /* TileLayerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047810BD19A3EA2A00A02FB2 /* TileLayerManager.cpp */; };
@@ -590,6 +591,8 @@
 		045EEC3019B36F5C0055420B /* mapSelectCarsor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapSelectCarsor.png; sourceTree = "<group>"; };
 		045EEC3219B3739D0055420B /* MapSelectSceneSelectObjState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSelectSceneSelectObjState.cpp; sourceTree = "<group>"; };
 		045EEC3319B3739D0055420B /* MapSelectSceneSelectObjState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectSceneSelectObjState.h; sourceTree = "<group>"; };
+		045EEC3719B43F410055420B /* DungeonSceneState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DungeonSceneState.cpp; sourceTree = "<group>"; };
+		045EEC3819B43F410055420B /* DungeonSceneState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DungeonSceneState.h; sourceTree = "<group>"; };
 		046B1B87196A7A0300100BC9 /* SKPlayChild.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SKPlayChild.cpp; sourceTree = "<group>"; };
 		046B1B88196A7A0300100BC9 /* SKPlayChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPlayChild.h; sourceTree = "<group>"; };
 		047810B619A3E89E00A02FB2 /* BaseAreaMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseAreaMap.mm; sourceTree = "<group>"; };
@@ -1563,6 +1566,15 @@
 			name = state;
 			sourceTree = "<group>";
 		};
+		045EEC3619B43F310055420B /* state */ = {
+			isa = PBXGroup;
+			children = (
+				045EEC3719B43F410055420B /* DungeonSceneState.cpp */,
+				045EEC3819B43F410055420B /* DungeonSceneState.h */,
+			);
+			name = state;
+			sourceTree = "<group>";
+		};
 		046B1A8519690BC000100BC9 /* sakuma */ = {
 			isa = PBXGroup;
 			children = (
@@ -2317,6 +2329,7 @@
 		8E84293916327F3000CF4BC4 /* dungeon */ = {
 			isa = PBXGroup;
 			children = (
+				045EEC3619B43F310055420B /* state */,
 				04F39B9119A1B22D00696FD7 /* SKDungeonScene.cpp */,
 				04F39B9219A1B22D00696FD7 /* SKDungeonScene.h */,
 				04FC1306193DAA3100E449A8 /* randomStage_renderer */,
@@ -2867,6 +2880,7 @@
 				8EF0605513EEB8D9007C1B2E /* GMEffect.mm in Sources */,
 				043959AE194FB05300D43459 /* SpriteTimelineKey.cpp in Sources */,
 				04411B7A193423DC00C324FE /* SKEffectMan.cpp in Sources */,
+				045EEC3919B43F410055420B /* DungeonSceneState.cpp in Sources */,
 				0439599E194FB05300D43459 /* Animation.cpp in Sources */,
 				041C62391949619900D78C35 /* EnemyStrategy.cpp in Sources */,
 				043D86F519AAAE3800A74282 /* SKSpeakWindow.cpp in Sources */,

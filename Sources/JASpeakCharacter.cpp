@@ -105,6 +105,15 @@ namespace JASpeakWindow{
         return m_state->isStill();
     }
     void Character::setInter(){
+        m_Orbit = new Orbit;
+        double syutugenAngle = GMRandom::NextDouble()*2.0-1.0;
+        syutugenAngle *= M_PI;
+        double sin = std::sin(syutugenAngle);
+        double cos = std::cos(syutugenAngle);
+        double distance = GMRandom::NextDouble()*500;
+        m_startPos = GMVector2D(cos*distance, sin*distance);
+        m_startPos += m_endPos;
+        m_startPos.x -= 500;
     }
     void Character::setOuter(){
         delete m_Orbit;

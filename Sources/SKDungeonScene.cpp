@@ -19,8 +19,9 @@
 #include "SKItemInclude.h"
 #include "SKMapSelect.h"
 #include "SKBaseAreaScene.h"
+#include "DungeonSceneState.h"
 
-SKDungeonScene::SKDungeonScene():
+SKDungeonScene::SKDungeonScene(const std::string& dungeonName):
 SKPlayChild(),
 m_blockMan(0),
 m_EffectMan(0),
@@ -30,7 +31,9 @@ m_soundMan(0),
 m_TexMan(0),
 m_enemMan(0),
 m_itemMan(0),
-m_player(0)
+m_player(0),
+m_name(dungeonName),
+m_state(0)
 {
     // オブジェクト管理クラスの初期化
     m_TexMan = new SKTextureManager();
@@ -49,9 +52,14 @@ m_player(0)
     m_massMan = new SKMassManager(this, 50, 50, width_num, height_num);
     m_UI = new SKUserInterface(this);
     //    m_soundMan;
+    
+    // 状態の初期化
+    m_state = new dungeonscenestate::DungeonSceneState(this);
 }
 
 SKDungeonScene::~SKDungeonScene(){
+    delete m_state;
+    m_state = 0;
     
     delete m_UI;
     m_UI = 0;
@@ -73,16 +81,7 @@ SKDungeonScene::~SKDungeonScene(){
 SKPlayChild* SKDungeonScene::update(GMInput *input, double deltaTime){
     SKPlayChild* next = this;
     
-    m_massMan->update();
-    
-    this->m_player->objectUpdate(input, deltaTime);
-    
-    // そもそもプレイヤー以外は毎フレーム見る必要はない
-    this->m_enemMan->update_allEnemy(input, deltaTime);
-    this->m_itemMan->update_allItem(input, deltaTime);
-    this->m_blockMan->update_allBlock(input, deltaTime);
-    
-    m_UI->updateUI(input, deltaTime);
+    m_state->update(input, deltaTime);
     
     if(input->isKeyDownTriggered(GMKeyMaskM)) gPlayScene->changeScene(new mapSelect::SKMapSelectScene(mapSelect::SKMapSelectScene::scene_TetoraPeddora));
     else if(input->isKeyDownTriggered(GMKeyMaskB)) gPlayScene->changeScene(new baseArea::SKBaseAreaScene("テトラペッドラ"));
@@ -120,7 +119,6 @@ void SKDungeonScene::draw(GMSpriteBatch *s){
     //    mBasicEffect->setLightAmbientColor(3, GMColor(0.7, 0.7, 0.7, 1.0));
     
     // フォグの設定
-    // （テスト用に一時フォグをOFF）
     gPlayScene->getCurrentEffect()->enableFog(true);
     gPlayScene->getCurrentEffect()->setFogMode(GMFogModeLinear);
     gPlayScene->getCurrentEffect()->setFogRange(300, 400);
@@ -155,6 +153,13 @@ void SKDungeonScene::draw(GMSpriteBatch *s){
     // UIの描画
     gPlayScene->getCurrentEffect()->begin();
     m_UI->drawUI();
+    gPlayScene->getCurrentEffect()->end();
+    
+    // 状態による上書き描画
+    gPlayScene->getCurrentEffect()->begin();
+    s->begin();
+    m_state->draw(s);
+    s->end();
     gPlayScene->getCurrentEffect()->end();
 }
 
@@ -198,7 +203,6 @@ void SKDungeonScene::loadStage(){
     
 }
 
-
 void SKDungeonScene::setPlayer(SKPlayer* player){
     m_player = player;
 }
@@ -209,4 +213,12 @@ void SKDungeonScene::setMassMan(SKMassManager* manager){
 
 SKBlockManager* SKDungeonScene::getBlockMan() const{
     return m_blockMan;
+}
+
+const std::string& SKDungeonScene::Name() const{
+    return m_name;
+}
+
+void SKDungeonScene::nextFloor(){
+    m_state->nextFloor();
 }

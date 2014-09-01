@@ -11,6 +11,7 @@
 
 #include "Karakuri.h"
 #include "SKPlayChild.h"
+
 class SKPlayer;
 class SKEnemyMan;
 class SKItemManager;
@@ -22,6 +23,9 @@ class SKTextureManager;
 class SKAnimationManager;
 class SKBlockManager;
 class SKPlayChild;
+namespace dungeonscenestate{
+    class DungeonSceneState;
+}
 
 class SKDungeonScene: public SKPlayChild{
     SKPlayer* m_player;
@@ -33,9 +37,12 @@ class SKDungeonScene: public SKPlayChild{
     SKSoundManager* m_soundMan;
     SKTextureManager* m_TexMan;
     SKBlockManager* m_blockMan;
+    const std::string m_name;
+    // 状態
+    dungeonscenestate::DungeonSceneState* m_state;
     
 public:
-    SKDungeonScene();
+    SKDungeonScene(const std::string& DungeonName);
     ~SKDungeonScene();
     SKPlayChild* update(GMInput* input, double deltaTime) override;
     void draw(GMSpriteBatch* s) override;
@@ -51,11 +58,16 @@ public:
     SKSoundManager* getSoundMan() const;
     SKTextureManager* getTexMan() const;
     SKBlockManager* getBlockMan() const;
+    const std::string& Name() const;
     
 public:
     // セット関数
     void setPlayer(SKPlayer* player);
     void setMassMan(SKMassManager* manager);
+    
+public:
+    // その他いろいろ
+    void nextFloor();
     
 private:
     void loadStage();
